@@ -304,7 +304,10 @@
                       </div>
                       <h4 class="font-semibold text-gray-800">Dossier classé</h4>
                     </div>
-                    <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">1</span>
+                    <div class="text-right">
+                      <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
                   </div>
                   <div class="mb-2">
                     <span class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Bluff & Objectif</span>
@@ -326,7 +329,10 @@
                       </div>
                       <h4 class="font-semibold text-gray-800">Robot de déminage</h4>
                     </div>
-                    <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">1</span>
+                    <div class="text-right">
+                      <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
                   </div>
                   <div class="mb-2">
                     <span class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Bluff & Objectif</span>
@@ -348,7 +354,10 @@
                       </div>
                       <h4 class="font-semibold text-gray-800">Plan d'évacuation</h4>
                     </div>
-                    <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">1</span>
+                    <div class="text-right">
+                      <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
                   </div>
                   <div class="mb-2">
                     <span class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Bluff & Objectif</span>
@@ -365,20 +374,105 @@
               >
                 🎲 Cartes Conditionnelles
               </h3>
-              <div class="grid gap-4 md:grid-cols-2">
-                <div
-                  v-for="card in conditionalCards"
-                  :key="card.name"
-                  class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow"
-                >
-                  <div class="flex justify-between items-start mb-2">
-                    <h4 class="font-semibold text-gray-800">{{ card.name }}</h4>
-                    <span class="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full ml-2 flex-shrink-0">{{ card.quantity }}</span>
+              <div class="grid gap-6 md:grid-cols-2">
+                <!-- Charge instable -->
+                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                        <img
+                          src="/chargeInstable.png"
+                          alt="Carte Charge instable"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                          @click="openCardModal('/chargeInstable.png', 'Charge instable')"
+                        />
+                      </div>
+                      <h4 class="font-semibold text-gray-800">Charge instable</h4>
+                    </div>
+                    <div class="text-right">
+                      <span class="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
                   </div>
                   <div class="mb-2">
-                    <span class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full">{{ card.type }}</span>
+                    <span class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full">Conditionnelle</span>
                   </div>
-                  <p class="text-sm text-gray-600">{{ card.effect }}</p>
+                  <p class="text-sm text-gray-600">Si compteur ≤ 10 : +4, sinon +2</p>
+                </div>
+
+                <!-- Détonation amplifiée -->
+                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                        <img
+                          src="/detonationAmplifiee.png"
+                          alt="Carte Détonation amplifiée"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                          @click="openCardModal('/detonationAmplifiee.png', 'Détonation amplifiée')"
+                        />
+                      </div>
+                      <h4 class="font-semibold text-gray-800">Détonation amplifiée</h4>
+                    </div>
+                    <div class="text-right">
+                      <span class="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <span class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full">Conditionnelle</span>
+                  </div>
+                  <p class="text-sm text-gray-600">Si compteur ≥ 20 : +1, sinon +2</p>
+                </div>
+
+                <!-- Refroidissement express -->
+                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                        <img
+                          src="/refroidissementExpress.png"
+                          alt="Carte Refroidissement express"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                          @click="openCardModal('/refroidissementExpress.png', 'Refroidissement express')"
+                        />
+                      </div>
+                      <h4 class="font-semibold text-gray-800">Refroidissement express</h4>
+                    </div>
+                    <div class="text-right">
+                      <span class="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <span class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full">Conditionnelle</span>
+                  </div>
+                  <p class="text-sm text-gray-600">Si compteur ≥ 20 : -4, sinon -2</p>
+                </div>
+
+                <!-- Désescalade tactique -->
+                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                        <img
+                          src="/desescaladeTactique.png"
+                          alt="Carte Désescalade tactique"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                          @click="openCardModal('/desescaladeTactique.png', 'Désescalade tactique')"
+                        />
+                      </div>
+                      <h4 class="font-semibold text-gray-800">Désescalade tactique</h4>
+                    </div>
+                    <div class="text-right">
+                      <span class="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <span class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full">Conditionnelle</span>
+                  </div>
+                  <p class="text-sm text-gray-600">Si compteur ≤ 10 : -1, sinon -2</p>
                 </div>
               </div>
             </div>
@@ -390,40 +484,195 @@
               >
                 📈 Cartes Compteur
               </h3>
-              <div class="grid md:grid-cols-2 gap-6">
-                <div
-                  class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg"
-                >
-                  <h4 class="text-lg font-bold text-red-700 mb-4">
-                    ⬆️ Charges (+)
-                  </h4>
-                  <div class="space-y-3">
-                    <div
-                      v-for="card in chargeCards"
-                      :key="card.name"
-                      class="bg-white border border-red-200 rounded-lg p-3 flex justify-between items-center"
-                    >
-                      <span class="font-medium text-red-700">{{ card.name }}</span>
-                      <span class="bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full">{{ card.quantity }}</span>
+              
+              <!-- Charges -->
+              <div class="mb-8">
+                <h4 class="text-xl font-bold text-red-700 mb-4 flex items-center">
+                  ⬆️ Charges (+)
+                </h4>
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  <!-- Charge +1 -->
+                  <div class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                          <img
+                            src="/charge1.png"
+                            alt="Carte Charge +1"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/charge1.png', 'Charge +1')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-red-700">Charge +1</h5>
+                      </div>
+                      <div class="text-right">
+                        <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 5</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
                     </div>
+                    <p class="text-sm text-gray-600">Augmente la valeur de la bombe de +1</p>
+                  </div>
+
+                  <!-- Charge +2 -->
+                  <div class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                          <img
+                            src="/charge2.png"
+                            alt="Carte Charge +2"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/charge2.png', 'Charge +2')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-red-700">Charge +2</h5>
+                      </div>
+                      <div class="text-right">
+                        <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 6</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600">Augmente la valeur de la bombe de +2</p>
+                  </div>
+
+                  <!-- Charge +3 -->
+                  <div class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                          <img
+                            src="/charge3.png"
+                            alt="Carte Charge +3"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/charge3.png', 'Charge +3')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-red-700">Charge +3</h5>
+                      </div>
+                      <div class="text-right">
+                        <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 5</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600">Augmente la valeur de la bombe de +3</p>
+                  </div>
+
+                  <!-- Charge +4 -->
+                  <div class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                          <img
+                            src="/charge4.png"
+                            alt="Carte Charge +4"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/charge4.png', 'Charge +4')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-red-700">Charge +4</h5>
+                      </div>
+                      <div class="text-right">
+                        <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 4</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600">Augmente la valeur de la bombe de +4</p>
+                  </div>
+
+                  <!-- Charge +5 -->
+                  <div class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                          <img
+                            src="/charge5.png"
+                            alt="Carte Charge +5"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/charge5.png', 'Charge +5')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-red-700">Charge +5</h5>
+                      </div>
+                      <div class="text-right">
+                        <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 2</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600">Augmente la valeur de la bombe de +5</p>
                   </div>
                 </div>
+              </div>
 
-                <div
-                  class="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg"
-                >
-                  <h4 class="text-lg font-bold text-green-700 mb-4">
-                    ⬇️ Décharges (-)
-                  </h4>
-                  <div class="space-y-3">
-                    <div
-                      v-for="card in dischargeCards"
-                      :key="card.name"
-                      class="bg-white border border-green-200 rounded-lg p-3 flex justify-between items-center"
-                    >
-                      <span class="font-medium text-green-700">{{ card.name }}</span>
-                      <span class="bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-full">{{ card.quantity }}</span>
+              <!-- Décharges -->
+              <div class="mb-8">
+                <h4 class="text-xl font-bold text-green-700 mb-4 flex items-center">
+                  ⬇️ Décharges (-)
+                </h4>
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  <!-- Décharge -1 -->
+                  <div class="bg-white border border-green-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                          <img
+                            src="/decharge1.png"
+                            alt="Carte Décharge -1"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/decharge1.png', 'Décharge -1')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-green-700">Décharge -1</h5>
+                      </div>
+                      <div class="text-right">
+                        <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 5</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
                     </div>
+                    <p class="text-sm text-gray-600">Diminue la valeur de la bombe de -1</p>
+                  </div>
+
+                  <!-- Décharge -2 -->
+                  <div class="bg-white border border-green-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                          <img
+                            src="/decharge2.png"
+                            alt="Carte Décharge -2"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/decharge2.png', 'Décharge -2')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-green-700">Décharge -2</h5>
+                      </div>
+                      <div class="text-right">
+                        <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 5</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600">Diminue la valeur de la bombe de -2</p>
+                  </div>
+
+                  <!-- Décharge -3 -->
+                  <div class="bg-white border border-green-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                          <img
+                            src="/decharge3.png"
+                            alt="Carte Décharge -3"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/decharge3.png', 'Décharge -3')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-green-700">Décharge -3</h5>
+                      </div>
+                      <div class="text-right">
+                        <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 5</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600">Diminue la valeur de la bombe de -3</p>
                   </div>
                 </div>
               </div>
@@ -491,21 +740,251 @@
                 </p>
               </div>
 
-              <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <div
-                  v-for="card in reactiveCards"
-                  :key="card.name"
-                  class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow"
-                >
-                  <div class="flex justify-between items-start mb-2">
-                    <h4 class="font-semibold text-gray-800">{{ card.name }}</h4>
-                    <span class="bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full ml-2 flex-shrink-0">{{ card.quantity }}</span>
+              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Désamorceur -->
+                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                        <img
+                          src="/desamorceur.png"
+                          alt="Carte Désamorceur"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                          @click="openCardModal('/desamorceur.png', 'Désamorceur')"
+                        />
+                      </div>
+                      <h4 class="font-semibold text-gray-800">Désamorceur</h4>
+                    </div>
+                    <div class="text-right">
+                      <span class="bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 4</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
                   </div>
                   <div class="mb-2">
-                    <span class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full">{{ card.type }}</span>
+                    <span class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full">Réactive ⚡</span>
                   </div>
-                  <p class="text-sm text-gray-600">{{ card.effect }}</p>
+                  <p class="text-sm text-gray-600">Annule l'effet de la carte jouée</p>
                 </div>
+
+                <!-- Miroir -->
+                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                        <img
+                          src="/miroir.png"
+                          alt="Carte Miroir"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                          @click="openCardModal('/miroir.png', 'Miroir')"
+                        />
+                      </div>
+                      <h4 class="font-semibold text-gray-800">Miroir</h4>
+                    </div>
+                    <div class="text-right">
+                      <span class="bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 4</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <span class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full">Réactive ⚡</span>
+                  </div>
+                  <p class="text-sm text-gray-600">Redirige une action contre vous ou inverse le signe (+ ↔ -)</p>
+                </div>
+
+                <!-- Surcharge -->
+                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1">
+                        <img
+                          src="/surcharge.png"
+                          alt="Carte Surcharge"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                          @click="openCardModal('/surcharge.png', 'Surcharge')"
+                        />
+                      </div>
+                      <h4 class="font-semibold text-gray-800">Surcharge</h4>
+                    </div>
+                    <div class="text-right">
+                      <span class="bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 3</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <span class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full">Réactive ⚡</span>
+                  </div>
+                  <p class="text-sm text-gray-600">Double la valeur de la carte (dé)charge jouée</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cartes Événement -->
+            <div class="mb-8">
+              <h3
+                class="text-2xl font-bold text-orange-600 bg-gradient-to-r from-orange-100 to-transparent p-4 border-l-4 border-orange-500 rounded mb-6"
+              >
+                🎭 Cartes Événement
+              </h3>
+
+              <div
+                class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg mb-6"
+              >
+                <h4 class="font-bold text-yellow-800 mb-2">⏰ Timing :</h4>
+                <p class="text-yellow-700">
+                  Un événement est révélé au début du tour du premier joueur,
+                  <strong>avant qu'il joue sa carte</strong>. L'effet s'applique à
+                  tout le tour de table.
+                </p>
+              </div>
+
+              <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <div
+                  v-for="event in events"
+                  :key="event.name"
+                  :class="event.name === 'Compte à rebours final' ? 'border-red-500 bg-red-50' : 'border-gray-200 bg-white'"
+                  class="border-2 rounded-lg p-4 shadow hover:shadow-md transition-shadow"
+                >
+                  <div class="flex justify-between items-start mb-3">
+                    <h4 class="font-bold text-lg"
+                        :class="event.name === 'Compte à rebours final' ? 'text-red-800' : 'text-gray-800'">
+                      {{ event.name }}
+                    </h4>
+                    <div class="text-right">
+                      <span class="bg-indigo-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                      <div class="text-xs text-gray-500 mt-1">quantité</div>
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-3 py-1 rounded-full">Événement</span>
+                  </div>
+                  <p class="text-sm text-gray-700" v-html="event.effect"></p>
+                </div>
+              </div>
+
+              <div class="mt-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                <p class="text-blue-800 text-sm">
+                  <strong>📋 Mise en place spéciale :</strong> 
+                  Piochez 9 cartes Événement au hasard. Prenez 2 cartes au hasard + la carte "Compte à rebours final", 
+                  mélangez ces 3 cartes et placez-les sous la pile d'événements pour qu'elles sortent entre les tours 8 et 10.
+                </p>
+              </div>
+            </div>
+
+            <!-- Cartes Système -->
+            <div class="mb-8">
+              <h3
+                class="text-2xl font-bold text-orange-600 bg-gradient-to-r from-orange-100 to-transparent p-4 border-l-4 border-orange-500 rounded mb-6"
+              >
+                ⚙️ Cartes Système
+              </h3>
+
+              <!-- Carte Premier Joueur -->
+              <div class="mb-6">
+                <h4 class="text-xl font-bold text-gray-700 mb-4 flex items-center">
+                  👑 Carte Premier Joueur
+                </h4>
+                <div class="grid gap-4 md:grid-cols-1 lg:grid-cols-1 max-w-sm">
+                  <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start mb-3">
+                      <h5 class="font-semibold text-gray-800">Premier Joueur</h5>
+                      <div class="text-right">
+                        <span class="bg-gray-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <div class="mb-3 flex justify-center">
+                      <img
+                        src="/premierjoueur.png"
+                        alt="Carte Premier Joueur"
+                        class="w-20 h-28 object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                        @click="openCardModal('/premierjoueur.png', 'Premier Joueur')"
+                      />
+                    </div>
+                    <div class="mb-2">
+                      <span class="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-3 py-1 rounded-full">Système</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Indique qui est le premier joueur et commence la partie</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cartes de Suivi de la Bombe -->
+              <div class="mb-6">
+                <h4 class="text-xl font-bold text-gray-700 mb-4 flex items-center">
+                  💣 Cartes de Suivi de la Bombe
+                </h4>
+                <div class="grid gap-4 md:grid-cols-1 lg:grid-cols-3">
+                  <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start mb-3">
+                      <h5 class="font-semibold text-gray-800">Piste 1</h5>
+                      <div class="text-right">
+                        <span class="bg-gray-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <div class="mb-3 flex justify-center">
+                      <img
+                        src="/piste1.png"
+                        alt="Carte Piste 1"
+                        class="w-28 h-20 object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer transform rotate-90"
+                        @click="openCardModal('/piste1.png', 'Piste 1')"
+                      />
+                    </div>
+                    <div class="mb-2">
+                      <span class="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-3 py-1 rounded-full">Système</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Première section de la jauge de la bombe</p>
+                  </div>
+                  <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start mb-3">
+                      <h5 class="font-semibold text-gray-800">Piste 2</h5>
+                      <div class="text-right">
+                        <span class="bg-gray-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <div class="mb-3 flex justify-center">
+                      <img
+                        src="/piste2.png"
+                        alt="Carte Piste 2"
+                        class="w-28 h-20 object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer transform rotate-90"
+                        @click="openCardModal('/piste2.png', 'Piste 2')"
+                      />
+                    </div>
+                    <div class="mb-2">
+                      <span class="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-3 py-1 rounded-full">Système</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Deuxième section de la jauge de la bombe</p>
+                  </div>
+                  <div class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start mb-3">
+                      <h5 class="font-semibold text-gray-800">Piste 3</h5>
+                      <div class="text-right">
+                        <span class="bg-gray-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">× 1</span>
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <div class="mb-3 flex justify-center">
+                      <img
+                        src="/piste3.png"
+                        alt="Carte Piste 3"
+                        class="w-28 h-20 object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer transform rotate-90"
+                        @click="openCardModal('/piste3.png', 'Piste 3')"
+                      />
+                    </div>
+                    <div class="mb-2">
+                      <span class="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-3 py-1 rounded-full">Système</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Troisième section de la jauge de la bombe</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-gray-400">
+                <p class="text-gray-800 text-sm">
+                  <strong>ℹ️ Note :</strong> 
+                  Ces éléments sont nécessaires pour le suivi et la gestion de la partie mais ne sont pas des cartes jouables.
+                </p>
               </div>
             </div>
 
@@ -607,44 +1086,6 @@
         </div>
       </section>
 
-      <!-- Événements -->
-      <section id="evenements" class="mb-12">
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div class="p-4 sm:p-8">
-            <h2
-              class="text-2xl sm:text-4xl font-bold text-red-600 border-b-4 border-red-500 pb-4 mb-8"
-            >
-              🎭 Événements
-            </h2>
-
-            <div
-              class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg mb-8"
-            >
-              <h4 class="font-bold text-yellow-800 mb-2">⏰ Timing :</h4>
-              <p class="text-yellow-700">
-                Un événement est révélé au début du tour du premier joueur,
-                <strong>avant qu'il joue sa carte</strong>. L'effet s'applique à
-                tout le tour de table.
-              </p>
-            </div>
-
-            <div class="space-y-4">
-              <div
-                v-for="event in events"
-                :key="event.name"
-                :class="event.name === 'Compte à rebours final' ? 'border-red-500 bg-red-50' : 'border-gray-200 bg-white'"
-                class="border-2 rounded-lg p-4 shadow hover:shadow-md transition-shadow"
-              >
-                <h4 class="font-bold text-lg mb-2" 
-                    :class="event.name === 'Compte à rebours final' ? 'text-red-800' : 'text-gray-800'">
-                  {{ event.name }}
-                </h4>
-                <p class="text-sm text-gray-700" v-html="event.effect"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <!-- Conditions de Victoire -->
       <section id="victoire" class="mb-12">
@@ -1235,7 +1676,6 @@ const navLinks = [
   { id: "cartes", label: "Cartes" },
   { id: "mise-en-place", label: "Mise en Place" },
   { id: "deroulement", label: "Déroulement" },
-  { id: "evenements", label: "Événements" },
   { id: "victoire", label: "Victoire" },
   { id: "cooperatif", label: "Mode Coopératif" },
   { id: "faq", label: "FAQ" },
