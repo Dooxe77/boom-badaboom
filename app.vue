@@ -25,13 +25,23 @@
         </div>
         <p class="text-lg font-light">Bluff • Tension • Stratégie</p>
 
-        <!-- Bouton Mode Compteur -->
-        <div class="mt-8 flex justify-center">
+        <!-- Boutons -->
+        <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
           <button
             @click="openCounterMode"
             class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg flex flex-col items-center"
           >
             <span>🎯 Démarrer une partie</span>
+          </button>
+          
+          <!-- Bouton Installation PWA -->
+          <button
+            v-if="showInstallPrompt"
+            @click="installPWA"
+            class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-base flex items-center gap-2"
+          >
+            <span>📱</span>
+            <span>Installer l'App</span>
           </button>
         </div>
 
@@ -3969,6 +3979,10 @@ const faqs = [
 // Back to top functionality
 const showBackToTop = ref(false);
 
+// PWA functionality
+const deferredPrompt = ref(null);
+const showInstallPrompt = ref(false);
+
 // Card modal functionality
 const selectedCard = ref(null);
 const showCardModal = ref(false);
@@ -4046,6 +4060,27 @@ const toggleMobileMenu = () => {
 
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false;
+};
+
+// PWA functions
+const installPWA = async () => {
+  if (deferredPrompt.value) {
+    // Show the install prompt
+    deferredPrompt.value.prompt();
+    
+    // Wait for the user to respond to the prompt
+    const { outcome } = await deferredPrompt.value.userChoice;
+    
+    if (outcome === 'accepted') {
+      console.log('User accepted the A2HS prompt');
+    } else {
+      console.log('User dismissed the A2HS prompt');
+    }
+    
+    // Clear the deferred prompt, as it can only be used once
+    deferredPrompt.value = null;
+    showInstallPrompt.value = false;
+  }
 };
 
 // Counter mode functions
@@ -4292,6 +4327,23 @@ const cancelCloseGame = () => {
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("keydown", handleEscape);
+  
+  // PWA install prompt
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later
+    deferredPrompt.value = e;
+    // Show the install button
+    showInstallPrompt.value = true;
+  });
+
+  // Listen for the app being installed
+  window.addEventListener('appinstalled', () => {
+    console.log('PWA was installed');
+    showInstallPrompt.value = false;
+    deferredPrompt.value = null;
+  });
   
   // Start timer interval on client side only
   timerInterval = setInterval(() => {
