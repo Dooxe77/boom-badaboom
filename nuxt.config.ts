@@ -32,7 +32,9 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-        { rel: "apple-touch-icon", href: "/logo.png" },
+        { rel: "apple-touch-icon", sizes: "180x180", href: "/icon-180.png" },
+        { rel: "apple-touch-icon", sizes: "152x152", href: "/icon-152.png" },
+        { rel: "apple-touch-icon", sizes: "120x120", href: "/icon-120.png" },
         { rel: "mask-icon", href: "/logo.png", color: "#dc2626" }
       ],
     },
@@ -43,11 +45,39 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     workbox: {
       navigateFallback: '/',
-      globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'google-fonts-cache',
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+            }
+          }
+        },
+        {
+          urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images-cache',
+            expiration: {
+              maxEntries: 100,
+              maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
+            }
+          }
+        }
+      ]
     },
     client: {
       installPrompt: true,
       periodicSyncForUpdates: 20
+    },
+    devOptions: {
+      enabled: true,
+      type: 'module'
     },
     manifest: {
       name: 'Boom Badaboom - Jeu de cartes',
@@ -56,24 +86,16 @@ export default defineNuxtConfig({
       theme_color: '#dc2626',
       background_color: '#ffffff',
       display: 'standalone',
-      orientation: 'portrait',
+      orientation: 'any',
       scope: '/',
-      start_url: '/',
+      start_url: '/?utm_source=pwa',
+      id: '/?utm_source=pwa',
+      lang: 'fr',
+      categories: ['games', 'entertainment'],
       icons: [
         {
-          src: '/icon-512.png',
-          sizes: '512x512',
-          type: 'image/png',
-          purpose: 'any maskable'
-        },
-        {
-          src: '/icon-192.png',
-          sizes: '192x192',
-          type: 'image/png'
-        },
-        {
-          src: '/icon-144.png',
-          sizes: '144x144',
+          src: '/icon-72.png',
+          sizes: '72x72',
           type: 'image/png'
         },
         {
@@ -82,9 +104,40 @@ export default defineNuxtConfig({
           type: 'image/png'
         },
         {
-          src: '/icon-72.png',
-          sizes: '72x72',
+          src: '/icon-120.png',
+          sizes: '120x120',
           type: 'image/png'
+        },
+        {
+          src: '/icon-144.png',
+          sizes: '144x144',
+          type: 'image/png'
+        },
+        {
+          src: '/icon-152.png',
+          sizes: '152x152',
+          type: 'image/png'
+        },
+        {
+          src: '/icon-180.png',
+          sizes: '180x180',
+          type: 'image/png'
+        },
+        {
+          src: '/icon-192.png',
+          sizes: '192x192',
+          type: 'image/png'
+        },
+        {
+          src: '/icon-512.png',
+          sizes: '512x512',
+          type: 'image/png'
+        },
+        {
+          src: '/icon-512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'maskable'
         }
       ]
     }
