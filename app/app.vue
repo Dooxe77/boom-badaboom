@@ -11,6 +11,7 @@
           <img
             src="/logo.png"
             alt="Logo Boom Badaboom"
+            loading="lazy"
             class="w-full h-full object-contain"
           />
         </div>
@@ -24,13 +25,23 @@
         </div>
         <p class="text-lg font-light">Bluff • Tension • Stratégie</p>
 
-        <!-- Bouton Mode Compteur -->
-        <div class="mt-8 flex justify-center">
+        <!-- Boutons -->
+        <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
           <button
             @click="openCounterMode"
             class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg flex flex-col items-center"
           >
             <span>🎯 Démarrer une partie</span>
+          </button>
+          
+          <!-- Bouton Installation PWA -->
+          <button
+            v-if="showInstallPrompt"
+            @click="installPWA"
+            class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-base flex items-center gap-2"
+          >
+            <span>📱</span>
+            <span>Installer l'App</span>
           </button>
         </div>
 
@@ -163,6 +174,7 @@
                       <img
                         src="/demineur.png"
                         alt="Carte Démineur"
+                        loading="lazy"
                         class="w-32 h-44 object-contain rounded-xl shadow-lg border-4 border-white/20 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                         @click="openCardModal('/demineur.png', 'Démineur')"
                       />
@@ -195,6 +207,7 @@
                       <img
                         src="/saboteur.png"
                         alt="Carte Saboteur"
+                        loading="lazy"
                         class="w-32 h-44 object-contain rounded-xl shadow-lg border-4 border-white/20 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                         @click="openCardModal('/saboteur.png', 'Saboteur')"
                       />
@@ -226,6 +239,7 @@
                       <img
                         src="/agentDouble.png"
                         alt="Carte Agent Double"
+                        loading="lazy"
                         class="w-32 h-44 object-contain rounded-xl shadow-lg border-4 border-white/20 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                         @click="
                           openCardModal('/agentDouble.png', 'Agent Double')
@@ -345,6 +359,7 @@
                         <img
                           src="/demineur.png"
                           alt="Carte Démineur"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="openCardModal('/demineur.png', 'Démineur')"
                         />
@@ -383,6 +398,7 @@
                         <img
                           src="/saboteur.png"
                           alt="Carte Saboteur"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="openCardModal('/saboteur.png', 'Saboteur')"
                         />
@@ -420,6 +436,7 @@
                         <img
                           src="/agentDouble.png"
                           alt="Carte Agent Double"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal('/agentDouble.png', 'Agent Double')
@@ -470,6 +487,7 @@
                         <img
                           src="/dossierClasse.png"
                           alt="Carte Dossier classé"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal(
@@ -514,6 +532,7 @@
                         <img
                           src="/robotDeminage.png"
                           alt="Carte Robot de déminage"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal(
@@ -558,6 +577,7 @@
                         <img
                           src="/planEvacuation.png"
                           alt="Carte Plan d'évacuation"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal(
@@ -612,6 +632,7 @@
                         <img
                           src="/chargeInstable.png"
                           alt="Carte Charge instable"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal(
@@ -656,6 +677,7 @@
                         <img
                           src="/detonationAmplifiee.png"
                           alt="Carte Détonation amplifiée"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal(
@@ -700,6 +722,7 @@
                         <img
                           src="/refroidissementExpress.png"
                           alt="Carte Refroidissement express"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal(
@@ -744,6 +767,7 @@
                         <img
                           src="/desescaladeTactique.png"
                           alt="Carte Désescalade tactique"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal(
@@ -806,7 +830,8 @@
                           <img
                             src="/charge1.png"
                             alt="Carte Charge +1"
-                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="openCardModal('/charge1.png', 'Charge +1')"
                           />
                         </div>
@@ -837,7 +862,8 @@
                           <img
                             src="/charge2.png"
                             alt="Carte Charge +2"
-                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="openCardModal('/charge2.png', 'Charge +2')"
                           />
                         </div>
@@ -868,7 +894,8 @@
                           <img
                             src="/charge3.png"
                             alt="Carte Charge +3"
-                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="openCardModal('/charge3.png', 'Charge +3')"
                           />
                         </div>
@@ -899,7 +926,8 @@
                           <img
                             src="/charge4.png"
                             alt="Carte Charge +4"
-                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="openCardModal('/charge4.png', 'Charge +4')"
                           />
                         </div>
@@ -930,7 +958,8 @@
                           <img
                             src="/charge5.png"
                             alt="Carte Charge +5"
-                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="openCardModal('/charge5.png', 'Charge +5')"
                           />
                         </div>
@@ -971,7 +1000,8 @@
                           <img
                             src="/decharge1.png"
                             alt="Carte Décharge -1"
-                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="
                               openCardModal('/decharge1.png', 'Décharge -1')
                             "
@@ -1006,7 +1036,8 @@
                           <img
                             src="/decharge2.png"
                             alt="Carte Décharge -2"
-                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="
                               openCardModal('/decharge2.png', 'Décharge -2')
                             "
@@ -1041,7 +1072,8 @@
                           <img
                             src="/decharge3.png"
                             alt="Carte Décharge -3"
-                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="
                               openCardModal('/decharge3.png', 'Décharge -3')
                             "
@@ -1101,6 +1133,7 @@
                         <img
                           :src="card.image"
                           :alt="'Carte ' + card.name"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="openCardModal(card.image, card.name)"
                         />
@@ -1165,6 +1198,7 @@
                         <img
                           src="/desamorceur.png"
                           alt="Carte Désamorceur"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal('/desamorceur.png', 'Désamorceur')
@@ -1204,6 +1238,7 @@
                         <img
                           src="/miroir.png"
                           alt="Carte Miroir"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="openCardModal('/miroir.png', 'Miroir')"
                         />
@@ -1241,6 +1276,7 @@
                         <img
                           src="/surcharge.png"
                           alt="Carte Surcharge"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="openCardModal('/surcharge.png', 'Surcharge')"
                         />
@@ -1306,6 +1342,7 @@
                         <img
                           :src="event.image"
                           :alt="'Carte ' + event.name"
+                          loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="openCardModal(event.image, event.name)"
                         />
@@ -1381,7 +1418,8 @@
                             <img
                               src="/premierjoueur.png"
                               alt="Carte Premier Joueur"
-                              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                              loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                               @click="
                                 openCardModal(
                                   '/premierjoueur.png',
@@ -1434,7 +1472,8 @@
                             <img
                               src="/piste1.png"
                               alt="Carte Piste 1"
-                              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                              loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                               @click="openCardModal('/piste1.png', 'Piste 1')"
                             />
                           </div>
@@ -1469,7 +1508,8 @@
                             <img
                               src="/piste2.png"
                               alt="Carte Piste 2"
-                              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                              loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                               @click="openCardModal('/piste2.png', 'Piste 2')"
                             />
                           </div>
@@ -1504,7 +1544,8 @@
                             <img
                               src="/piste3.png"
                               alt="Carte Piste 3"
-                              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                              loading="lazy"
+                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                               @click="openCardModal('/piste3.png', 'Piste 3')"
                             />
                           </div>
@@ -1662,6 +1703,7 @@
                       <img
                         src="/demineur.png"
                         alt="Carte Démineur"
+                        loading="lazy"
                         class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                         @click="openCardModal('/demineur.png', 'Démineur')"
                       />
@@ -1697,6 +1739,7 @@
                       <img
                         src="/saboteur.png"
                         alt="Carte Saboteur"
+                        loading="lazy"
                         class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                         @click="openCardModal('/saboteur.png', 'Saboteur')"
                       />
@@ -1731,6 +1774,7 @@
                       <img
                         src="/agentDouble.png"
                         alt="Carte Agent Double"
+                        loading="lazy"
                         class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                         @click="
                           openCardModal('/agentDouble.png', 'Agent Double')
@@ -1782,6 +1826,7 @@
                         <img
                           src="/dossierClasse.png"
                           alt="Carte Dossier classé"
+                          loading="lazy"
                           class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                           @click="
                             openCardModal(
@@ -1813,6 +1858,7 @@
                         <img
                           src="/robotDeminage.png"
                           alt="Carte Robot de déminage"
+                          loading="lazy"
                           class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                           @click="
                             openCardModal(
@@ -1844,6 +1890,7 @@
                         <img
                           src="/planEvacuation.png"
                           alt="Carte Plan d'évacuation"
+                          loading="lazy"
                           class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                           @click="
                             openCardModal(
@@ -2011,6 +2058,7 @@
                         <img
                           src="/charge1.png"
                           alt="Charge +1"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="openCardModal('/charge1.png', 'Charge +1')"
                         />
@@ -2031,6 +2079,7 @@
                         <img
                           src="/charge2.png"
                           alt="Charge +2"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="openCardModal('/charge2.png', 'Charge +2')"
                         />
@@ -2051,6 +2100,7 @@
                         <img
                           src="/charge3.png"
                           alt="Charge +3"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="openCardModal('/charge3.png', 'Charge +3')"
                         />
@@ -2071,6 +2121,7 @@
                         <img
                           src="/charge4.png"
                           alt="Charge +4"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="openCardModal('/charge4.png', 'Charge +4')"
                         />
@@ -2091,6 +2142,7 @@
                         <img
                           src="/charge5.png"
                           alt="Charge +5"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="openCardModal('/charge5.png', 'Charge +5')"
                         />
@@ -2111,6 +2163,7 @@
                         <img
                           src="/action_blocage.png"
                           alt="Blocage"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal('/action_blocage.png', 'Blocage')
@@ -2133,6 +2186,7 @@
                         <img
                           src="/action_seuilReduit.png"
                           alt="Seuil réduit"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
@@ -2160,6 +2214,7 @@
                         <img
                           src="/action_sabotage.png"
                           alt="Sabotage"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal('/action_sabotage.png', 'Sabotage')
@@ -2201,6 +2256,7 @@
                         <img
                           src="/chargeInstable.png"
                           alt="Charge instable"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
@@ -2228,6 +2284,7 @@
                         <img
                           src="/detonationAmplifiee.png"
                           alt="Détonation amplifiée"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
@@ -2255,6 +2312,7 @@
                         <img
                           src="/refroidissementExpress.png"
                           alt="Refroidissement express"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
@@ -2282,6 +2340,7 @@
                         <img
                           src="/desescaladeTactique.png"
                           alt="Désescalade tactique"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
@@ -2309,6 +2368,7 @@
                         <img
                           src="/charge2.png"
                           alt="Charge +2"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="openCardModal('/charge2.png', 'Charge +2')"
                         />
@@ -2329,6 +2389,7 @@
                         <img
                           src="/charge3.png"
                           alt="Charge +3"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="openCardModal('/charge3.png', 'Charge +3')"
                         />
@@ -2349,6 +2410,7 @@
                         <img
                           src="/charge4.png"
                           alt="Charge +4"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="openCardModal('/charge4.png', 'Charge +4')"
                         />
@@ -2369,6 +2431,7 @@
                         <img
                           src="/charge5.png"
                           alt="Charge +5"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="openCardModal('/charge5.png', 'Charge +5')"
                         />
@@ -2389,6 +2452,7 @@
                         <img
                           src="/decharge1.png"
                           alt="Décharge -1"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal('/decharge1.png', 'Décharge -1')
@@ -2413,6 +2477,7 @@
                         <img
                           src="/decharge2.png"
                           alt="Décharge -2"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal('/decharge2.png', 'Décharge -2')
@@ -2437,6 +2502,7 @@
                         <img
                           src="/decharge3.png"
                           alt="Décharge -3"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal('/decharge3.png', 'Décharge -3')
@@ -2461,6 +2527,7 @@
                         <img
                           src="/action_blocage.png"
                           alt="Blocage"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal('/action_blocage.png', 'Blocage')
@@ -2483,6 +2550,7 @@
                         <img
                           src="/action_seuilAugmente.png"
                           alt="Seuil augmenté"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
@@ -2510,6 +2578,7 @@
                         <img
                           src="/action_seuilReduit.png"
                           alt="Seuil réduit"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
@@ -2537,6 +2606,7 @@
                         <img
                           src="/action_contrebande.png"
                           alt="Contrebande"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
@@ -2564,6 +2634,7 @@
                         <img
                           src="/action_manipulation.png"
                           alt="Manipulation"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
@@ -2591,6 +2662,7 @@
                         <img
                           src="/action_pileOuFiasco.png"
                           alt="Pile ou Fiasco"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
@@ -2618,6 +2690,7 @@
                         <img
                           src="/desamorceur.png"
                           alt="Désamorceur"
+                          loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
                             openCardModal('/desamorceur.png', 'Désamorceur')
@@ -3361,6 +3434,7 @@
             v-if="selectedCard"
             :src="selectedCard.image"
             :alt="selectedCard.name"
+            loading="lazy"
             class="w-full h-auto object-contain rounded-xl shadow-lg"
           />
         </div>
@@ -3445,6 +3519,7 @@
             <img
               :src="currentEvent.image"
               :alt="currentEvent.name"
+              loading="lazy"
               class="w-32 h-44 mx-auto object-contain rounded-lg bg-white bg-opacity-10 p-2"
             />
           </div>
@@ -3781,10 +3856,10 @@ const setupSteps = [
   "<strong>Séparez les cartes système</strong> (rôles, événements, premier joueur)",
   "<strong>Mélangez toutes les cartes de jeu</strong> restantes",
   "Chaque joueur reçoit <strong>5 cartes</strong>",
-  "<strong>Assemblez la jauge :</strong> placez les 3 cartes piste côte à côte",
-  "Placez le <strong>Compteur sur 0</strong> et le <strong>Seuil sur 20</strong>",
+  "<strong>Assemblez la jauge :</strong> placez les 3 cartes piste côte à côte <span class='text-blue-600 text-sm'>(<em>Peut être passé si vous utilisez l'application</em>)</span>",
+  "Placez le <strong>Compteur sur 0</strong> et le <strong>Seuil sur 20</strong> <span class='text-blue-600 text-sm'>(<em>Peut être passé si vous utilisez l'application</em>)</span>",
   '<strong>Désignez le premier joueur</strong> et donnez-lui la carte "Premier Joueur" qu\'il place devant lui',
-  '<strong>Préparez les événements :</strong><br>• Piochez 9 cartes Événement au hasard<br>• Prenez 2 cartes au hasard + la carte "Compte à rebours final"<br>• Mélangez ces 3 cartes et placez-les <strong>sous la pile</strong> d\'événements',
+  '<strong>Préparez les événements :</strong><br>• Piochez 9 cartes Événement au hasard<br>• Prenez 2 cartes au hasard + la carte "Compte à rebours final"<br>• Mélangez ces 3 cartes et placez-les <strong>sous la pile</strong> d\'événements <span class="text-blue-600 text-sm">(<em>Peut être passé si vous utilisez l\'application</em>)</span>',
   "<strong>Distribuez les rôles</strong> selon le tableau de répartition",
 ];
 
@@ -3904,6 +3979,10 @@ const faqs = [
 // Back to top functionality
 const showBackToTop = ref(false);
 
+// PWA functionality
+const deferredPrompt = ref(null);
+const showInstallPrompt = ref(false);
+
 // Card modal functionality
 const selectedCard = ref(null);
 const showCardModal = ref(false);
@@ -3981,6 +4060,27 @@ const toggleMobileMenu = () => {
 
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false;
+};
+
+// PWA functions
+const installPWA = async () => {
+  if (deferredPrompt.value) {
+    // Show the install prompt
+    deferredPrompt.value.prompt();
+    
+    // Wait for the user to respond to the prompt
+    const { outcome } = await deferredPrompt.value.userChoice;
+    
+    if (outcome === 'accepted') {
+      console.log('User accepted the A2HS prompt');
+    } else {
+      console.log('User dismissed the A2HS prompt');
+    }
+    
+    // Clear the deferred prompt, as it can only be used once
+    deferredPrompt.value = null;
+    showInstallPrompt.value = false;
+  }
 };
 
 // Counter mode functions
@@ -4227,6 +4327,23 @@ const cancelCloseGame = () => {
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("keydown", handleEscape);
+  
+  // PWA install prompt
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later
+    deferredPrompt.value = e;
+    // Show the install button
+    showInstallPrompt.value = true;
+  });
+
+  // Listen for the app being installed
+  window.addEventListener('appinstalled', () => {
+    console.log('PWA was installed');
+    showInstallPrompt.value = false;
+    deferredPrompt.value = null;
+  });
   
   // Start timer interval on client side only
   timerInterval = setInterval(() => {
