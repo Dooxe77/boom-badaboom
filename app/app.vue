@@ -36,13 +36,21 @@
           
           <!-- Bouton Installation PWA -->
           <button
-            v-if="showInstallPrompt"
+            v-if="showInstallPrompt && !isStandalone"
             @click="installPWA"
             class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-base flex items-center gap-2"
           >
             <span>📱</span>
             <span>Installer l'App</span>
           </button>
+          
+          <!-- Debug PWA (only in development) -->
+          <div v-if="isDev" class="text-xs text-white bg-black bg-opacity-50 p-2 rounded">
+            <p>PWA Debug:</p>
+            <p>showInstallPrompt: {{ showInstallPrompt }}</p>
+            <p>isStandalone: {{ isStandalone }}</p>
+            <p>deferredPrompt: {{ !!deferredPrompt }}</p>
+          </div>
         </div>
 
         <div class="mt-8 text-sm opacity-80">
@@ -3982,6 +3990,8 @@ const showBackToTop = ref(false);
 // PWA functionality
 const deferredPrompt = ref(null);
 const showInstallPrompt = ref(false);
+const isStandalone = ref(false);
+const isDev = ref(false);
 
 // Card modal functionality
 const selectedCard = ref(null);
@@ -4328,14 +4338,24 @@ onMounted(() => {
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("keydown", handleEscape);
   
+  // Check development mode
+  isDev.value = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  
+  // Check if already installed as PWA
+  isStandalone.value = window.matchMedia('(display-mode: standalone)').matches || 
+    window.navigator.standalone === true;
+  
   // PWA install prompt
   window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('beforeinstallprompt event fired');
     // Prevent Chrome 67 and earlier from automatically showing the prompt
     e.preventDefault();
     // Stash the event so it can be triggered later
     deferredPrompt.value = e;
-    // Show the install button
-    showInstallPrompt.value = true;
+    // Show the install button only if not already in standalone mode
+    if (!isStandalone.value) {
+      showInstallPrompt.value = true;
+    }
   });
 
   // Listen for the app being installed
@@ -4343,6 +4363,7 @@ onMounted(() => {
     console.log('PWA was installed');
     showInstallPrompt.value = false;
     deferredPrompt.value = null;
+    isStandalone.value = true;
   });
   
   // Start timer interval on client side only
