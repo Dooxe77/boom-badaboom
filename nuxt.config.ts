@@ -31,7 +31,9 @@ export default defineNuxtConfig({
         { name: "msapplication-config", content: "/browserconfig.xml" },
       ],
       link: [
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+        { rel: "manifest", href: "/manifest.webmanifest" },
         { rel: "apple-touch-icon", sizes: "180x180", href: "/icon-180.png" },
         { rel: "apple-touch-icon", sizes: "152x152", href: "/icon-152.png" },
         { rel: "apple-touch-icon", sizes: "120x120", href: "/icon-120.png" },
@@ -43,40 +45,19 @@ export default defineNuxtConfig({
   // Configuration PWA
   pwa: {
     registerType: 'autoUpdate',
+    includeAssets: ['favicon.ico', 'favicon.png', 'robots.txt', 'icon-*.png'],
     workbox: {
-      navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
-      runtimeCaching: [
-        {
-          urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-          handler: 'CacheFirst',
-          options: {
-            cacheName: 'google-fonts-cache',
-            expiration: {
-              maxEntries: 10,
-              maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
-            }
-          }
-        },
-        {
-          urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/,
-          handler: 'CacheFirst',
-          options: {
-            cacheName: 'images-cache',
-            expiration: {
-              maxEntries: 100,
-              maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
-            }
-          }
-        }
-      ]
+      skipWaiting: true,
+      clientsClaim: true,
+      cleanupOutdatedCaches: true,
     },
     client: {
       installPrompt: true,
       periodicSyncForUpdates: 20
     },
     devOptions: {
-      enabled: true,
+      enabled: false,
       type: 'module'
     },
     manifest: {
@@ -86,12 +67,12 @@ export default defineNuxtConfig({
       theme_color: '#dc2626',
       background_color: '#ffffff',
       display: 'standalone',
-      orientation: 'any',
+      orientation: 'portrait-primary',
       scope: '/',
-      start_url: '/?utm_source=pwa',
-      id: '/?utm_source=pwa',
+      start_url: '/',
       lang: 'fr',
       categories: ['games', 'entertainment'],
+      display_override: ['window-controls-overlay'],
       icons: [
         {
           src: '/icon-72.png',
@@ -126,12 +107,20 @@ export default defineNuxtConfig({
         {
           src: '/icon-192.png',
           sizes: '192x192',
-          type: 'image/png'
+          type: 'image/png',
+          purpose: 'any'
+        },
+        {
+          src: '/icon-192-maskable.png',
+          sizes: '192x192',
+          type: 'image/png',
+          purpose: 'maskable'
         },
         {
           src: '/icon-512.png',
           sizes: '512x512',
-          type: 'image/png'
+          type: 'image/png',
+          purpose: 'any'
         },
         {
           src: '/icon-512.png',
