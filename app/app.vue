@@ -1,5 +1,24 @@
 <template>
   <div class="min-h-screen bg-gray-50">
+    <!-- Indicateur de connexion discret -->
+    <div
+      v-if="showOfflineBar"
+      class="fixed top-0 left-0 right-0 z-[100] bg-red-500/95 text-white text-center py-2 px-4 shadow-lg backdrop-blur-sm transition-all duration-300 ease-in-out"
+    >
+      <div class="flex items-center justify-center gap-3">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+          <span class="text-sm font-medium">Mode hors ligne</span>
+        </div>
+        <button
+          @click="checkConnection"
+          :disabled="isRetrying"
+          class="bg-white/20 hover:bg-white/30 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-1 rounded-full text-xs font-medium transition-colors duration-200 border border-white/30"
+        >
+          {{ isRetrying ? "⏳ Connexion en cours..." : "🔄 Se connecter" }}
+        </button>
+      </div>
+    </div>
     <!-- Header -->
     <header
       class="bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 text-white"
@@ -25,32 +44,54 @@
         </div>
         <p class="text-lg font-light">Bluff • Tension • Stratégie</p>
 
-        <!-- Boutons -->
-        <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+        <!-- Boutons principaux redesignés -->
+        <div
+          class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6"
+        >
+          <!-- Bouton Démarrer une partie -->
           <button
             @click="openCounterMode"
-            class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg flex flex-col items-center"
+            class="group relative overflow-hidden bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:from-red-600 hover:via-red-700 hover:to-red-800 text-white font-bold py-5 px-10 rounded-2xl shadow-2xl hover:shadow-red-500/25 transform hover:scale-[1.02] transition-all duration-300 text-lg sm:text-xl flex flex-col items-center justify-center min-w-[280px] sm:min-w-[300px] border border-red-400/30"
           >
-            <span>🎯 Démarrer une partie</span>
+            <!-- Effet de brillance -->
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+            ></div>
+
+            <!-- Contenu du bouton -->
+            <div class="relative z-10">
+              <div class="text-3xl sm:text-4xl mb-2">🎯</div>
+              <div class="text-lg sm:text-xl font-bold tracking-wide">
+                Démarrer une partie
+              </div>
+              <div class="text-xs sm:text-sm opacity-90 mt-1">
+                Mode compteur digital
+              </div>
+            </div>
           </button>
-          
+
           <!-- Bouton Installation PWA -->
           <button
-            v-if="showInstallPrompt && !isStandalone"
+            v-if="(showInstallPrompt || isDev) && !isStandalone"
             @click="installPWA"
-            class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-base flex items-center gap-2"
+            class="group relative overflow-hidden bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:from-purple-600 hover:via-purple-700 hover:to-purple-800 text-white font-bold py-5 px-10 rounded-2xl shadow-2xl hover:shadow-purple-500/25 transform hover:scale-[1.02] transition-all duration-300 text-lg sm:text-xl flex flex-col items-center justify-center min-w-[280px] sm:min-w-[300px] border border-purple-400/30"
           >
-            <span>📱</span>
-            <span>Installer l'App</span>
+            <!-- Effet de brillance -->
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+            ></div>
+
+            <!-- Contenu du bouton -->
+            <div class="relative z-10">
+              <div class="text-3xl sm:text-4xl mb-2">📱</div>
+              <div class="text-lg sm:text-xl font-bold tracking-wide">
+                Installer l'App
+              </div>
+              <div class="text-xs sm:text-sm opacity-90 mt-1">
+                Accès hors ligne
+              </div>
+            </div>
           </button>
-          
-          <!-- Debug PWA (only in development) -->
-          <div v-if="isDev" class="text-xs text-white bg-black bg-opacity-50 p-2 rounded">
-            <p>PWA Debug:</p>
-            <p>showInstallPrompt: {{ showInstallPrompt }}</p>
-            <p>isStandalone: {{ isStandalone }}</p>
-            <p>deferredPrompt: {{ !!deferredPrompt }}</p>
-          </div>
         </div>
 
         <div class="mt-8 text-sm opacity-80">
@@ -61,7 +102,12 @@
     </header>
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white shadow-lg">
+    <nav
+      :class="[
+        'sticky z-50 bg-white shadow-lg',
+        showOfflineBar ? 'top-10' : 'top-0',
+      ]"
+    >
       <div class="container mx-auto px-4 sm:px-6">
         <div class="flex justify-between items-center py-4">
           <!-- Logo/Title for mobile -->
@@ -324,13 +370,344 @@
                 </h3>
                 <ul class="space-y-2 text-gray-700">
                   <li>
-                    <strong>Joueurs :</strong> 3-5 (Compétitif) / 1-2
-                    (Coopératif)
+                    <strong>Joueurs :</strong> 1-2 (Coopératif) / 3-5
+                    (Compétitif)
                   </li>
                   <li><strong>Âge :</strong> À partir de 8 ans</li>
                   <li><strong>Durée :</strong> 15-30 minutes</li>
                   <li><strong>Genre :</strong> Bluff, Tension, Stratégie</li>
                 </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mise en Place -->
+      <section id="mise-en-place" class="mb-12">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="p-4 sm:p-8">
+            <h2
+              class="text-2xl sm:text-4xl font-bold text-red-600 border-b-4 border-red-500 pb-4 mb-8"
+            >
+              ⚙️ Mise en Place
+            </h2>
+
+            <ol class="space-y-6">
+              <li
+                v-for="(step, index) in setupSteps"
+                :key="index"
+                class="flex items-start space-x-4"
+              >
+                <div
+                  class="flex-shrink-0 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold"
+                >
+                  {{ index + 1 }}
+                </div>
+                <div class="flex-1">
+                  <p class="text-gray-700" v-html="step"></p>
+                </div>
+              </li>
+            </ol>
+
+            <div
+              class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg mt-8"
+            >
+              <h4 class="font-bold text-yellow-800 mb-2">
+                ⚠️ Règle importante :
+              </h4>
+              <p class="text-yellow-700">
+                Le compteur ne peut <strong>jamais descendre sous 0</strong>. Si
+                une carte devait le faire descendre en dessous, il reste à 0.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Déroulement -->
+      <section id="deroulement" class="mb-12">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="p-4 sm:p-8">
+            <h2
+              class="text-2xl sm:text-4xl font-bold text-red-600 border-b-4 border-red-500 pb-4 mb-8"
+            >
+              🔄 Déroulement d'une Partie
+            </h2>
+
+            <h3
+              class="text-2xl font-bold text-orange-600 bg-gradient-to-r from-orange-100 to-transparent p-4 border-l-4 border-orange-500 rounded mb-6"
+            >
+              📋 Séquence de Tour
+            </h3>
+
+            <ol class="space-y-4 mb-8">
+              <li
+                v-for="(step, index) in gameSteps"
+                :key="index"
+                class="flex items-start space-x-4"
+              >
+                <div
+                  class="flex-shrink-0 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold"
+                >
+                  {{ index + 1 }}
+                </div>
+                <div class="flex-1">
+                  <p class="text-gray-700" v-html="step"></p>
+                </div>
+              </li>
+            </ol>
+
+            <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+              <h4 class="font-bold text-red-800 mb-2">
+                💥 Explosion Immédiate :
+              </h4>
+              <p class="text-red-700">
+                Si le compteur atteint ou dépasse le seuil d'explosion, la bombe
+                explose immédiatement et la partie s'arrête ! Les Saboteurs
+                gagnent.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conditions de Victoire -->
+      <section id="victoire" class="mb-12">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="p-4 sm:p-8">
+            <h2
+              class="text-2xl sm:text-4xl font-bold text-red-600 border-b-4 border-red-500 pb-4 mb-8"
+            >
+              🏆 Conditions de Victoire
+            </h2>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-8">
+              <!-- Démineurs -->
+              <div class="group h-full">
+                <div
+                  class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+                >
+                  <div class="flex items-center justify-center mb-4">
+                    <div class="relative">
+                      <img
+                        src="/demineur.png"
+                        alt="Carte Démineur"
+                        loading="lazy"
+                        class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                        @click="openCardModal('/demineur.png', 'Démineur')"
+                      />
+                      <div
+                        class="absolute -top-1 -right-1 w-6 h-6 bg-blue-300 text-blue-800 rounded-full flex items-center justify-center font-bold text-xs"
+                      >
+                        🟦
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="text-center text-white flex-grow flex flex-col justify-center"
+                  >
+                    <h3 class="text-xl font-bold mb-2">DÉMINEURS</h3>
+                    <h4 class="text-lg font-semibold mb-3 text-blue-200">
+                      Victoire par Élimination
+                    </h4>
+                    <p class="text-sm text-blue-100 leading-relaxed">
+                      Empêcher l'explosion ET empêcher la victoire de l'Agent
+                      Double
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Saboteurs -->
+              <div class="group h-full">
+                <div
+                  class="bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+                >
+                  <div class="flex items-center justify-center mb-4">
+                    <div class="relative">
+                      <img
+                        src="/saboteur.png"
+                        alt="Carte Saboteur"
+                        loading="lazy"
+                        class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                        @click="openCardModal('/saboteur.png', 'Saboteur')"
+                      />
+                      <div
+                        class="absolute -top-1 -right-1 w-6 h-6 bg-pink-300 text-pink-800 rounded-full flex items-center justify-center font-bold text-xs"
+                      >
+                        🟥
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="text-center text-white flex-grow flex flex-col justify-center"
+                  >
+                    <h3 class="text-xl font-bold mb-2">SABOTEURS</h3>
+                    <h4 class="text-lg font-semibold mb-3 text-pink-200">
+                      Victoire Immédiate
+                    </h4>
+                    <p class="text-sm text-pink-100 leading-relaxed">
+                      Faire exploser la bombe<br />(compteur ≥ seuil)
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Agent Double -->
+              <div class="group h-full">
+                <div
+                  class="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+                >
+                  <div class="flex items-center justify-center mb-4">
+                    <div class="relative">
+                      <img
+                        src="/agentDouble.png"
+                        alt="Carte Agent Double"
+                        loading="lazy"
+                        class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                        @click="
+                          openCardModal('/agentDouble.png', 'Agent Double')
+                        "
+                      />
+                      <div
+                        class="absolute -top-1 -right-1 w-6 h-6 bg-yellow-200 text-yellow-800 rounded-full flex items-center justify-center font-bold text-xs"
+                      >
+                        🟨
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="text-center text-gray-800 flex-grow flex flex-col justify-center"
+                  >
+                    <h3 class="text-xl font-bold mb-2">AGENT DOUBLE</h3>
+                    <h4 class="text-lg font-semibold mb-3 text-gray-700">
+                      Victoire en Fin de Partie
+                    </h4>
+                    <ul class="text-sm text-gray-700 leading-relaxed space-y-1">
+                      <li>Posséder 2 des 3 cartes objectif</li>
+                      <li>ET éviter l'explosion</li>
+                      <li>ET arriver en fin de partie</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-300 p-8 rounded-2xl shadow-lg"
+            >
+              <h4 class="font-bold text-blue-800 mb-6 text-center text-2xl">
+                🎯 Cartes Objectif de l'Agent Double
+              </h4>
+              <p class="text-blue-700 mb-6 text-center text-lg">
+                L'Agent Double doit réunir
+                <strong>2 des 3 cartes suivantes</strong> dans sa main :
+              </p>
+
+              <div class="grid md:grid-cols-3 gap-6">
+                <!-- Dossier classé -->
+                <div class="group">
+                  <div
+                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div class="flex items-center justify-center mb-4">
+                      <div class="relative">
+                        <img
+                          src="/dossierClasse.png"
+                          alt="Carte Dossier classé"
+                          loading="lazy"
+                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                          @click="
+                            openCardModal(
+                              '/dossierClasse.png',
+                              'Dossier classé'
+                            )
+                          "
+                        />
+                        <div
+                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                        >
+                          📂
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center text-gray-800">
+                      <h5 class="text-lg font-bold">Dossier classé</h5>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Robot de déminage -->
+                <div class="group">
+                  <div
+                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div class="flex items-center justify-center mb-4">
+                      <div class="relative">
+                        <img
+                          src="/robotDeminage.png"
+                          alt="Carte Robot de déminage"
+                          loading="lazy"
+                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                          @click="
+                            openCardModal(
+                              '/robotDeminage.png',
+                              'Robot de déminage'
+                            )
+                          "
+                        />
+                        <div
+                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                        >
+                          🤖
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center text-gray-800">
+                      <h5 class="text-lg font-bold">Robot de déminage</h5>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Plan d'évacuation -->
+                <div class="group">
+                  <div
+                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div class="flex items-center justify-center mb-4">
+                      <div class="relative">
+                        <img
+                          src="/planEvacuation.png"
+                          alt="Carte Plan d'évacuation"
+                          loading="lazy"
+                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                          @click="
+                            openCardModal(
+                              '/planEvacuation.png',
+                              'Plan d\'évacuation'
+                            )
+                          "
+                        />
+                        <div
+                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                        >
+                          🗺️
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center text-gray-800">
+                      <h5 class="text-lg font-bold">Plan d'évacuation</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 text-center">
+                <p class="text-blue-700 font-medium">
+                  ⚠️ Ces cartes permettent à l'Agent Double de bluffer sur son
+                  identité tout en poursuivant son objectif secret
+                </p>
               </div>
             </div>
           </div>
@@ -839,7 +1216,7 @@
                             src="/charge1.png"
                             alt="Carte Charge +1"
                             loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="openCardModal('/charge1.png', 'Charge +1')"
                           />
                         </div>
@@ -871,7 +1248,7 @@
                             src="/charge2.png"
                             alt="Carte Charge +2"
                             loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="openCardModal('/charge2.png', 'Charge +2')"
                           />
                         </div>
@@ -903,7 +1280,7 @@
                             src="/charge3.png"
                             alt="Carte Charge +3"
                             loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="openCardModal('/charge3.png', 'Charge +3')"
                           />
                         </div>
@@ -935,7 +1312,7 @@
                             src="/charge4.png"
                             alt="Carte Charge +4"
                             loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="openCardModal('/charge4.png', 'Charge +4')"
                           />
                         </div>
@@ -967,7 +1344,7 @@
                             src="/charge5.png"
                             alt="Carte Charge +5"
                             loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="openCardModal('/charge5.png', 'Charge +5')"
                           />
                         </div>
@@ -1009,7 +1386,7 @@
                             src="/decharge1.png"
                             alt="Carte Décharge -1"
                             loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="
                               openCardModal('/decharge1.png', 'Décharge -1')
                             "
@@ -1045,7 +1422,7 @@
                             src="/decharge2.png"
                             alt="Carte Décharge -2"
                             loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="
                               openCardModal('/decharge2.png', 'Décharge -2')
                             "
@@ -1070,7 +1447,7 @@
 
                   <!-- Décharge -3 -->
                   <div
-                    class="bg-white border border-green-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
+                    class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                   >
                     <div class="flex items-center justify-between mb-3">
                       <div class="flex items-center space-x-3">
@@ -1081,7 +1458,7 @@
                             src="/decharge3.png"
                             alt="Carte Décharge -3"
                             loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                             @click="
                               openCardModal('/decharge3.png', 'Décharge -3')
                             "
@@ -1427,7 +1804,7 @@
                               src="/premierjoueur.png"
                               alt="Carte Premier Joueur"
                               loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                               @click="
                                 openCardModal(
                                   '/premierjoueur.png',
@@ -1481,7 +1858,7 @@
                               src="/piste1.png"
                               alt="Carte Piste 1"
                               loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                               @click="openCardModal('/piste1.png', 'Piste 1')"
                             />
                           </div>
@@ -1517,7 +1894,7 @@
                               src="/piste2.png"
                               alt="Carte Piste 2"
                               loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                               @click="openCardModal('/piste2.png', 'Piste 2')"
                             />
                           </div>
@@ -1553,7 +1930,7 @@
                               src="/piste3.png"
                               alt="Carte Piste 3"
                               loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                               @click="openCardModal('/piste3.png', 'Piste 3')"
                             />
                           </div>
@@ -1596,337 +1973,6 @@
               <p class="text-lg font-bold text-gray-700">
                 📊 TOTAL CARTES : 98 cartes
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Mise en Place -->
-      <section id="mise-en-place" class="mb-12">
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div class="p-4 sm:p-8">
-            <h2
-              class="text-2xl sm:text-4xl font-bold text-red-600 border-b-4 border-red-500 pb-4 mb-8"
-            >
-              ⚙️ Mise en Place
-            </h2>
-
-            <ol class="space-y-6">
-              <li
-                v-for="(step, index) in setupSteps"
-                :key="index"
-                class="flex items-start space-x-4"
-              >
-                <div
-                  class="flex-shrink-0 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold"
-                >
-                  {{ index + 1 }}
-                </div>
-                <div class="flex-1">
-                  <p class="text-gray-700" v-html="step"></p>
-                </div>
-              </li>
-            </ol>
-
-            <div
-              class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg mt-8"
-            >
-              <h4 class="font-bold text-yellow-800 mb-2">
-                ⚠️ Règle importante :
-              </h4>
-              <p class="text-yellow-700">
-                Le compteur ne peut <strong>jamais descendre sous 0</strong>. Si
-                une carte devait le faire descendre en dessous, il reste à 0.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Déroulement -->
-      <section id="deroulement" class="mb-12">
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div class="p-4 sm:p-8">
-            <h2
-              class="text-2xl sm:text-4xl font-bold text-red-600 border-b-4 border-red-500 pb-4 mb-8"
-            >
-              🔄 Déroulement d'une Partie
-            </h2>
-
-            <h3
-              class="text-2xl font-bold text-orange-600 bg-gradient-to-r from-orange-100 to-transparent p-4 border-l-4 border-orange-500 rounded mb-6"
-            >
-              📋 Séquence de Tour
-            </h3>
-
-            <ol class="space-y-4 mb-8">
-              <li
-                v-for="(step, index) in gameSteps"
-                :key="index"
-                class="flex items-start space-x-4"
-              >
-                <div
-                  class="flex-shrink-0 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold"
-                >
-                  {{ index + 1 }}
-                </div>
-                <div class="flex-1">
-                  <p class="text-gray-700" v-html="step"></p>
-                </div>
-              </li>
-            </ol>
-
-            <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
-              <h4 class="font-bold text-red-800 mb-2">
-                💥 Explosion Immédiate :
-              </h4>
-              <p class="text-red-700">
-                Si le compteur atteint ou dépasse le seuil d'explosion, la bombe
-                explose immédiatement et la partie s'arrête ! Les Saboteurs
-                gagnent.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Conditions de Victoire -->
-      <section id="victoire" class="mb-12">
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div class="p-4 sm:p-8">
-            <h2
-              class="text-2xl sm:text-4xl font-bold text-red-600 border-b-4 border-red-500 pb-4 mb-8"
-            >
-              🏆 Conditions de Victoire
-            </h2>
-
-            <div class="grid lg:grid-cols-3 gap-8 mb-8">
-              <!-- Démineurs -->
-              <div class="group h-full">
-                <div
-                  class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
-                >
-                  <div class="flex items-center justify-center mb-4">
-                    <div class="relative">
-                      <img
-                        src="/demineur.png"
-                        alt="Carte Démineur"
-                        loading="lazy"
-                        class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                        @click="openCardModal('/demineur.png', 'Démineur')"
-                      />
-                      <div
-                        class="absolute -top-1 -right-1 w-6 h-6 bg-blue-300 text-blue-800 rounded-full flex items-center justify-center font-bold text-xs"
-                      >
-                        🟦
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="text-center text-white flex-grow flex flex-col justify-center"
-                  >
-                    <h3 class="text-xl font-bold mb-2">DÉMINEURS</h3>
-                    <h4 class="text-lg font-semibold mb-3 text-blue-200">
-                      Victoire par Élimination
-                    </h4>
-                    <p class="text-sm text-blue-100 leading-relaxed">
-                      Empêcher l'explosion ET empêcher la victoire de l'Agent
-                      Double
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Saboteurs -->
-              <div class="group h-full">
-                <div
-                  class="bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
-                >
-                  <div class="flex items-center justify-center mb-4">
-                    <div class="relative">
-                      <img
-                        src="/saboteur.png"
-                        alt="Carte Saboteur"
-                        loading="lazy"
-                        class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                        @click="openCardModal('/saboteur.png', 'Saboteur')"
-                      />
-                      <div
-                        class="absolute -top-1 -right-1 w-6 h-6 bg-pink-300 text-pink-800 rounded-full flex items-center justify-center font-bold text-xs"
-                      >
-                        🟥
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="text-center text-white flex-grow flex flex-col justify-center"
-                  >
-                    <h3 class="text-xl font-bold mb-2">SABOTEURS</h3>
-                    <h4 class="text-lg font-semibold mb-3 text-pink-200">
-                      Victoire Immédiate
-                    </h4>
-                    <p class="text-sm text-pink-100 leading-relaxed">
-                      Faire exploser la bombe<br />(compteur ≥ seuil)
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Agent Double -->
-              <div class="group h-full">
-                <div
-                  class="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
-                >
-                  <div class="flex items-center justify-center mb-4">
-                    <div class="relative">
-                      <img
-                        src="/agentDouble.png"
-                        alt="Carte Agent Double"
-                        loading="lazy"
-                        class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                        @click="
-                          openCardModal('/agentDouble.png', 'Agent Double')
-                        "
-                      />
-                      <div
-                        class="absolute -top-1 -right-1 w-6 h-6 bg-yellow-200 text-yellow-800 rounded-full flex items-center justify-center font-bold text-xs"
-                      >
-                        🟨
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="text-center text-gray-800 flex-grow flex flex-col justify-center"
-                  >
-                    <h3 class="text-xl font-bold mb-2">AGENT DOUBLE</h3>
-                    <h4 class="text-lg font-semibold mb-3 text-gray-700">
-                      Victoire en Fin de Partie
-                    </h4>
-                    <ul class="text-sm text-gray-700 leading-relaxed space-y-1">
-                      <li>Posséder 2 des 3 cartes objectif</li>
-                      <li>ET éviter l'explosion</li>
-                      <li>ET arriver en fin de partie</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-300 p-8 rounded-2xl shadow-lg"
-            >
-              <h4 class="font-bold text-blue-800 mb-6 text-center text-2xl">
-                🎯 Cartes Objectif de l'Agent Double
-              </h4>
-              <p class="text-blue-700 mb-6 text-center text-lg">
-                L'Agent Double doit réunir
-                <strong>2 des 3 cartes suivantes</strong> dans sa main :
-              </p>
-
-              <div class="grid md:grid-cols-3 gap-6">
-                <!-- Dossier classé -->
-                <div class="group">
-                  <div
-                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                  >
-                    <div class="flex items-center justify-center mb-4">
-                      <div class="relative">
-                        <img
-                          src="/dossierClasse.png"
-                          alt="Carte Dossier classé"
-                          loading="lazy"
-                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                          @click="
-                            openCardModal(
-                              '/dossierClasse.png',
-                              'Dossier classé'
-                            )
-                          "
-                        />
-                        <div
-                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
-                        >
-                          📂
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-center text-gray-800">
-                      <h5 class="text-lg font-bold">Dossier classé</h5>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Robot de déminage -->
-                <div class="group">
-                  <div
-                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                  >
-                    <div class="flex items-center justify-center mb-4">
-                      <div class="relative">
-                        <img
-                          src="/robotDeminage.png"
-                          alt="Carte Robot de déminage"
-                          loading="lazy"
-                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                          @click="
-                            openCardModal(
-                              '/robotDeminage.png',
-                              'Robot de déminage'
-                            )
-                          "
-                        />
-                        <div
-                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
-                        >
-                          🤖
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-center text-gray-800">
-                      <h5 class="text-lg font-bold">Robot de déminage</h5>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Plan d'évacuation -->
-                <div class="group">
-                  <div
-                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                  >
-                    <div class="flex items-center justify-center mb-4">
-                      <div class="relative">
-                        <img
-                          src="/planEvacuation.png"
-                          alt="Carte Plan d'évacuation"
-                          loading="lazy"
-                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                          @click="
-                            openCardModal(
-                              '/planEvacuation.png',
-                              'Plan d\'évacuation'
-                            )
-                          "
-                        />
-                        <div
-                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
-                        >
-                          🗺️
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-center text-gray-800">
-                      <h5 class="text-lg font-bold">Plan d'évacuation</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-6 text-center">
-                <p class="text-blue-700 font-medium">
-                  ⚠️ Ces cartes permettent à l'Agent Double de bluffer sur son
-                  identité tout en poursuivant son objectif secret
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -2945,25 +2991,53 @@
               <div v-if="elapsedTime" class="text-white text-sm opacity-60">
                 ⏱️ {{ elapsedTime }}
               </div>
-              <div v-if="turnNumber > 0" class="text-white text-xs opacity-50 mt-1">
-                <span v-if="finalCountdownRevealed" class="text-red-300 font-bold">🚨 DERNIER TOUR 🚨</span>
-                <span v-else>Tour {{ turnNumber }} | {{ eventDeck.length > 0 ? eventDeck.length + ' événements restants' : 'Tous événements révélés' }}</span>
+              <div
+                v-if="turnNumber > 0"
+                class="text-white text-xs opacity-50 mt-1"
+              >
+                <span
+                  v-if="finalCountdownRevealed"
+                  class="text-red-300 font-bold"
+                  >🚨 DERNIER TOUR 🚨</span
+                >
+                <span v-else
+                  >Tour {{ turnNumber }} |
+                  {{
+                    eventDeck.length > 0
+                      ? eventDeck.length + " événements restants"
+                      : "Tous événements révélés"
+                  }}</span
+                >
               </div>
             </div>
 
             <div class="flex space-x-2">
               <button
                 @click="drawNextEvent"
-                :disabled="gameOver || eventDeck.length === 0 || finalCountdownRevealed"
+                :disabled="
+                  gameOver || eventDeck.length === 0 || finalCountdownRevealed
+                "
                 :class="{
-                  'bg-purple-500 hover:bg-purple-600': !gameOver && eventDeck.length > 0 && !finalCountdownRevealed,
-                  'bg-gray-600 opacity-50 cursor-not-allowed': gameOver || eventDeck.length === 0 || finalCountdownRevealed,
+                  'bg-purple-500 hover:bg-purple-600':
+                    !gameOver &&
+                    eventDeck.length > 0 &&
+                    !finalCountdownRevealed,
+                  'bg-gray-600 opacity-50 cursor-not-allowed':
+                    gameOver ||
+                    eventDeck.length === 0 ||
+                    finalCountdownRevealed,
                 }"
                 class="text-white px-2 sm:px-3 py-2 rounded-lg font-bold transition-colors text-xs sm:text-sm flex items-center space-x-1"
               >
                 <span>🎲</span>
                 <span class="hidden xs:inline sm:inline">
-                  {{ finalCountdownRevealed ? 'Dernier tour' : (eventDeck.length > 0 ? 'Nouveau Tour' : 'Plus d\'événements') }}
+                  {{
+                    finalCountdownRevealed
+                      ? "Dernier tour"
+                      : eventDeck.length > 0
+                      ? "Nouveau Tour"
+                      : "Plus d'événements"
+                  }}
                 </span>
               </button>
               <button
@@ -3005,11 +3079,15 @@
             >
               <!-- Label avec flèche -->
               <div class="text-center mb-2">
-                <div class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg border border-white whitespace-nowrap">
+                <div
+                  class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg border border-white whitespace-nowrap"
+                >
                   💀 SEUIL
                 </div>
                 <!-- Flèche pointant vers le bas -->
-                <div class="w-0 h-0 border-l-3 border-r-3 border-t-5 border-l-transparent border-r-transparent border-t-red-500 mx-auto mt-1"></div>
+                <div
+                  class="w-0 h-0 border-l-3 border-r-3 border-t-5 border-l-transparent border-r-transparent border-t-red-500 mx-auto mt-1"
+                ></div>
               </div>
             </div>
 
@@ -3023,18 +3101,26 @@
               }"
             >
               <!-- Cercle intérieur avec effet de profondeur -->
-              <div class="absolute inset-1 rounded-full bg-gradient-to-t from-red-800 to-red-400 opacity-80"></div>
-              
+              <div
+                class="absolute inset-1 rounded-full bg-gradient-to-t from-red-800 to-red-400 opacity-80"
+              ></div>
+
               <!-- Contenu du pion - Seulement le chiffre -->
               <div class="relative text-white font-bold text-center z-10">
-                <div class="text-2xl md:text-3xl font-black drop-shadow-lg">{{ thresholdValue }}</div>
+                <div class="text-2xl md:text-3xl font-black drop-shadow-lg">
+                  {{ thresholdValue }}
+                </div>
               </div>
-              
+
               <!-- Effet de brillance -->
-              <div class="absolute top-2 left-3 w-3 h-3 md:w-4 md:h-4 bg-white bg-opacity-40 rounded-full blur-sm"></div>
-              
+              <div
+                class="absolute top-2 left-3 w-3 h-3 md:w-4 md:h-4 bg-white bg-opacity-40 rounded-full blur-sm"
+              ></div>
+
               <!-- Pulse ring pour l'attention -->
-              <div class="absolute inset-0 rounded-full bg-red-500 opacity-30 animate-ping"></div>
+              <div
+                class="absolute inset-0 rounded-full bg-red-500 opacity-30 animate-ping"
+              ></div>
             </div>
 
             <!-- Flèche et label Compteur -->
@@ -3048,22 +3134,32 @@
             >
               <!-- Label avec flèche dynamique -->
               <div class="text-center mb-2">
-                <div 
+                <div
                   class="text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg border border-white transition-all duration-300 whitespace-nowrap"
                   :class="{
                     'bg-blue-500': counterValue < thresholdValue - 3,
-                    'bg-orange-500 animate-pulse': counterValue >= thresholdValue - 3 && counterValue < thresholdValue,
+                    'bg-orange-500 animate-pulse':
+                      counterValue >= thresholdValue - 3 &&
+                      counterValue < thresholdValue,
                     'bg-red-600 animate-bounce': counterValue >= thresholdValue,
                   }"
                 >
-                  {{ counterValue < thresholdValue - 3 ? '💣 COMPTEUR' : (counterValue >= thresholdValue ? '💥 BOOM' : '⚠️ DANGER') }}
+                  {{
+                    counterValue < thresholdValue - 3
+                      ? "💣 COMPTEUR"
+                      : counterValue >= thresholdValue
+                      ? "💥 BOOM"
+                      : "⚠️ DANGER"
+                  }}
                 </div>
                 <!-- Flèche pointant vers le bas - couleur dynamique -->
-                <div 
+                <div
                   class="w-0 h-0 border-l-3 border-r-3 border-t-5 border-l-transparent border-r-transparent mx-auto mt-1 transition-all duration-300"
                   :class="{
                     'border-t-blue-500': counterValue < thresholdValue - 3,
-                    'border-t-orange-500': counterValue >= thresholdValue - 3 && counterValue < thresholdValue,
+                    'border-t-orange-500':
+                      counterValue >= thresholdValue - 3 &&
+                      counterValue < thresholdValue,
                     'border-t-red-600': counterValue >= thresholdValue,
                   }"
                 ></div>
@@ -3079,45 +3175,62 @@
               }"
               :class="{
                 // États dynamiques
-                'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700': counterValue < thresholdValue - 3,
-                'bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 animate-pulse': counterValue >= thresholdValue - 3 && counterValue < thresholdValue,
-                'bg-gradient-to-br from-red-500 via-red-600 to-red-800 animate-bounce': counterValue >= thresholdValue,
+                'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700':
+                  counterValue < thresholdValue - 3,
+                'bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 animate-pulse':
+                  counterValue >= thresholdValue - 3 &&
+                  counterValue < thresholdValue,
+                'bg-gradient-to-br from-red-500 via-red-600 to-red-800 animate-bounce':
+                  counterValue >= thresholdValue,
               }"
             >
               <!-- Cercle intérieur avec effet de profondeur -->
-              <div 
+              <div
                 class="absolute inset-1 rounded-full opacity-80"
                 :class="{
-                  'bg-gradient-to-t from-blue-800 to-blue-400': counterValue < thresholdValue - 3,
-                  'bg-gradient-to-t from-orange-800 to-yellow-400': counterValue >= thresholdValue - 3 && counterValue < thresholdValue,
-                  'bg-gradient-to-t from-red-900 to-red-500': counterValue >= thresholdValue,
+                  'bg-gradient-to-t from-blue-800 to-blue-400':
+                    counterValue < thresholdValue - 3,
+                  'bg-gradient-to-t from-orange-800 to-yellow-400':
+                    counterValue >= thresholdValue - 3 &&
+                    counterValue < thresholdValue,
+                  'bg-gradient-to-t from-red-900 to-red-500':
+                    counterValue >= thresholdValue,
                 }"
               ></div>
-              
+
               <!-- Contenu du pion - Seulement le chiffre -->
               <div class="relative text-white font-bold text-center z-10">
-                <div class="text-2xl md:text-3xl font-black drop-shadow-lg">{{ counterValue }}</div>
+                <div class="text-2xl md:text-3xl font-black drop-shadow-lg">
+                  {{ counterValue }}
+                </div>
               </div>
-              
+
               <!-- Effet de brillance -->
-              <div class="absolute top-2 left-3 w-3 h-3 md:w-4 md:h-4 bg-white bg-opacity-40 rounded-full blur-sm"></div>
-              
+              <div
+                class="absolute top-2 left-3 w-3 h-3 md:w-4 md:h-4 bg-white bg-opacity-40 rounded-full blur-sm"
+              ></div>
+
               <!-- Pulse ring conditionnel -->
-              <div 
+              <div
                 v-if="counterValue >= thresholdValue - 3"
                 class="absolute inset-0 rounded-full opacity-40 animate-ping"
                 :class="{
-                  'bg-yellow-500': counterValue >= thresholdValue - 3 && counterValue < thresholdValue,
+                  'bg-yellow-500':
+                    counterValue >= thresholdValue - 3 &&
+                    counterValue < thresholdValue,
                   'bg-red-500': counterValue >= thresholdValue,
                 }"
               ></div>
-              
+
               <!-- Glow effect quand proche du seuil -->
-              <div 
+              <div
                 v-if="counterValue >= thresholdValue - 2"
                 class="absolute inset-0 rounded-full animate-pulse"
                 :style="{
-                  filter: counterValue >= thresholdValue ? 'drop-shadow(0 0 20px rgba(239, 68, 68, 0.8))' : 'drop-shadow(0 0 16px rgba(234, 179, 8, 0.6))',
+                  filter:
+                    counterValue >= thresholdValue
+                      ? 'drop-shadow(0 0 20px rgba(239, 68, 68, 0.8))'
+                      : 'drop-shadow(0 0 16px rgba(234, 179, 8, 0.6))',
                 }"
               ></div>
             </div>
@@ -3138,19 +3251,41 @@
           <!-- Contrôles du compteur -->
           <div class="p-4 bg-black bg-opacity-70">
             <!-- Événement actuel -->
-            <div v-if="currentEvent && currentEvent.name !== 'Compte à rebours final'" class="mb-4 p-3 bg-purple-900 bg-opacity-50 border border-purple-400 rounded-lg">
-              <div class="text-purple-200 text-xs mb-1">🎲 Événement actuel</div>
-              <div class="text-yellow-300 font-bold text-sm mb-1">{{ currentEvent.name }}</div>
-              <div class="text-white text-xs opacity-90" v-html="currentEvent.effect"></div>
+            <div
+              v-if="
+                currentEvent && currentEvent.name !== 'Compte à rebours final'
+              "
+              class="mb-4 p-3 bg-purple-900 bg-opacity-50 border border-purple-400 rounded-lg"
+            >
+              <div class="text-purple-200 text-xs mb-1">
+                🎲 Événement actuel
+              </div>
+              <div class="text-yellow-300 font-bold text-sm mb-1">
+                {{ currentEvent.name }}
+              </div>
+              <div
+                class="text-white text-xs opacity-90"
+                v-html="currentEvent.effect"
+              ></div>
             </div>
-            
+
             <!-- Événement final -->
-            <div v-if="currentEvent && currentEvent.name === 'Compte à rebours final'" class="mb-4 p-3 bg-red-900 bg-opacity-70 border-2 border-red-500 rounded-lg animate-pulse">
+            <div
+              v-if="
+                currentEvent && currentEvent.name === 'Compte à rebours final'
+              "
+              class="mb-4 p-3 bg-red-900 bg-opacity-70 border-2 border-red-500 rounded-lg animate-pulse"
+            >
               <div class="text-red-200 text-xs mb-1">🚨 Événement spécial</div>
-              <div class="text-yellow-300 font-bold text-sm mb-1">{{ currentEvent.name }}</div>
-              <div class="text-white text-xs font-bold" v-html="currentEvent.effect"></div>
+              <div class="text-yellow-300 font-bold text-sm mb-1">
+                {{ currentEvent.name }}
+              </div>
+              <div
+                class="text-white text-xs font-bold"
+                v-html="currentEvent.effect"
+              ></div>
             </div>
-            
+
             <div class="mb-4">
               <h3 class="text-white font-bold mb-2">Compteur de la Bombe</h3>
 
@@ -3509,7 +3644,7 @@
       <div
         :class="[
           'bg-gradient-to-br from-purple-900 to-indigo-900 border-2 border-purple-400 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto transform',
-          { 'animate-pulse': eventModalPulse }
+          { 'animate-pulse': eventModalPulse },
         ]"
         @click.stop
       >
@@ -3518,10 +3653,12 @@
           <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">
             Tour {{ turnNumber }}
           </h3>
-          <div class="text-base sm:text-lg font-bold text-purple-200 mb-3 sm:mb-4">
+          <div
+            class="text-base sm:text-lg font-bold text-purple-200 mb-3 sm:mb-4"
+          >
             Événement Révélé
           </div>
-          
+
           <!-- Image de l'événement -->
           <div class="mb-3 sm:mb-4">
             <img
@@ -3531,26 +3668,31 @@
               class="w-24 h-32 sm:w-32 sm:h-44 mx-auto object-contain rounded-lg bg-white bg-opacity-10 p-2"
             />
           </div>
-          
+
           <!-- Nom de l'événement -->
           <h4 class="text-lg sm:text-xl font-bold text-yellow-300 mb-2 sm:mb-3">
             {{ currentEvent.name }}
           </h4>
-          
+
           <!-- Effet de l'événement -->
           <div
             class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4 text-white text-center text-sm sm:text-base"
             v-html="currentEvent.effect"
           ></div>
-          
+
           <!-- Instructions pour les joueurs -->
-          <div class="bg-yellow-900 bg-opacity-50 border border-yellow-600 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4">
-            <div class="text-yellow-300 text-xs font-bold mb-1">📋 Instructions</div>
+          <div
+            class="bg-yellow-900 bg-opacity-50 border border-yellow-600 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4"
+          >
+            <div class="text-yellow-300 text-xs font-bold mb-1">
+              📋 Instructions
+            </div>
             <div class="text-yellow-100 text-xs">
-              C'est aux joueurs d'appliquer les effets de cet événement pendant ce tour.
+              C'est aux joueurs d'appliquer les effets de cet événement pendant
+              ce tour.
             </div>
           </div>
-          
+
           <button
             @click="closeEventModal"
             class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors w-full text-sm sm:text-base"
@@ -3576,43 +3718,68 @@
           <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
             Nouvelle Partie
           </h3>
-          
+
           <!-- Instructions principales -->
-          <div class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4 text-left">
-            <div class="text-blue-200 font-bold text-xs sm:text-sm mb-2 sm:mb-3">📋 Rappel important :</div>
+          <div
+            class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4 text-left"
+          >
+            <div
+              class="text-blue-200 font-bold text-xs sm:text-sm mb-2 sm:mb-3"
+            >
+              📋 Rappel important :
+            </div>
             <div class="text-white text-xs sm:text-sm space-y-1 sm:space-y-2">
               <div class="flex items-start space-x-2">
                 <span class="text-yellow-400 font-bold">1.</span>
-                <span>Le <strong>premier événement</strong> s'affiche automatiquement au démarrage de la partie.</span>
+                <span
+                  >Le <strong>premier événement</strong> s'affiche
+                  automatiquement au démarrage de la partie.</span
+                >
               </div>
               <div class="flex items-start space-x-2">
                 <span class="text-yellow-400 font-bold">2.</span>
-                <span>Les <strong>joueurs</strong> sont responsables d'appliquer les effets des événements.</span>
+                <span
+                  >Les <strong>joueurs</strong> sont responsables d'appliquer
+                  les effets des événements.</span
+                >
               </div>
               <div class="flex items-start space-x-2">
                 <span class="text-yellow-400 font-bold">3.</span>
-                <span>Cliquez "<strong>Nouveau Tour</strong>" pour révéler l'événement suivant.</span>
+                <span
+                  >Cliquez "<strong>Nouveau Tour</strong>" pour révéler
+                  l'événement suivant.</span
+                >
               </div>
               <div class="flex items-start space-x-2">
                 <span class="text-yellow-400 font-bold">4.</span>
-                <span>Un événement reste actif pendant <strong>tout le tour</strong>.</span>
+                <span
+                  >Un événement reste actif pendant
+                  <strong>tout le tour</strong>.</span
+                >
               </div>
               <div class="flex items-start space-x-2">
                 <span class="text-yellow-400 font-bold">5.</span>
-                <span>Il y a <strong>10 événements</strong> au total. Le "Compte à rebours final" apparaît aux tours 8, 9 ou 10.</span>
+                <span
+                  >Il y a <strong>10 événements</strong> au total. Le "Compte à
+                  rebours final" apparaît aux tours 8, 9 ou 10.</span
+                >
               </div>
             </div>
           </div>
-          
+
           <!-- Note importante -->
-          <div class="bg-orange-900 bg-opacity-50 border border-orange-500 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4">
-            <div class="text-orange-300 text-xs font-bold mb-1">⚠️ Important</div>
+          <div
+            class="bg-orange-900 bg-opacity-50 border border-orange-500 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4"
+          >
+            <div class="text-orange-300 text-xs font-bold mb-1">
+              ⚠️ Important
+            </div>
             <div class="text-orange-100 text-xs">
-              Cette application gère le compteur et les événements. 
-              Les joueurs gèrent cartes et actions !
+              Cette application gère le compteur et les événements. Les joueurs
+              gèrent cartes et actions !
             </div>
           </div>
-          
+
           <button
             @click="startGame"
             class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors w-full text-sm sm:text-base"
@@ -3639,7 +3806,7 @@
             Quitter la partie ?
           </h3>
           <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-            Êtes-vous sûr de vouloir fermer la partie en cours ? 
+            Êtes-vous sûr de vouloir fermer la partie en cours ?
             <br />
             <strong>Toutes les données seront perdues.</strong>
           </p>
@@ -3665,10 +3832,15 @@
 
 <style scoped>
 /* Custom sizes for tokens */
-.w-18 { width: 4.5rem; }
-.h-18 { height: 4.5rem; }
-.shadow-3xl { 
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(0, 0, 0, 0.15); 
+.w-18 {
+  width: 4.5rem;
+}
+.h-18 {
+  height: 4.5rem;
+}
+.shadow-3xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Modal scroll improvements for mobile */
@@ -3683,9 +3855,15 @@
 }
 
 /* Custom arrow border sizes */
-.border-l-3 { border-left-width: 6px; }
-.border-r-3 { border-right-width: 6px; }
-.border-t-5 { border-top-width: 8px; }
+.border-l-3 {
+  border-left-width: 6px;
+}
+.border-r-3 {
+  border-right-width: 6px;
+}
+.border-t-5 {
+  border-top-width: 8px;
+}
 
 /* Enhanced glow effects */
 .token-glow-blue {
@@ -3706,14 +3884,14 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 const navLinks = [
   { id: "concept", label: "Concept" },
   { id: "contenu", label: "Contenu" },
-  { id: "cartes", label: "Cartes" },
   { id: "mise-en-place", label: "Mise en Place" },
   { id: "deroulement", label: "Déroulement" },
   { id: "victoire", label: "Victoire" },
+  { id: "cartes", label: "Cartes" },
   { id: "cooperatif", label: "Mode Coopératif" },
   { id: "faq", label: "FAQ" },
-  { id: "contact", label: "Contact" },
   { id: "remerciements", label: "Remerciements" },
+  { id: "contact", label: "Contact" },
 ];
 
 // Cards data
@@ -4005,6 +4183,11 @@ const isStandalone = ref(false);
 const isDev = ref(false);
 const userEngaged = ref(false);
 
+// Connection status
+const isOnline = ref(true);
+const showOfflineBar = ref(false);
+const isRetrying = ref(false);
+
 // Card modal functionality
 const selectedCard = ref(null);
 const showCardModal = ref(false);
@@ -4089,26 +4272,63 @@ const installPWA = async () => {
   if (deferredPrompt.value) {
     // Show the install prompt
     deferredPrompt.value.prompt();
-    
+
     // Wait for the user to respond to the prompt
     const { outcome } = await deferredPrompt.value.userChoice;
-    
-    if (outcome === 'accepted') {
-      console.log('User accepted the A2HS prompt');
+
+    if (outcome === "accepted") {
+      console.log("User accepted the A2HS prompt");
     } else {
-      console.log('User dismissed the A2HS prompt');
+      console.log("User dismissed the A2HS prompt");
     }
-    
+
     // Clear the deferred prompt, as it can only be used once
     deferredPrompt.value = null;
     showInstallPrompt.value = false;
   }
 };
 
+// Connection management functions
+const checkConnection = async () => {
+  isRetrying.value = true;
+
+  try {
+    // Test de connexion réelle avec un timeout court
+    const response = await fetch("/?_=" + Date.now(), {
+      method: "HEAD",
+      mode: "no-cors",
+      cache: "no-store",
+      signal: AbortSignal.timeout(5000), // Timeout 5 secondes
+    });
+
+    // Connexion rétablie
+    isOnline.value = true;
+    showOfflineBar.value = false;
+  } catch (error) {
+    // Toujours hors ligne
+    isOnline.value = false;
+    showOfflineBar.value = true;
+  } finally {
+    isRetrying.value = false;
+  }
+};
+
+const handleOnline = () => {
+  isOnline.value = true;
+  showOfflineBar.value = false;
+  console.log("Connexion rétablie");
+};
+
+const handleOffline = () => {
+  isOnline.value = false;
+  showOfflineBar.value = true;
+  console.log("Connexion perdue");
+};
+
 // Counter mode functions
 const openCounterMode = () => {
   showCounterMode.value = true;
-  
+
   // Initialize counter values
   counterValue.value = 0;
   thresholdValue.value = 20;
@@ -4117,7 +4337,7 @@ const openCounterMode = () => {
   gameOver.value = false;
   gameStartTime.value = null;
   gameDuration.value = null;
-  
+
   // Initialize event system
   currentEvent.value = null;
   usedEvents.value = [];
@@ -4128,7 +4348,7 @@ const openCounterMode = () => {
   finalCountdownRevealed.value = false;
   showCloseConfirmModal.value = false;
   initializeEventDeck();
-  
+
   document.body.style.overflow = "hidden";
   // Timer will start when user clicks "C'est parti!"
 };
@@ -4137,8 +4357,6 @@ const closeCounterMode = () => {
   showCounterMode.value = false;
   document.body.style.overflow = "auto";
 };
-
-
 
 const triggerExplosion = () => {
   showExplosion.value = true;
@@ -4274,41 +4492,51 @@ const handleEscape = (event) => {
 // Event management functions
 const initializeEventDeck = () => {
   // Get all events except "Compte à rebours final"
-  const normalEvents = events.filter(event => event.name !== "Compte à rebours final");
-  const finalEvent = events.find(event => event.name === "Compte à rebours final");
-  
+  const normalEvents = events.filter(
+    (event) => event.name !== "Compte à rebours final"
+  );
+  const finalEvent = events.find(
+    (event) => event.name === "Compte à rebours final"
+  );
+
   // Shuffle normal events and take 9 (to make 10 total with final event)
   const shuffledEvents = [...normalEvents].sort(() => Math.random() - 0.5);
   const selectedNormalEvents = shuffledEvents.slice(0, 9);
-  
+
   // Create deck with 10 cards total
   const deck = [...selectedNormalEvents];
-  
+
   // Insert final event at position 7, 8, or 9 (0-indexed) which corresponds to turns 8, 9, or 10
   const finalPositions = [7, 8, 9]; // Positions 8, 9, 10 in 1-indexed terms
-  const finalPosition = finalPositions[Math.floor(Math.random() * finalPositions.length)];
-  
+  const finalPosition =
+    finalPositions[Math.floor(Math.random() * finalPositions.length)];
+
   // Insert the final event at the chosen position
   deck.splice(finalPosition, 0, finalEvent);
-  
+
   eventDeck.value = deck;
 };
 
 const drawNextEvent = () => {
-  if (eventDeck.value.length === 0 || gameOver.value || finalCountdownRevealed.value) return;
-  
+  if (
+    eventDeck.value.length === 0 ||
+    gameOver.value ||
+    finalCountdownRevealed.value
+  )
+    return;
+
   turnNumber.value += 1;
   const drawnEvent = eventDeck.value.shift();
   currentEvent.value = drawnEvent;
   usedEvents.value.push(drawnEvent);
   showEventModal.value = true;
   eventModalPulse.value = true;
-  
+
   // Check if the final countdown has been revealed
   if (drawnEvent.name === "Compte à rebours final") {
     finalCountdownRevealed.value = true;
   }
-  
+
   // Remove pulse effect after 2 seconds
   setTimeout(() => {
     eventModalPulse.value = false;
@@ -4325,7 +4553,7 @@ const startGame = () => {
   const now = Date.now();
   gameStartTime.value = now;
   currentTime.value = now;
-  
+
   // Automatically trigger the first event
   setTimeout(() => {
     drawNextEvent();
@@ -4349,50 +4577,63 @@ const cancelCloseGame = () => {
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("keydown", handleEscape);
-  
+
   // Check development mode
-  isDev.value = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  
+  isDev.value =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1";
+
   // Check if already installed as PWA
-  isStandalone.value = window.matchMedia('(display-mode: standalone)').matches || 
+  isStandalone.value =
+    window.matchMedia("(display-mode: standalone)").matches ||
     window.navigator.standalone === true;
 
   // Track user engagement for PWA
   const trackEngagement = () => {
     if (!userEngaged.value) {
       userEngaged.value = true;
-      console.log('User engaged with the app');
+      console.log("User engaged with the app");
     }
   };
-  
+
   // Track user engagement
-  window.addEventListener('click', trackEngagement);
-  window.addEventListener('scroll', trackEngagement);
-  window.addEventListener('touchstart', trackEngagement);
-  
+  window.addEventListener("click", trackEngagement);
+  window.addEventListener("scroll", trackEngagement);
+  window.addEventListener("touchstart", trackEngagement);
+
   // PWA install prompt
-  window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('beforeinstallprompt event fired');
+  window.addEventListener("beforeinstallprompt", (e) => {
+    console.log("beforeinstallprompt event fired");
     // Prevent Chrome 67 and earlier from automatically showing the prompt
     e.preventDefault();
     // Stash the event so it can be triggered later
     deferredPrompt.value = e;
-    
+
     // Show the install button only if not already in standalone mode and user has engaged
     if (!isStandalone.value) {
       showInstallPrompt.value = true;
-      console.log('Install prompt is now available');
+      console.log("Install prompt is now available");
     }
   });
 
   // Listen for the app being installed
-  window.addEventListener('appinstalled', () => {
-    console.log('PWA was installed');
+  window.addEventListener("appinstalled", () => {
+    console.log("PWA was installed");
     showInstallPrompt.value = false;
     deferredPrompt.value = null;
     isStandalone.value = true;
   });
-  
+
+  // Connection status listeners
+  window.addEventListener("online", handleOnline);
+  window.addEventListener("offline", handleOffline);
+
+  // Vérification initiale de la connexion
+  isOnline.value = navigator.onLine;
+  if (!navigator.onLine) {
+    showOfflineBar.value = true;
+  }
+
   // Start timer interval on client side only
   timerInterval = setInterval(() => {
     currentTime.value = Date.now();
@@ -4402,7 +4643,9 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
   window.removeEventListener("keydown", handleEscape);
-  
+  window.removeEventListener("online", handleOnline);
+  window.removeEventListener("offline", handleOffline);
+
   // Clean up timer interval
   if (timerInterval) {
     clearInterval(timerInterval);
