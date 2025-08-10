@@ -3421,11 +3421,11 @@
     <!-- Card Modal -->
     <div
       v-if="showCardModal"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+      class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-75"
       @click="closeCardModal"
     >
       <div
-        class="relative max-w-lg max-h-full bg-white rounded-2xl shadow-2xl overflow-hidden"
+        class="relative max-w-lg w-full max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden"
         @click.stop
       >
         <!-- Close button -->
@@ -3437,7 +3437,7 @@
         </button>
 
         <!-- Card image -->
-        <div class="p-6">
+        <div class="p-4 sm:p-6">
           <img
             v-if="selectedCard"
             :src="selectedCard.image"
@@ -3503,48 +3503,48 @@
     <!-- Modale Événement -->
     <div
       v-if="showEventModal && currentEvent"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-80"
+      class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-80"
       @click="closeEventModal"
     >
       <div
         :class="[
-          'bg-gradient-to-br from-purple-900 to-indigo-900 border-2 border-purple-400 rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform',
+          'bg-gradient-to-br from-purple-900 to-indigo-900 border-2 border-purple-400 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto transform',
           { 'animate-pulse': eventModalPulse }
         ]"
         @click.stop
       >
-        <div class="p-6 text-center">
-          <div class="text-6xl mb-4">🎲</div>
-          <h3 class="text-2xl font-bold text-white mb-2">
+        <div class="p-4 sm:p-6 text-center">
+          <div class="text-4xl sm:text-6xl mb-3 sm:mb-4">🎲</div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">
             Tour {{ turnNumber }}
           </h3>
-          <div class="text-lg font-bold text-purple-200 mb-4">
+          <div class="text-base sm:text-lg font-bold text-purple-200 mb-3 sm:mb-4">
             Événement Révélé
           </div>
           
           <!-- Image de l'événement -->
-          <div class="mb-4">
+          <div class="mb-3 sm:mb-4">
             <img
               :src="currentEvent.image"
               :alt="currentEvent.name"
               loading="lazy"
-              class="w-32 h-44 mx-auto object-contain rounded-lg bg-white bg-opacity-10 p-2"
+              class="w-24 h-32 sm:w-32 sm:h-44 mx-auto object-contain rounded-lg bg-white bg-opacity-10 p-2"
             />
           </div>
           
           <!-- Nom de l'événement -->
-          <h4 class="text-xl font-bold text-yellow-300 mb-3">
+          <h4 class="text-lg sm:text-xl font-bold text-yellow-300 mb-2 sm:mb-3">
             {{ currentEvent.name }}
           </h4>
           
           <!-- Effet de l'événement -->
           <div
-            class="bg-black bg-opacity-30 rounded-lg p-4 mb-4 text-white text-center"
+            class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4 text-white text-center text-sm sm:text-base"
             v-html="currentEvent.effect"
           ></div>
           
           <!-- Instructions pour les joueurs -->
-          <div class="bg-yellow-900 bg-opacity-50 border border-yellow-600 rounded-lg p-3 mb-4">
+          <div class="bg-yellow-900 bg-opacity-50 border border-yellow-600 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4">
             <div class="text-yellow-300 text-xs font-bold mb-1">📋 Instructions</div>
             <div class="text-yellow-100 text-xs">
               C'est aux joueurs d'appliquer les effets de cet événement pendant ce tour.
@@ -3553,7 +3553,7 @@
           
           <button
             @click="closeEventModal"
-            class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-colors w-full"
+            class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors w-full text-sm sm:text-base"
           >
             ✓ Compris
           </button>
@@ -3564,23 +3564,23 @@
     <!-- Modale Instructions de début de partie -->
     <div
       v-if="showGameStartModal"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-85"
+      class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-85"
       @click="closeGameStartModal"
     >
       <div
-        class="bg-gradient-to-br from-blue-900 to-purple-900 border-2 border-blue-400 rounded-2xl shadow-2xl max-w-md w-full overflow-hidden"
+        class="bg-gradient-to-br from-blue-900 to-purple-900 border-2 border-blue-400 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto"
         @click.stop
       >
-        <div class="p-6 text-center">
-          <div class="text-5xl mb-4">🎯</div>
-          <h3 class="text-2xl font-bold text-white mb-4">
+        <div class="p-4 sm:p-6 text-center">
+          <div class="text-4xl sm:text-5xl mb-3">🎯</div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
             Nouvelle Partie
           </h3>
           
           <!-- Instructions principales -->
-          <div class="bg-black bg-opacity-30 rounded-lg p-4 mb-4 text-left">
-            <div class="text-blue-200 font-bold text-sm mb-3">📋 Rappel important :</div>
-            <div class="text-white text-sm space-y-2">
+          <div class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4 text-left">
+            <div class="text-blue-200 font-bold text-xs sm:text-sm mb-2 sm:mb-3">📋 Rappel important :</div>
+            <div class="text-white text-xs sm:text-sm space-y-1 sm:space-y-2">
               <div class="flex items-start space-x-2">
                 <span class="text-yellow-400 font-bold">1.</span>
                 <span>Le <strong>premier événement</strong> s'affiche automatiquement au démarrage de la partie.</span>
@@ -3605,17 +3605,17 @@
           </div>
           
           <!-- Note importante -->
-          <div class="bg-orange-900 bg-opacity-50 border border-orange-500 rounded-lg p-3 mb-4">
+          <div class="bg-orange-900 bg-opacity-50 border border-orange-500 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4">
             <div class="text-orange-300 text-xs font-bold mb-1">⚠️ Important</div>
             <div class="text-orange-100 text-xs">
-              Cette application ne fait que gérer le compteur et afficher les événements. 
-              Les joueurs doivent gérer eux-mêmes leurs cartes et actions !
+              Cette application gère le compteur et les événements. 
+              Les joueurs gèrent cartes et actions !
             </div>
           </div>
           
           <button
             @click="startGame"
-            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors w-full"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors w-full text-sm sm:text-base"
           >
             ✓ C'est parti !
           </button>
@@ -3626,33 +3626,33 @@
     <!-- Modale Confirmation Fermeture Partie -->
     <div
       v-if="showCloseConfirmModal"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+      class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-75"
       @click="cancelCloseGame"
     >
       <div
-        class="bg-white rounded-2xl shadow-2xl max-w-sm w-full overflow-hidden"
+        class="bg-white rounded-2xl shadow-2xl max-w-sm w-full max-h-[90vh] overflow-y-auto"
         @click.stop
       >
-        <div class="p-6 text-center">
-          <div class="text-5xl mb-4">⚠️</div>
-          <h3 class="text-lg font-bold text-gray-800 mb-4">
+        <div class="p-4 sm:p-6 text-center">
+          <div class="text-4xl sm:text-5xl mb-3 sm:mb-4">⚠️</div>
+          <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-3 sm:mb-4">
             Quitter la partie ?
           </h3>
-          <p class="text-gray-600 mb-6">
+          <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
             Êtes-vous sûr de vouloir fermer la partie en cours ? 
             <br />
             <strong>Toutes les données seront perdues.</strong>
           </p>
-          <div class="flex space-x-3">
+          <div class="flex space-x-2 sm:space-x-3">
             <button
               @click="cancelCloseGame"
-              class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+              class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 sm:py-3 px-3 sm:px-4 rounded-lg transition-colors text-sm sm:text-base"
             >
               Annuler
             </button>
             <button
               @click="confirmCloseGame"
-              class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+              class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-2 sm:py-3 px-3 sm:px-4 rounded-lg transition-colors text-sm sm:text-base"
             >
               ✕ Quitter
             </button>
@@ -3669,6 +3669,17 @@
 .h-18 { height: 4.5rem; }
 .shadow-3xl { 
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(0, 0, 0, 0.15); 
+}
+
+/* Modal scroll improvements for mobile */
+.max-h-\[90vh\] {
+  max-height: 90vh;
+}
+
+@media (max-height: 600px) {
+  .max-h-\[90vh\] {
+    max-height: 95vh;
+  }
 }
 
 /* Custom arrow border sizes */
@@ -3992,6 +4003,7 @@ const deferredPrompt = ref(null);
 const showInstallPrompt = ref(false);
 const isStandalone = ref(false);
 const isDev = ref(false);
+const userEngaged = ref(false);
 
 // Card modal functionality
 const selectedCard = ref(null);
@@ -4344,6 +4356,19 @@ onMounted(() => {
   // Check if already installed as PWA
   isStandalone.value = window.matchMedia('(display-mode: standalone)').matches || 
     window.navigator.standalone === true;
+
+  // Track user engagement for PWA
+  const trackEngagement = () => {
+    if (!userEngaged.value) {
+      userEngaged.value = true;
+      console.log('User engaged with the app');
+    }
+  };
+  
+  // Track user engagement
+  window.addEventListener('click', trackEngagement);
+  window.addEventListener('scroll', trackEngagement);
+  window.addEventListener('touchstart', trackEngagement);
   
   // PWA install prompt
   window.addEventListener('beforeinstallprompt', (e) => {
@@ -4352,9 +4377,11 @@ onMounted(() => {
     e.preventDefault();
     // Stash the event so it can be triggered later
     deferredPrompt.value = e;
-    // Show the install button only if not already in standalone mode
+    
+    // Show the install button only if not already in standalone mode and user has engaged
     if (!isStandalone.value) {
       showInstallPrompt.value = true;
+      console.log('Install prompt is now available');
     }
   });
 
