@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-gray-50" v-if="!showAIMode && !showCounterMode">
     <!-- Indicateur de connexion discret -->
     <div
       v-if="showOfflineBar"
@@ -44,13 +44,28 @@
         </div>
         <p class="text-lg font-light">Bluff • Tension • Stratégie</p>
 
+        <!-- Message contenu exclusif -->
+        <div
+          class="mt-6 bg-white/10 backdrop-blur-sm rounded-xl p-4 text-sm border border-white/20"
+        >
+          <div class="flex items-center justify-center gap-2 mb-2">
+            <span class="text-lg">⭐</span>
+            <span class="font-medium">Contenu exclusif gratuit</span>
+          </div>
+          <p class="opacity-90">
+            Installez l'application pour accéder à des fonctionnalités
+            supplémentaires : compteur digital, mode hors ligne, et bien plus
+            encore !
+          </p>
+        </div>
+
         <!-- Boutons principaux redesignés -->
         <div
           class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6"
         >
           <!-- Bouton Démarrer une partie -->
           <button
-            @click="openCounterMode"
+            @click="openGameModeSelection"
             class="group relative overflow-hidden bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:from-red-600 hover:via-red-700 hover:to-red-800 text-white font-bold py-5 px-10 rounded-2xl shadow-2xl hover:shadow-red-500/25 transform hover:scale-[1.02] transition-all duration-300 text-lg sm:text-xl flex flex-col items-center justify-center min-w-[280px] sm:min-w-[300px] border border-red-400/30"
           >
             <!-- Effet de brillance -->
@@ -457,257 +472,314 @@
                 </div>
               </li>
             </ol>
-
-            <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
-              <h4 class="font-bold text-red-800 mb-2">
-                💥 Explosion Immédiate :
-              </h4>
-              <p class="text-red-700">
-                Si le compteur atteint ou dépasse le seuil d'explosion, la bombe
-                explose immédiatement et la partie s'arrête ! Les Saboteurs
-                gagnent.
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      <!-- Conditions de Victoire -->
-      <section id="victoire" class="mb-12">
+      <!-- Fin de partie -->
+      <section id="fin-partie" class="mb-12">
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div class="p-4 sm:p-8">
             <h2
               class="text-2xl sm:text-4xl font-bold text-red-600 border-b-4 border-red-500 pb-4 mb-8"
             >
-              🏆 Conditions de Victoire
+              🏁 Fin de Partie
             </h2>
 
-            <div class="grid lg:grid-cols-3 gap-8 mb-8">
-              <!-- Démineurs -->
-              <div class="group h-full">
-                <div
-                  class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
-                >
-                  <div class="flex items-center justify-center mb-4">
-                    <div class="relative">
-                      <img
-                        src="/demineur.png"
-                        alt="Carte Démineur"
-                        loading="lazy"
-                        class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                        @click="openCardModal('/demineur.png', 'Démineur')"
-                      />
-                      <div
-                        class="absolute -top-1 -right-1 w-6 h-6 bg-blue-300 text-blue-800 rounded-full flex items-center justify-center font-bold text-xs"
-                      >
-                        🟦
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="text-center text-white flex-grow flex flex-col justify-center"
-                  >
-                    <h3 class="text-xl font-bold mb-2">DÉMINEURS</h3>
-                    <h4 class="text-lg font-semibold mb-3 text-blue-200">
-                      Victoire par Élimination
-                    </h4>
-                    <p class="text-sm text-blue-100 leading-relaxed">
-                      Empêcher l'explosion ET empêcher la victoire de l'Agent
-                      Double
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Saboteurs -->
-              <div class="group h-full">
-                <div
-                  class="bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
-                >
-                  <div class="flex items-center justify-center mb-4">
-                    <div class="relative">
-                      <img
-                        src="/saboteur.png"
-                        alt="Carte Saboteur"
-                        loading="lazy"
-                        class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                        @click="openCardModal('/saboteur.png', 'Saboteur')"
-                      />
-                      <div
-                        class="absolute -top-1 -right-1 w-6 h-6 bg-pink-300 text-pink-800 rounded-full flex items-center justify-center font-bold text-xs"
-                      >
-                        🟥
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="text-center text-white flex-grow flex flex-col justify-center"
-                  >
-                    <h3 class="text-xl font-bold mb-2">SABOTEURS</h3>
-                    <h4 class="text-lg font-semibold mb-3 text-pink-200">
-                      Victoire Immédiate
-                    </h4>
-                    <p class="text-sm text-pink-100 leading-relaxed">
-                      Faire exploser la bombe<br />(compteur ≥ seuil)
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Agent Double -->
-              <div class="group h-full">
-                <div
-                  class="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
-                >
-                  <div class="flex items-center justify-center mb-4">
-                    <div class="relative">
-                      <img
-                        src="/agentDouble.png"
-                        alt="Carte Agent Double"
-                        loading="lazy"
-                        class="w-24 h-32 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                        @click="
-                          openCardModal('/agentDouble.png', 'Agent Double')
-                        "
-                      />
-                      <div
-                        class="absolute -top-1 -right-1 w-6 h-6 bg-yellow-200 text-yellow-800 rounded-full flex items-center justify-center font-bold text-xs"
-                      >
-                        🟨
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="text-center text-gray-800 flex-grow flex flex-col justify-center"
-                  >
-                    <h3 class="text-xl font-bold mb-2">AGENT DOUBLE</h3>
-                    <h4 class="text-lg font-semibold mb-3 text-gray-700">
-                      Victoire en Fin de Partie
-                    </h4>
-                    <ul class="text-sm text-gray-700 leading-relaxed space-y-1">
-                      <li>Posséder 2 des 3 cartes objectif</li>
-                      <li>ET éviter l'explosion</li>
-                      <li>ET arriver en fin de partie</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-300 p-8 rounded-2xl shadow-lg"
-            >
-              <h4 class="font-bold text-blue-800 mb-6 text-center text-2xl">
-                🎯 Cartes Objectif de l'Agent Double
-              </h4>
-              <p class="text-blue-700 mb-6 text-center text-lg">
-                L'Agent Double doit réunir
-                <strong>2 des 3 cartes suivantes</strong> dans sa main :
-              </p>
-
-              <div class="grid md:grid-cols-3 gap-6">
-                <!-- Dossier classé -->
-                <div class="group">
-                  <div
-                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                  >
-                    <div class="flex items-center justify-center mb-4">
-                      <div class="relative">
-                        <img
-                          src="/dossierClasse.png"
-                          alt="Carte Dossier classé"
-                          loading="lazy"
-                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                          @click="
-                            openCardModal(
-                              '/dossierClasse.png',
-                              'Dossier classé'
-                            )
-                          "
-                        />
-                        <div
-                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
-                        >
-                          📂
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-center text-gray-800">
-                      <h5 class="text-lg font-bold">Dossier classé</h5>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Robot de déminage -->
-                <div class="group">
-                  <div
-                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                  >
-                    <div class="flex items-center justify-center mb-4">
-                      <div class="relative">
-                        <img
-                          src="/robotDeminage.png"
-                          alt="Carte Robot de déminage"
-                          loading="lazy"
-                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                          @click="
-                            openCardModal(
-                              '/robotDeminage.png',
-                              'Robot de déminage'
-                            )
-                          "
-                        />
-                        <div
-                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
-                        >
-                          🤖
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-center text-gray-800">
-                      <h5 class="text-lg font-bold">Robot de déminage</h5>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Plan d'évacuation -->
-                <div class="group">
-                  <div
-                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                  >
-                    <div class="flex items-center justify-center mb-4">
-                      <div class="relative">
-                        <img
-                          src="/planEvacuation.png"
-                          alt="Carte Plan d'évacuation"
-                          loading="lazy"
-                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                          @click="
-                            openCardModal(
-                              '/planEvacuation.png',
-                              'Plan d\'évacuation'
-                            )
-                          "
-                        />
-                        <div
-                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
-                        >
-                          🗺️
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text-center text-gray-800">
-                      <h5 class="text-lg font-bold">Plan d'évacuation</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-6 text-center">
-                <p class="text-blue-700 font-medium">
-                  ⚠️ Ces cartes permettent à l'Agent Double de bluffer sur son
-                  identité tout en poursuivant son objectif secret
+            <div class="space-y-6">
+              <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+                <h4 class="font-bold text-red-800 mb-3 flex items-center gap-2">
+                  💥 Explosion Immédiate
+                </h4>
+                <p class="text-red-700">
+                  La partie s'arrête <strong>immédiatement</strong> si le
+                  compteur atteint ou dépasse le seuil d'explosion.
+                  <br /><strong>Victoire :</strong> Saboteurs gagnent
+                  instantanément.
                 </p>
+              </div>
+
+              <div
+                class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg"
+              >
+                <h4
+                  class="font-bold text-orange-800 mb-3 flex items-center gap-2"
+                >
+                  ⏰ Compte à Rebours Final
+                </h4>
+                <p class="text-orange-700">
+                  La partie s'arrête à la fin du tour déclenché par l'événement
+                  <strong>"Compte à rebours final"</strong>. <br /><strong
+                    >Déterminant :</strong
+                  >
+                  Le vainqueur est alors déterminé selon les conditions de
+                  victoire classiques.
+                </p>
+              </div>
+
+              <div
+                class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg"
+              >
+                <h4
+                  class="font-bold text-blue-800 mb-3 flex items-center gap-2"
+                >
+                  🃏 Pioche Épuisée
+                </h4>
+                <p class="text-blue-700">
+                  La partie s'arrête lorsque la
+                  <strong>pioche est vide</strong> et qu'un joueur ne peut plus
+                  reconstituer sa main à 5 cartes. <br /><strong
+                    >Important :</strong
+                  >
+                  On termine le tour en cours pour que chacun ait joué le même
+                  nombre de tours. <br /><strong>Déterminant :</strong> Le
+                  vainqueur est alors déterminé selon les conditions de victoire
+                  classiques.
+                </p>
+              </div>
+
+              <div
+                class="bg-gradient-to-br from-purple-50 to-indigo-50 border-l-4 border-purple-500 p-8 rounded-r-lg"
+              >
+                <h4
+                  class="font-bold text-purple-800 mb-6 text-center text-2xl flex items-center justify-center gap-3"
+                >
+                  🏆 Conditions de Victoire
+                </h4>
+
+                <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                  <!-- Démineurs -->
+                  <div class="group h-full">
+                    <div
+                      class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+                    >
+                      <div class="flex items-center justify-center mb-4">
+                        <div class="relative">
+                          <img
+                            src="/demineur.png"
+                            alt="Carte Démineur"
+                            loading="lazy"
+                            class="w-20 h-28 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                            @click="openCardModal('/demineur.png', 'Démineur')"
+                          />
+                          <div
+                            class="absolute -top-1 -right-1 w-6 h-6 bg-blue-300 text-blue-800 rounded-full flex items-center justify-center font-bold text-xs"
+                          >
+                            🟦
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="text-center text-white flex-grow flex flex-col justify-center"
+                      >
+                        <h5 class="text-lg font-bold mb-2">DÉMINEURS</h5>
+                        <h6 class="text-sm font-semibold mb-2 text-blue-200">
+                          Victoire par Élimination
+                        </h6>
+                        <p class="text-xs text-blue-100 leading-relaxed">
+                          Empêcher l'explosion ET empêcher la victoire de
+                          l'Agent Double
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Saboteurs -->
+                  <div class="group h-full">
+                    <div
+                      class="bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+                    >
+                      <div class="flex items-center justify-center mb-4">
+                        <div class="relative">
+                          <img
+                            src="/saboteur.png"
+                            alt="Carte Saboteur"
+                            loading="lazy"
+                            class="w-20 h-28 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                            @click="openCardModal('/saboteur.png', 'Saboteur')"
+                          />
+                          <div
+                            class="absolute -top-1 -right-1 w-6 h-6 bg-pink-300 text-pink-800 rounded-full flex items-center justify-center font-bold text-xs"
+                          >
+                            🟥
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="text-center text-white flex-grow flex flex-col justify-center"
+                      >
+                        <h5 class="text-lg font-bold mb-2">SABOTEURS</h5>
+                        <h6 class="text-sm font-semibold mb-2 text-pink-200">
+                          Victoire Immédiate
+                        </h6>
+                        <p class="text-xs text-pink-100 leading-relaxed">
+                          Faire exploser la bombe<br />(compteur ≥ seuil)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Agent Double -->
+                  <div class="group h-full">
+                    <div
+                      class="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+                    >
+                      <div class="flex items-center justify-center mb-4">
+                        <div class="relative">
+                          <img
+                            src="/agentDouble.png"
+                            alt="Carte Agent Double"
+                            loading="lazy"
+                            class="w-20 h-28 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                            @click="
+                              openCardModal('/agentDouble.png', 'Agent Double')
+                            "
+                          />
+                          <div
+                            class="absolute -top-1 -right-1 w-6 h-6 bg-yellow-200 text-yellow-800 rounded-full flex items-center justify-center font-bold text-xs"
+                          >
+                            🟨
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="text-center text-gray-800 flex-grow flex flex-col justify-center"
+                      >
+                        <h5 class="text-lg font-bold mb-2">AGENT DOUBLE</h5>
+                        <h6 class="text-sm font-semibold mb-2 text-gray-700">
+                          Victoire en Fin de Partie
+                        </h6>
+                        <ul
+                          class="text-xs text-gray-700 leading-relaxed space-y-1"
+                        >
+                          <li>• Posséder 2 des 3 cartes objectif</li>
+                          <li>• ET éviter l'explosion</li>
+                          <li>• ET arriver en fin de partie</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cartes Objectif Agent Double -->
+                <div
+                  class="bg-gradient-to-br from-yellow-50 to-amber-50 border-2 border-yellow-300 p-6 rounded-2xl shadow-lg"
+                >
+                  <h6
+                    class="font-bold text-yellow-800 mb-4 text-center text-lg"
+                  >
+                    🎯 Cartes Objectif de l'Agent Double
+                  </h6>
+                  <p class="text-yellow-700 mb-4 text-center text-sm">
+                    L'Agent Double doit réunir
+                    <strong>2 des 3 cartes suivantes</strong> dans sa main :
+                  </p>
+
+                  <div class="grid grid-cols-3 gap-4">
+                    <!-- Dossier classé -->
+                    <div class="group text-center">
+                      <div
+                        class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      >
+                        <div class="flex items-center justify-center mb-2">
+                          <div class="relative">
+                            <img
+                              src="/dossierClasse.png"
+                              alt="Carte Dossier classé"
+                              loading="lazy"
+                              class="w-16 h-20 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                              @click="
+                                openCardModal(
+                                  '/dossierClasse.png',
+                                  'Dossier classé'
+                                )
+                              "
+                            />
+                            <div
+                              class="absolute -top-1 -right-1 w-4 h-4 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                            >
+                              📂
+                            </div>
+                          </div>
+                        </div>
+                        <h6 class="text-xs font-bold text-gray-800">
+                          Dossier classé
+                        </h6>
+                      </div>
+                    </div>
+
+                    <!-- Robot de déminage -->
+                    <div class="group text-center">
+                      <div
+                        class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      >
+                        <div class="flex items-center justify-center mb-2">
+                          <div class="relative">
+                            <img
+                              src="/robotDeminage.png"
+                              alt="Carte Robot de déminage"
+                              loading="lazy"
+                              class="w-16 h-20 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                              @click="
+                                openCardModal(
+                                  '/robotDeminage.png',
+                                  'Robot de déminage'
+                                )
+                              "
+                            />
+                            <div
+                              class="absolute -top-1 -right-1 w-4 h-4 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                            >
+                              🤖
+                            </div>
+                          </div>
+                        </div>
+                        <h6 class="text-xs font-bold text-gray-800">
+                          Robot de déminage
+                        </h6>
+                      </div>
+                    </div>
+
+                    <!-- Plan d'évacuation -->
+                    <div class="group text-center">
+                      <div
+                        class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      >
+                        <div class="flex items-center justify-center mb-2">
+                          <div class="relative">
+                            <img
+                              src="/planEvacuation.png"
+                              alt="Carte Plan d'évacuation"
+                              loading="lazy"
+                              class="w-16 h-20 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                              @click="
+                                openCardModal(
+                                  '/planEvacuation.png',
+                                  'Plan d\'évacuation'
+                                )
+                              "
+                            />
+                            <div
+                              class="absolute -top-1 -right-1 w-4 h-4 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                            >
+                              🗺️
+                            </div>
+                          </div>
+                        </div>
+                        <h6 class="text-xs font-bold text-gray-800">
+                          Plan d'évacuation
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 text-center">
+                    <p class="text-yellow-700 font-medium text-xs">
+                      ⚠️ Ces cartes permettent à l'Agent Double de bluffer sur
+                      son identité tout en poursuivant son objectif secret
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -3257,11 +3329,23 @@
               "
               class="mb-4 p-3 bg-purple-900 bg-opacity-50 border border-purple-400 rounded-lg"
             >
-              <div class="text-purple-200 text-xs mb-1">
-                🎲 Événement actuel
-              </div>
-              <div class="text-yellow-300 font-bold text-sm mb-1">
-                {{ currentEvent.name }}
+              <div class="flex justify-between items-start mb-2">
+                <div class="flex-1">
+                  <div class="text-purple-200 text-xs mb-1">
+                    🎲 Événement actuel
+                  </div>
+                  <div class="text-yellow-300 font-bold text-sm mb-1">
+                    {{ currentEvent.name }}
+                  </div>
+                </div>
+                <button
+                  @click="showEventModal = true"
+                  class="flex-shrink-0 ml-2 px-2 py-1 bg-purple-600 hover:bg-purple-500 text-white text-xs rounded-md transition-colors duration-200 flex items-center gap-1"
+                  title="Voir la carte événement"
+                >
+                  <span class="text-xs">👁️</span>
+                  <span class="hidden xs:inline">Voir</span>
+                </button>
               </div>
               <div
                 class="text-white text-xs opacity-90"
@@ -3276,9 +3360,21 @@
               "
               class="mb-4 p-3 bg-red-900 bg-opacity-70 border-2 border-red-500 rounded-lg animate-pulse"
             >
-              <div class="text-red-200 text-xs mb-1">🚨 Événement spécial</div>
-              <div class="text-yellow-300 font-bold text-sm mb-1">
-                {{ currentEvent.name }}
+              <div class="flex justify-between items-start mb-2">
+                <div class="flex-1">
+                  <div class="text-red-200 text-xs mb-1">🚨 Événement spécial</div>
+                  <div class="text-yellow-300 font-bold text-sm mb-1">
+                    {{ currentEvent.name }}
+                  </div>
+                </div>
+                <button
+                  @click="showEventModal = true"
+                  class="flex-shrink-0 ml-2 px-2 py-1 bg-red-600 hover:bg-red-500 text-white text-xs rounded-md transition-colors duration-200 flex items-center gap-1"
+                  title="Voir la carte événement"
+                >
+                  <span class="text-xs">👁️</span>
+                  <span class="hidden xs:inline">Voir</span>
+                </button>
               </div>
               <div
                 class="text-white text-xs font-bold"
@@ -3616,18 +3712,46 @@
             <div
               v-for="(entry, index) in counterHistory.slice().reverse()"
               :key="index"
-              class="p-3 bg-gray-50 rounded-lg"
+              :class="[
+                'p-3 rounded-lg',
+                entry.type === 'event' 
+                  ? 'bg-gradient-to-r from-purple-50 to-indigo-50 border-l-4 border-purple-400' 
+                  : 'bg-gray-50'
+              ]"
             >
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium text-gray-700">{{
-                  entry.action
-                }}</span>
-                <span class="text-sm text-blue-600 font-mono"
-                  >{{ entry.oldValue }} → {{ entry.newValue }}</span
-                >
+              <!-- Affichage pour les événements -->
+              <div v-if="entry.type === 'event'" class="space-y-2">
+                <div class="flex justify-between items-start">
+                  <div class="flex-1">
+                    <span class="text-sm font-semibold text-purple-700">{{
+                      entry.action
+                    }}</span>
+                    <div v-if="entry.turn" class="text-xs text-purple-600 mt-1">
+                      Tour {{ entry.turn }}
+                    </div>
+                  </div>
+                </div>
+                <div v-if="entry.eventData" class="text-xs text-purple-600 bg-purple-100 p-2 rounded italic">
+                  {{ entry.eventData.effect.replace(/<[^>]*>/g, '') }}
+                </div>
+                <div class="text-xs text-gray-500">
+                  {{ entry.timestamp }}
+                </div>
               </div>
-              <div class="text-xs text-gray-500 mt-1">
-                {{ entry.timestamp }}
+              
+              <!-- Affichage pour les actions de compteur -->
+              <div v-else>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium text-gray-700">{{
+                    entry.action
+                  }}</span>
+                  <span class="text-sm text-blue-600 font-mono"
+                    >{{ entry.oldValue }} → {{ entry.newValue }}</span
+                  >
+                </div>
+                <div class="text-xs text-gray-500 mt-1">
+                  {{ entry.timestamp }}
+                </div>
               </div>
             </div>
           </div>
@@ -3828,6 +3952,574 @@
       </div>
     </div>
   </div>
+
+    <!-- Modale Sélection Mode de Jeu -->
+    <div
+      v-if="showGameModeModal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+      @click="closeGameModeModal"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform transition-all duration-300 scale-100"
+        @click.stop
+      >
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-red-500 to-pink-500 p-6 text-center">
+          <h3 class="text-xl font-bold text-white mb-2">🎯 Choisissez votre Mode</h3>
+          <p class="text-red-100 text-sm">Comment souhaitez-vous jouer ?</p>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6 space-y-4">
+          <!-- Mode Compétitif -->
+          <button
+            @click="selectCompetitiveMode"
+            class="w-full group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+          >
+            <div class="flex items-center justify-between">
+              <div class="text-left">
+                <div class="font-bold text-lg mb-1">🎭 Mode Compétitif</div>
+                <div class="text-red-100 text-sm">3-5 joueurs • Rôles cachés</div>
+              </div>
+              <div class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity">
+                ⚔️
+              </div>
+            </div>
+          </button>
+
+          <!-- Mode Coopératif -->
+          <button
+            @click="selectCooperativeMode"
+            class="w-full group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+          >
+            <div class="flex items-center justify-between">
+              <div class="text-left">
+                <div class="font-bold text-lg mb-1">🤖 Mode Coopératif</div>
+                <div class="text-blue-100 text-sm">1-2 joueurs vs IA • Bientôt disponible</div>
+              </div>
+              <div class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity">
+                🤝
+              </div>
+            </div>
+          </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-50 px-6 py-4 border-t">
+          <button
+            @click="closeGameModeModal"
+            class="w-full text-gray-600 hover:text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors text-sm"
+          >
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale Sélection Difficulté IA -->
+    <div
+      v-if="showAIDifficultyModal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+      @click="closeAIDifficultyModal"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all duration-300 scale-100"
+        @click.stop
+      >
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-blue-500 to-indigo-500 p-6 text-center">
+          <h3 class="text-xl font-bold text-white mb-2">🎯 Choisissez la Difficulté</h3>
+          <p class="text-blue-100 text-sm">Mode Coopératif vs IA</p>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6 space-y-3">
+          <div
+            v-for="difficulty in aiDifficultyLevels"
+            :key="difficulty.name"
+            @click="selectAIDifficulty(difficulty)"
+            class="w-full group cursor-pointer rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg border-2 border-transparent hover:border-opacity-50"
+            :class="{
+              'bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 hover:border-green-400': difficulty.color === 'green',
+              'bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 hover:border-blue-400': difficulty.color === 'blue',
+              'bg-gradient-to-r from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200 hover:border-orange-400': difficulty.color === 'orange',
+              'bg-gradient-to-r from-red-50 to-red-100 hover:from-red-100 hover:to-red-200 hover:border-red-400': difficulty.color === 'red',
+              'bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 hover:border-purple-400': difficulty.color === 'purple'
+            }"
+          >
+            <div class="flex items-center justify-between">
+              <div class="text-left flex-1">
+                <div class="font-bold text-lg mb-1"
+                  :class="{
+                    'text-green-800': difficulty.color === 'green',
+                    'text-blue-800': difficulty.color === 'blue',
+                    'text-orange-800': difficulty.color === 'orange',
+                    'text-red-800': difficulty.color === 'red',
+                    'text-purple-800': difficulty.color === 'purple'
+                  }"
+                >
+                  {{ difficulty.name }}
+                </div>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div>🎯 {{ difficulty.turns }} tours • Seuil: {{ difficulty.threshold }}</div>
+                  <div>📊 Taux de réussite: {{ difficulty.winRate }}</div>
+                </div>
+              </div>
+              <div class="text-2xl opacity-70 group-hover:opacity-100 transition-opacity">
+                <span v-if="difficulty.color === 'green'">😌</span>
+                <span v-else-if="difficulty.color === 'blue'">😐</span>
+                <span v-else-if="difficulty.color === 'orange'">😰</span>
+                <span v-else-if="difficulty.color === 'red'">😱</span>
+                <span v-else>💀</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-50 px-6 py-4 border-t">
+          <button
+            @click="closeAIDifficultyModal"
+            class="w-full text-gray-600 hover:text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors text-sm"
+          >
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mode IA Coopératif -->
+    <div
+      v-if="showAIMode"
+      class="fixed inset-0 z-40 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900"
+      style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden;"
+    >
+      <!-- Background pattern -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="
+            background-image: radial-gradient(circle at 25% 25%, #3b82f6 1px, transparent 1px),
+                              radial-gradient(circle at 75% 75%, #8b5cf6 1px, transparent 1px);
+            background-size: 50px 50px;
+          "></div>
+      </div>
+
+      <!-- Header -->
+      <div class="relative z-10 bg-black bg-opacity-30 border-b border-blue-400">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+            🤖 Mode Coopératif vs IA
+          </h1>
+          <button
+            @click="closeAIMode"
+            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+          >
+            ✕ Fermer
+          </button>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <div class="relative z-10 max-w-4xl mx-auto p-4 h-full overflow-auto">
+        <!-- Informations de partie -->
+        <div class="mb-6 text-center space-y-4">
+          <!-- Difficulté sélectionnée -->
+          <div v-if="selectedDifficulty" class="inline-block bg-black bg-opacity-50 text-white px-6 py-4 rounded-2xl shadow-lg border border-blue-400">
+            <div class="text-sm opacity-90 mb-1">Difficulté</div>
+            <div class="text-xl font-bold mb-2"
+              :class="{
+                'text-green-300': selectedDifficulty.color === 'green',
+                'text-blue-300': selectedDifficulty.color === 'blue',
+                'text-orange-300': selectedDifficulty.color === 'orange',
+                'text-red-300': selectedDifficulty.color === 'red',
+                'text-purple-300': selectedDifficulty.color === 'purple'
+              }"
+            >
+              {{ selectedDifficulty.name }}
+            </div>
+            <div class="text-xs opacity-80 space-x-4">
+              <span>Seuil max: {{ selectedDifficulty.threshold }}</span>
+              <span>•</span>
+              <span>Total: {{ selectedDifficulty.turns }} tours</span>
+            </div>
+          </div>
+          
+          <!-- Compteurs de tours -->
+          <div class="flex justify-center gap-4">
+            <div class="bg-blue-600 text-white px-6 py-3 rounded-2xl shadow-lg">
+              <div class="text-sm opacity-90">Tour actuel</div>
+              <div class="text-2xl font-bold"># {{ aiTurnNumber }}</div>
+            </div>
+            
+            <div v-if="selectedDifficulty" class="bg-orange-600 text-white px-6 py-3 rounded-2xl shadow-lg">
+              <div class="text-sm opacity-90">Tours restants</div>
+              <div class="text-2xl font-bold">{{ aiRemainingTurns }}</div>
+            </div>
+          </div>
+          
+          <!-- Informations de gameplay -->
+          <div v-if="aiTurnNumber === 0" class="mt-4 bg-blue-600 bg-opacity-20 border border-blue-400 rounded-xl p-4 text-white text-sm text-center">
+            <div class="inline-flex items-start gap-3 text-left">
+              <div class="text-2xl">ℹ️</div>
+              <div>
+                <div class="font-bold mb-2">🤖 Comment fonctionne l'IA :</div>
+                <ul class="space-y-1 text-blue-100">
+                  <li>• <strong>Charges</strong> : L'effet est appliqué automatiquement au compteur</li>
+                  <li>• <strong>Seuil réduit</strong> : Le seuil d'explosion baisse automatiquement</li>
+                  <li>• <strong>Sabotage/Blocage</strong> : Vous devez appliquer l'effet manuellement</li>
+                </ul>
+                <div class="mt-2 text-xs opacity-90">
+                  💡 Cliquez sur "Tour suivant" pour voir la carte jouée par l'IA
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compteur principal -->
+        <div class="bg-black bg-opacity-50 rounded-2xl p-6 mb-6 border border-blue-400">
+          <h2 class="text-white font-bold mb-4 text-center text-xl">💣 Compteur de la Bombe</h2>
+          
+          <!-- Progress bar -->
+          <div class="mb-6">
+            <div class="flex justify-between text-white text-sm mb-2">
+              <span>Compteur: {{ aiCounterValue }}</span>
+              <span>Seuil: {{ aiThresholdValue }}</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-4 relative overflow-hidden">
+              <div
+                class="h-4 rounded-full transition-all duration-500 relative overflow-hidden"
+                :class="
+                  aiCounterValue >= aiThresholdValue
+                    ? 'bg-red-600'
+                    : aiCounterValue >= aiThresholdValue * 0.8
+                    ? 'bg-yellow-500'
+                    : 'bg-green-500'
+                "
+                :style="`width: ${Math.min(100, (aiCounterValue / aiThresholdValue) * 100)}%`"
+              >
+                <!-- Animated stripes for danger -->
+                <div
+                  v-if="aiCounterValue >= aiThresholdValue * 0.8"
+                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Boutons de contrôle -->
+          <div class="grid grid-cols-4 lg:grid-cols-8 gap-3 mb-6">
+            <!-- Décharges -->
+            <button
+              @click="aiAdjustCounter(-3)"
+              :disabled="aiGameOver"
+              class="bg-green-600 hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            >
+              -3
+            </button>
+            <button
+              @click="aiAdjustCounter(-2)"
+              :disabled="aiGameOver"
+              class="bg-green-500 hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            >
+              -2
+            </button>
+            <button
+              @click="aiAdjustCounter(-1)"
+              :disabled="aiGameOver"
+              class="bg-green-400 hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            >
+              -1
+            </button>
+            
+            <!-- Charges -->
+            <button
+              @click="aiAdjustCounter(+1)"
+              :disabled="aiGameOver"
+              class="bg-red-400 hover:bg-red-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            >
+              +1
+            </button>
+            <button
+              @click="aiAdjustCounter(+2)"
+              :disabled="aiGameOver"
+              class="bg-red-500 hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            >
+              +2
+            </button>
+            <button
+              @click="aiAdjustCounter(+3)"
+              :disabled="aiGameOver"
+              class="bg-red-600 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            >
+              +3
+            </button>
+            <button
+              @click="aiAdjustCounter(+4)"
+              :disabled="aiGameOver"
+              class="bg-red-700 hover:bg-red-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            >
+              +4
+            </button>
+            <button
+              @click="aiAdjustCounter(+5)"
+              :disabled="aiGameOver"
+              class="bg-red-800 hover:bg-red-900 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            >
+              +5
+            </button>
+          </div>
+
+          <!-- Contrôle du seuil -->
+          <div class="flex justify-center gap-4 mb-6">
+            <button
+              @click="aiAdjustThreshold(-1)"
+              :disabled="aiGameOver"
+              class="bg-orange-600 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              Seuil -1
+            </button>
+            <button
+              @click="aiAdjustThreshold(+1)"
+              :disabled="aiGameOver"
+              class="bg-orange-600 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              Seuil +1
+            </button>
+          </div>
+
+          <!-- Bouton Tour suivant -->
+          <div class="flex justify-center gap-4">
+            <button
+              @click="aiNextTurn"
+              :disabled="aiGameOver"
+              class="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-xl transition-colors flex items-center gap-2 text-lg"
+            >
+              <span>🎯</span>
+              Tour suivant (IA joue)
+            </button>
+            
+            <!-- Historique -->
+            <button
+              @click="showAIHistoryModal = true"
+              class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-6 rounded-xl transition-colors flex items-center gap-2"
+            >
+              <span>📋</span>
+              Historique
+            </button>
+          </div>
+        </div>
+
+        <!-- État de fin de partie -->
+        <div v-if="aiGameOver" class="rounded-2xl p-6 text-center border-2"
+          :class="
+            aiCounterValue >= aiThresholdValue
+              ? 'bg-red-900 bg-opacity-75 border-red-500'
+              : 'bg-green-900 bg-opacity-75 border-green-500'
+          "
+        >
+          <!-- Explosion -->
+          <div v-if="aiCounterValue >= aiThresholdValue">
+            <div class="text-4xl mb-4">💥</div>
+            <h3 class="text-2xl font-bold text-white mb-2">EXPLOSION !</h3>
+            <p class="text-red-200 mb-4">La bombe a explosé ! L'IA a gagné cette fois.</p>
+          </div>
+          
+          <!-- Victoire -->
+          <div v-else>
+            <div class="text-4xl mb-4">🎉</div>
+            <h3 class="text-2xl font-bold text-white mb-2">VICTOIRE !</h3>
+            <p class="text-green-200 mb-4">
+              Félicitations ! Vous avez survécu {{ selectedDifficulty?.turns }} tours en mode {{ selectedDifficulty?.name }}.
+            </p>
+          </div>
+          
+          <button
+            @click="openAIMode"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors mr-2"
+          >
+            🔄 Nouvelle partie
+          </button>
+          <button
+            @click="showAIDifficultyModal = true; aiGameOver = false; showAIMode = false"
+            class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+          >
+            🎯 Changer difficulté
+          </button>
+        </div>
+      </div>
+
+      <!-- Explosion overlay -->
+      <div
+        v-if="aiShowExplosion"
+        class="fixed inset-0 z-50 bg-red-600 bg-opacity-90 flex items-center justify-center animate-pulse"
+      >
+        <div class="text-center text-white">
+          <div class="text-8xl mb-4">💥</div>
+          <div class="text-4xl font-bold">BOOOM!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale Historique IA -->
+    <div
+      v-if="showAIHistoryModal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+      @click="showAIHistoryModal = false"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-96 overflow-hidden"
+        @click.stop
+      >
+        <div class="p-4 border-b border-gray-200">
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg font-bold text-gray-800">📋 Historique - Mode IA</h3>
+            <button
+              @click="showAIHistoryModal = false"
+              class="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+        <div class="p-4 max-h-80 overflow-y-auto">
+          <div
+            v-if="aiCounterHistory.length === 0"
+            class="text-center text-gray-500 py-8"
+          >
+            Aucune action enregistrée
+          </div>
+          <div v-else class="space-y-2">
+            <div
+              v-for="(entry, index) in aiCounterHistory.slice().reverse()"
+              :key="index"
+              :class="[
+                'p-3 rounded-lg',
+                entry.type === 'ai' 
+                  ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-400' 
+                  : entry.type === 'victory'
+                  ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-400'
+                  : 'bg-gray-50'
+              ]"
+            >
+              <div class="flex justify-between items-center">
+                <span class="text-sm font-medium" 
+                  :class="{
+                    'text-blue-700': entry.type === 'ai',
+                    'text-green-700': entry.type === 'victory',
+                    'text-gray-700': entry.type === 'counter'
+                  }"
+                >{{
+                  entry.action
+                }}</span>
+                <span v-if="entry.oldValue !== null && entry.newValue !== null" 
+                  class="text-sm font-mono" 
+                  :class="{
+                    'text-blue-600': entry.type === 'ai',
+                    'text-green-600': entry.type === 'victory',
+                    'text-gray-600': entry.type === 'counter'
+                  }"
+                >{{ entry.oldValue }} → {{ entry.newValue }}</span>
+              </div>
+              <div class="flex justify-between items-center mt-1">
+                <div class="text-xs text-gray-500">{{ entry.timestamp }}</div>
+                <div v-if="entry.turn" class="text-xs text-gray-500">Tour {{ entry.turn }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale Carte IA Jouée -->
+    <div
+      v-if="showAICardModal && currentAICard"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-80"
+      @click="closeAICardModal"
+    >
+      <div
+        class="bg-gradient-to-br from-indigo-900 to-purple-900 rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border-2 border-blue-400 transform transition-all duration-300 scale-100"
+        @click.stop
+      >
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-center">
+          <h3 class="text-xl font-bold text-white mb-2">🤖 L'IA joue sa carte</h3>
+          <p class="text-blue-100 text-sm">Tour {{ aiTurnNumber }}</p>
+        </div>
+
+        <!-- Card Display -->
+        <div class="p-6 text-center">
+          <!-- Card Image -->
+          <div class="mb-6">
+            <div class="w-32 h-44 mx-auto rounded-xl shadow-2xl overflow-hidden">
+              <img
+                :src="currentAICard.image"
+                :alt="currentAICard.name"
+                loading="lazy"
+                class="w-full h-full object-contain cursor-pointer hover:scale-105 transition-transform duration-300"
+                @error="showFallbackCard"
+                v-show="!showImageFallback"
+              />
+              <!-- Fallback design if image fails to load -->
+              <div v-show="showImageFallback" class="w-full h-full flex flex-col items-center justify-center text-gray-800 bg-white border-4 border-yellow-300 rounded-xl p-2">
+                <div class="text-5xl mb-2">{{ currentAICard.icon }}</div>
+                <div class="text-lg font-bold text-center leading-tight">{{ currentAICard.name }}</div>
+                <div v-if="currentAICard.type === 'charge'" class="text-sm text-red-600 font-semibold mt-2">
+                  +{{ currentAICard.value }}
+                </div>
+                <div v-else-if="currentAICard.type === 'threshold'" class="text-sm text-blue-600 font-semibold mt-2">
+                  Seuil -2
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Info -->
+          <div class="text-white mb-4">
+            <h4 class="text-2xl font-bold text-yellow-300 mb-2">{{ currentAICard.name }}</h4>
+            <p class="text-blue-100 text-sm mb-4">{{ currentAICard.description }}</p>
+            
+            <!-- Effect Display -->
+            <div class="bg-black bg-opacity-30 rounded-lg p-4 border border-blue-500">
+              <div v-if="currentAICard.type === 'special'" class="text-lg font-semibold mb-2 text-orange-300">⚠️ Effet à appliquer manuellement :</div>
+              <div v-else class="text-lg font-semibold mb-2 text-green-300">✅ Effet automatiquement appliqué :</div>
+              
+              <div class="text-yellow-200">
+                <span v-if="currentAICard.type === 'charge'">
+                  Compteur : {{ aiCounterValue - currentAICard.value }} → {{ aiCounterValue }}
+                </span>
+                <span v-else-if="currentAICard.name === 'Seuil réduit'">
+                  Seuil : {{ aiThresholdValue + 2 }} → {{ aiThresholdValue }}
+                </span>
+                <span v-else-if="currentAICard.name === 'Sabotage'">
+                  Le joueur doit jouer une carte au hasard
+                </span>
+                <span v-else-if="currentAICard.name === 'Blocage'">
+                  Le joueur passe son prochain tour
+                </span>
+              </div>
+              
+              <!-- Manual action reminder -->
+              <div v-if="currentAICard.type === 'special'" class="mt-3 p-2 bg-orange-900 bg-opacity-50 rounded border border-orange-500">
+                <div class="text-orange-200 text-sm">
+                  📝 N'oubliez pas d'appliquer cet effet lors du prochain tour du joueur !
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-black bg-opacity-30 px-6 py-4 border-t border-blue-500">
+          <button
+            @click="closeAICardModal"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+          >
+            Continuer la partie
+          </button>
+        </div>
+      </div>
+    </div>
+
 </template>
 
 <style scoped>
@@ -3886,7 +4578,7 @@ const navLinks = [
   { id: "contenu", label: "Contenu" },
   { id: "mise-en-place", label: "Mise en Place" },
   { id: "deroulement", label: "Déroulement" },
-  { id: "victoire", label: "Victoire" },
+  { id: "fin-partie", label: "Fin de Partie" },
   { id: "cartes", label: "Cartes" },
   { id: "cooperatif", label: "Mode Coopératif" },
   { id: "faq", label: "FAQ" },
@@ -4218,6 +4910,43 @@ const eventModalPulse = ref(false);
 const showGameStartModal = ref(false);
 const finalCountdownRevealed = ref(false);
 const showCloseConfirmModal = ref(false);
+const showGameModeModal = ref(false);
+
+// AI mode functionality
+const showAIMode = ref(false);
+const showAIDifficultyModal = ref(false);
+const aiTurnNumber = ref(0);
+const aiCounterValue = ref(0);
+const aiThresholdValue = ref(20);
+const aiCounterHistory = ref([]);
+const aiGameOver = ref(false);
+const aiShowExplosion = ref(false);
+const aiGameStartTime = ref(null);
+const aiGameDuration = ref(null);
+const showAIHistoryModal = ref(false);
+const selectedDifficulty = ref(null);
+const currentAICard = ref(null);
+const showAICardModal = ref(false);
+const showImageFallback = ref(false);
+
+// AI difficulty levels
+const aiDifficultyLevels = [
+  { name: 'Débutant', turns: 7, threshold: 19, winRate: '90%', color: 'green' },
+  { name: 'Normal', turns: 8, threshold: 17, winRate: '70%', color: 'blue' },
+  { name: 'Expert', turns: 11, threshold: 15, winRate: '40%', color: 'orange' },
+  { name: 'Légende', turns: 13, threshold: 12, winRate: '15%', color: 'red' },
+  { name: 'Impossible', turns: 15, threshold: 10, winRate: '5%', color: 'purple' }
+];
+
+// AI Cards deck for visual display
+const aiCardsDeck = [
+  { name: 'Charge +1', value: 1, type: 'charge', image: '/charge1.png', description: 'Augmente la valeur de la bombe de +1', icon: '🔥' },
+  { name: 'Charge +2', value: 2, type: 'charge', image: '/charge2.png', description: 'Augmente la valeur de la bombe de +2', icon: '💥' },
+  { name: 'Charge +3', value: 3, type: 'charge', image: '/charge3.png', description: 'Augmente la valeur de la bombe de +3', icon: '💣' },
+  { name: 'Sabotage', value: 2, type: 'special', image: '/action_sabotage.png', description: 'Force le joueur à jouer une carte au hasard (effet à appliquer manuellement)', icon: '🎭' },
+  { name: 'Blocage', value: 1, type: 'special', image: '/action_blocage.png', description: 'Empêche le joueur de jouer au prochain tour (effet à appliquer manuellement)', icon: '🚫' },
+  { name: 'Seuil réduit', value: 0, type: 'threshold', image: '/action_seuilReduit.png', description: 'Réduit le seuil d\'explosion de -2', icon: '⬇️' }
+];
 
 // Timer interval reference for cleanup
 let timerInterval = null;
@@ -4233,6 +4962,12 @@ const elapsedTime = computed(() => {
 const isSubmitting = ref(false);
 const submitMessage = ref("");
 const submitSuccess = ref(false);
+
+// Computed property for remaining turns in AI mode
+const aiRemainingTurns = computed(() => {
+  if (!selectedDifficulty.value) return 0;
+  return Math.max(0, selectedDifficulty.value.turns - aiTurnNumber.value);
+});
 
 const handleScroll = () => {
   showBackToTop.value = window.pageYOffset > 300;
@@ -4323,6 +5058,192 @@ const handleOffline = () => {
   isOnline.value = false;
   showOfflineBar.value = true;
   console.log("Connexion perdue");
+};
+
+// Game mode selection functions
+const openGameModeSelection = () => {
+  showGameModeModal.value = true;
+};
+
+const closeGameModeModal = () => {
+  showGameModeModal.value = false;
+};
+
+const selectCompetitiveMode = () => {
+  closeGameModeModal();
+  openCounterMode();
+};
+
+const selectCooperativeMode = () => {
+  closeGameModeModal();
+  showAIDifficultyModal.value = true;
+};
+
+// AI difficulty selection functions
+const selectAIDifficulty = (difficulty) => {
+  selectedDifficulty.value = difficulty;
+  showAIDifficultyModal.value = false;
+  openAIMode();
+};
+
+const closeAIDifficultyModal = () => {
+  showAIDifficultyModal.value = false;
+};
+
+// AI mode functions
+const openAIMode = () => {
+  showAIMode.value = true;
+  
+  // Initialize AI mode values
+  aiTurnNumber.value = 0;
+  aiCounterValue.value = 0;
+  aiThresholdValue.value = selectedDifficulty.value ? selectedDifficulty.value.threshold : 20;
+  aiCounterHistory.value = [];
+  aiGameOver.value = false;
+  aiShowExplosion.value = false;
+  aiGameStartTime.value = Date.now();
+  aiGameDuration.value = null;
+  showAIHistoryModal.value = false;
+  
+  document.body.style.overflow = "hidden";
+};
+
+const closeAIMode = () => {
+  showAIMode.value = false;
+  document.body.style.overflow = "auto";
+  
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+};
+
+const aiAdjustCounter = (delta) => {
+  const newValue = Math.max(0, aiCounterValue.value + delta);
+  
+  aiCounterHistory.value.push({
+    action: delta > 0 ? `+${delta}` : `${delta}`,
+    oldValue: aiCounterValue.value,
+    newValue: newValue,
+    timestamp: new Date().toLocaleTimeString(),
+    type: 'counter',
+    turn: aiTurnNumber.value
+  });
+  
+  aiCounterValue.value = newValue;
+  
+  // Check for explosion
+  if (aiCounterValue.value >= aiThresholdValue.value) {
+    aiTriggerExplosion();
+  }
+};
+
+const aiAdjustThreshold = (delta) => {
+  const newValue = Math.max(10, Math.min(30, aiThresholdValue.value + delta));
+  aiThresholdValue.value = newValue;
+};
+
+const aiTriggerExplosion = () => {
+  aiShowExplosion.value = true;
+  aiGameOver.value = true;
+  aiGameDuration.value = Date.now() - aiGameStartTime.value;
+  
+  setTimeout(() => {
+    aiShowExplosion.value = false;
+  }, 3000);
+};
+
+const aiNextTurn = () => {
+  if (aiGameOver.value) return;
+  
+  aiTurnNumber.value += 1;
+  
+  // Check if max turns reached (victory condition)
+  if (selectedDifficulty.value && aiTurnNumber.value > selectedDifficulty.value.turns) {
+    // Player wins by surviving all turns
+    aiGameOver.value = true;
+    aiGameDuration.value = Date.now() - aiGameStartTime.value;
+    
+    aiCounterHistory.value.push({
+      action: `🎉 VICTOIRE! Survécu ${selectedDifficulty.value.turns} tours`,
+      oldValue: null,
+      newValue: null,
+      timestamp: new Date().toLocaleTimeString(),
+      type: 'victory',
+      turn: aiTurnNumber.value
+    });
+    
+    return;
+  }
+  
+  // Select a random AI card based on probabilities
+  let selectedCard;
+  const rand = Math.random();
+  
+  if (rand < 0.4) {
+    // 40% chance: Charge +1
+    selectedCard = aiCardsDeck[0];
+  } else if (rand < 0.7) {
+    // 30% chance: Charge +2  
+    selectedCard = aiCardsDeck[1];
+  } else if (rand < 0.9) {
+    // 20% chance: Charge +3
+    selectedCard = aiCardsDeck[2];
+  } else if (rand < 0.95) {
+    // 5% chance: Sabotage
+    selectedCard = aiCardsDeck[3];
+  } else if (rand < 0.98) {
+    // 3% chance: Blocage
+    selectedCard = aiCardsDeck[4];
+  } else {
+    // 2% chance: Seuil réduit
+    selectedCard = aiCardsDeck[5];
+  }
+  
+  // Store the current AI card and show modal
+  currentAICard.value = selectedCard;
+  showImageFallback.value = false; // Reset fallback for new card
+  showAICardModal.value = true;
+  
+  // Apply the card effect
+  let aiAction = selectedCard.value;
+  let actionDescription = `🤖 IA joue: ${selectedCard.name}`;
+  
+  if (selectedCard.type === 'threshold' && selectedCard.name === 'Seuil réduit') {
+    // Reduce threshold by 2
+    const oldThreshold = aiThresholdValue.value;
+    aiThresholdValue.value = Math.max(aiCounterValue.value + 1, aiThresholdValue.value - 2);
+    actionDescription = `🤖 IA: Seuil réduit (${oldThreshold} → ${aiThresholdValue.value})`;
+    aiAction = 0; // No counter change
+  }
+  
+  aiCounterHistory.value.push({
+    action: actionDescription,
+    oldValue: aiCounterValue.value,
+    newValue: aiCounterValue.value + aiAction,
+    timestamp: new Date().toLocaleTimeString(),
+    type: 'ai',
+    turn: aiTurnNumber.value,
+    card: selectedCard
+  });
+  
+  if (aiAction > 0) {
+    aiCounterValue.value = Math.max(0, aiCounterValue.value + aiAction);
+  }
+  
+  // Check for explosion after AI action
+  if (aiCounterValue.value >= aiThresholdValue.value) {
+    aiTriggerExplosion();
+  }
+};
+
+const closeAICardModal = () => {
+  showAICardModal.value = false;
+  showImageFallback.value = false; // Reset fallback for next card
+};
+
+const showFallbackCard = () => {
+  showImageFallback.value = true;
 };
 
 // Counter mode functions
@@ -4434,6 +5355,7 @@ const adjustCounter = (delta) => {
     oldValue: counterValue.value,
     newValue: newValue,
     timestamp: new Date().toLocaleTimeString(),
+    type: 'counter'
   });
   counterValue.value = newValue;
 
@@ -4529,6 +5451,18 @@ const drawNextEvent = () => {
   const drawnEvent = eventDeck.value.shift();
   currentEvent.value = drawnEvent;
   usedEvents.value.push(drawnEvent);
+  
+  // Ajouter l'événement à l'historique
+  counterHistory.value.push({
+    action: `🎭 Événement : ${drawnEvent.name}`,
+    oldValue: null,
+    newValue: null,
+    timestamp: new Date().toLocaleTimeString(),
+    type: 'event',
+    turn: turnNumber.value,
+    eventData: drawnEvent
+  });
+  
   showEventModal.value = true;
   eventModalPulse.value = true;
 
