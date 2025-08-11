@@ -51,6 +51,8 @@ export default defineNuxtConfig({
       skipWaiting: true,
       clientsClaim: true,
       cleanupOutdatedCaches: true,
+      navigateFallback: '/',
+      navigateFallbackAllowlist: [/^(?!\/__|\/_nuxt\/hmr).*/],
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -84,9 +86,20 @@ export default defineNuxtConfig({
               maxAgeSeconds: 60 * 60 * 24 * 30
             }
           }
+        },
+        {
+          urlPattern: ({ request }) => request.mode === 'navigate',
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'pages-cache',
+            networkTimeoutSeconds: 3,
+            expiration: {
+              maxEntries: 50,
+              maxAgeSeconds: 60 * 60 * 24 * 7 // 7 days
+            }
+          }
         }
       ],
-      // Pas de fallback - l'app gère elle-même le mode offline
     },
     client: {
       installPrompt: true,
