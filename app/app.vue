@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50" v-if="!showAIMode && !showCounterMode">
+  <div class="min-h-screen bg-gray-50">
     <!-- Indicateur de connexion discret -->
     <div
       v-if="showOfflineBar"
@@ -36,7 +36,7 @@
         </div>
         <p class="text-xl mb-2 opacity-90">Jeu de cartes à rôles cachés</p>
         <p class="text-lg mb-8 opacity-90">
-          1-5 joueurs • 15-30 min • À partir de 8 ans
+          1-5 joueurs • 15-20 min • À partir de 8 ans
         </p>
         <div class="text-sm opacity-80 mb-4">
           <p>🤖 Mode Coopératif : 1-2 joueurs</p>
@@ -44,36 +44,20 @@
         </div>
         <p class="text-lg font-light">Bluff • Tension • Stratégie</p>
 
-        <!-- Message contenu exclusif -->
-        <div
-          class="mt-6 bg-white/10 backdrop-blur-sm rounded-xl p-4 text-sm border border-white/20"
-        >
-          <div class="flex items-center justify-center gap-2 mb-2">
-            <span class="text-lg">⭐</span>
-            <span class="font-medium">Contenu exclusif gratuit</span>
-          </div>
-          <p class="opacity-90">
-            Installez l'application pour accéder à des fonctionnalités
-            supplémentaires : compteur digital, mode hors ligne, et bien plus
-            encore !
-          </p>
-        </div>
-
         <!-- Boutons principaux redesignés -->
         <div
           class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6"
         >
           <!-- Bouton Démarrer une partie -->
+
           <button
             @click="openGameModeSelection"
             class="group relative overflow-hidden bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:from-red-600 hover:via-red-700 hover:to-red-800 text-white font-bold py-5 px-10 rounded-2xl shadow-2xl hover:shadow-red-500/25 transform hover:scale-[1.02] transition-all duration-300 text-lg sm:text-xl flex flex-col items-center justify-center min-w-[280px] sm:min-w-[300px] border border-red-400/30"
           >
-            <!-- Effet de brillance -->
             <div
               class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
             ></div>
 
-            <!-- Contenu du bouton -->
             <div class="relative z-10">
               <div class="text-3xl sm:text-4xl mb-2">🎯</div>
               <div class="text-lg sm:text-xl font-bold tracking-wide">
@@ -227,131 +211,6 @@
                 réussir un objectif personnel secret.
               </p>
             </div>
-
-            <h3 class="text-2xl font-bold text-orange-600 mb-6">
-              🎯 Objectifs des Joueurs
-            </h3>
-
-            <div class="grid lg:grid-cols-3 gap-8 mb-8">
-              <!-- Démineurs -->
-              <div class="group h-full">
-                <div
-                  class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col"
-                >
-                  <div class="flex items-center justify-center mb-6">
-                    <div class="relative">
-                      <img
-                        src="/demineur.png"
-                        alt="Carte Démineur"
-                        loading="lazy"
-                        class="w-32 h-44 object-contain rounded-xl shadow-lg border-4 border-white/20 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                        @click="openCardModal('/demineur.png', 'Démineur')"
-                      />
-                      <div
-                        class="absolute -top-2 -right-2 w-8 h-8 bg-blue-300 text-blue-800 rounded-full flex items-center justify-center font-bold text-sm"
-                      >
-                        🟦
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="text-center text-white flex-grow flex flex-col justify-center"
-                  >
-                    <h4 class="text-2xl font-bold mb-3">DÉMINEURS</h4>
-                    <p class="text-blue-100 leading-relaxed">
-                      Empêcher l'explosion <strong>ET</strong> empêcher l'Agent
-                      Double de remplir son objectif
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Saboteurs -->
-              <div class="group h-full">
-                <div
-                  class="bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col"
-                >
-                  <div class="flex items-center justify-center mb-6">
-                    <div class="relative">
-                      <img
-                        src="/saboteur.png"
-                        alt="Carte Saboteur"
-                        loading="lazy"
-                        class="w-32 h-44 object-contain rounded-xl shadow-lg border-4 border-white/20 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                        @click="openCardModal('/saboteur.png', 'Saboteur')"
-                      />
-                      <div
-                        class="absolute -top-2 -right-2 w-8 h-8 bg-pink-300 text-pink-800 rounded-full flex items-center justify-center font-bold text-sm"
-                      >
-                        🟥
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="text-center text-white flex-grow flex flex-col justify-center"
-                  >
-                    <h4 class="text-2xl font-bold mb-3">SABOTEURS</h4>
-                    <p class="text-pink-100 leading-relaxed">
-                      Faire exploser la bombe
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Agent Double -->
-              <div class="group h-full">
-                <div
-                  class="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col"
-                >
-                  <div class="flex items-center justify-center mb-6">
-                    <div class="relative">
-                      <img
-                        src="/agentDouble.png"
-                        alt="Carte Agent Double"
-                        loading="lazy"
-                        class="w-32 h-44 object-contain rounded-xl shadow-lg border-4 border-white/20 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                        @click="
-                          openCardModal('/agentDouble.png', 'Agent Double')
-                        "
-                      />
-                      <div
-                        class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-200 text-yellow-800 rounded-full flex items-center justify-center font-bold text-sm"
-                      >
-                        🟨
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="text-center text-gray-800 flex-grow flex flex-col justify-center"
-                  >
-                    <h4 class="text-2xl font-bold mb-3">AGENT DOUBLE</h4>
-                    <p class="text-gray-700 leading-relaxed">
-                      Réunir <strong>2 des 3 cartes spécifiques</strong> dans sa
-                      main <strong>ET</strong> éviter l'explosion
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg"
-            >
-              <h4 class="font-bold text-yellow-800 mb-2">
-                ⚠️ Fin de Partie Immédiate :
-              </h4>
-              <ul class="text-yellow-700 space-y-1">
-                <li><strong>Si la bombe explose</strong> (compteur ≥ seuil)</li>
-                <li>
-                  <strong>Après le tour déclenché</strong> par l'événement
-                  "Compte à rebours final"
-                </li>
-                <li>
-                  <strong>Quand la pioche est vide</strong> et qu'un joueur ne
-                  peut plus reconstituer sa main
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </section>
@@ -372,7 +231,7 @@
                   🎴 Cartes & Matériel
                 </h3>
                 <ul class="space-y-2 text-gray-700">
-                  <li><strong>98 cartes</strong></li>
+                  <li><strong>110 cartes</strong></li>
                   <li>
                     <strong>2 jetons punchboards</strong> (compteur & seuil)
                   </li>
@@ -389,7 +248,7 @@
                     (Compétitif)
                   </li>
                   <li><strong>Âge :</strong> À partir de 8 ans</li>
-                  <li><strong>Durée :</strong> 15-30 minutes</li>
+                  <li><strong>Durée :</strong> 15-20 minutes</li>
                   <li><strong>Genre :</strong> Bluff, Tension, Stratégie</li>
                 </ul>
               </div>
@@ -424,18 +283,6 @@
                 </div>
               </li>
             </ol>
-
-            <div
-              class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg mt-8"
-            >
-              <h4 class="font-bold text-yellow-800 mb-2">
-                ⚠️ Règle importante :
-              </h4>
-              <p class="text-yellow-700">
-                Le compteur ne peut <strong>jamais descendre sous 0</strong>. Si
-                une carte devait le faire descendre en dessous, il reste à 0.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -472,314 +319,364 @@
                 </div>
               </li>
             </ol>
+
+            <div
+              class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg"
+            >
+              <h4 class="font-bold text-yellow-800 mb-2">
+                ⚠️ Fin de Partie Immédiate :
+              </h4>
+              <ul class="text-yellow-700 space-y-1">
+                <li><strong>Si la bombe explose</strong> (compteur ≥ seuil)</li>
+                <li>
+                  <strong
+                    >Si l'Agent Double a toutes les cartes objectifs</strong
+                  >
+                  requises pour sa victoire
+                </li>
+                <li>
+                  <strong>Après le tour déclenché</strong> par l'événement
+                  "Compte à rebours final"
+                </li>
+                <li>
+                  <strong>Quand la pioche est vide</strong> et qu'un joueur ne
+                  peut plus reconstituer sa main (on termine le tour en cours)
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Fin de partie -->
-      <section id="fin-partie" class="mb-12">
+      <!-- Conditions de Victoire -->
+      <section id="victoire" class="mb-12">
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div class="p-4 sm:p-8">
             <h2
               class="text-2xl sm:text-4xl font-bold text-red-600 border-b-4 border-red-500 pb-4 mb-8"
             >
-              🏁 Fin de Partie
+              🏆 Conditions de Victoire
             </h2>
 
-            <div class="space-y-6">
-              <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
-                <h4 class="font-bold text-red-800 mb-3 flex items-center gap-2">
-                  💥 Explosion Immédiate
-                </h4>
-                <p class="text-red-700">
-                  La partie s'arrête <strong>immédiatement</strong> si le
-                  compteur atteint ou dépasse le seuil d'explosion.
-                  <br /><strong>Victoire :</strong> Saboteurs gagnent
-                  instantanément.
-                </p>
-              </div>
-
-              <div
-                class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg"
-              >
-                <h4
-                  class="font-bold text-orange-800 mb-3 flex items-center gap-2"
-                >
-                  ⏰ Compte à Rebours Final
-                </h4>
-                <p class="text-orange-700">
-                  La partie s'arrête à la fin du tour déclenché par l'événement
-                  <strong>"Compte à rebours final"</strong>. <br /><strong
-                    >Déterminant :</strong
-                  >
-                  Le vainqueur est alors déterminé selon les conditions de
-                  victoire classiques.
-                </p>
-              </div>
-
-              <div
-                class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg"
-              >
-                <h4
-                  class="font-bold text-blue-800 mb-3 flex items-center gap-2"
-                >
-                  🃏 Pioche Épuisée
-                </h4>
-                <p class="text-blue-700">
-                  La partie s'arrête lorsque la
-                  <strong>pioche est vide</strong> et qu'un joueur ne peut plus
-                  reconstituer sa main à 5 cartes. <br /><strong
-                    >Important :</strong
-                  >
-                  On termine le tour en cours pour que chacun ait joué le même
-                  nombre de tours. <br /><strong>Déterminant :</strong> Le
-                  vainqueur est alors déterminé selon les conditions de victoire
-                  classiques.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-purple-50 to-indigo-50 border-l-4 border-purple-500 p-8 rounded-r-lg"
-              >
-                <h4
-                  class="font-bold text-purple-800 mb-6 text-center text-2xl flex items-center justify-center gap-3"
-                >
-                  🏆 Conditions de Victoire
-                </h4>
-
-                <div class="grid lg:grid-cols-3 gap-6 mb-8">
-                  <!-- Démineurs -->
-                  <div class="group h-full">
-                    <div
-                      class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
-                    >
-                      <div class="flex items-center justify-center mb-4">
-                        <div class="relative">
-                          <img
-                            src="/demineur.png"
-                            alt="Carte Démineur"
-                            loading="lazy"
-                            class="w-20 h-28 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                            @click="openCardModal('/demineur.png', 'Démineur')"
-                          />
-                          <div
-                            class="absolute -top-1 -right-1 w-6 h-6 bg-blue-300 text-blue-800 rounded-full flex items-center justify-center font-bold text-xs"
-                          >
-                            🟦
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="text-center text-white flex-grow flex flex-col justify-center"
-                      >
-                        <h5 class="text-lg font-bold mb-2">DÉMINEURS</h5>
-                        <h6 class="text-sm font-semibold mb-2 text-blue-200">
-                          Victoire par Élimination
-                        </h6>
-                        <p class="text-xs text-blue-100 leading-relaxed">
-                          Empêcher l'explosion ET empêcher la victoire de
-                          l'Agent Double
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Saboteurs -->
-                  <div class="group h-full">
-                    <div
-                      class="bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
-                    >
-                      <div class="flex items-center justify-center mb-4">
-                        <div class="relative">
-                          <img
-                            src="/saboteur.png"
-                            alt="Carte Saboteur"
-                            loading="lazy"
-                            class="w-20 h-28 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                            @click="openCardModal('/saboteur.png', 'Saboteur')"
-                          />
-                          <div
-                            class="absolute -top-1 -right-1 w-6 h-6 bg-pink-300 text-pink-800 rounded-full flex items-center justify-center font-bold text-xs"
-                          >
-                            🟥
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="text-center text-white flex-grow flex flex-col justify-center"
-                      >
-                        <h5 class="text-lg font-bold mb-2">SABOTEURS</h5>
-                        <h6 class="text-sm font-semibold mb-2 text-pink-200">
-                          Victoire Immédiate
-                        </h6>
-                        <p class="text-xs text-pink-100 leading-relaxed">
-                          Faire exploser la bombe<br />(compteur ≥ seuil)
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Agent Double -->
-                  <div class="group h-full">
-                    <div
-                      class="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
-                    >
-                      <div class="flex items-center justify-center mb-4">
-                        <div class="relative">
-                          <img
-                            src="/agentDouble.png"
-                            alt="Carte Agent Double"
-                            loading="lazy"
-                            class="w-20 h-28 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                            @click="
-                              openCardModal('/agentDouble.png', 'Agent Double')
-                            "
-                          />
-                          <div
-                            class="absolute -top-1 -right-1 w-6 h-6 bg-yellow-200 text-yellow-800 rounded-full flex items-center justify-center font-bold text-xs"
-                          >
-                            🟨
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="text-center text-gray-800 flex-grow flex flex-col justify-center"
-                      >
-                        <h5 class="text-lg font-bold mb-2">AGENT DOUBLE</h5>
-                        <h6 class="text-sm font-semibold mb-2 text-gray-700">
-                          Victoire en Fin de Partie
-                        </h6>
-                        <ul
-                          class="text-xs text-gray-700 leading-relaxed space-y-1"
-                        >
-                          <li>• Posséder 2 des 3 cartes objectif</li>
-                          <li>• ET éviter l'explosion</li>
-                          <li>• ET arriver en fin de partie</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Cartes Objectif Agent Double -->
+            <div class="grid lg:grid-cols-3 gap-8 mb-8">
+              <!-- Démineurs -->
+              <div class="group h-full">
                 <div
-                  class="bg-gradient-to-br from-yellow-50 to-amber-50 border-2 border-yellow-300 p-6 rounded-2xl shadow-lg"
+                  class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col"
                 >
-                  <h6
-                    class="font-bold text-yellow-800 mb-4 text-center text-lg"
-                  >
-                    🎯 Cartes Objectif de l'Agent Double
-                  </h6>
-                  <p class="text-yellow-700 mb-4 text-center text-sm">
-                    L'Agent Double doit réunir
-                    <strong>2 des 3 cartes suivantes</strong> dans sa main :
-                  </p>
-
-                  <div class="grid grid-cols-3 gap-4">
-                    <!-- Dossier classé -->
-                    <div class="group text-center">
+                  <div class="flex items-center justify-center mb-6">
+                    <div class="relative">
+                      <img
+                        src="/demineur.png"
+                        alt="Carte Démineur"
+                        loading="lazy"
+                        class="w-32 h-44 object-contain rounded-xl shadow-lg border-4 border-white/20 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                        @click="openCardModal('/demineur.png', 'Démineur')"
+                      />
                       <div
-                        class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                        class="absolute -top-2 -right-2 w-8 h-8 bg-blue-300 text-blue-800 rounded-full flex items-center justify-center font-bold text-sm"
                       >
-                        <div class="flex items-center justify-center mb-2">
-                          <div class="relative">
-                            <img
-                              src="/dossierClasse.png"
-                              alt="Carte Dossier classé"
-                              loading="lazy"
-                              class="w-16 h-20 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                              @click="
-                                openCardModal(
-                                  '/dossierClasse.png',
-                                  'Dossier classé'
-                                )
-                              "
-                            />
-                            <div
-                              class="absolute -top-1 -right-1 w-4 h-4 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
-                            >
-                              📂
-                            </div>
-                          </div>
-                        </div>
-                        <h6 class="text-xs font-bold text-gray-800">
-                          Dossier classé
-                        </h6>
-                      </div>
-                    </div>
-
-                    <!-- Robot de déminage -->
-                    <div class="group text-center">
-                      <div
-                        class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                      >
-                        <div class="flex items-center justify-center mb-2">
-                          <div class="relative">
-                            <img
-                              src="/robotDeminage.png"
-                              alt="Carte Robot de déminage"
-                              loading="lazy"
-                              class="w-16 h-20 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                              @click="
-                                openCardModal(
-                                  '/robotDeminage.png',
-                                  'Robot de déminage'
-                                )
-                              "
-                            />
-                            <div
-                              class="absolute -top-1 -right-1 w-4 h-4 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
-                            >
-                              🤖
-                            </div>
-                          </div>
-                        </div>
-                        <h6 class="text-xs font-bold text-gray-800">
-                          Robot de déminage
-                        </h6>
-                      </div>
-                    </div>
-
-                    <!-- Plan d'évacuation -->
-                    <div class="group text-center">
-                      <div
-                        class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                      >
-                        <div class="flex items-center justify-center mb-2">
-                          <div class="relative">
-                            <img
-                              src="/planEvacuation.png"
-                              alt="Carte Plan d'évacuation"
-                              loading="lazy"
-                              class="w-16 h-20 object-contain rounded-lg shadow-md border-2 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                              @click="
-                                openCardModal(
-                                  '/planEvacuation.png',
-                                  'Plan d\'évacuation'
-                                )
-                              "
-                            />
-                            <div
-                              class="absolute -top-1 -right-1 w-4 h-4 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
-                            >
-                              🗺️
-                            </div>
-                          </div>
-                        </div>
-                        <h6 class="text-xs font-bold text-gray-800">
-                          Plan d'évacuation
-                        </h6>
+                        🟦
                       </div>
                     </div>
                   </div>
-
-                  <div class="mt-4 text-center">
-                    <p class="text-yellow-700 font-medium text-xs">
-                      ⚠️ Ces cartes permettent à l'Agent Double de bluffer sur
-                      son identité tout en poursuivant son objectif secret
-                    </p>
+                  <div class="text-center text-white flex-grow flex flex-col">
+                    <h4 class="text-2xl font-bold mb-4">DÉMINEURS</h4>
+                    <div class="px-2">
+                      <div
+                        class="bg-blue-50 rounded-lg p-3 border-l-4 border-blue-400"
+                      >
+                        <p class="text-sm text-blue-600 font-medium mb-1">
+                          Objectif :
+                        </p>
+                        <p class="text-blue-800 text-sm leading-relaxed">
+                          Empêcher l'explosion <strong>ET</strong> empêcher
+                          l'Agent Double de remplir son objectif
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              </div>
+
+              <!-- Saboteurs -->
+              <div class="group h-full">
+                <div
+                  class="bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col"
+                >
+                  <div class="flex items-center justify-center mb-6">
+                    <div class="relative">
+                      <img
+                        src="/saboteur.png"
+                        alt="Carte Saboteur"
+                        loading="lazy"
+                        class="w-32 h-44 object-contain rounded-xl shadow-lg border-4 border-white/20 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                        @click="openCardModal('/saboteur.png', 'Saboteur')"
+                      />
+                      <div
+                        class="absolute -top-2 -right-2 w-8 h-8 bg-pink-300 text-pink-800 rounded-full flex items-center justify-center font-bold text-sm"
+                      >
+                        🟥
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center text-white flex-grow flex flex-col">
+                    <h4 class="text-2xl font-bold mb-4">SABOTEURS</h4>
+                    <div class="px-2">
+                      <div
+                        class="bg-red-50 rounded-lg p-3 border-l-4 border-red-400"
+                      >
+                        <p class="text-sm text-red-600 font-medium mb-1">
+                          Objectif :
+                        </p>
+                        <p class="text-red-800 text-sm leading-relaxed">
+                          Faire <strong>exploser la bombe</strong> (compteur ≥
+                          seuil)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Agent Double -->
+              <div class="group h-full">
+                <div
+                  class="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col"
+                >
+                  <div class="flex items-center justify-center mb-6">
+                    <div class="relative">
+                      <img
+                        src="/agentDouble.png"
+                        alt="Carte Agent Double"
+                        loading="lazy"
+                        class="w-32 h-44 object-contain rounded-xl shadow-lg border-4 border-white/20 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                        @click="
+                          openCardModal('/agentDouble.png', 'Agent Double')
+                        "
+                      />
+                      <div
+                        class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-200 text-yellow-800 rounded-full flex items-center justify-center font-bold text-sm"
+                      >
+                        🟨
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="text-center text-gray-800 flex-grow flex flex-col justify-center"
+                  >
+                    <h4 class="text-2xl font-bold mb-4">AGENT DOUBLE</h4>
+                    <div class="px-2">
+                      <div
+                        class="bg-gray-100 rounded-lg p-3 border-l-4 border-yellow-500"
+                      >
+                        <p class="text-sm text-gray-600 font-medium mb-2">
+                          Objectif :
+                        </p>
+                        <div class="space-y-2">
+                          <p class="text-gray-700 text-sm leading-relaxed">
+                            Réunir
+                            <strong>2 des X cartes objectifs</strong> (selon
+                            nombre de joueurs) <strong>ET</strong> éviter
+                            l'explosion
+                          </p>
+                          <div class="flex items-center justify-center my-2">
+                            <span
+                              class="bg-orange-500 text-white font-bold px-3 py-1 rounded-full text-xs"
+                              >OU</span
+                            >
+                          </div>
+                          <p class="text-gray-700 text-sm leading-relaxed">
+                            Réunir
+                            <strong>toutes les cartes objectifs</strong> en jeu
+                            pour une <strong>victoire immédiate</strong>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-300 p-8 rounded-2xl shadow-lg"
+            >
+              <h4 class="font-bold text-blue-800 mb-6 text-center text-2xl">
+                🎯 Cartes Objectif de l'Agent Double
+              </h4>
+              <p class="text-blue-700 mb-6 text-center text-lg">
+                L'Agent Double doit réunir
+                <strong>2 des 3 cartes suivantes</strong> dans sa main :
+              </p>
+
+              <div class="grid md:grid-cols-5 gap-6">
+                <!-- Dossier classé -->
+                <div class="group">
+                  <div
+                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div class="flex items-center justify-center mb-6">
+                      <div class="relative">
+                        <img
+                          src="/dossierClasse.png"
+                          alt="Carte Dossier classé"
+                          loading="lazy"
+                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                          @click="
+                            openCardModal(
+                              '/dossierClasse.png',
+                              'Dossier classé'
+                            )
+                          "
+                        />
+                        <div
+                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                        >
+                          📂
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center text-gray-800">
+                      <h5 class="text-lg font-bold">Dossier classé</h5>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Robot de déminage -->
+                <div class="group">
+                  <div
+                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div class="flex items-center justify-center mb-6">
+                      <div class="relative">
+                        <img
+                          src="/robotDeminage.png"
+                          alt="Carte Robot de déminage"
+                          loading="lazy"
+                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                          @click="
+                            openCardModal(
+                              '/robotDeminage.png',
+                              'Robot de déminage'
+                            )
+                          "
+                        />
+                        <div
+                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                        >
+                          🤖
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center text-gray-800">
+                      <h5 class="text-lg font-bold">Robot de déminage</h5>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Plan d'évacuation -->
+                <div class="group">
+                  <div
+                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div class="flex items-center justify-center mb-6">
+                      <div class="relative">
+                        <img
+                          src="/planEvacuation.png"
+                          alt="Carte Plan d'évacuation"
+                          loading="lazy"
+                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                          @click="
+                            openCardModal(
+                              '/planEvacuation.png',
+                              'Plan d\'évacuation'
+                            )
+                          "
+                        />
+                        <div
+                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                        >
+                          🗺️
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center text-gray-800">
+                      <h5 class="text-lg font-bold">Plan d'évacuation</h5>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Neutralisation chimique -->
+                <div class="group">
+                  <div
+                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div class="flex items-center justify-center mb-6">
+                      <div class="relative">
+                        <img
+                          src="/neutralisationChimique.png"
+                          alt="Carte Neutralisation chimique"
+                          loading="lazy"
+                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                          @click="
+                            openCardModal(
+                              '/neutralisationChimique.png',
+                              'Neutralisation chimique'
+                            )
+                          "
+                        />
+                        <div
+                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                        >
+                          🧪
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center text-gray-800">
+                      <h5 class="text-lg font-bold">Neutralisation chimique</h5>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Schéma électrique -->
+                <div class="group">
+                  <div
+                    class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div class="flex items-center justify-center mb-6">
+                      <div class="relative">
+                        <img
+                          src="/schemaElectrique.png"
+                          alt="Carte Schéma électrique"
+                          loading="lazy"
+                          class="w-24 h-32 object-contain rounded-xl shadow-lg border-4 border-white/30 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                          @click="
+                            openCardModal(
+                              '/schemaElectrique.png',
+                              'Schéma électrique'
+                            )
+                          "
+                        />
+                        <div
+                          class="absolute -top-2 -right-2 w-6 h-6 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs"
+                        >
+                          ⚡
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center text-gray-800">
+                      <h5 class="text-lg font-bold">Schéma électrique</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 text-center">
+                <p class="text-blue-700 font-medium">
+                  ⚠️ Ces cartes permettent à l'Agent Double de bluffer sur son
+                  identité tout en poursuivant son objectif secret
+                </p>
               </div>
             </div>
           </div>
@@ -808,7 +705,7 @@
                 <div
                   class="bg-white border border-purple-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -847,7 +744,7 @@
                 <div
                   class="bg-white border border-purple-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -885,7 +782,7 @@
                 <div
                   class="bg-white border border-purple-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -917,8 +814,8 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    🎯 Réunir 2 des 3 cartes spécifiques + éviter l'explosion +
-                    survivre jusqu'à la fin
+                    🎯 Réunir 2 des X (suivant nombre de joueurs) cartes
+                    spécifiques + éviter l'explosion
                   </p>
                 </div>
               </div>
@@ -931,12 +828,12 @@
               >
                 💎 Cartes Objectif Agent Double
               </h3>
-              <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
                 <!-- Dossier classé -->
                 <div
                   class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -960,7 +857,7 @@
                     </div>
                     <div class="text-right">
                       <span
-                        class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                        class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                         >× 1</span
                       >
                       <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -968,12 +865,12 @@
                   </div>
                   <div class="mb-2">
                     <span
-                      class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                      class="inline-block bg-yellow-500 text-white text-xs font-medium px-3 py-1 rounded-full"
                       >Bluff & Objectif</span
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire de l'Agent Double (2/3)
+                    Nécessaire pour la victoire de l'Agent Double
                   </p>
                 </div>
 
@@ -981,7 +878,7 @@
                 <div
                   class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1005,7 +902,7 @@
                     </div>
                     <div class="text-right">
                       <span
-                        class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                        class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                         >× 1</span
                       >
                       <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -1013,12 +910,12 @@
                   </div>
                   <div class="mb-2">
                     <span
-                      class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                      class="inline-block bg-yellow-500 text-white text-xs font-medium px-3 py-1 rounded-full"
                       >Bluff & Objectif</span
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire de l'Agent Double (2/3)
+                    Nécessaire pour la victoire de l'Agent Double
                   </p>
                 </div>
 
@@ -1026,7 +923,7 @@
                 <div
                   class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1050,7 +947,7 @@
                     </div>
                     <div class="text-right">
                       <span
-                        class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                        class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                         >× 1</span
                       >
                       <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -1058,54 +955,44 @@
                   </div>
                   <div class="mb-2">
                     <span
-                      class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                      class="inline-block bg-yellow-500 text-white text-xs font-medium px-3 py-1 rounded-full"
                       >Bluff & Objectif</span
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire de l'Agent Double (2/3)
+                    Nécessaire pour la victoire de l'Agent Double
                   </p>
                 </div>
-              </div>
-            </div>
 
-            <!-- Cartes Conditionnelles -->
-            <div class="mb-8">
-              <h3
-                class="text-2xl font-bold text-orange-600 bg-gradient-to-r from-orange-100 to-transparent p-4 border-l-4 border-orange-500 rounded mb-6"
-              >
-                🎲 Cartes Conditionnelles
-              </h3>
-              <div class="grid gap-6 md:grid-cols-2">
-                <!-- Charge instable -->
+                <!-- Neutralisation chimique -->
                 <div
                   class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                       >
                         <img
-                          src="/chargeInstable.png"
-                          alt="Carte Charge instable"
+                          src="/neutralisationChimique.png"
+                          alt="Carte Neutralisation chimique"
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal(
-                              '/chargeInstable.png',
-                              'Charge instable'
+                              '/neutralisationChimique.png',
+                              'Neutralisation chimique'
                             )
                           "
                         />
                       </div>
                       <h4 class="font-semibold text-gray-800">
-                        Charge instable
+                        Neutralisation chimique
                       </h4>
                     </div>
                     <div class="text-right">
                       <span
-                        class="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                        class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                         >× 1</span
                       >
                       <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -1113,44 +1000,44 @@
                   </div>
                   <div class="mb-2">
                     <span
-                      class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full"
-                      >Conditionnelle</span
+                      class="inline-block bg-yellow-500 text-white text-xs font-medium px-3 py-1 rounded-full"
+                      >Bluff & Objectif</span
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Si compteur ≤ 10 : +4, sinon +2
+                    Nécessaire pour la victoire de l'Agent Double
                   </p>
                 </div>
 
-                <!-- Détonation amplifiée -->
+                <!-- Schéma électrique -->
                 <div
                   class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                       >
                         <img
-                          src="/detonationAmplifiee.png"
-                          alt="Carte Détonation amplifiée"
+                          src="/schemaElectrique.png"
+                          alt="Carte Schéma électrique"
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
                             openCardModal(
-                              '/detonationAmplifiee.png',
-                              'Détonation amplifiée'
+                              '/schemaElectrique.png',
+                              'Schéma électrique'
                             )
                           "
                         />
                       </div>
                       <h4 class="font-semibold text-gray-800">
-                        Détonation amplifiée
+                        Schéma électrique
                       </h4>
                     </div>
                     <div class="text-right">
                       <span
-                        class="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                        class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                         >× 1</span
                       >
                       <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -1158,102 +1045,12 @@
                   </div>
                   <div class="mb-2">
                     <span
-                      class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full"
-                      >Conditionnelle</span
+                      class="inline-block bg-yellow-500 text-white text-xs font-medium px-3 py-1 rounded-full"
+                      >Bluff & Objectif</span
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Si compteur ≥ 20 : +1, sinon +2
-                  </p>
-                </div>
-
-                <!-- Refroidissement express -->
-                <div
-                  class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
-                >
-                  <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center space-x-3">
-                      <div
-                        class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
-                      >
-                        <img
-                          src="/refroidissementExpress.png"
-                          alt="Carte Refroidissement express"
-                          loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
-                          @click="
-                            openCardModal(
-                              '/refroidissementExpress.png',
-                              'Refroidissement express'
-                            )
-                          "
-                        />
-                      </div>
-                      <h4 class="font-semibold text-gray-800">
-                        Refroidissement express
-                      </h4>
-                    </div>
-                    <div class="text-right">
-                      <span
-                        class="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                        >× 1</span
-                      >
-                      <div class="text-xs text-gray-500 mt-1">quantité</div>
-                    </div>
-                  </div>
-                  <div class="mb-2">
-                    <span
-                      class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full"
-                      >Conditionnelle</span
-                    >
-                  </div>
-                  <p class="text-sm text-gray-600">
-                    Si compteur ≥ 20 : -4, sinon -2
-                  </p>
-                </div>
-
-                <!-- Désescalade tactique -->
-                <div
-                  class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
-                >
-                  <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center space-x-3">
-                      <div
-                        class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
-                      >
-                        <img
-                          src="/desescaladeTactique.png"
-                          alt="Carte Désescalade tactique"
-                          loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
-                          @click="
-                            openCardModal(
-                              '/desescaladeTactique.png',
-                              'Désescalade tactique'
-                            )
-                          "
-                        />
-                      </div>
-                      <h4 class="font-semibold text-gray-800">
-                        Désescalade tactique
-                      </h4>
-                    </div>
-                    <div class="text-right">
-                      <span
-                        class="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                        >× 1</span
-                      >
-                      <div class="text-xs text-gray-500 mt-1">quantité</div>
-                    </div>
-                  </div>
-                  <div class="mb-2">
-                    <span
-                      class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full"
-                      >Conditionnelle</span
-                    >
-                  </div>
-                  <p class="text-sm text-gray-600">
-                    Si compteur ≤ 10 : -1, sinon -2
+                    Nécessaire pour la victoire de l'Agent Double
                   </p>
                 </div>
               </div>
@@ -1279,7 +1076,7 @@
                   <div
                     class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                   >
-                    <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center justify-between mb-4">
                       <div class="flex items-center space-x-3">
                         <div
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1311,7 +1108,7 @@
                   <div
                     class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                   >
-                    <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center justify-between mb-4">
                       <div class="flex items-center space-x-3">
                         <div
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1343,7 +1140,7 @@
                   <div
                     class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                   >
-                    <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center justify-between mb-4">
                       <div class="flex items-center space-x-3">
                         <div
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1375,7 +1172,7 @@
                   <div
                     class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                   >
-                    <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center justify-between mb-4">
                       <div class="flex items-center space-x-3">
                         <div
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1407,7 +1204,7 @@
                   <div
                     class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                   >
-                    <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center justify-between mb-4">
                       <div class="flex items-center space-x-3">
                         <div
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1434,6 +1231,44 @@
                       Augmente la valeur de la bombe de +5
                     </p>
                   </div>
+
+                  <!-- X -->
+                  <div
+                    class="bg-white border border-red-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
+                  >
+                    <div class="flex items-center justify-between mb-4">
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                        >
+                          <img
+                            src="/chargeX.png"
+                            alt="Carte Charge X"
+                            loading="lazy"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="
+                              openCardModal(
+                                '/chargeX.png',
+                                'XCartes Action Réactives'
+                              )
+                            "
+                          />
+                        </div>
+                        <h5 class="font-semibold text-red-700">Charge X</h5>
+                      </div>
+                      <div class="text-right">
+                        <span
+                          class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                          >× 2</span
+                        >
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                      Valeur mystère déterminée par tirage de carte système au
+                      hasard
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -1449,7 +1284,7 @@
                   <div
                     class="bg-white border border-green-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                   >
-                    <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center justify-between mb-4">
                       <div class="flex items-center space-x-3">
                         <div
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1485,7 +1320,7 @@
                   <div
                     class="bg-white border border-green-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                   >
-                    <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center justify-between mb-4">
                       <div class="flex items-center space-x-3">
                         <div
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1521,7 +1356,7 @@
                   <div
                     class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                   >
-                    <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center justify-between mb-4">
                       <div class="flex items-center space-x-3">
                         <div
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1550,6 +1385,41 @@
                     </div>
                     <p class="text-sm text-gray-600">
                       Diminue la valeur de la bombe de -3
+                    </p>
+                  </div>
+
+                  <!-- Décharge X -->
+                  <div
+                    class="bg-white border border-green-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
+                  >
+                    <div class="flex items-center justify-between mb-4">
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                        >
+                          <img
+                            src="/dechargeX.png"
+                            alt="Carte Décharge X"
+                            loading="lazy"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="
+                              openCardModal('/dechargeX.png', 'Décharge X')
+                            "
+                          />
+                        </div>
+                        <h5 class="font-semibold text-green-700">Décharge X</h5>
+                      </div>
+                      <div class="text-right">
+                        <span
+                          class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                          >× 2</span
+                        >
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                      Valeur mystère déterminée par tirage de carte système au
+                      hasard
                     </p>
                   </div>
                 </div>
@@ -1582,7 +1452,7 @@
                   :key="card.name"
                   class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1633,8 +1503,8 @@
                   <strong>⚡ Note importante :</strong> Les cartes Action
                   Réactives (marquées ⚡) peuvent
                   <strong
-                    >uniquement être jouées pendant le tour d'un
-                    adversaire</strong
+                    >être jouées n'importe quand mais que contre des cartes
+                    d'autres joueurs</strong
                   >
                   pour contrer, modifier ou rediriger une action. Elles ne
                   comptent pas comme votre carte jouée du tour. Une carte
@@ -1647,18 +1517,21 @@
                 <div
                   class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                       >
                         <img
-                          src="/desamorceur.png"
+                          src="/action_desamorceur.png"
                           alt="Carte Désamorceur"
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
                           @click="
-                            openCardModal('/desamorceur.png', 'Désamorceur')
+                            openCardModal(
+                              '/action_desamorceur.png',
+                              'Désamorceur'
+                            )
                           "
                         />
                       </div>
@@ -1687,17 +1560,17 @@
                 <div
                   class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                       >
                         <img
-                          src="/miroir.png"
+                          src="/action_miroir.png"
                           alt="Carte Miroir"
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
-                          @click="openCardModal('/miroir.png', 'Miroir')"
+                          @click="openCardModal('/action_miroir.png', 'Miroir')"
                         />
                       </div>
                       <h4 class="font-semibold text-gray-800">Miroir</h4>
@@ -1725,17 +1598,19 @@
                 <div
                   class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                       >
                         <img
-                          src="/surcharge.png"
+                          src="/action_surcharge.png"
                           alt="Carte Surcharge"
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
-                          @click="openCardModal('/surcharge.png', 'Surcharge')"
+                          @click="
+                            openCardModal('/action_surcharge.png', 'Surcharge')
+                          "
                         />
                       </div>
                       <h4 class="font-semibold text-gray-800">Surcharge</h4>
@@ -1755,7 +1630,7 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Double la valeur de la carte (dé)charge jouée
+                    Double la valeur de la carte (dé)charge ou seuil jouée
                   </p>
                 </div>
               </div>
@@ -1791,7 +1666,7 @@
                   "
                   class="border-2 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                 >
-                  <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center space-x-3">
                       <div
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1867,7 +1742,7 @@
                     <div
                       class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                     >
-                      <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center space-x-3">
                           <div
                             class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1921,7 +1796,7 @@
                     <div
                       class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                     >
-                      <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center space-x-3">
                           <div
                             class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1957,7 +1832,7 @@
                     <div
                       class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                     >
-                      <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center space-x-3">
                           <div
                             class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -1993,7 +1868,7 @@
                     <div
                       class="bg-white border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
                     >
-                      <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center space-x-3">
                           <div
                             class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
@@ -2029,6 +1904,165 @@
                   </div>
                 </div>
 
+                <!-- Cartes Système Numérotées -->
+                <div class="mb-6">
+                  <h4
+                    class="text-xl font-bold text-gray-700 mb-4 flex items-center"
+                  >
+                    🔢 Cartes Système Numérotées
+                  </h4>
+                  <div
+                    class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mb-6"
+                  >
+                    <p class="text-blue-700">
+                      Ces cartes servent de référence pour déterminer les
+                      valeurs aléatoires des cartes Seuil et autres effets
+                      nécessitant un tirage au hasard.
+                    </p>
+                  </div>
+                  <div class="grid gap-4 md:grid-cols-5">
+                    <!-- Système 1 -->
+                    <div
+                      class="bg-white border border-gray-300 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
+                    >
+                      <div class="flex flex-col items-center">
+                        <div
+                          class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
+                        >
+                          <img
+                            src="/sys_1.png"
+                            alt="Carte Système 1"
+                            loading="lazy"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/sys_1.png', 'Système 1')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-gray-800 text-center">
+                          Système 1
+                        </h5>
+                        <div class="mt-2">
+                          <span
+                            class="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-3 py-1 rounded-full"
+                            >Système</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Système 2 -->
+                    <div
+                      class="bg-white border border-gray-300 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
+                    >
+                      <div class="flex flex-col items-center">
+                        <div
+                          class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
+                        >
+                          <img
+                            src="/sys_2.png"
+                            alt="Carte Système 2"
+                            loading="lazy"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/sys_2.png', 'Système 2')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-gray-800 text-center">
+                          Système 2
+                        </h5>
+                        <div class="mt-2">
+                          <span
+                            class="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-3 py-1 rounded-full"
+                            >Système</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Système 3 -->
+                    <div
+                      class="bg-white border border-gray-300 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
+                    >
+                      <div class="flex flex-col items-center">
+                        <div
+                          class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
+                        >
+                          <img
+                            src="/sys_3.png"
+                            alt="Carte Système 3"
+                            loading="lazy"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/sys_3.png', 'Système 3')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-gray-800 text-center">
+                          Système 3
+                        </h5>
+                        <div class="mt-2">
+                          <span
+                            class="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-3 py-1 rounded-full"
+                            >Système</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Système 4 -->
+                    <div
+                      class="bg-white border border-gray-300 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
+                    >
+                      <div class="flex flex-col items-center">
+                        <div
+                          class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
+                        >
+                          <img
+                            src="/sys_4.png"
+                            alt="Carte Système 4"
+                            loading="lazy"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/sys_4.png', 'Système 4')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-gray-800 text-center">
+                          Système 4
+                        </h5>
+                        <div class="mt-2">
+                          <span
+                            class="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-3 py-1 rounded-full"
+                            >Système</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Système 5 -->
+                    <div
+                      class="bg-white border border-gray-300 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
+                    >
+                      <div class="flex flex-col items-center">
+                        <div
+                          class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
+                        >
+                          <img
+                            src="/sys_5.png"
+                            alt="Carte Système 5"
+                            loading="lazy"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-pointer"
+                            @click="openCardModal('/sys_5.png', 'Système 5')"
+                          />
+                        </div>
+                        <h5 class="font-semibold text-gray-800 text-center">
+                          Système 5
+                        </h5>
+                        <div class="mt-2">
+                          <span
+                            class="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-3 py-1 rounded-full"
+                            >Système</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div
                   class="p-4 bg-gray-50 rounded-lg border-l-4 border-gray-400"
                 >
@@ -2043,7 +2077,7 @@
 
             <div class="text-center bg-gray-100 p-4 rounded-lg">
               <p class="text-lg font-bold text-gray-700">
-                📊 TOTAL CARTES : 98 cartes
+                📊 TOTAL CARTES : 110 cartes
               </p>
             </div>
           </div>
@@ -2084,7 +2118,7 @@
                   Configuration
                 </h4>
                 <ul class="space-y-2 text-blue-700">
-                  <li>• Deck IA de <strong>20 cartes</strong></li>
+                  <li>• Deck IA de <strong>22 cartes</strong></li>
                   <li>• Chaque joueur pioche <strong>4 cartes</strong></li>
                   <li>• Compteur sur <strong>0</strong></li>
                   <li>• Choisir la difficulté</li>
@@ -2169,7 +2203,7 @@
               <!-- Deck IA -->
               <div>
                 <h3 class="text-2xl font-bold text-orange-600 mb-6">
-                  🤖 Deck IA (20 cartes avec logo 🤖)
+                  🤖 Deck IA (22 cartes avec logo 🤖)
                 </h3>
                 <div class="bg-red-50 border-2 border-red-200 rounded-lg p-4">
                   <p class="text-sm text-red-700 mb-4">
@@ -2287,6 +2321,27 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
+                          src="/chargeX.png"
+                          alt="Charge X"
+                          loading="lazy"
+                          class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
+                          @click="openCardModal('/chargeX.png', 'Charge X')"
+                        />
+                        <span class="font-medium text-red-700">Charge X</span>
+                      </div>
+                      <div class="text-right">
+                        <span
+                          class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
+                          >× 2</span
+                        >
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex justify-between items-center bg-white p-2 rounded border"
+                    >
+                      <div class="flex items-center space-x-3">
+                        <img
                           src="/action_blocage.png"
                           alt="Blocage"
                           loading="lazy"
@@ -2365,7 +2420,7 @@
               <!-- Deck Joueur -->
               <div>
                 <h3 class="text-2xl font-bold text-orange-600 mb-6">
-                  🙋‍♂️ Deck Joueur (43 cartes)
+                  🙋‍♂️ Deck Joueur (51 cartes)
                 </h3>
                 <div
                   class="bg-green-50 border-2 border-green-200 rounded-lg p-4"
@@ -2375,118 +2430,6 @@
                     coopératif)
                   </p>
                   <div class="space-y-2">
-                    <div
-                      class="flex justify-between items-center bg-white p-2 rounded border"
-                    >
-                      <div class="flex items-center space-x-3">
-                        <img
-                          src="/chargeInstable.png"
-                          alt="Charge instable"
-                          loading="lazy"
-                          class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
-                          @click="
-                            openCardModal(
-                              '/chargeInstable.png',
-                              'Charge instable'
-                            )
-                          "
-                        />
-                        <span class="font-medium text-pink-700"
-                          >Charge instable</span
-                        >
-                      </div>
-                      <div class="text-right">
-                        <span
-                          class="bg-pink-500 text-white text-xs px-2 py-1 rounded-full"
-                          >× 1</span
-                        >
-                        <div class="text-xs text-gray-500 mt-1">quantité</div>
-                      </div>
-                    </div>
-                    <div
-                      class="flex justify-between items-center bg-white p-2 rounded border"
-                    >
-                      <div class="flex items-center space-x-3">
-                        <img
-                          src="/detonationAmplifiee.png"
-                          alt="Détonation amplifiée"
-                          loading="lazy"
-                          class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
-                          @click="
-                            openCardModal(
-                              '/detonationAmplifiee.png',
-                              'Détonation amplifiée'
-                            )
-                          "
-                        />
-                        <span class="font-medium text-pink-700"
-                          >Détonation amplifiée</span
-                        >
-                      </div>
-                      <div class="text-right">
-                        <span
-                          class="bg-pink-500 text-white text-xs px-2 py-1 rounded-full"
-                          >× 1</span
-                        >
-                        <div class="text-xs text-gray-500 mt-1">quantité</div>
-                      </div>
-                    </div>
-                    <div
-                      class="flex justify-between items-center bg-white p-2 rounded border"
-                    >
-                      <div class="flex items-center space-x-3">
-                        <img
-                          src="/refroidissementExpress.png"
-                          alt="Refroidissement express"
-                          loading="lazy"
-                          class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
-                          @click="
-                            openCardModal(
-                              '/refroidissementExpress.png',
-                              'Refroidissement express'
-                            )
-                          "
-                        />
-                        <span class="font-medium text-pink-700"
-                          >Refroidissement express</span
-                        >
-                      </div>
-                      <div class="text-right">
-                        <span
-                          class="bg-pink-500 text-white text-xs px-2 py-1 rounded-full"
-                          >× 1</span
-                        >
-                        <div class="text-xs text-gray-500 mt-1">quantité</div>
-                      </div>
-                    </div>
-                    <div
-                      class="flex justify-between items-center bg-white p-2 rounded border"
-                    >
-                      <div class="flex items-center space-x-3">
-                        <img
-                          src="/desescaladeTactique.png"
-                          alt="Désescalade tactique"
-                          loading="lazy"
-                          class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
-                          @click="
-                            openCardModal(
-                              '/desescaladeTactique.png',
-                              'Désescalade tactique'
-                            )
-                          "
-                        />
-                        <span class="font-medium text-pink-700"
-                          >Désescalade tactique</span
-                        >
-                      </div>
-                      <div class="text-right">
-                        <span
-                          class="bg-pink-500 text-white text-xs px-2 py-1 rounded-full"
-                          >× 1</span
-                        >
-                        <div class="text-xs text-gray-500 mt-1">quantité</div>
-                      </div>
-                    </div>
                     <div
                       class="flex justify-between items-center bg-white p-2 rounded border"
                     >
@@ -2642,6 +2585,29 @@
                         <span
                           class="bg-green-500 text-white text-xs px-2 py-1 rounded-full"
                           >× 5</span
+                        >
+                        <div class="text-xs text-gray-500 mt-1">quantité</div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex justify-between items-center bg-white p-2 rounded border"
+                    >
+                      <div class="flex items-center space-x-3">
+                        <img
+                          src="/dechargeX.png"
+                          alt="Décharge X"
+                          loading="lazy"
+                          class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
+                          @click="openCardModal('/dechargeX.png', 'Décharge X')"
+                        />
+                        <span class="font-medium text-green-700"
+                          >Décharge X</span
+                        >
+                      </div>
+                      <div class="text-right">
+                        <span
+                          class="bg-green-500 text-white text-xs px-2 py-1 rounded-full"
+                          >× 2</span
                         >
                         <div class="text-xs text-gray-500 mt-1">quantité</div>
                       </div>
@@ -2814,12 +2780,15 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/desamorceur.png"
+                          src="/action_desamorceur.png"
                           alt="Désamorceur"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-pointer hover:scale-110 transition-transform"
                           @click="
-                            openCardModal('/desamorceur.png', 'Désamorceur')
+                            openCardModal(
+                              '/action_desamorceur.png',
+                              'Désamorceur'
+                            )
                           "
                         />
                         <span class="font-medium text-purple-700"
@@ -2851,11 +2820,6 @@
                   • Les cartes <strong>Blocage</strong> de l'IA affectent le
                   joueur suivant dans l'ordre
                 </li>
-                <li>
-                  • Les cartes <strong>Seuil réduit</strong> et
-                  <strong>Seuil augmenté</strong> sont fixés à
-                  <strong>±2</strong>
-                </li>
               </ul>
             </div>
 
@@ -2869,6 +2833,109 @@
               <p class="text-green-700">
                 <strong>Survivez jusqu'à la fin du dernier tour</strong> sans
                 que le compteur dépasse le seuil d'explosion !
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WIP (Work In Progress) -->
+      <section id="wip" class="mb-12">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="p-4 sm:p-8">
+            <h2
+              class="text-2xl sm:text-4xl font-bold text-orange-600 border-b-4 border-orange-500 pb-4 mb-8"
+            >
+              🚧 Work In Progress (WIP)
+            </h2>
+
+            <div
+              class="bg-orange-50 border-l-4 border-orange-400 p-6 rounded-r-lg mb-6"
+            >
+              <h3 class="font-bold text-orange-800 mb-3 text-xl">
+                ⚠️ Points en cours de développement
+              </h3>
+              <p class="text-orange-700 mb-4">
+                Ces éléments sont actuellement en réflexion ou en cours de
+                développement et peuvent évoluer.
+              </p>
+            </div>
+
+            <div class="space-y-6">
+              <!-- Nommage -->
+              <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="flex-shrink-0 w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+                  >
+                    1
+                  </div>
+                  <div class="flex-grow">
+                    <h4 class="text-lg font-semibold text-yellow-800 mb-2">
+                      🏷️ Nommage des éléments de jeu
+                    </h4>
+                    <p class="text-yellow-700 leading-relaxed">
+                      Réflexion en cours sur la terminologie :
+                      <strong>Compteur x Seuil</strong> VS
+                      <strong>Feu x Bombe</strong> ? <br />L'objectif est de
+                      trouver des termes plus immersifs et intuitifs pour les
+                      joueurs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mode coop -->
+              <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+                  >
+                    2
+                  </div>
+                  <div class="flex-grow">
+                    <h4 class="text-lg font-semibold text-blue-800 mb-2">
+                      🤖 Développement du Mode Coopératif
+                    </h4>
+                    <p class="text-blue-700 leading-relaxed">
+                      Création d'une application dédiée pour le
+                      <strong>mode coopératif</strong> avec IA. <br />Permettra
+                      aux joueurs de jouer seuls ou à deux contre une
+                      intelligence artificielle.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Refonte descriptions -->
+              <div class="bg-green-50 border border-green-200 rounded-xl p-6">
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+                  >
+                    3
+                  </div>
+                  <div class="flex-grow">
+                    <h4 class="text-lg font-semibold text-green-800 mb-2">
+                      📝 Refonte des descriptions de cartes
+                    </h4>
+                    <p class="text-green-700 leading-relaxed">
+                      Amélioration et
+                      <strong>unification des descriptions</strong> de toutes
+                      les cartes du jeu. <br />Objectif : rendre les effets plus
+                      clairs et plus cohérents entre elles.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="mt-8 p-4 bg-gray-50 rounded-lg border-2 border-gray-200"
+            >
+              <p class="text-gray-600 text-sm text-center">
+                💬 <strong>Vos retours sont les bienvenus !</strong> Ces points
+                évoluent en fonction des tests et des retours des joueurs.
               </p>
             </div>
           </div>
@@ -2891,7 +2958,7 @@
                 :key="faq.question"
                 class="bg-gray-50 border border-gray-200 rounded-lg p-6"
               >
-                <h3 class="text-lg font-bold text-gray-800 mb-3">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">
                   {{ faq.question }}
                 </h3>
                 <p class="text-gray-700" v-html="faq.answer"></p>
@@ -2919,14 +2986,30 @@
                 du jeu
               </h3>
 
-              <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <!-- Première ligne : Laura seule -->
+              <div class="mb-6">
+                <div
+                  class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-yellow-100 hover:border-yellow-300 transition-colors"
+                >
+                  <div
+                    class="w-16 h-16 bg-yellow-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
+                  >
+                    LR
+                  </div>
+                  <h4 class="font-semibold text-gray-800">Laura Ruelle</h4>
+                  <p class="text-sm text-gray-600 mt-1">Super testeuse</p>
+                </div>
+              </div>
+
+              <!-- Deuxième ligne : Premiers testeurs -->
+              <div class="grid md:grid-cols-3 gap-4 mb-6">
                 <div
                   class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-blue-100 hover:border-blue-300 transition-colors"
                 >
                   <div
-                    class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold"
+                    class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
                   >
-                    M
+                    ML
                   </div>
                   <h4 class="font-semibold text-gray-800">Mathieu Lecomte</h4>
                   <p class="text-sm text-gray-600 mt-1">Premier testeur</p>
@@ -2936,9 +3019,9 @@
                   class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-pink-100 hover:border-pink-300 transition-colors"
                 >
                   <div
-                    class="w-16 h-16 bg-pink-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold"
+                    class="w-16 h-16 bg-pink-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
                   >
-                    A
+                    AL
                   </div>
                   <h4 class="font-semibold text-gray-800">Amélia Lecomte</h4>
                   <p class="text-sm text-gray-600 mt-1">Première testeuse</p>
@@ -2948,24 +3031,39 @@
                   class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-green-100 hover:border-green-300 transition-colors"
                 >
                   <div
-                    class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold"
+                    class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
                   >
-                    ML
+                    MA
                   </div>
                   <h4 class="font-semibold text-gray-800">Malone Lecomte</h4>
                   <p class="text-sm text-gray-600 mt-1">Premier testeur</p>
                 </div>
+              </div>
 
+              <!-- Troisième ligne : Hugues et Evelyne -->
+              <div class="grid md:grid-cols-2 gap-4 mb-6">
                 <div
-                  class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-yellow-100 hover:border-yellow-300 transition-colors"
+                  class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-purple-100 hover:border-purple-300 transition-colors"
                 >
                   <div
-                    class="w-16 h-16 bg-yellow-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold"
+                    class="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
                   >
-                    LR
+                    HR
                   </div>
-                  <h4 class="font-semibold text-gray-800">Laura Ruelle</h4>
-                  <p class="text-sm text-gray-600 mt-1">Première testeuse</p>
+                  <h4 class="font-semibold text-gray-800">Hugues Ruelle</h4>
+                  <p class="text-sm text-gray-600 mt-1">Second testeur</p>
+                </div>
+
+                <div
+                  class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-teal-100 hover:border-teal-300 transition-colors"
+                >
+                  <div
+                    class="w-16 h-16 bg-teal-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
+                  >
+                    ER
+                  </div>
+                  <h4 class="font-semibold text-gray-800">Evelyne Ruelle</h4>
+                  <p class="text-sm text-gray-600 mt-1">Seconde testeuse</p>
                 </div>
               </div>
 
@@ -3076,8 +3174,8 @@
                   >Tour {{ turnNumber }} |
                   {{
                     eventDeck.length > 0
-                      ? eventDeck.length + " événements restants"
-                      : "Tous événements révélés"
+                      ? eventDeck.length + " événements max restants"
+                      : "Tous les événements révélés"
                   }}</span
                 >
               </div>
@@ -3085,19 +3183,17 @@
 
             <div class="flex space-x-2">
               <button
-                @click="drawNextEvent"
-                :disabled="
-                  gameOver || eventDeck.length === 0 || finalCountdownRevealed
-                "
+                @click="finalCountdownRevealed ? endGame() : drawNextEvent()"
+                :disabled="gameOver || eventDeck.length === 0"
                 :class="{
                   'bg-purple-500 hover:bg-purple-600':
                     !gameOver &&
                     eventDeck.length > 0 &&
                     !finalCountdownRevealed,
+                  'bg-red-500 hover:bg-red-600':
+                    !gameOver && finalCountdownRevealed,
                   'bg-gray-600 opacity-50 cursor-not-allowed':
-                    gameOver ||
-                    eventDeck.length === 0 ||
-                    finalCountdownRevealed,
+                    gameOver || eventDeck.length === 0,
                 }"
                 class="text-white px-2 sm:px-3 py-2 rounded-lg font-bold transition-colors text-xs sm:text-sm flex items-center space-x-1"
               >
@@ -3105,7 +3201,7 @@
                 <span class="hidden xs:inline sm:inline">
                   {{
                     finalCountdownRevealed
-                      ? "Dernier tour"
+                      ? "Fin de partie"
                       : eventDeck.length > 0
                       ? "Nouveau Tour"
                       : "Plus d'événements"
@@ -3329,23 +3425,11 @@
               "
               class="mb-4 p-3 bg-purple-900 bg-opacity-50 border border-purple-400 rounded-lg"
             >
-              <div class="flex justify-between items-start mb-2">
-                <div class="flex-1">
-                  <div class="text-purple-200 text-xs mb-1">
-                    🎲 Événement actuel
-                  </div>
-                  <div class="text-yellow-300 font-bold text-sm mb-1">
-                    {{ currentEvent.name }}
-                  </div>
-                </div>
-                <button
-                  @click="showEventModal = true"
-                  class="flex-shrink-0 ml-2 px-2 py-1 bg-purple-600 hover:bg-purple-500 text-white text-xs rounded-md transition-colors duration-200 flex items-center gap-1"
-                  title="Voir la carte événement"
-                >
-                  <span class="text-xs">👁️</span>
-                  <span class="hidden xs:inline">Voir</span>
-                </button>
+              <div class="text-purple-200 text-xs mb-1">
+                🎲 Événement actuel
+              </div>
+              <div class="text-yellow-300 font-bold text-sm mb-1">
+                {{ currentEvent.name }}
               </div>
               <div
                 class="text-white text-xs opacity-90"
@@ -3360,21 +3444,9 @@
               "
               class="mb-4 p-3 bg-red-900 bg-opacity-70 border-2 border-red-500 rounded-lg animate-pulse"
             >
-              <div class="flex justify-between items-start mb-2">
-                <div class="flex-1">
-                  <div class="text-red-200 text-xs mb-1">🚨 Événement spécial</div>
-                  <div class="text-yellow-300 font-bold text-sm mb-1">
-                    {{ currentEvent.name }}
-                  </div>
-                </div>
-                <button
-                  @click="showEventModal = true"
-                  class="flex-shrink-0 ml-2 px-2 py-1 bg-red-600 hover:bg-red-500 text-white text-xs rounded-md transition-colors duration-200 flex items-center gap-1"
-                  title="Voir la carte événement"
-                >
-                  <span class="text-xs">👁️</span>
-                  <span class="hidden xs:inline">Voir</span>
-                </button>
+              <div class="text-red-200 text-xs mb-1">🚨 Événement spécial</div>
+              <div class="text-yellow-300 font-bold text-sm mb-1">
+                {{ currentEvent.name }}
               </div>
               <div
                 class="text-white text-xs font-bold"
@@ -3703,54 +3775,78 @@
         </div>
         <div class="p-4 max-h-80 overflow-y-auto">
           <div
-            v-if="counterHistory.length === 0"
+            v-if="unifiedHistory.length === 0"
             class="text-center text-gray-500 py-8"
           >
             Aucune action enregistrée
           </div>
-          <div v-else class="space-y-2">
+          <div v-else class="space-y-3">
             <div
-              v-for="(entry, index) in counterHistory.slice().reverse()"
+              v-for="(item, index) in unifiedHistory.slice().reverse()"
               :key="index"
-              :class="[
-                'p-3 rounded-lg',
-                entry.type === 'event' 
-                  ? 'bg-gradient-to-r from-purple-50 to-indigo-50 border-l-4 border-purple-400' 
-                  : 'bg-gray-50'
-              ]"
+              class="p-3 rounded-lg border"
+              :class="{
+                'bg-purple-50 border-purple-200': item.type === 'event',
+                'bg-blue-50 border-blue-200': item.type === 'counter',
+                'bg-orange-50 border-orange-200': item.type === 'threshold',
+              }"
             >
-              <!-- Affichage pour les événements -->
-              <div v-if="entry.type === 'event'" class="space-y-2">
-                <div class="flex justify-between items-start">
-                  <div class="flex-1">
-                    <span class="text-sm font-semibold text-purple-700">{{
-                      entry.action
-                    }}</span>
-                    <div v-if="entry.turn" class="text-xs text-purple-600 mt-1">
-                      Tour {{ entry.turn }}
-                    </div>
+              <!-- Événement -->
+              <div v-if="item.type === 'event'">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-purple-600 text-sm font-bold">🎲</span>
+                    <span class="text-sm font-bold text-purple-800">
+                      Tour {{ item.turn }}: {{ item.name }}
+                    </span>
                   </div>
+                  <span class="text-xs text-purple-500">{{
+                    item.timestamp
+                  }}</span>
                 </div>
-                <div v-if="entry.eventData" class="text-xs text-purple-600 bg-purple-100 p-2 rounded italic">
-                  {{ entry.eventData.effect.replace(/<[^>]*>/g, '') }}
-                </div>
-                <div class="text-xs text-gray-500">
-                  {{ entry.timestamp }}
+                <div
+                  class="text-xs text-purple-600 ml-6"
+                  v-html="item.effect"
+                ></div>
+              </div>
+
+              <!-- Modification du compteur -->
+              <div v-else-if="item.type === 'counter'">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-blue-600 text-sm font-bold">📊</span>
+                    <span class="text-sm font-medium text-blue-700">
+                      Compteur {{ item.action }}
+                    </span>
+                    <span
+                      class="text-sm text-blue-600 font-mono bg-blue-100 px-2 py-1 rounded"
+                    >
+                      {{ item.oldValue }} → {{ item.newValue }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-blue-500">{{
+                    item.timestamp
+                  }}</span>
                 </div>
               </div>
-              
-              <!-- Affichage pour les actions de compteur -->
-              <div v-else>
-                <div class="flex justify-between items-center">
-                  <span class="text-sm font-medium text-gray-700">{{
-                    entry.action
+
+              <!-- Modification du seuil -->
+              <div v-else-if="item.type === 'threshold'">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-orange-600 text-sm font-bold">🛡️</span>
+                    <span class="text-sm font-medium text-orange-700">
+                      {{ item.action }}
+                    </span>
+                    <span
+                      class="text-sm text-orange-600 font-mono bg-orange-100 px-2 py-1 rounded"
+                    >
+                      {{ item.oldValue }} → {{ item.newValue }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-orange-500">{{
+                    item.timestamp
                   }}</span>
-                  <span class="text-sm text-blue-600 font-mono"
-                    >{{ entry.oldValue }} → {{ entry.newValue }}</span
-                  >
-                </div>
-                <div class="text-xs text-gray-500 mt-1">
-                  {{ entry.timestamp }}
                 </div>
               </div>
             </div>
@@ -3762,7 +3858,7 @@
     <!-- Modale Événement -->
     <div
       v-if="showEventModal && currentEvent"
-      class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-80"
+      class="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-80"
       @click="closeEventModal"
     >
       <div
@@ -3773,18 +3869,18 @@
         @click.stop
       >
         <div class="p-4 sm:p-6 text-center">
-          <div class="text-4xl sm:text-6xl mb-3 sm:mb-4">🎲</div>
+          <div class="text-4xl sm:text-6xl mb-4 sm:mb-4">🎲</div>
           <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">
             Tour {{ turnNumber }}
           </h3>
           <div
-            class="text-base sm:text-lg font-bold text-purple-200 mb-3 sm:mb-4"
+            class="text-base sm:text-lg font-bold text-purple-200 mb-4 sm:mb-4"
           >
             Événement Révélé
           </div>
 
           <!-- Image de l'événement -->
-          <div class="mb-3 sm:mb-4">
+          <div class="mb-4 sm:mb-4">
             <img
               :src="currentEvent.image"
               :alt="currentEvent.name"
@@ -3794,19 +3890,19 @@
           </div>
 
           <!-- Nom de l'événement -->
-          <h4 class="text-lg sm:text-xl font-bold text-yellow-300 mb-2 sm:mb-3">
+          <h4 class="text-lg sm:text-xl font-bold text-yellow-300 mb-2 sm:mb-4">
             {{ currentEvent.name }}
           </h4>
 
           <!-- Effet de l'événement -->
           <div
-            class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4 text-white text-center text-sm sm:text-base"
+            class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-4 sm:mb-4 text-white text-center text-sm sm:text-base"
             v-html="currentEvent.effect"
           ></div>
 
           <!-- Instructions pour les joueurs -->
           <div
-            class="bg-yellow-900 bg-opacity-50 border border-yellow-600 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4"
+            class="bg-yellow-900 bg-opacity-50 border border-yellow-600 rounded-lg p-2 sm:p-3 mb-4 sm:mb-4"
           >
             <div class="text-yellow-300 text-xs font-bold mb-1">
               📋 Instructions
@@ -3838,17 +3934,17 @@
         @click.stop
       >
         <div class="p-4 sm:p-6 text-center">
-          <div class="text-4xl sm:text-5xl mb-3">🎯</div>
-          <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
+          <div class="text-4xl sm:text-5xl mb-4">🎯</div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-4">
             Nouvelle Partie
           </h3>
 
           <!-- Instructions principales -->
           <div
-            class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4 text-left"
+            class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-4 sm:mb-4 text-left"
           >
             <div
-              class="text-blue-200 font-bold text-xs sm:text-sm mb-2 sm:mb-3"
+              class="text-blue-200 font-bold text-xs sm:text-sm mb-2 sm:mb-4"
             >
               📋 Rappel important :
             </div>
@@ -3893,7 +3989,7 @@
 
           <!-- Note importante -->
           <div
-            class="bg-orange-900 bg-opacity-50 border border-orange-500 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4"
+            class="bg-orange-900 bg-opacity-50 border border-orange-500 rounded-lg p-2 sm:p-3 mb-4 sm:mb-4"
           >
             <div class="text-orange-300 text-xs font-bold mb-1">
               ⚠️ Important
@@ -3925,8 +4021,8 @@
         @click.stop
       >
         <div class="p-4 sm:p-6 text-center">
-          <div class="text-4xl sm:text-5xl mb-3 sm:mb-4">⚠️</div>
-          <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-3 sm:mb-4">
+          <div class="text-4xl sm:text-5xl mb-4 sm:mb-4">⚠️</div>
+          <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-4 sm:mb-4">
             Quitter la partie ?
           </h3>
           <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
@@ -3953,159 +4049,172 @@
     </div>
   </div>
 
-    <!-- Modale Sélection Mode de Jeu -->
+  <!-- Modale Sélection Mode de Jeu -->
+  <div
+    v-if="showGameModeModal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+    @click="closeGameModeModal"
+  >
     <div
-      v-if="showGameModeModal"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
-      @click="closeGameModeModal"
+      class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform transition-all duration-300 scale-100"
+      @click.stop
     >
-      <div
-        class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform transition-all duration-300 scale-100"
-        @click.stop
-      >
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-red-500 to-pink-500 p-6 text-center">
-          <h3 class="text-xl font-bold text-white mb-2">🎯 Choisissez votre Mode</h3>
-          <p class="text-red-100 text-sm">Comment souhaitez-vous jouer ?</p>
-        </div>
-
-        <!-- Content -->
-        <div class="p-6 space-y-4">
-          <!-- Mode Compétitif -->
-          <button
-            @click="selectCompetitiveMode"
-            class="w-full group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
-          >
-            <div class="flex items-center justify-between">
-              <div class="text-left">
-                <div class="font-bold text-lg mb-1">🎭 Mode Compétitif</div>
-                <div class="text-red-100 text-sm">3-5 joueurs • Rôles cachés</div>
-              </div>
-              <div class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity">
-                ⚔️
-              </div>
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-red-500 to-pink-500 p-6 text-center">
+        <h3 class="text-xl font-bold text-white mb-2">
+          🎯 Choisissez votre Mode
+        </h3>
+        <p class="text-red-100 text-sm">Comment souhaitez-vous jouer ?</p>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-4">
+        <!-- Mode Compétitif -->
+        <button
+          @click="selectCompetitiveMode"
+          class="w-full group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between">
+            <div class="text-left">
+              <div class="font-bold text-lg mb-1">🎭 Mode Compétitif</div>
+              <div class="text-red-100 text-sm">3-5 joueurs • Rôles cachés</div>
             </div>
-          </button>
-
-          <!-- Mode Coopératif -->
-          <button
-            @click="selectCooperativeMode"
-            class="w-full group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
-          >
-            <div class="flex items-center justify-between">
-              <div class="text-left">
-                <div class="font-bold text-lg mb-1">🤖 Mode Coopératif</div>
-                <div class="text-blue-100 text-sm">1-2 joueurs vs IA • Bientôt disponible</div>
-              </div>
-              <div class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity">
-                🤝
-              </div>
+            <div
+              class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity"
+            >
+              ⚔️
             </div>
-          </button>
-        </div>
-
-        <!-- Footer -->
-        <div class="bg-gray-50 px-6 py-4 border-t">
-          <button
-            @click="closeGameModeModal"
-            class="w-full text-gray-600 hover:text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors text-sm"
-          >
-            Annuler
-          </button>
-        </div>
+          </div>
+        </button>
+        <!-- Mode Coopératif -->
+        <button
+          @click="selectCooperativeMode"
+          class="w-full group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between">
+            <div class="text-left">
+              <div class="font-bold text-lg mb-1">🤖 Mode Coopératif</div>
+              <div class="text-blue-100 text-sm">1-2 joueurs vs IA</div>
+            </div>
+            <div
+              class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity"
+            >
+              🤝
+            </div>
+          </div>
+        </button>
       </div>
     </div>
+  </div>
 
-    <!-- Modale Sélection Difficulté IA -->
+  <!-- Modale Sélection Difficulté IA -->
+  <div
+    v-if="showAIDifficultyModal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+    @click="closeAIDifficultyModal"
+  >
     <div
-      v-if="showAIDifficultyModal"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
-      @click="closeAIDifficultyModal"
+      class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all duration-300 scale-100"
+      @click.stop
     >
-      <div
-        class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all duration-300 scale-100"
-        @click.stop
-      >
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-blue-500 to-indigo-500 p-6 text-center">
-          <h3 class="text-xl font-bold text-white mb-2">🎯 Choisissez la Difficulté</h3>
-          <p class="text-blue-100 text-sm">Mode Coopératif vs IA</p>
-        </div>
-
-        <!-- Content -->
-        <div class="p-6 space-y-3">
-          <div
-            v-for="difficulty in aiDifficultyLevels"
-            :key="difficulty.name"
-            @click="selectAIDifficulty(difficulty)"
-            class="w-full group cursor-pointer rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg border-2 border-transparent hover:border-opacity-50"
-            :class="{
-              'bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 hover:border-green-400': difficulty.color === 'green',
-              'bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 hover:border-blue-400': difficulty.color === 'blue',
-              'bg-gradient-to-r from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200 hover:border-orange-400': difficulty.color === 'orange',
-              'bg-gradient-to-r from-red-50 to-red-100 hover:from-red-100 hover:to-red-200 hover:border-red-400': difficulty.color === 'red',
-              'bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 hover:border-purple-400': difficulty.color === 'purple'
-            }"
-          >
-            <div class="flex items-center justify-between">
-              <div class="text-left flex-1">
-                <div class="font-bold text-lg mb-1"
-                  :class="{
-                    'text-green-800': difficulty.color === 'green',
-                    'text-blue-800': difficulty.color === 'blue',
-                    'text-orange-800': difficulty.color === 'orange',
-                    'text-red-800': difficulty.color === 'red',
-                    'text-purple-800': difficulty.color === 'purple'
-                  }"
-                >
-                  {{ difficulty.name }}
-                </div>
-                <div class="text-sm text-gray-600 space-y-1">
-                  <div>🎯 {{ difficulty.turns }} tours • Seuil: {{ difficulty.threshold }}</div>
-                  <div>📊 Taux de réussite: {{ difficulty.winRate }}</div>
-                </div>
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-blue-500 to-indigo-500 p-6 text-center">
+        <h3 class="text-xl font-bold text-white mb-2">
+          🎯 Choisissez la Difficulté
+        </h3>
+        <p class="text-blue-100 text-sm">Mode Coopératif vs IA</p>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-3">
+        <div
+          v-for="difficulty in aiDifficultyLevels"
+          :key="difficulty.name"
+          @click="selectAIDifficulty(difficulty)"
+          class="w-full group cursor-pointer rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg border-2 border-transparent hover:border-opacity-50"
+          :class="{
+            'bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 hover:border-green-400':
+              difficulty.color === 'green',
+            'bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 hover:border-blue-400':
+              difficulty.color === 'blue',
+            'bg-gradient-to-r from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200 hover:border-orange-400':
+              difficulty.color === 'orange',
+            'bg-gradient-to-r from-red-50 to-red-100 hover:from-red-100 hover:to-red-200 hover:border-red-400':
+              difficulty.color === 'red',
+            'bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 hover:border-purple-400':
+              difficulty.color === 'purple',
+          }"
+        >
+          <div class="flex items-center justify-between">
+            <div class="text-left flex-1">
+              <div
+                class="font-bold text-lg mb-1"
+                :class="{
+                  'text-green-800': difficulty.color === 'green',
+                  'text-blue-800': difficulty.color === 'blue',
+                  'text-orange-800': difficulty.color === 'orange',
+                  'text-red-800': difficulty.color === 'red',
+                  'text-purple-800': difficulty.color === 'purple',
+                }"
+              >
+                {{ difficulty.name }}
               </div>
-              <div class="text-2xl opacity-70 group-hover:opacity-100 transition-opacity">
-                <span v-if="difficulty.color === 'green'">😌</span>
-                <span v-else-if="difficulty.color === 'blue'">😐</span>
-                <span v-else-if="difficulty.color === 'orange'">😰</span>
-                <span v-else-if="difficulty.color === 'red'">😱</span>
-                <span v-else>💀</span>
+              <div
+                class="text-sm opacity-80"
+                :class="{
+                  'text-green-700': difficulty.color === 'green',
+                  'text-blue-700': difficulty.color === 'blue',
+                  'text-orange-700': difficulty.color === 'orange',
+                  'text-red-700': difficulty.color === 'red',
+                  'text-purple-700': difficulty.color === 'purple',
+                }"
+              >
+                {{ difficulty.turns }} tours • Seuil
+                {{ difficulty.threshold }} • Victoire {{ difficulty.winRate }}
               </div>
+            </div>
+            <div
+              class="text-xl opacity-70 group-hover:opacity-100 transition-opacity"
+              :class="{
+                'text-green-600': difficulty.color === 'green',
+                'text-blue-600': difficulty.color === 'blue',
+                'text-orange-600': difficulty.color === 'orange',
+                'text-red-600': difficulty.color === 'red',
+                'text-purple-600': difficulty.color === 'purple',
+              }"
+            >
+              🎯
             </div>
           </div>
         </div>
-
-        <!-- Footer -->
-        <div class="bg-gray-50 px-6 py-4 border-t">
-          <button
-            @click="closeAIDifficultyModal"
-            class="w-full text-gray-600 hover:text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors text-sm"
-          >
-            Annuler
-          </button>
-        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Mode IA Coopératif -->
-    <div
-      v-if="showAIMode"
-      class="fixed inset-0 z-40 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900"
-      style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden;"
-    >
-      <!-- Background pattern -->
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute inset-0" style="
-            background-image: radial-gradient(circle at 25% 25%, #3b82f6 1px, transparent 1px),
-                              radial-gradient(circle at 75% 75%, #8b5cf6 1px, transparent 1px);
-            background-size: 50px 50px;
-          "></div>
-      </div>
-
+  <!-- Mode IA Coopératif -->
+  <div
+    v-if="showAIMode"
+    class="fixed inset-0 z-50 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center"
+  >
+    <div class="w-full h-full relative overflow-hidden">
+      <!-- Background avec effet coloré design -->
+      <div
+        class="absolute inset-0"
+        style="
+          background-image: radial-gradient(
+              circle at 25% 25%,
+              #3b82f6 1px,
+              transparent 1px
+            ),
+            radial-gradient(circle at 75% 75%, #8b5cf6 1px, transparent 1px);
+          background-size: 50px 50px;
+        "
+      ></div>
       <!-- Header -->
-      <div class="relative z-10 bg-black bg-opacity-30 border-b border-blue-400">
-        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div
+        class="relative z-10 bg-black bg-opacity-30 border-b border-blue-400"
+      >
+        <div
+          class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center"
+        >
           <h1 class="text-2xl font-bold text-white flex items-center gap-3">
             🤖 Mode Coopératif vs IA
           </h1>
@@ -4117,409 +4226,167 @@
           </button>
         </div>
       </div>
-
       <!-- Main content -->
       <div class="relative z-10 max-w-4xl mx-auto p-4 h-full overflow-auto">
         <!-- Informations de partie -->
         <div class="mb-6 text-center space-y-4">
           <!-- Difficulté sélectionnée -->
-          <div v-if="selectedDifficulty" class="inline-block bg-black bg-opacity-50 text-white px-6 py-4 rounded-2xl shadow-lg border border-blue-400">
-            <div class="text-sm opacity-90 mb-1">Difficulté</div>
-            <div class="text-xl font-bold mb-2"
-              :class="{
-                'text-green-300': selectedDifficulty.color === 'green',
-                'text-blue-300': selectedDifficulty.color === 'blue',
-                'text-orange-300': selectedDifficulty.color === 'orange',
-                'text-red-300': selectedDifficulty.color === 'red',
-                'text-purple-300': selectedDifficulty.color === 'purple'
-              }"
-            >
-              {{ selectedDifficulty.name }}
-            </div>
-            <div class="text-xs opacity-80 space-x-4">
-              <span>Seuil max: {{ selectedDifficulty.threshold }}</span>
-              <span>•</span>
-              <span>Total: {{ selectedDifficulty.turns }} tours</span>
-            </div>
-          </div>
-          
-          <!-- Compteurs de tours -->
-          <div class="flex justify-center gap-4">
-            <div class="bg-blue-600 text-white px-6 py-3 rounded-2xl shadow-lg">
-              <div class="text-sm opacity-90">Tour actuel</div>
-              <div class="text-2xl font-bold"># {{ aiTurnNumber }}</div>
-            </div>
-            
-            <div v-if="selectedDifficulty" class="bg-orange-600 text-white px-6 py-3 rounded-2xl shadow-lg">
-              <div class="text-sm opacity-90">Tours restants</div>
-              <div class="text-2xl font-bold">{{ aiRemainingTurns }}</div>
-            </div>
-          </div>
-          
-          <!-- Informations de gameplay -->
-          <div v-if="aiTurnNumber === 0" class="mt-4 bg-blue-600 bg-opacity-20 border border-blue-400 rounded-xl p-4 text-white text-sm text-center">
-            <div class="inline-flex items-start gap-3 text-left">
-              <div class="text-2xl">ℹ️</div>
-              <div>
-                <div class="font-bold mb-2">🤖 Comment fonctionne l'IA :</div>
-                <ul class="space-y-1 text-blue-100">
-                  <li>• <strong>Charges</strong> : L'effet est appliqué automatiquement au compteur</li>
-                  <li>• <strong>Seuil réduit</strong> : Le seuil d'explosion baisse automatiquement</li>
-                  <li>• <strong>Sabotage/Blocage</strong> : Vous devez appliquer l'effet manuellement</li>
-                </ul>
-                <div class="mt-2 text-xs opacity-90">
-                  💡 Cliquez sur "Tour suivant" pour voir la carte jouée par l'IA
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Compteur principal -->
-        <div class="bg-black bg-opacity-50 rounded-2xl p-6 mb-6 border border-blue-400">
-          <h2 class="text-white font-bold mb-4 text-center text-xl">💣 Compteur de la Bombe</h2>
-          
-          <!-- Progress bar -->
-          <div class="mb-6">
-            <div class="flex justify-between text-white text-sm mb-2">
-              <span>Compteur: {{ aiCounterValue }}</span>
-              <span>Seuil: {{ aiThresholdValue }}</span>
-            </div>
-            <div class="w-full bg-gray-700 rounded-full h-4 relative overflow-hidden">
-              <div
-                class="h-4 rounded-full transition-all duration-500 relative overflow-hidden"
-                :class="
-                  aiCounterValue >= aiThresholdValue
-                    ? 'bg-red-600'
-                    : aiCounterValue >= aiThresholdValue * 0.8
-                    ? 'bg-yellow-500'
-                    : 'bg-green-500'
-                "
-                :style="`width: ${Math.min(100, (aiCounterValue / aiThresholdValue) * 100)}%`"
-              >
-                <!-- Animated stripes for danger -->
-                <div
-                  v-if="aiCounterValue >= aiThresholdValue * 0.8"
-                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Boutons de contrôle -->
-          <div class="grid grid-cols-4 lg:grid-cols-8 gap-3 mb-6">
-            <!-- Décharges -->
-            <button
-              @click="aiAdjustCounter(-3)"
-              :disabled="aiGameOver"
-              class="bg-green-600 hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
-            >
-              -3
-            </button>
-            <button
-              @click="aiAdjustCounter(-2)"
-              :disabled="aiGameOver"
-              class="bg-green-500 hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
-            >
-              -2
-            </button>
-            <button
-              @click="aiAdjustCounter(-1)"
-              :disabled="aiGameOver"
-              class="bg-green-400 hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
-            >
-              -1
-            </button>
-            
-            <!-- Charges -->
-            <button
-              @click="aiAdjustCounter(+1)"
-              :disabled="aiGameOver"
-              class="bg-red-400 hover:bg-red-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
-            >
-              +1
-            </button>
-            <button
-              @click="aiAdjustCounter(+2)"
-              :disabled="aiGameOver"
-              class="bg-red-500 hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
-            >
-              +2
-            </button>
-            <button
-              @click="aiAdjustCounter(+3)"
-              :disabled="aiGameOver"
-              class="bg-red-600 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
-            >
-              +3
-            </button>
-            <button
-              @click="aiAdjustCounter(+4)"
-              :disabled="aiGameOver"
-              class="bg-red-700 hover:bg-red-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
-            >
-              +4
-            </button>
-            <button
-              @click="aiAdjustCounter(+5)"
-              :disabled="aiGameOver"
-              class="bg-red-800 hover:bg-red-900 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors"
-            >
-              +5
-            </button>
-          </div>
-
-          <!-- Contrôle du seuil -->
-          <div class="flex justify-center gap-4 mb-6">
-            <button
-              @click="aiAdjustThreshold(-1)"
-              :disabled="aiGameOver"
-              class="bg-orange-600 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg transition-colors"
-            >
-              Seuil -1
-            </button>
-            <button
-              @click="aiAdjustThreshold(+1)"
-              :disabled="aiGameOver"
-              class="bg-orange-600 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg transition-colors"
-            >
-              Seuil +1
-            </button>
-          </div>
-
-          <!-- Bouton Tour suivant -->
-          <div class="flex justify-center gap-4">
-            <button
-              @click="aiNextTurn"
-              :disabled="aiGameOver"
-              class="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-xl transition-colors flex items-center gap-2 text-lg"
-            >
-              <span>🎯</span>
-              Tour suivant (IA joue)
-            </button>
-            
-            <!-- Historique -->
-            <button
-              @click="showAIHistoryModal = true"
-              class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-6 rounded-xl transition-colors flex items-center gap-2"
-            >
-              <span>📋</span>
-              Historique
-            </button>
-          </div>
-        </div>
-
-        <!-- État de fin de partie -->
-        <div v-if="aiGameOver" class="rounded-2xl p-6 text-center border-2"
-          :class="
-            aiCounterValue >= aiThresholdValue
-              ? 'bg-red-900 bg-opacity-75 border-red-500'
-              : 'bg-green-900 bg-opacity-75 border-green-500'
-          "
-        >
-          <!-- Explosion -->
-          <div v-if="aiCounterValue >= aiThresholdValue">
-            <div class="text-4xl mb-4">💥</div>
-            <h3 class="text-2xl font-bold text-white mb-2">EXPLOSION !</h3>
-            <p class="text-red-200 mb-4">La bombe a explosé ! L'IA a gagné cette fois.</p>
-          </div>
-          
-          <!-- Victoire -->
-          <div v-else>
-            <div class="text-4xl mb-4">🎉</div>
-            <h3 class="text-2xl font-bold text-white mb-2">VICTOIRE !</h3>
-            <p class="text-green-200 mb-4">
-              Félicitations ! Vous avez survécu {{ selectedDifficulty?.turns }} tours en mode {{ selectedDifficulty?.name }}.
-            </p>
-          </div>
-          
-          <button
-            @click="openAIMode"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors mr-2"
-          >
-            🔄 Nouvelle partie
-          </button>
-          <button
-            @click="showAIDifficultyModal = true; aiGameOver = false; showAIMode = false"
-            class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-          >
-            🎯 Changer difficulté
-          </button>
-        </div>
-      </div>
-
-      <!-- Explosion overlay -->
-      <div
-        v-if="aiShowExplosion"
-        class="fixed inset-0 z-50 bg-red-600 bg-opacity-90 flex items-center justify-center animate-pulse"
-      >
-        <div class="text-center text-white">
-          <div class="text-8xl mb-4">💥</div>
-          <div class="text-4xl font-bold">BOOOM!</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modale Historique IA -->
-    <div
-      v-if="showAIHistoryModal"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
-      @click="showAIHistoryModal = false"
-    >
-      <div
-        class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-96 overflow-hidden"
-        @click.stop
-      >
-        <div class="p-4 border-b border-gray-200">
-          <div class="flex justify-between items-center">
-            <h3 class="text-lg font-bold text-gray-800">📋 Historique - Mode IA</h3>
-            <button
-              @click="showAIHistoryModal = false"
-              class="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-        <div class="p-4 max-h-80 overflow-y-auto">
           <div
-            v-if="aiCounterHistory.length === 0"
-            class="text-center text-gray-500 py-8"
+            v-if="selectedDifficulty"
+            class="inline-block bg-black bg-opacity-50 text-white px-6 py-4 rounded-2xl shadow-lg border border-blue-400"
           >
-            Aucune action enregistrée
-          </div>
-          <div v-else class="space-y-2">
-            <div
-              v-for="(entry, index) in aiCounterHistory.slice().reverse()"
-              :key="index"
-              :class="[
-                'p-3 rounded-lg',
-                entry.type === 'ai' 
-                  ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-400' 
-                  : entry.type === 'victory'
-                  ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-400'
-                  : 'bg-gray-50'
-              ]"
-            >
-              <div class="flex justify-between items-center">
-                <span class="text-sm font-medium" 
-                  :class="{
-                    'text-blue-700': entry.type === 'ai',
-                    'text-green-700': entry.type === 'victory',
-                    'text-gray-700': entry.type === 'counter'
-                  }"
-                >{{
-                  entry.action
-                }}</span>
-                <span v-if="entry.oldValue !== null && entry.newValue !== null" 
-                  class="text-sm font-mono" 
-                  :class="{
-                    'text-blue-600': entry.type === 'ai',
-                    'text-green-600': entry.type === 'victory',
-                    'text-gray-600': entry.type === 'counter'
-                  }"
-                >{{ entry.oldValue }} → {{ entry.newValue }}</span>
-              </div>
-              <div class="flex justify-between items-center mt-1">
-                <div class="text-xs text-gray-500">{{ entry.timestamp }}</div>
-                <div v-if="entry.turn" class="text-xs text-gray-500">Tour {{ entry.turn }}</div>
-              </div>
+            <div class="text-sm opacity-90 mb-1">Difficulté</div>
+            <div class="text-xl font-bold">{{ selectedDifficulty.name }}</div>
+            <div class="text-sm opacity-80">
+              {{ selectedDifficulty.turns }} tours • Seuil
+              {{ selectedDifficulty.threshold }}
             </div>
           </div>
+        </div>
+
+        <!-- Placeholder pour le contenu du mode IA -->
+        <div
+          class="text-center text-white bg-black bg-opacity-30 rounded-xl p-8"
+        >
+          <div class="text-4xl mb-4">🚧</div>
+          <h3 class="text-xl font-bold mb-4">Mode en développement</h3>
+          <p class="text-blue-200 mb-6">
+            Le mode coopératif vs IA sera bientôt disponible avec toutes les
+            nouvelles règles !
+          </p>
+          <button
+            @click="closeAIMode"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            Retour au menu
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Modale Carte IA Jouée -->
+  <!-- Modale Fin de Partie -->
+  <div
+    v-if="showEndGameModal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-85"
+    @click="closeEndGameModal"
+  >
     <div
-      v-if="showAICardModal && currentAICard"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-80"
-      @click="closeAICardModal"
+      class="bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-yellow-400 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+      @click.stop
     >
+      <!-- Header -->
       <div
-        class="bg-gradient-to-br from-indigo-900 to-purple-900 rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border-2 border-blue-400 transform transition-all duration-300 scale-100"
-        @click.stop
+        class="bg-gradient-to-r from-yellow-500 to-orange-500 p-6 text-center"
       >
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-center">
-          <h3 class="text-xl font-bold text-white mb-2">🤖 L'IA joue sa carte</h3>
-          <p class="text-blue-100 text-sm">Tour {{ aiTurnNumber }}</p>
-        </div>
+        <div class="text-4xl mb-4">🏆</div>
+        <h3 class="text-2xl font-bold text-white mb-2">Fin de Partie !</h3>
+        <p class="text-yellow-100 text-sm">
+          Le "Compte à rebours final" a été révélé
+        </p>
+      </div>
 
-        <!-- Card Display -->
-        <div class="p-6 text-center">
-          <!-- Card Image -->
-          <div class="mb-6">
-            <div class="w-32 h-44 mx-auto rounded-xl shadow-2xl overflow-hidden">
-              <img
-                :src="currentAICard.image"
-                :alt="currentAICard.name"
-                loading="lazy"
-                class="w-full h-full object-contain cursor-pointer hover:scale-105 transition-transform duration-300"
-                @error="showFallbackCard"
-                v-show="!showImageFallback"
-              />
-              <!-- Fallback design if image fails to load -->
-              <div v-show="showImageFallback" class="w-full h-full flex flex-col items-center justify-center text-gray-800 bg-white border-4 border-yellow-300 rounded-xl p-2">
-                <div class="text-5xl mb-2">{{ currentAICard.icon }}</div>
-                <div class="text-lg font-bold text-center leading-tight">{{ currentAICard.name }}</div>
-                <div v-if="currentAICard.type === 'charge'" class="text-sm text-red-600 font-semibold mt-2">
-                  +{{ currentAICard.value }}
-                </div>
-                <div v-else-if="currentAICard.type === 'threshold'" class="text-sm text-blue-600 font-semibold mt-2">
-                  Seuil -2
-                </div>
-              </div>
-            </div>
+      <!-- Content -->
+      <div class="p-6 space-y-6">
+        <!-- Temps de partie -->
+        <div
+          class="text-center bg-gray-700 rounded-xl p-4 border border-gray-600"
+        >
+          <div class="text-yellow-400 text-sm font-medium mb-2">
+            ⏱️ Temps de partie
           </div>
-
-          <!-- Card Info -->
-          <div class="text-white mb-4">
-            <h4 class="text-2xl font-bold text-yellow-300 mb-2">{{ currentAICard.name }}</h4>
-            <p class="text-blue-100 text-sm mb-4">{{ currentAICard.description }}</p>
-            
-            <!-- Effect Display -->
-            <div class="bg-black bg-opacity-30 rounded-lg p-4 border border-blue-500">
-              <div v-if="currentAICard.type === 'special'" class="text-lg font-semibold mb-2 text-orange-300">⚠️ Effet à appliquer manuellement :</div>
-              <div v-else class="text-lg font-semibold mb-2 text-green-300">✅ Effet automatiquement appliqué :</div>
-              
-              <div class="text-yellow-200">
-                <span v-if="currentAICard.type === 'charge'">
-                  Compteur : {{ aiCounterValue - currentAICard.value }} → {{ aiCounterValue }}
-                </span>
-                <span v-else-if="currentAICard.name === 'Seuil réduit'">
-                  Seuil : {{ aiThresholdValue + 2 }} → {{ aiThresholdValue }}
-                </span>
-                <span v-else-if="currentAICard.name === 'Sabotage'">
-                  Le joueur doit jouer une carte au hasard
-                </span>
-                <span v-else-if="currentAICard.name === 'Blocage'">
-                  Le joueur passe son prochain tour
-                </span>
-              </div>
-              
-              <!-- Manual action reminder -->
-              <div v-if="currentAICard.type === 'special'" class="mt-3 p-2 bg-orange-900 bg-opacity-50 rounded border border-orange-500">
-                <div class="text-orange-200 text-sm">
-                  📝 N'oubliez pas d'appliquer cet effet lors du prochain tour du joueur !
-                </div>
-              </div>
-            </div>
+          <div class="text-white text-2xl font-bold">
+            {{ gameDuration ? formatDuration(gameDuration) : "Non disponible" }}
           </div>
         </div>
 
-        <!-- Footer -->
-        <div class="bg-black bg-opacity-30 px-6 py-4 border-t border-blue-500">
+        <!-- Conditions de victoire -->
+        <div class="bg-gray-700 rounded-xl p-6 border border-gray-600">
+          <h4 class="text-xl font-bold text-yellow-400 mb-4 text-center">
+            🎯 Conditions de Victoire par Rôle
+          </h4>
+
+          <div class="grid gap-6 md:grid-cols-3">
+            <!-- Démineurs -->
+            <div
+              class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-4 text-center"
+            >
+              <div class="text-2xl mb-4">🛡️</div>
+              <h5 class="text-lg font-bold text-white mb-4">DÉMINEURS</h5>
+              <div class="text-blue-100 text-sm space-y-2">
+                <div class="font-semibold text-blue-200">
+                  Victoire par Élimination :
+                </div>
+                <div>• Tous les Saboteurs sont éliminés</div>
+                <div>• L'Agent Double n'a pas atteint son objectif</div>
+                <div>• La bombe n'a pas explosé</div>
+              </div>
+            </div>
+
+            <!-- Saboteurs -->
+            <div
+              class="bg-gradient-to-br from-red-600 to-red-700 rounded-xl p-4 text-center"
+            >
+              <div class="text-2xl mb-4">💥</div>
+              <h5 class="text-lg font-bold text-white mb-4">SABOTEURS</h5>
+              <div class="text-red-100 text-sm space-y-2">
+                <div class="font-semibold text-red-200">Victoire si :</div>
+                <div>• La bombe explose</div>
+                <div class="text-xs opacity-80">(Compteur ≥ Seuil)</div>
+              </div>
+            </div>
+
+            <!-- Agent Double -->
+            <div
+              class="bg-gradient-to-br from-yellow-600 to-yellow-700 rounded-xl p-4 text-center"
+            >
+              <div class="text-2xl mb-4">🎭</div>
+              <h5 class="text-lg font-bold text-white mb-4">AGENT DOUBLE</h5>
+              <div class="text-yellow-100 text-sm space-y-2">
+                <div class="font-semibold text-yellow-200">Victoire si :</div>
+                <div>• Possède 2 cartes objectif spécifiques</div>
+                <div>• La bombe n'explose pas</div>
+                <div>• Survit jusqu'à la fin</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instructions finales -->
+        <div
+          class="bg-yellow-600 bg-opacity-20 border border-yellow-500 rounded-xl p-4"
+        >
+          <div class="text-yellow-300 text-sm font-medium mb-2">
+            📋 Instructions
+          </div>
+          <div class="text-yellow-100 text-sm">
+            <strong
+              >Chaque joueur joue une dernière fois dans l'ordre, puis la partie
+              s'arrête.</strong
+            >
+            <br />Vérifiez ensuite qui remplit les conditions de victoire
+            ci-dessus !
+          </div>
+        </div>
+
+        <!-- Boutons -->
+        <div class="flex flex-col sm:flex-row gap-3 pt-4">
           <button
-            @click="closeAICardModal"
-            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+            @click="closeEndGameModal"
+            class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
           >
             Continuer la partie
           </button>
+          <button
+            @click="closeCounterMode"
+            class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+          >
+            ✕ Quitter la partie
+          </button>
         </div>
       </div>
     </div>
-
+  </div>
 </template>
 
 <style scoped>
@@ -4578,9 +4445,10 @@ const navLinks = [
   { id: "contenu", label: "Contenu" },
   { id: "mise-en-place", label: "Mise en Place" },
   { id: "deroulement", label: "Déroulement" },
-  { id: "fin-partie", label: "Fin de Partie" },
+  { id: "victoire", label: "Victoire" },
   { id: "cartes", label: "Cartes" },
   { id: "cooperatif", label: "Mode Coopératif" },
+  { id: "wip", label: "WIP" },
   { id: "faq", label: "FAQ" },
   { id: "remerciements", label: "Remerciements" },
   { id: "contact", label: "Contact" },
@@ -4591,46 +4459,36 @@ const objectiveCards = [
   {
     name: "Dossier classé",
     type: "Bluff & Objectif",
-    effect: "Nécessaire pour la victoire de l'Agent Double (2/3)",
+    effect:
+      "Nécessaire pour la victoire de l'Agent Double (2/X selon le nombre de joueurs)",
     quantity: 1,
   },
   {
     name: "Robot de déminage",
     type: "Bluff & Objectif",
-    effect: "Nécessaire pour la victoire de l'Agent Double (2/3)",
+    effect:
+      "Nécessaire pour la victoire de l'Agent Double (2/X selon le nombre de joueurs)",
     quantity: 1,
   },
   {
     name: "Plan d'évacuation",
     type: "Bluff & Objectif",
-    effect: "Nécessaire pour la victoire de l'Agent Double (2/3)",
-    quantity: 1,
-  },
-];
-
-const conditionalCards = [
-  {
-    name: "Charge instable",
-    type: "Conditionnelle",
-    effect: "Si compteur ≤ 10 : +4, sinon +2",
+    effect:
+      "Nécessaire pour la victoire de l'Agent Double (2/X selon le nombre de joueurs)",
     quantity: 1,
   },
   {
-    name: "Détonation amplifiée",
-    type: "Conditionnelle",
-    effect: "Si compteur ≥ 20 : +1, sinon +2",
+    name: "Neutralisation chimique",
+    type: "Bluff & Objectif",
+    effect:
+      "Nécessaire pour la victoire de l'Agent Double (2/X selon le nombre de joueurs)",
     quantity: 1,
   },
   {
-    name: "Refroidissement express",
-    type: "Conditionnelle",
-    effect: "Si compteur ≥ 20 : -4, sinon -2",
-    quantity: 1,
-  },
-  {
-    name: "Désescalade tactique",
-    type: "Conditionnelle",
-    effect: "Si compteur ≤ 10 : -1, sinon -2",
+    name: "Schéma électrique",
+    type: "Bluff & Objectif",
+    effect:
+      "Nécessaire pour la victoire de l'Agent Double (2/X selon le nombre de joueurs)",
     quantity: 1,
   },
 ];
@@ -4647,6 +4505,8 @@ const dischargeCards = [
   { name: "Décharge -1", quantity: 5 },
   { name: "Décharge -2", quantity: 5 },
   { name: "Décharge -3", quantity: 5 },
+  { name: "Charge X", quantity: 2 },
+  { name: "Décharge X", quantity: 2 },
 ];
 
 const actionCards = [
@@ -4677,7 +4537,7 @@ const actionCards = [
     name: "Seuil augmenté",
     type: "Action",
     effect:
-      "Augmente le seuil d'explosion de +1 à +5 points au choix (maximum 30 points)",
+      "Augmente le seuil d'explosion du montant d'une carte numérotée tirée au hasard (maximum 30 points)",
     quantity: 3,
     image: "/action_seuilAugmente.png",
   },
@@ -4685,7 +4545,7 @@ const actionCards = [
     name: "Seuil réduit",
     type: "Action",
     effect:
-      "Réduit le seuil de -1 à -5 points au choix. Le nouveau seuil doit être au minimum à (compteur actuel +1). Obligation de baisser d'au moins 1 point",
+      "Réduit le seuil du montant d'une carte numérotée tirée au hasard. Le nouveau seuil doit être au minimum à (compteur actuel +1)",
     quantity: 3,
     image: "/action_seuilReduit.png",
   },
@@ -4717,26 +4577,33 @@ const actionCards = [
     quantity: 1,
     image: "/action_pileOuFiasco.png",
   },
-];
-
-const reactiveCards = [
   {
-    name: "Désamorceur",
-    type: "Réactive ⚡",
-    effect: "Annule l'effet de la carte jouée",
-    quantity: 4,
+    name: "Changement de masque",
+    type: "Action",
+    effect: "Échange ta carte rôle avec celle face cachée",
+    quantity: 1,
+    image: "/action_changementMasque.png",
   },
   {
-    name: "Miroir",
-    type: "Réactive ⚡",
-    effect: "Redirige une action contre vous ou inverse le signe (+ ↔ -)",
+    name: "Désamorceur",
+    type: "Action",
+    effect: "Annule l'effet de la carte jouée",
     quantity: 4,
+    image: "/action_desamorceur.png",
   },
   {
     name: "Surcharge",
-    type: "Réactive ⚡",
-    effect: "Double la valeur de la carte (dé)charge jouée",
+    type: "Action",
+    effect: "Double la valeur de toute carte modifiant le compteur ou le seuil (exemple: Seuil réduit, Charge, Pile ou fiasco, ...)",
     quantity: 3,
+    image: "/action_surcharge.png",
+  },
+  {
+    name: "Miroir",
+    type: "Action",
+    effect: "Renvoi l'action vers l'auteur ou inverse ses effets (- en +) (exemple: Seuil réduit, Charge, ...)",
+    quantity: 4,
+    image: "/action_miroir.png",
   },
 ];
 
@@ -4789,10 +4656,10 @@ const events = [
     image: "/event_courtCircuit.png",
   },
   {
-    name: "Fausse alerte",
+    name: "Effet domino",
     effect:
-      "Le seuil augmente temporairement de +3. Si compteur ≥ seuil normal en fin de tour : explosion",
-    image: "/event_fausseAlerte.png",
+      "Toute carte jouée ce tour déclenche automatiquement sa réaction en chaîne",
+    image: "/event_effetDomino.png",
   },
   {
     name: "Double vision",
@@ -4802,13 +4669,13 @@ const events = [
   },
   {
     name: "Panique générale",
-    effect: "Chaque joueur doit jouer 2 cartes ce tour au lieu d'une",
+    effect:
+      "Ce tour, après avoir joué votre carte, défaussez immédiatement une autre carte de votre main au hasard",
     image: "/event_paniqueGenerale.png",
   },
   {
     name: "Blackout",
-    effect:
-      "Toutes les cartes Actions (non-(dé)charge) sont interdites ce tour",
+    effect: "Toutes les cartes Actions (cartes orange) sont interdites ce tour",
     image: "/event_blackout.png",
   },
   {
@@ -4823,6 +4690,24 @@ const events = [
     image: "/event_inversionRoles.png",
   },
   {
+    name: "Tensions diplomatique",
+    effect:
+      "À la fin du tour de chaque joueur qui joue, le compteur monte de +1",
+    image: "/event_tensionsDiplomatique.png",
+  },
+  {
+    name: "Matériel instable",
+    effect:
+      "Toutes les Décharges (-) sont réduites de moitié (arrondi supérieur) ce tour",
+    image: "/event_materielInstable.png",
+  },
+  {
+    name: "Accélération critique",
+    effect:
+      "À la fin du tour, si le compteur a augmenté d'au moins 1, peu importe la manière, ajoutez +2 supplémentaires",
+    image: "/event_accelerationCritique.png",
+  },
+  {
     name: "Compte à rebours final",
     effect:
       "<strong>🚨 DERNIER TOUR !</strong> Chaque joueur joue une dernière fois, puis la partie s'arrête",
@@ -4830,8 +4715,28 @@ const events = [
   },
 ];
 
+// AI difficulty levels
+const aiDifficultyLevels = [
+  { name: "Débutant", turns: 7, threshold: 19, winRate: "90%", color: "green" },
+  { name: "Normal", turns: 8, threshold: 17, winRate: "70%", color: "blue" },
+  { name: "Expert", turns: 11, threshold: 15, winRate: "40%", color: "orange" },
+  { name: "Légende", turns: 13, threshold: 12, winRate: "15%", color: "red" },
+  {
+    name: "Impossible",
+    turns: 15,
+    threshold: 10,
+    winRate: "5%",
+    color: "purple",
+  },
+];
+
 // FAQs
 const faqs = [
+  {
+    question: "Que se passe-t-il si le compteur devrait descendre sous 0 ?",
+    answer:
+      "<strong>Le compteur ne peut jamais descendre sous 0.</strong> Si une carte devait le faire descendre en dessous, il reste à 0.",
+  },
   {
     question: "Puis-je regarder la défausse ?",
     answer:
@@ -4851,7 +4756,7 @@ const faqs = [
   {
     question: "Seuil Réduit - Règles importantes",
     answer:
-      "• Cette carte <strong>ne peut jamais</strong> déclencher l'explosion<br>• Le nouveau seuil doit être <strong>au minimum</strong> à (compteur actuel + 1)<br>• Vous devez <strong>obligatoirement</strong> faire baisser le seuil d'au moins 1 point<br>• Si le compteur est à 19 et le seuil à 20, vous ne pouvez pas jouer cette carte",
+      "• Cette carte <strong>ne peut jamais</strong> déclencher l'explosion<br>• Le nouveau seuil doit être <strong>au minimum</strong> à (compteur actuel + 1)<br>• Le montant de réduction est déterminé par une carte numérotée tirée au hasard<br>• Si la réduction rendrait le seuil trop bas, la carte ne peut pas être jouée",
   },
   {
     question: "Comment fonctionne la carte Miroir ?",
@@ -4859,9 +4764,19 @@ const faqs = [
       "La carte Miroir peut :<br>• <strong>Rediriger une action</strong> dirigée contre vous vers son auteur<br>• <strong>Inverser le signe</strong> d'une carte (dé)charge (+ devient -, - devient +)",
   },
   {
+    question: "Peut-on jouer Surcharge sur une carte Miroir ?",
+    answer:
+      "<strong>Non.</strong> La carte Surcharge ne peut pas être jouée sur une carte Miroir. Le Miroir est une carte réactive spéciale qui ne peut pas être surchargée.",
+  },
+  {
     question: "Sabotage et cartes objectif",
     answer:
       "Si la carte jouée au hasard par Sabotage est une <strong>carte objectif de l'Agent Double</strong> (Dossier classé, Robot de déminage, Plan d'évacuation), elle est <strong>défaussée sans effet</strong>.",
+  },
+  {
+    question: "Que faire si je ne peux pas ou ne veux pas jouer de carte ?",
+    answer:
+      "<strong>Si aucune carte de votre main ne peut être jouée :</strong> Défaussez une carte de votre choix.<br><strong>Si vous pouvez jouer au moins une carte :</strong> Vous êtes <strong>obligé(e) de la jouer</strong>, même si cela ne vous arrange pas stratégiquement.",
   },
 ];
 
@@ -4910,6 +4825,9 @@ const eventModalPulse = ref(false);
 const showGameStartModal = ref(false);
 const finalCountdownRevealed = ref(false);
 const showCloseConfirmModal = ref(false);
+const showEndGameModal = ref(false);
+
+// Game mode selection
 const showGameModeModal = ref(false);
 
 // AI mode functionality
@@ -4927,26 +4845,6 @@ const showAIHistoryModal = ref(false);
 const selectedDifficulty = ref(null);
 const currentAICard = ref(null);
 const showAICardModal = ref(false);
-const showImageFallback = ref(false);
-
-// AI difficulty levels
-const aiDifficultyLevels = [
-  { name: 'Débutant', turns: 7, threshold: 19, winRate: '90%', color: 'green' },
-  { name: 'Normal', turns: 8, threshold: 17, winRate: '70%', color: 'blue' },
-  { name: 'Expert', turns: 11, threshold: 15, winRate: '40%', color: 'orange' },
-  { name: 'Légende', turns: 13, threshold: 12, winRate: '15%', color: 'red' },
-  { name: 'Impossible', turns: 15, threshold: 10, winRate: '5%', color: 'purple' }
-];
-
-// AI Cards deck for visual display
-const aiCardsDeck = [
-  { name: 'Charge +1', value: 1, type: 'charge', image: '/charge1.png', description: 'Augmente la valeur de la bombe de +1', icon: '🔥' },
-  { name: 'Charge +2', value: 2, type: 'charge', image: '/charge2.png', description: 'Augmente la valeur de la bombe de +2', icon: '💥' },
-  { name: 'Charge +3', value: 3, type: 'charge', image: '/charge3.png', description: 'Augmente la valeur de la bombe de +3', icon: '💣' },
-  { name: 'Sabotage', value: 2, type: 'special', image: '/action_sabotage.png', description: 'Force le joueur à jouer une carte au hasard (effet à appliquer manuellement)', icon: '🎭' },
-  { name: 'Blocage', value: 1, type: 'special', image: '/action_blocage.png', description: 'Empêche le joueur de jouer au prochain tour (effet à appliquer manuellement)', icon: '🚫' },
-  { name: 'Seuil réduit', value: 0, type: 'threshold', image: '/action_seuilReduit.png', description: 'Réduit le seuil d\'explosion de -2', icon: '⬇️' }
-];
 
 // Timer interval reference for cleanup
 let timerInterval = null;
@@ -4958,16 +4856,22 @@ const elapsedTime = computed(() => {
   return formatDuration(elapsed);
 });
 
+// Computed property for unified history (events + counter changes)
+const unifiedHistory = computed(() => {
+  const allItems = [...usedEvents.value, ...counterHistory.value];
+
+  // Sort by timestamp (convert to comparable format)
+  return allItems.sort((a, b) => {
+    const timeA = new Date(`1970-01-01 ${a.timestamp}`);
+    const timeB = new Date(`1970-01-01 ${b.timestamp}`);
+    return timeA - timeB;
+  });
+});
+
 // Contact form
 const isSubmitting = ref(false);
 const submitMessage = ref("");
 const submitSuccess = ref(false);
-
-// Computed property for remaining turns in AI mode
-const aiRemainingTurns = computed(() => {
-  if (!selectedDifficulty.value) return 0;
-  return Math.max(0, selectedDifficulty.value.turns - aiTurnNumber.value);
-});
 
 const handleScroll = () => {
   showBackToTop.value = window.pageYOffset > 300;
@@ -5060,192 +4964,6 @@ const handleOffline = () => {
   console.log("Connexion perdue");
 };
 
-// Game mode selection functions
-const openGameModeSelection = () => {
-  showGameModeModal.value = true;
-};
-
-const closeGameModeModal = () => {
-  showGameModeModal.value = false;
-};
-
-const selectCompetitiveMode = () => {
-  closeGameModeModal();
-  openCounterMode();
-};
-
-const selectCooperativeMode = () => {
-  closeGameModeModal();
-  showAIDifficultyModal.value = true;
-};
-
-// AI difficulty selection functions
-const selectAIDifficulty = (difficulty) => {
-  selectedDifficulty.value = difficulty;
-  showAIDifficultyModal.value = false;
-  openAIMode();
-};
-
-const closeAIDifficultyModal = () => {
-  showAIDifficultyModal.value = false;
-};
-
-// AI mode functions
-const openAIMode = () => {
-  showAIMode.value = true;
-  
-  // Initialize AI mode values
-  aiTurnNumber.value = 0;
-  aiCounterValue.value = 0;
-  aiThresholdValue.value = selectedDifficulty.value ? selectedDifficulty.value.threshold : 20;
-  aiCounterHistory.value = [];
-  aiGameOver.value = false;
-  aiShowExplosion.value = false;
-  aiGameStartTime.value = Date.now();
-  aiGameDuration.value = null;
-  showAIHistoryModal.value = false;
-  
-  document.body.style.overflow = "hidden";
-};
-
-const closeAIMode = () => {
-  showAIMode.value = false;
-  document.body.style.overflow = "auto";
-  
-  if (timerInterval) {
-    clearInterval(timerInterval);
-    timerInterval = null;
-  }
-};
-
-const aiAdjustCounter = (delta) => {
-  const newValue = Math.max(0, aiCounterValue.value + delta);
-  
-  aiCounterHistory.value.push({
-    action: delta > 0 ? `+${delta}` : `${delta}`,
-    oldValue: aiCounterValue.value,
-    newValue: newValue,
-    timestamp: new Date().toLocaleTimeString(),
-    type: 'counter',
-    turn: aiTurnNumber.value
-  });
-  
-  aiCounterValue.value = newValue;
-  
-  // Check for explosion
-  if (aiCounterValue.value >= aiThresholdValue.value) {
-    aiTriggerExplosion();
-  }
-};
-
-const aiAdjustThreshold = (delta) => {
-  const newValue = Math.max(10, Math.min(30, aiThresholdValue.value + delta));
-  aiThresholdValue.value = newValue;
-};
-
-const aiTriggerExplosion = () => {
-  aiShowExplosion.value = true;
-  aiGameOver.value = true;
-  aiGameDuration.value = Date.now() - aiGameStartTime.value;
-  
-  setTimeout(() => {
-    aiShowExplosion.value = false;
-  }, 3000);
-};
-
-const aiNextTurn = () => {
-  if (aiGameOver.value) return;
-  
-  aiTurnNumber.value += 1;
-  
-  // Check if max turns reached (victory condition)
-  if (selectedDifficulty.value && aiTurnNumber.value > selectedDifficulty.value.turns) {
-    // Player wins by surviving all turns
-    aiGameOver.value = true;
-    aiGameDuration.value = Date.now() - aiGameStartTime.value;
-    
-    aiCounterHistory.value.push({
-      action: `🎉 VICTOIRE! Survécu ${selectedDifficulty.value.turns} tours`,
-      oldValue: null,
-      newValue: null,
-      timestamp: new Date().toLocaleTimeString(),
-      type: 'victory',
-      turn: aiTurnNumber.value
-    });
-    
-    return;
-  }
-  
-  // Select a random AI card based on probabilities
-  let selectedCard;
-  const rand = Math.random();
-  
-  if (rand < 0.4) {
-    // 40% chance: Charge +1
-    selectedCard = aiCardsDeck[0];
-  } else if (rand < 0.7) {
-    // 30% chance: Charge +2  
-    selectedCard = aiCardsDeck[1];
-  } else if (rand < 0.9) {
-    // 20% chance: Charge +3
-    selectedCard = aiCardsDeck[2];
-  } else if (rand < 0.95) {
-    // 5% chance: Sabotage
-    selectedCard = aiCardsDeck[3];
-  } else if (rand < 0.98) {
-    // 3% chance: Blocage
-    selectedCard = aiCardsDeck[4];
-  } else {
-    // 2% chance: Seuil réduit
-    selectedCard = aiCardsDeck[5];
-  }
-  
-  // Store the current AI card and show modal
-  currentAICard.value = selectedCard;
-  showImageFallback.value = false; // Reset fallback for new card
-  showAICardModal.value = true;
-  
-  // Apply the card effect
-  let aiAction = selectedCard.value;
-  let actionDescription = `🤖 IA joue: ${selectedCard.name}`;
-  
-  if (selectedCard.type === 'threshold' && selectedCard.name === 'Seuil réduit') {
-    // Reduce threshold by 2
-    const oldThreshold = aiThresholdValue.value;
-    aiThresholdValue.value = Math.max(aiCounterValue.value + 1, aiThresholdValue.value - 2);
-    actionDescription = `🤖 IA: Seuil réduit (${oldThreshold} → ${aiThresholdValue.value})`;
-    aiAction = 0; // No counter change
-  }
-  
-  aiCounterHistory.value.push({
-    action: actionDescription,
-    oldValue: aiCounterValue.value,
-    newValue: aiCounterValue.value + aiAction,
-    timestamp: new Date().toLocaleTimeString(),
-    type: 'ai',
-    turn: aiTurnNumber.value,
-    card: selectedCard
-  });
-  
-  if (aiAction > 0) {
-    aiCounterValue.value = Math.max(0, aiCounterValue.value + aiAction);
-  }
-  
-  // Check for explosion after AI action
-  if (aiCounterValue.value >= aiThresholdValue.value) {
-    aiTriggerExplosion();
-  }
-};
-
-const closeAICardModal = () => {
-  showAICardModal.value = false;
-  showImageFallback.value = false; // Reset fallback for next card
-};
-
-const showFallbackCard = () => {
-  showImageFallback.value = true;
-};
-
 // Counter mode functions
 const openCounterMode = () => {
   showCounterMode.value = true;
@@ -5268,6 +4986,7 @@ const openCounterMode = () => {
   eventModalPulse.value = false;
   finalCountdownRevealed.value = false;
   showCloseConfirmModal.value = false;
+  showEndGameModal.value = false;
   initializeEventDeck();
 
   document.body.style.overflow = "hidden";
@@ -5355,7 +5074,7 @@ const adjustCounter = (delta) => {
     oldValue: counterValue.value,
     newValue: newValue,
     timestamp: new Date().toLocaleTimeString(),
-    type: 'counter'
+    type: "counter",
   });
   counterValue.value = newValue;
 
@@ -5368,7 +5087,17 @@ const adjustCounter = (delta) => {
 const adjustThreshold = (delta) => {
   const newValue = thresholdValue.value + delta;
   if (newValue >= minThreshold.value && newValue <= maxThreshold.value) {
+    const oldValue = thresholdValue.value;
     thresholdValue.value = newValue;
+    
+    // Enregistrer dans l'historique
+    counterHistory.value.push({
+      action: delta > 0 ? `Seuil +${delta}` : `Seuil ${delta}`,
+      oldValue: oldValue,
+      newValue: newValue,
+      timestamp: new Date().toLocaleTimeString(),
+      type: "threshold",
+    });
   }
 };
 
@@ -5399,6 +5128,14 @@ const handleEscape = (event) => {
   if (event.key === "Escape") {
     if (showCloseConfirmModal.value) {
       cancelCloseGame();
+    } else if (showEndGameModal.value) {
+      closeEndGameModal();
+    } else if (showAIMode.value) {
+      closeAIMode();
+    } else if (showAIDifficultyModal.value) {
+      closeAIDifficultyModal();
+    } else if (showGameModeModal.value) {
+      closeGameModeModal();
     } else if (showCounterMode.value) {
       showCloseConfirmModal.value = true; // Show confirmation instead of direct close
     } else if (showCardModal.value) {
@@ -5440,29 +5177,21 @@ const initializeEventDeck = () => {
 };
 
 const drawNextEvent = () => {
-  if (
-    eventDeck.value.length === 0 ||
-    gameOver.value ||
-    finalCountdownRevealed.value
-  )
-    return;
+  if (eventDeck.value.length === 0 || gameOver.value) return;
 
   turnNumber.value += 1;
   const drawnEvent = eventDeck.value.shift();
   currentEvent.value = drawnEvent;
-  usedEvents.value.push(drawnEvent);
-  
-  // Ajouter l'événement à l'historique
-  counterHistory.value.push({
-    action: `🎭 Événement : ${drawnEvent.name}`,
-    oldValue: null,
-    newValue: null,
+
+  // Add timestamp and turn number to the event for history
+  const eventWithTimestamp = {
+    ...drawnEvent,
     timestamp: new Date().toLocaleTimeString(),
-    type: 'event',
     turn: turnNumber.value,
-    eventData: drawnEvent
-  });
-  
+    type: "event",
+  };
+
+  usedEvents.value.push(eventWithTimestamp);
   showEventModal.value = true;
   eventModalPulse.value = true;
 
@@ -5479,6 +5208,20 @@ const drawNextEvent = () => {
 
 const closeEventModal = () => {
   showEventModal.value = false;
+};
+
+const endGame = () => {
+  // Stop the timer and calculate final duration
+  if (gameStartTime.value && !gameOver.value) {
+    const now = Date.now();
+    gameDuration.value = now - gameStartTime.value;
+    gameOver.value = true;
+  }
+  showEndGameModal.value = true;
+};
+
+const closeEndGameModal = () => {
+  showEndGameModal.value = false;
 };
 
 const startGame = () => {
@@ -5506,6 +5249,51 @@ const confirmCloseGame = () => {
 
 const cancelCloseGame = () => {
   showCloseConfirmModal.value = false;
+};
+
+// Game mode selection functions
+const openGameModeSelection = () => {
+  showGameModeModal.value = true;
+};
+const closeGameModeModal = () => {
+  showGameModeModal.value = false;
+};
+const selectCompetitiveMode = () => {
+  closeGameModeModal();
+  openCounterMode();
+};
+const selectCooperativeMode = () => {
+  closeGameModeModal();
+  showAIDifficultyModal.value = true;
+};
+
+// AI difficulty selection functions
+const selectAIDifficulty = (difficulty) => {
+  selectedDifficulty.value = difficulty;
+  showAIDifficultyModal.value = false;
+  openAIMode();
+};
+const closeAIDifficultyModal = () => {
+  showAIDifficultyModal.value = false;
+};
+
+// AI mode functions
+const openAIMode = () => {
+  showAIMode.value = true;
+  // Initialize AI mode values
+  aiCounterValue.value = 0;
+  aiThresholdValue.value = selectedDifficulty.value?.threshold || 20;
+  aiCounterHistory.value = [];
+  aiTurnNumber.value = 0;
+  aiShowExplosion.value = false;
+  aiGameOver.value = false;
+  aiGameStartTime.value = null;
+  aiGameDuration.value = null;
+  document.body.style.overflow = "hidden";
+};
+const closeAIMode = () => {
+  showAIMode.value = false;
+  document.body.style.overflow = "auto";
 };
 
 onMounted(() => {
