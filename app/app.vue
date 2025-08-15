@@ -231,7 +231,7 @@
                   🎴 Cartes & Matériel
                 </h3>
                 <ul class="space-y-2 text-gray-700">
-                  <li><strong>110 cartes</strong></li>
+                  <li><strong>XX cartes</strong></li>
                   <li>
                     <strong>2 jetons punchboards</strong> (compteur & seuil)
                   </li>
@@ -328,12 +328,6 @@
               </h4>
               <ul class="text-yellow-700 space-y-1">
                 <li><strong>Si la bombe explose</strong> (compteur ≥ seuil)</li>
-                <li>
-                  <strong
-                    >Si l'Agent Double a toutes les cartes objectifs</strong
-                  >
-                  requises pour sa victoire
-                </li>
                 <li>
                   <strong>Après le tour déclenché</strong> par l'événement
                   "Compte à rebours final"
@@ -480,17 +474,6 @@
                             nombre de joueurs) <strong>ET</strong> éviter
                             l'explosion
                           </p>
-                          <div class="flex items-center justify-center my-2">
-                            <span
-                              class="bg-orange-500 text-white font-bold px-3 py-1 rounded-full text-xs"
-                              >OU</span
-                            >
-                          </div>
-                          <p class="text-gray-700 text-sm leading-relaxed">
-                            Réunir
-                            <strong>toutes les cartes objectifs</strong> en jeu
-                            pour une <strong>victoire immédiate</strong>
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -507,7 +490,8 @@
               </h4>
               <p class="text-blue-700 mb-6 text-center text-lg">
                 L'Agent Double doit réunir
-                <strong>2 des 3 cartes suivantes</strong> dans sa main :
+                <strong>Réunir 2 des X (suivant nombre de joueurs)</strong> dans
+                sa main :
               </p>
 
               <div class="grid md:grid-cols-5 gap-6">
@@ -2077,7 +2061,7 @@
 
             <div class="text-center bg-gray-100 p-4 rounded-lg">
               <p class="text-lg font-bold text-gray-700">
-                📊 TOTAL CARTES : 110 cartes
+                📊 TOTAL CARTES : XX cartes
               </p>
             </div>
           </div>
@@ -4585,25 +4569,19 @@ const actionCards = [
     image: "/action_changementMasque.png",
   },
   {
-    name: "Désamorceur",
+    name: "Coup de balai",
     type: "Action",
-    effect: "Annule l'effet de la carte jouée",
-    quantity: 4,
-    image: "/action_desamorceur.png",
+    effect: "Défaussez toutes vos cartes et piochez-en le même nombre",
+    quantity: 1,
+    image: "/action_coupDeBalai.png",
   },
   {
-    name: "Surcharge",
+    name: "Grand mélange",
     type: "Action",
-    effect: "Double la valeur de toute carte modifiant le compteur ou le seuil (exemple: Seuil réduit, Charge, Pile ou fiasco, ...)",
-    quantity: 3,
-    image: "/action_surcharge.png",
-  },
-  {
-    name: "Miroir",
-    type: "Action",
-    effect: "Renvoi l'action vers l'auteur ou inverse ses effets (- en +) (exemple: Seuil réduit, Charge, ...)",
-    quantity: 4,
-    image: "/action_miroir.png",
+    effect:
+      "Mélange toutes les cartes des mains et de la défausse. Redistribue 5 cartes par joueur",
+    quantity: 1,
+    image: "/action_grandMelange.png",
   },
 ];
 
@@ -4652,7 +4630,7 @@ const events = [
   {
     name: "Court-circuit",
     effect:
-      "Les effets Charge/Décharge sont inversés ce tour (+ devient -, - devient +)",
+      "Les effets des cartes influant sur la piste sont inversés (les + deviennent des - et les - des +)",
     image: "/event_courtCircuit.png",
   },
   {
@@ -4675,7 +4653,8 @@ const events = [
   },
   {
     name: "Blackout",
-    effect: "Toutes les cartes Actions (cartes orange) sont interdites ce tour",
+    effect:
+      "Toutes les cartes Actions (cartes jaune et rouge) sont interdites ce tour",
     image: "/event_blackout.png",
   },
   {
@@ -4697,14 +4676,12 @@ const events = [
   },
   {
     name: "Matériel instable",
-    effect:
-      "Toutes les Décharges (-) sont réduites de moitié (arrondi supérieur) ce tour",
+    effect: "Si le compteur est à plus de 15 à la fin du tour, retirer 3",
     image: "/event_materielInstable.png",
   },
   {
     name: "Accélération critique",
-    effect:
-      "À la fin du tour, si le compteur a augmenté d'au moins 1, peu importe la manière, ajoutez +2 supplémentaires",
+    effect: "Si le compteur est à moins de 10 à la fin du tour, ajouter 2",
     image: "/event_accelerationCritique.png",
   },
   {
@@ -4777,6 +4754,11 @@ const faqs = [
     question: "Que faire si je ne peux pas ou ne veux pas jouer de carte ?",
     answer:
       "<strong>Si aucune carte de votre main ne peut être jouée :</strong> Défaussez une carte de votre choix.<br><strong>Si vous pouvez jouer au moins une carte :</strong> Vous êtes <strong>obligé(e) de la jouer</strong>, même si cela ne vous arrange pas stratégiquement.",
+  },
+  {
+    question: "Comment distribuer les cartes avec Grand mélange ?",
+    answer:
+      "Après avoir mélangé toutes les cartes des mains et de la défausse :<br>• Distribuez <strong>1 carte à la fois</strong> en tournant dans le sens des aiguilles d'une montre<br>• Continuez jusqu'à ce que chaque joueur ait <strong>5 cartes</strong><br>• <strong>S'il n'y a pas assez de cartes</strong> dans la pile, distribuez tout de même jusqu'à épuisement (certains joueurs peuvent avoir moins de 5 cartes)",
   },
 ];
 
@@ -5089,7 +5071,7 @@ const adjustThreshold = (delta) => {
   if (newValue >= minThreshold.value && newValue <= maxThreshold.value) {
     const oldValue = thresholdValue.value;
     thresholdValue.value = newValue;
-    
+
     // Enregistrer dans l'historique
     counterHistory.value.push({
       action: delta > 0 ? `Seuil +${delta}` : `Seuil ${delta}`,
