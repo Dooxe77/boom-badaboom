@@ -97,12 +97,6 @@ export default defineNuxtConfig({
             expiration: {
               maxEntries: 50,
               maxAgeSeconds: 60 * 60 * 24 * 1 // 1 day for faster updates
-            },
-            cacheKeyWillBeUsed: async ({ request }) => {
-              // Add version query param to cache key for better cache busting
-              const url = new URL(request.url);
-              url.searchParams.set('v', Date.now().toString());
-              return url.toString();
             }
           }
         }
