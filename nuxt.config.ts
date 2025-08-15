@@ -53,6 +53,7 @@ export default defineNuxtConfig({
       cleanupOutdatedCaches: true,
       navigateFallback: '/',
       navigateFallbackAllowlist: [/^(?!\/__|\/_nuxt\/hmr).*/],
+      disableDevLogs: true,
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -92,10 +93,16 @@ export default defineNuxtConfig({
           handler: 'NetworkFirst',
           options: {
             cacheName: 'pages-cache',
-            networkTimeoutSeconds: 3,
+            networkTimeoutSeconds: 5,
             expiration: {
               maxEntries: 50,
-              maxAgeSeconds: 60 * 60 * 24 * 7 // 7 days
+              maxAgeSeconds: 60 * 60 * 24 * 1 // 1 day for faster updates
+            },
+            cacheKeyWillBeUsed: async ({ request }) => {
+              // Add version query param to cache key for better cache busting
+              const url = new URL(request.url);
+              url.searchParams.set('v', Date.now().toString());
+              return url.toString();
             }
           }
         }
@@ -181,4 +188,39 @@ export default defineNuxtConfig({
       ]
     }
   },
+
+  // En-têtes HTTP pour contrôler le cache
+  nitro: {
+    routeRules: {
+      '/': { 
+        headers: { 
+          'Cache-Control': 'max-age=0, must-revalidate, no-cache, no-store' 
+        } 
+      },
+      '/**': { 
+        headers: { 
+          'Cache-Control': 'max-age=3600, must-revalidate' 
+        } 
+      },
+      '/api/**': { 
+        headers: { 
+          'Cache-Control': 'max-age=0, no-cache, no-store, must-revalidate' 
+        } 
+      }
+    }
+  },
+
+  // Configuration du build pour le cache busting
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: undefined,
+          entryFileNames: 'assets/[name]-[hash].js',
+          chunkFileNames: 'assets/[name]-[hash].js',
+          assetFileNames: 'assets/[name]-[hash].[ext]'
+        }
+      }
+    }
+  }
 });
