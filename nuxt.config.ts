@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 
   // Configuration CSS
   css: [
-    // Tailwind est géré par le module @nuxtjs/tailwindcss
+    '~/assets/css/tailwind.css'
   ],
 
   // Configuration du head pour le SEO
@@ -204,17 +204,4 @@ export default defineNuxtConfig({
     }
   },
 
-  // Configuration du build pour le cache busting
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: undefined,
-          entryFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
-          chunkFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
-          assetFileNames: `assets/[name]-[hash]-${Date.now()}.[ext]`
-        }
-      }
-    }
-  }
 });
