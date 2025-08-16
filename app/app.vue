@@ -27,8 +27,18 @@
       @click="handleUpdate"
     >
       <div class="flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+          ></path>
         </svg>
         <span class="text-sm font-medium">Mise à jour</span>
       </div>
@@ -2976,7 +2986,9 @@
               🙏 Remerciements
             </h2>
 
-            <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border-2 border-red-200">
+            <div
+              class="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border-2 border-red-200"
+            >
               <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">
                 Merci aux contributeurs du projet
               </h3>
@@ -2984,92 +2996,164 @@
               <!-- Grille fixe 3x3 avec taille homogène -->
               <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
                 <!-- Laura Ruelle -->
-                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
                   <div class="flex flex-col items-center">
-                    <div class="w-14 h-14 bg-yellow-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                    <div
+                      class="w-14 h-14 bg-yellow-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
                       LR
                     </div>
-                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Laura<br>Ruelle</h4>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      Laura<br />Ruelle
+                    </h4>
                   </div>
                 </div>
 
                 <!-- Mathieu Lecomte -->
-                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
                   <div class="flex flex-col items-center">
-                    <div class="w-14 h-14 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                    <div
+                      class="w-14 h-14 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
                       ML
                     </div>
-                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Mathieu<br>Lecomte</h4>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      Mathieu<br />Lecomte
+                    </h4>
                   </div>
                 </div>
 
                 <!-- Amélia Lecomte -->
-                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
                   <div class="flex flex-col items-center">
-                    <div class="w-14 h-14 bg-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                    <div
+                      class="w-14 h-14 bg-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
                       AL
                     </div>
-                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Amélia<br>Lecomte</h4>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      Amélia<br />Lecomte
+                    </h4>
                   </div>
                 </div>
 
                 <!-- Malone Lecomte -->
-                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
                   <div class="flex flex-col items-center">
-                    <div class="w-14 h-14 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                    <div
+                      class="w-14 h-14 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
                       MA
                     </div>
-                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Malone<br>Lecomte</h4>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      Malone<br />Lecomte
+                    </h4>
                   </div>
                 </div>
 
                 <!-- Hugues Ruelle -->
-                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
                   <div class="flex flex-col items-center">
-                    <div class="w-14 h-14 bg-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                    <div
+                      class="w-14 h-14 bg-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
                       HR
                     </div>
-                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Hugues<br>Ruelle</h4>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      Hugues<br />Ruelle
+                    </h4>
                   </div>
                 </div>
 
                 <!-- Evelyne Ruelle -->
-                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
                   <div class="flex flex-col items-center">
-                    <div class="w-14 h-14 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                    <div
+                      class="w-14 h-14 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
                       ER
                     </div>
-                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Evelyne<br>Ruelle</h4>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      Evelyne<br />Ruelle
+                    </h4>
                   </div>
                 </div>
 
                 <!-- Julie Lecomte -->
-                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
                   <div class="flex flex-col items-center">
-                    <div class="w-14 h-14 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                    <div
+                      class="w-14 h-14 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
                       JL
                     </div>
-                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Julie<br>Lecomte</h4>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      Julie<br />Lecomte
+                    </h4>
                   </div>
                 </div>
 
                 <!-- Marie Lecomte -->
-                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
                   <div class="flex flex-col items-center">
-                    <div class="w-14 h-14 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                    <div
+                      class="w-14 h-14 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
                       MC
                     </div>
-                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Marie<br>Lecomte</h4>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      Marie<br />Lecomte
+                    </h4>
                   </div>
                 </div>
 
                 <!-- Oscar Verquin -->
-                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
                   <div class="flex flex-col items-center">
-                    <div class="w-14 h-14 bg-indigo-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                    <div
+                      class="w-14 h-14 bg-indigo-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
                       OV
                     </div>
-                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Oscar<br>Verquin</h4>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      Oscar<br />Verquin
+                    </h4>
                   </div>
                 </div>
               </div>
@@ -3188,7 +3272,10 @@
             <div class="flex space-x-2">
               <button
                 @click="finalCountdownRevealed ? endGame() : drawNextEvent()"
-                :disabled="gameOver || eventDeck.length === 0"
+                :disabled="
+                  gameOver ||
+                  (eventDeck.length === 0 && !finalCountdownRevealed)
+                "
                 :class="{
                   'bg-purple-500 hover:bg-purple-600':
                     !gameOver &&
@@ -3197,7 +3284,8 @@
                   'bg-red-500 hover:bg-red-600':
                     !gameOver && finalCountdownRevealed,
                   'bg-gray-600 opacity-50 cursor-not-allowed':
-                    gameOver || eventDeck.length === 0,
+                    gameOver ||
+                    (eventDeck.length === 0 && !finalCountdownRevealed),
                 }"
                 class="text-white px-2 sm:px-3 py-2 rounded-lg font-bold transition-colors text-xs sm:text-sm flex items-center space-x-1"
               >
@@ -3310,10 +3398,10 @@
                   class="text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg border border-white transition-all duration-300 whitespace-nowrap"
                   :class="{
                     'bg-blue-500': counterValue < thresholdValue - 3,
-                    'bg-orange-500 animate-pulse':
+                    'bg-orange-500':
                       counterValue >= thresholdValue - 3 &&
                       counterValue < thresholdValue,
-                    'bg-red-600 animate-bounce': counterValue >= thresholdValue,
+                    'bg-red-600': counterValue >= thresholdValue,
                   }"
                 >
                   {{
@@ -3349,10 +3437,10 @@
                 // États dynamiques
                 'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700':
                   counterValue < thresholdValue - 3,
-                'bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 animate-pulse':
+                'bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600':
                   counterValue >= thresholdValue - 3 &&
                   counterValue < thresholdValue,
-                'bg-gradient-to-br from-red-500 via-red-600 to-red-800 animate-bounce':
+                'bg-gradient-to-br from-red-500 via-red-600 to-red-800':
                   counterValue >= thresholdValue,
               }"
             >
@@ -3397,7 +3485,7 @@
               <!-- Glow effect quand proche du seuil -->
               <div
                 v-if="counterValue >= thresholdValue - 2"
-                class="absolute inset-0 rounded-full animate-pulse"
+                class="absolute inset-0 rounded-full"
                 :style="{
                   filter:
                     counterValue >= thresholdValue
@@ -3446,7 +3534,7 @@
               v-if="
                 currentEvent && currentEvent.name === 'Compte à rebours final'
               "
-              class="mb-4 p-3 bg-red-900 bg-opacity-70 border-2 border-red-500 rounded-lg animate-pulse"
+              class="mb-4 p-3 bg-red-900 bg-opacity-70 border-2 border-red-500 rounded-lg"
             >
               <div class="text-red-200 text-xs mb-1">🚨 Événement spécial</div>
               <div class="text-yellow-300 font-bold text-sm mb-1">
@@ -3526,45 +3614,76 @@
           </div>
         </div>
 
-        <!-- Animation d'explosion -->
-        <div
-          v-if="showExplosion"
-          class="absolute inset-0 z-20 flex items-center justify-center bg-red-600 bg-opacity-90"
-        >
-          <div class="text-center animate-pulse">
-            <div class="text-9xl mb-4 animate-bounce">💥</div>
-            <div class="text-6xl font-bold text-white animate-ping">BOOM!</div>
-            <div class="text-2xl text-yellow-300 mt-4 animate-pulse">
-              EXPLOSION!
-            </div>
-          </div>
-        </div>
 
-        <!-- Écran de fin de partie -->
+        <!-- Modale Explosion -->
         <div
-          v-if="gameOver && !showExplosion"
-          class="absolute inset-0 z-20 flex items-center justify-center bg-black bg-opacity-90"
+          v-if="gameOver && !showEndGameModal"
+          class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-85"
         >
           <div
-            class="text-center text-white p-8 bg-red-900 bg-opacity-80 rounded-2xl"
+            class="bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-red-500 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
           >
-            <div class="text-6xl mb-4">💀</div>
-            <h2 class="text-3xl font-bold mb-4">FIN DE PARTIE</h2>
-            <p class="text-xl mb-6">La bombe a explosé!</p>
-            <p class="text-lg mb-2">
-              Compteur: {{ counterValue }} / Seuil: {{ thresholdValue }}
-            </p>
-            <p v-if="gameDuration" class="text-base text-yellow-300 mb-8">
-              ⏱️ Durée de la partie: {{ gameDuration }}
-            </p>
-            <div v-else class="mb-8"></div>
-            <div class="space-y-3">
-              <button
-                @click="closeCounterMode"
-                class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-colors w-full"
+            <!-- Header -->
+            <div
+              class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-center"
+            >
+              <div class="text-4xl mb-4">💥</div>
+              <h3 class="text-2xl font-bold text-white mb-2">Explosion !</h3>
+              <p class="text-red-100 text-sm">
+                La bombe a explosée - Compteur: {{ counterValue }} / Seuil:
+                {{ thresholdValue }}
+              </p>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6 space-y-6">
+              <!-- Temps de partie -->
+              <div
+                class="text-center bg-gray-700 rounded-xl p-4 border border-gray-600"
               >
-                ✕ Fermer
-              </button>
+                <div class="text-yellow-400 text-sm font-medium mb-2">
+                  ⏱️ Temps de partie
+                </div>
+                <div class="text-white text-2xl font-bold">
+                  {{ gameDuration || "Non disponible" }}
+                </div>
+              </div>
+
+              <!-- Résultat de la partie -->
+              <div class="bg-gray-700 rounded-xl p-6 border border-gray-600">
+                <h4 class="text-xl font-bold text-red-400 mb-4 text-center">
+                  🎯 Résultat de la Partie
+                </h4>
+
+                <div class="text-center">
+                  <!-- Saboteurs gagnants -->
+                  <div
+                    class="bg-gradient-to-br from-red-600 to-red-700 rounded-xl p-6 text-center max-w-md mx-auto"
+                  >
+                    <div class="text-3xl mb-4">💀</div>
+                    <h5 class="text-xl font-bold text-white mb-4">
+                      SABOTEURS VICTORIEUX !
+                    </h5>
+                    <div class="text-red-100 text-sm space-y-2">
+                      <div class="font-semibold text-red-200">
+                        🏆 Les Saboteurs ont gagné !
+                      </div>
+                      <div>• La bombe a explosé</div>
+                      <div>• Leur mission de sabotage est accomplie</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Boutons -->
+              <div class="flex justify-center pt-4">
+                <button
+                  @click="quitGame"
+                  class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors"
+                >
+                  ✕ Quitter la partie
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -4172,7 +4291,8 @@
                 }"
               >
                 {{ difficulty.turns }} tours • Seuil
-                {{ difficulty.threshold }} • Victoire {{ difficulty.winRate }}
+                {{ difficulty.threshold }} • Taux de victoire
+                {{ difficulty.winRate }}
               </div>
             </div>
             <div
@@ -4300,7 +4420,7 @@
             ⏱️ Temps de partie
           </div>
           <div class="text-white text-2xl font-bold">
-            {{ gameDuration ? formatDuration(gameDuration) : "Non disponible" }}
+            {{ gameDuration || "Non disponible" }}
           </div>
         </div>
 
@@ -4356,34 +4476,11 @@
           </div>
         </div>
 
-        <!-- Instructions finales -->
-        <div
-          class="bg-yellow-600 bg-opacity-20 border border-yellow-500 rounded-xl p-4"
-        >
-          <div class="text-yellow-300 text-sm font-medium mb-2">
-            📋 Instructions
-          </div>
-          <div class="text-yellow-100 text-sm">
-            <strong
-              >Chaque joueur joue une dernière fois dans l'ordre, puis la partie
-              s'arrête.</strong
-            >
-            <br />Vérifiez ensuite qui remplit les conditions de victoire
-            ci-dessus !
-          </div>
-        </div>
-
         <!-- Boutons -->
-        <div class="flex flex-col sm:flex-row gap-3 pt-4">
+        <div class="flex justify-center pt-4">
           <button
-            @click="closeEndGameModal"
-            class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-          >
-            Continuer la partie
-          </button>
-          <button
-            @click="closeCounterMode"
-            class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+            @click="quitGame"
+            class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors"
           >
             ✕ Quitter la partie
           </button>
@@ -4449,27 +4546,30 @@ const showUpdateButton = ref(false);
 // Forcer le rechargement sans cache
 const forceReload = () => {
   if (process.client) {
-    if ('caches' in window) {
+    if ("caches" in window) {
       // Vider tous les caches
-      caches.keys().then(names => {
-        names.forEach(name => {
-          caches.delete(name)
+      caches
+        .keys()
+        .then((names) => {
+          names.forEach((name) => {
+            caches.delete(name);
+          });
         })
-      }).then(() => {
-        window.location.reload()
-      })
+        .then(() => {
+          window.location.reload();
+        });
     } else {
       // Fallback : rechargement forcé
-      window.location.reload()
+      window.location.reload();
     }
   }
 };
 
 // Vérifier les mises à jour PWA
 const checkForPWAUpdate = () => {
-  if (process.client && 'serviceWorker' in navigator) {
-    navigator.serviceWorker.addEventListener('message', event => {
-      if (event.data && event.data.type === 'UPDATE_AVAILABLE') {
+  if (process.client && "serviceWorker" in navigator) {
+    navigator.serviceWorker.addEventListener("message", (event) => {
+      if (event.data && event.data.type === "UPDATE_AVAILABLE") {
         showUpdateButton.value = true;
       }
     });
@@ -4694,7 +4794,7 @@ const events = [
   {
     name: "Effet domino",
     effect:
-      "Toute carte jouée ce tour déclenche automatiquement sa réaction en chaîne",
+      "Si une carte décharge est jouée, le joueur doit dévoiler uen carte de la pioche et appliquer son effet immédiatement",
     image: "/event_effetDomino.png",
   },
   {
@@ -5038,8 +5138,34 @@ const closeCounterMode = () => {
   document.body.style.overflow = "auto";
 };
 
+const quitGame = () => {
+  // Fermer toutes les modals
+  showCounterMode.value = false;
+  showEndGameModal.value = false;
+  showHistoryModal.value = false;
+  showEventModal.value = false;
+
+  // Remettre à zéro tous les états du jeu
+  counterValue.value = 0;
+  thresholdValue.value = 20;
+  minThreshold.value = 10;
+  maxThreshold.value = 30;
+  counterHistory.value = [];
+  showExplosion.value = false;
+  gameOver.value = false;
+  gameStartTime.value = null;
+  gameDuration.value = null;
+
+  // Remettre à zéro le système d'événements
+  currentEvent.value = null;
+  eventDeck.value = [];
+  usedEvents.value = [];
+
+  // Restaurer le scroll
+  document.body.style.overflow = "auto";
+};
+
 const triggerExplosion = () => {
-  showExplosion.value = true;
   gameOver.value = true;
 
   // Calculer la durée de la partie
@@ -5048,10 +5174,8 @@ const triggerExplosion = () => {
     gameDuration.value = formatDuration(duration);
   }
 
-  // Animation d'explosion après un délai
-  setTimeout(() => {
-    showExplosion.value = false;
-  }, 3000);
+  // Aller directement à la modale de fin de partie sans écran intermédiaire
+  showExplosion.value = false;
 };
 
 const formatDuration = (ms) => {
@@ -5210,6 +5334,12 @@ const initializeEventDeck = () => {
   const finalPosition =
     finalPositions[Math.floor(Math.random() * finalPositions.length)];
 
+  console.log(
+    `Carte "Compte à rebours final" placée à la position ${finalPosition} (tour ${
+      finalPosition + 1
+    })`
+  );
+
   // Insert the final event at the chosen position
   deck.splice(finalPosition, 0, finalEvent);
 
@@ -5254,7 +5384,8 @@ const endGame = () => {
   // Stop the timer and calculate final duration
   if (gameStartTime.value && !gameOver.value) {
     const now = Date.now();
-    gameDuration.value = now - gameStartTime.value;
+    const duration = now - gameStartTime.value;
+    gameDuration.value = formatDuration(duration);
     gameOver.value = true;
   }
   showEndGameModal.value = true;
