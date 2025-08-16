@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 
   // Configuration CSS
   css: [
-    '~/assets/css/tailwind.css'
+    // Tailwind est géré par le module @nuxtjs/tailwindcss
   ],
 
   // Configuration du head pour le SEO
