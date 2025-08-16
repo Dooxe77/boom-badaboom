@@ -210,9 +210,9 @@ export default defineNuxtConfig({
       rollupOptions: {
         output: {
           manualChunks: undefined,
-          entryFileNames: 'assets/[name]-[hash].js',
-          chunkFileNames: 'assets/[name]-[hash].js',
-          assetFileNames: 'assets/[name]-[hash].[ext]'
+          entryFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
+          chunkFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
+          assetFileNames: `assets/[name]-[hash]-${Date.now()}.[ext]`
         }
       }
     }
