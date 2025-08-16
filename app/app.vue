@@ -2976,104 +2976,110 @@
               🙏 Remerciements
             </h2>
 
-            <div
-              class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 border-2 border-blue-200"
-            >
-              <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
-                Merci aux premiers testeurs qui ont contribué au développement
-                du jeu
+            <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border-2 border-red-200">
+              <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">
+                Merci aux contributeurs du projet
               </h3>
 
-              <!-- Première ligne : Laura seule -->
-              <div class="mb-6">
-                <div
-                  class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-yellow-100 hover:border-yellow-300 transition-colors"
-                >
-                  <div
-                    class="w-16 h-16 bg-yellow-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
-                  >
-                    LR
+              <!-- Grille fixe 3x3 avec taille homogène -->
+              <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
+                <!-- Laura Ruelle -->
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                  <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-yellow-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                      LR
+                    </div>
+                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Laura<br>Ruelle</h4>
                   </div>
-                  <h4 class="font-semibold text-gray-800">Laura Ruelle</h4>
-                  <p class="text-sm text-gray-600 mt-1">Super testeuse</p>
+                </div>
+
+                <!-- Mathieu Lecomte -->
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                  <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                      ML
+                    </div>
+                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Mathieu<br>Lecomte</h4>
+                  </div>
+                </div>
+
+                <!-- Amélia Lecomte -->
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                  <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                      AL
+                    </div>
+                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Amélia<br>Lecomte</h4>
+                  </div>
+                </div>
+
+                <!-- Malone Lecomte -->
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                  <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                      MA
+                    </div>
+                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Malone<br>Lecomte</h4>
+                  </div>
+                </div>
+
+                <!-- Hugues Ruelle -->
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                  <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                      HR
+                    </div>
+                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Hugues<br>Ruelle</h4>
+                  </div>
+                </div>
+
+                <!-- Evelyne Ruelle -->
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                  <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                      ER
+                    </div>
+                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Evelyne<br>Ruelle</h4>
+                  </div>
+                </div>
+
+                <!-- Julie Lecomte -->
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                  <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                      JL
+                    </div>
+                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Julie<br>Lecomte</h4>
+                  </div>
+                </div>
+
+                <!-- Marie Lecomte -->
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                  <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                      MC
+                    </div>
+                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Marie<br>Lecomte</h4>
+                  </div>
+                </div>
+
+                <!-- Oscar Verquin -->
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+                  <div class="flex flex-col items-center">
+                    <div class="w-14 h-14 bg-indigo-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3">
+                      OV
+                    </div>
+                    <h4 class="font-semibold text-gray-800 text-center text-sm leading-tight">Oscar<br>Verquin</h4>
+                  </div>
                 </div>
               </div>
 
-              <!-- Deuxième ligne : Premiers testeurs -->
-              <div class="grid md:grid-cols-3 gap-4 mb-6">
-                <div
-                  class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-blue-100 hover:border-blue-300 transition-colors"
-                >
-                  <div
-                    class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
-                  >
-                    ML
-                  </div>
-                  <h4 class="font-semibold text-gray-800">Mathieu Lecomte</h4>
-                  <p class="text-sm text-gray-600 mt-1">Premier testeur</p>
-                </div>
-
-                <div
-                  class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-pink-100 hover:border-pink-300 transition-colors"
-                >
-                  <div
-                    class="w-16 h-16 bg-pink-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
-                  >
-                    AL
-                  </div>
-                  <h4 class="font-semibold text-gray-800">Amélia Lecomte</h4>
-                  <p class="text-sm text-gray-600 mt-1">Première testeuse</p>
-                </div>
-
-                <div
-                  class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-green-100 hover:border-green-300 transition-colors"
-                >
-                  <div
-                    class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
-                  >
-                    MA
-                  </div>
-                  <h4 class="font-semibold text-gray-800">Malone Lecomte</h4>
-                  <p class="text-sm text-gray-600 mt-1">Premier testeur</p>
-                </div>
-              </div>
-
-              <!-- Troisième ligne : Hugues et Evelyne -->
-              <div class="grid md:grid-cols-2 gap-4 mb-6">
-                <div
-                  class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-purple-100 hover:border-purple-300 transition-colors"
-                >
-                  <div
-                    class="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
-                  >
-                    HR
-                  </div>
-                  <h4 class="font-semibold text-gray-800">Hugues Ruelle</h4>
-                  <p class="text-sm text-gray-600 mt-1">Second testeur</p>
-                </div>
-
-                <div
-                  class="bg-white rounded-lg p-4 shadow-md text-center border-2 border-teal-100 hover:border-teal-300 transition-colors"
-                >
-                  <div
-                    class="w-16 h-16 bg-teal-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
-                  >
-                    ER
-                  </div>
-                  <h4 class="font-semibold text-gray-800">Evelyne Ruelle</h4>
-                  <p class="text-sm text-gray-600 mt-1">Seconde testeuse</p>
-                </div>
-              </div>
-
-              <div class="text-center mt-8 pt-6 border-t-2 border-blue-200">
-                <p class="text-gray-700 text-lg">
-                  Leur participation aux tests et leurs retours ont été
-                  essentiels pour peaufiner l'équilibrage du jeu et améliorer
-                  l'expérience de tous les joueurs.
+              <!-- Message de remerciement simple -->
+              <div class="text-center">
+                <p class="text-gray-700 font-medium">
+                  Leurs retours ont permis d'affiner et d'équilibrer le jeu
                 </p>
-                <p class="text-gray-600 text-sm mt-4 italic">
-                  Un grand merci pour votre temps et vos précieux conseils ! 🎉
-                </p>
+                <p class="text-red-600 font-bold mt-2">Merci à tous ! 🎉</p>
               </div>
             </div>
           </div>
@@ -4438,12 +4444,30 @@
 import { ref, computed, onMounted, onUnmounted } from "vue";
 
 // PWA Update management
-const { forceReload } = usePWAUpdate();
 const showUpdateButton = ref(false);
+
+// Forcer le rechargement sans cache
+const forceReload = () => {
+  if (process.client) {
+    if ('caches' in window) {
+      // Vider tous les caches
+      caches.keys().then(names => {
+        names.forEach(name => {
+          caches.delete(name)
+        })
+      }).then(() => {
+        window.location.reload()
+      })
+    } else {
+      // Fallback : rechargement forcé
+      window.location.reload()
+    }
+  }
+};
 
 // Vérifier les mises à jour PWA
 const checkForPWAUpdate = () => {
-  if ('serviceWorker' in navigator) {
+  if (process.client && 'serviceWorker' in navigator) {
     navigator.serviceWorker.addEventListener('message', event => {
       if (event.data && event.data.type === 'UPDATE_AVAILABLE') {
         showUpdateButton.value = true;
