@@ -92,29 +92,6 @@
               </div>
             </div>
           </button>
-
-          <!-- Bouton Installation PWA -->
-          <button
-            v-if="(showInstallPrompt || isDev) && !isStandalone"
-            @click="installPWA"
-            class="group relative overflow-hidden bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:from-purple-600 hover:via-purple-700 hover:to-purple-800 text-white font-bold py-5 px-10 rounded-2xl shadow-2xl hover:shadow-purple-500/25 transform hover:scale-[1.02] transition-all duration-300 text-lg sm:text-xl flex flex-col items-center justify-center min-w-[280px] sm:min-w-[300px] border border-purple-400/30"
-          >
-            <!-- Effet de brillance -->
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
-            ></div>
-
-            <!-- Contenu du bouton -->
-            <div class="relative z-10">
-              <div class="text-3xl sm:text-4xl mb-2">📱</div>
-              <div class="text-lg sm:text-xl font-bold tracking-wide">
-                Installer l'App
-              </div>
-              <div class="text-xs sm:text-sm opacity-90 mt-1">
-                Accès hors ligne
-              </div>
-            </div>
-          </button>
         </div>
 
         <div class="mt-8 text-sm opacity-80">
@@ -235,6 +212,125 @@
                 réussir un objectif personnel secret.
               </p>
             </div>
+
+            <!-- L'Incident de la Mine d'Argent -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-bold text-gray-800 mb-6">📖 L'Incident de la Mine d'Argent</h3>
+
+              <!-- Le Contexte -->
+              <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 mb-6 border-l-4 border-gray-500">
+                <h4 class="text-lg font-bold text-gray-800 mb-3">🏭 Le Contexte</h4>
+                <div class="space-y-3">
+                  <p class="text-gray-700 leading-relaxed font-medium">
+                    <strong>Vallée de Silverbrook, laboratoire souterrain "Projet Mercure"</strong>
+                  </p>
+                  <p class="text-gray-700 leading-relaxed">
+                    Il y a 50 ans, la mine d'argent de Silverbrook était la fierté de la région. Aujourd'hui, ses galeries abritent le laboratoire le plus secret du gouvernement. L'expérience "Mercure" - un nouveau carburant révolutionnaire - vient de mal tourner. Les cuves de produits chimiques montent en pression, et dans moins d'une heure, tout explosera.
+                  </p>
+                  <p class="text-gray-800 font-medium italic">
+                    Mais au fond de la mine, trois personnes ont des objectifs très différents...
+                  </p>
+                </div>
+              </div>
+
+              <!-- Les personnages en détail -->
+              <h4 class="text-xl font-bold text-gray-800 mb-4">🎭 Les Personnages en détail</h4>
+              
+              <div class="space-y-6 mb-6">
+                <!-- Marcus "Tank" Henderson - Le Démineur -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-l-4 border-blue-500">
+                  <div class="flex items-start mb-4">
+                    <span class="text-3xl mr-4 mt-1">🔧</span>
+                    <div class="flex-1">
+                      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h5 class="text-lg font-bold text-blue-800">Marcus "Tank" Henderson</h5>
+                        <span class="text-sm text-blue-600 font-medium">Le Démineur • Ancien sapeur de l'armée, 45 ans</span>
+                      </div>
+                      <p class="text-blue-700 font-medium italic mb-3">
+                        "J'ai désamorcé des bombes en Irak, je ne vais pas laisser une cuve de chimiste me faire peur."
+                      </p>
+                      <p class="text-blue-800 text-sm leading-relaxed">
+                        Reconverti comme chef de la sécurité du laboratoire après une blessure au combat. Il connaît chaque protocole d'urgence et n'abandonne jamais ses hommes. <strong>Sa mission :</strong> évacuer les 12 scientifiques restés coincés et stabiliser les cuves avant que la vallée entière ne soit rayée de la carte.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dr. Elena Vasquez - Le Saboteur -->
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 border-l-4 border-red-500">
+                  <div class="flex items-start mb-4">
+                    <span class="text-3xl mr-4 mt-1">💥</span>
+                    <div class="flex-1">
+                      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h5 class="text-lg font-bold text-red-800">Dr. Elena Vasquez</h5>
+                        <span class="text-sm text-red-600 font-medium">Le Saboteur • Biochimiste brillante, 38 ans</span>
+                      </div>
+                      <p class="text-red-700 font-medium italic mb-3">
+                        "Ils m'ont volé mes recherches, maintenant ils vont payer. Tous."
+                      </p>
+                      <p class="text-red-800 text-sm leading-relaxed">
+                        Ancienne star du laboratoire, elle a été licenciée quand ses expériences sur les cobayes ont été découvertes. Mais elle a gardé ses accès... Elle a délibérément saboté l'expérience ce matin. <strong>Son plan :</strong> tout faire exploser pour détruire les preuves de ses crimes et éliminer les témoins gênants.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Victor "Vic" Chen - L'Agent Double -->
+                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 border-l-4 border-yellow-500">
+                  <div class="flex items-start mb-4">
+                    <span class="text-3xl mr-4 mt-1">🎯</span>
+                    <div class="flex-1">
+                      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h5 class="text-lg font-bold text-yellow-800">Victor "Vic" Chen</h5>
+                        <span class="text-sm text-yellow-600 font-medium">L'Agent Double • Technicien de maintenance, 32 ans</span>
+                      </div>
+                      <p class="text-yellow-700 font-medium italic mb-3">
+                        "Une petite explosion, quelques fichiers qui traînent, et je suis riche à vie."
+                      </p>
+                      <p class="text-yellow-800 text-sm leading-relaxed">
+                        En réalité espion industriel au service du plus offrant. Il s'est fait embaucher comme simple technicien pour accéder aux secrets du Projet Mercure. <strong>Il veut que l'explosion soit juste assez forte</strong> pour créer le chaos parfait : voler les données dans la panique, mais pas assez pour détruire les serveurs qui valent des millions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- L'ambiance -->
+              <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 border-l-4 border-purple-500">
+                <h4 class="text-lg font-bold text-purple-800 mb-4">🌟 L'Ambiance</h4>
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                  <div class="space-y-2">
+                    <div class="flex items-center">
+                      <span class="text-lg mr-3">🃏</span>
+                      <span class="text-purple-700 font-medium">Les cartes</span>
+                      <span class="text-purple-600 ml-auto text-sm">= manipulations des systèmes de la mine</span>
+                    </div>
+                    <div class="flex items-center">
+                      <span class="text-lg mr-3">📊</span>
+                      <span class="text-purple-700 font-medium">Le compteur</span>
+                      <span class="text-purple-600 ml-auto text-sm">= pression dans les cuves chimiques</span>
+                    </div>
+                  </div>
+                  <div class="space-y-2">
+                    <div class="flex items-center">
+                      <span class="text-lg mr-3">⚡</span>
+                      <span class="text-purple-700 font-medium">Zone 15-18</span>
+                      <span class="text-purple-600 ml-auto text-sm">= "explosion contrôlée" parfaite</span>
+                    </div>
+                    <div class="flex items-center">
+                      <span class="text-lg mr-3">🎲</span>
+                      <span class="text-purple-700 font-medium">Les événements</span>
+                      <span class="text-purple-600 ml-auto text-sm">= défaillances du vieux matériel minier</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mt-6 p-4 bg-purple-100 rounded-lg">
+                  <p class="text-purple-800 font-medium italic">
+                    "Dans les profondeurs de la mine, chaque décision compte. Mais qui peut-on vraiment faire confiance quand les enjeux sont si élevés ?"
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -281,6 +377,7 @@
         </div>
       </section>
 
+
       <!-- Mise en Place -->
       <section id="mise-en-place" class="mb-12">
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -303,7 +400,7 @@
                   {{ index + 1 }}
                 </div>
                 <div class="flex-1">
-                  <p class="text-gray-700" v-html="step"></p>
+                  <div class="text-gray-700" v-html="step"></div>
                 </div>
               </li>
             </ol>
@@ -493,10 +590,9 @@
                         </p>
                         <div class="space-y-2">
                           <p class="text-gray-700 text-sm leading-relaxed">
-                            Réunir
-                            <strong>2 des X cartes objectifs</strong> (selon
-                            nombre de joueurs) <strong>ET</strong> éviter
-                            l'explosion
+                            Gagner <strong>immédiatement pendant son tour</strong> si :
+                            <strong>au moins 2 cartes objectifs en main</strong> 
+                            <strong>ET</strong> compteur entre <strong>15-18</strong>
                           </p>
                         </div>
                       </div>
@@ -513,9 +609,7 @@
                 🎯 Cartes Objectif de l'Agent Double
               </h4>
               <p class="text-blue-700 mb-6 text-center text-lg">
-                L'Agent Double doit réunir
-                <strong>Réunir 2 des X (suivant nombre de joueurs)</strong> dans
-                sa main :
+                <strong>Nouveau Objectif :</strong> L'Agent Double gagne immédiatement pendant son tour s'il a au moins 2 cartes objectifs en main ET que le compteur est entre 15-18 :
               </p>
 
               <div class="grid md:grid-cols-5 gap-6">
@@ -682,8 +776,7 @@
 
               <div class="mt-6 text-center">
                 <p class="text-blue-700 font-medium">
-                  ⚠️ Ces cartes permettent à l'Agent Double de bluffer sur son
-                  identité tout en poursuivant son objectif secret
+                  ⚠️ L'Agent Double doit avoir au moins 2 de ces cartes en main ET que le compteur soit entre 15-18 pendant SON tour pour gagner immédiatement
                 </p>
               </div>
             </div>
@@ -822,8 +915,7 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    🎯 Réunir 2 des X (suivant nombre de joueurs) cartes
-                    spécifiques + éviter l'explosion
+                    🎯 Gagner immédiatement pendant son tour si : 2+ cartes objectifs en main ET compteur 15-18
                   </p>
                 </div>
               </div>
@@ -878,7 +970,7 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire de l'Agent Double
+                    Nécessaire pour la victoire immédiate de l'Agent Double (compteur 15-18)
                   </p>
                 </div>
 
@@ -923,7 +1015,7 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire de l'Agent Double
+                    Nécessaire pour la victoire immédiate de l'Agent Double (compteur 15-18)
                   </p>
                 </div>
 
@@ -968,7 +1060,7 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire de l'Agent Double
+                    Nécessaire pour la victoire immédiate de l'Agent Double (compteur 15-18)
                   </p>
                 </div>
 
@@ -1013,7 +1105,7 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire de l'Agent Double
+                    Nécessaire pour la victoire immédiate de l'Agent Double (compteur 15-18)
                   </p>
                 </div>
 
@@ -1058,7 +1150,7 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire de l'Agent Double
+                    Nécessaire pour la victoire immédiate de l'Agent Double (compteur 15-18)
                   </p>
                 </div>
               </div>
@@ -2188,8 +2280,10 @@
                 </h4>
                 <p class="text-blue-700">
                   <strong>En duo :</strong> chaque joueur joue 1 carte, pioche
-                  1<br />
-                  <strong>En solo :</strong> joue 2 cartes, pioche 2<br />
+                  <span class="block">1</span>
+                  <span class="block"
+                    ><strong>En solo :</strong> joue 2 cartes, pioche 2</span
+                  >
                   Les joueurs coopèrent librement
                 </p>
               </div>
@@ -2199,8 +2293,7 @@
               >
                 <h4 class="font-bold text-yellow-800 mb-2">3. Fin du Tour</h4>
                 <p class="text-yellow-700">
-                  Si le compteur ≥ seuil d'explosion → <strong>Défaite</strong
-                  ><br />
+                  Si le compteur ≥ seuil d'explosion → <strong>Défaite</strong>
                   Sinon → Continuer jusqu'à la fin des tours
                 </p>
               </div>
@@ -2885,9 +2978,11 @@
                     <p class="text-yellow-700 leading-relaxed">
                       Réflexion en cours sur la terminologie :
                       <strong>Compteur x Seuil</strong> VS
-                      <strong>Méche x Bombe</strong> ? <br />L'objectif est de
-                      trouver des termes plus immersifs et intuitifs pour les
-                      joueurs.
+                      <strong>Méche x Bombe</strong> ?
+                      <span class="block mt-2"
+                        >L'objectif est de trouver des termes plus immersifs et
+                        intuitifs pour les joueurs.</span
+                      >
                     </p>
                   </div>
                 </div>
@@ -2907,9 +3002,11 @@
                     </h4>
                     <p class="text-blue-700 leading-relaxed">
                       Création d'une application dédiée pour le
-                      <strong>mode coopératif</strong> avec IA. <br />Permettra
-                      aux joueurs de jouer seuls ou à deux contre une
-                      intelligence artificielle.
+                      <strong>mode coopératif</strong> avec IA.
+                      <span class="block mt-2"
+                        >Permettra aux joueurs de jouer seuls ou à deux contre
+                        une intelligence artificielle.</span
+                      >
                     </p>
                   </div>
                 </div>
@@ -2930,8 +3027,11 @@
                     <p class="text-green-700 leading-relaxed">
                       Amélioration et
                       <strong>unification des descriptions</strong> de toutes
-                      les cartes du jeu. <br />Objectif : rendre les effets plus
-                      clairs et plus cohérents entre elles.
+                      les cartes du jeu.
+                      <span class="block mt-2"
+                        >Objectif : rendre les effets plus clairs et plus
+                        cohérents entre elles.</span
+                      >
                     </p>
                   </div>
                 </div>
@@ -2950,8 +3050,13 @@
                       🎯 Ajustement du mode vs IA
                     </h4>
                     <p class="text-purple-700 leading-relaxed">
-                      <strong>Équilibrage et amélioration</strong> du mode de jeu contre l'intelligence artificielle. <br />
-                      Ajustement des niveaux de difficulté et optimisation des stratégies de l'IA pour une expérience de jeu plus équilibrée.
+                      <strong>Équilibrage et amélioration</strong> du mode de
+                      jeu contre l'intelligence artificielle.
+                      <span class="block mt-2"
+                        >Ajustement des niveaux de difficulté et optimisation
+                        des stratégies de l'IA pour une expérience de jeu plus
+                        équilibrée.</span
+                      >
                     </p>
                   </div>
                 </div>
@@ -3013,8 +3118,8 @@
                 Merci aux contributeurs du projet
               </h3>
 
-              <!-- Grille fixe 3x3 avec taille homogène -->
-              <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
+              <!-- Grille fixe avec taille homogène -->
+              <div class="grid grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
                 <!-- Laura Ruelle -->
                 <div
                   class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
@@ -3028,7 +3133,8 @@
                     <h4
                       class="font-semibold text-gray-800 text-center text-sm leading-tight"
                     >
-                      Laura<br />Ruelle
+                      <div>Laura</div>
+                      <div>Ruelle</div>
                     </h4>
                   </div>
                 </div>
@@ -3046,7 +3152,8 @@
                     <h4
                       class="font-semibold text-gray-800 text-center text-sm leading-tight"
                     >
-                      Mathieu<br />Lecomte
+                      <div>Mathieu</div>
+                      <div>Lecomte</div>
                     </h4>
                   </div>
                 </div>
@@ -3064,7 +3171,8 @@
                     <h4
                       class="font-semibold text-gray-800 text-center text-sm leading-tight"
                     >
-                      Amélia<br />Lecomte
+                      <div>Amélia</div>
+                      <div>Lecomte</div>
                     </h4>
                   </div>
                 </div>
@@ -3082,7 +3190,8 @@
                     <h4
                       class="font-semibold text-gray-800 text-center text-sm leading-tight"
                     >
-                      Malone<br />Lecomte
+                      <div>Malone</div>
+                      <div>Lecomte</div>
                     </h4>
                   </div>
                 </div>
@@ -3100,7 +3209,8 @@
                     <h4
                       class="font-semibold text-gray-800 text-center text-sm leading-tight"
                     >
-                      Hugues<br />Ruelle
+                      <div>Hugues</div>
+                      <div>Ruelle</div>
                     </h4>
                   </div>
                 </div>
@@ -3118,7 +3228,8 @@
                     <h4
                       class="font-semibold text-gray-800 text-center text-sm leading-tight"
                     >
-                      Evelyne<br />Ruelle
+                      <div>Evelyne</div>
+                      <div>Ruelle</div>
                     </h4>
                   </div>
                 </div>
@@ -3136,7 +3247,8 @@
                     <h4
                       class="font-semibold text-gray-800 text-center text-sm leading-tight"
                     >
-                      Julie<br />Lecomte
+                      <div>Julie</div>
+                      <div>Lecomte</div>
                     </h4>
                   </div>
                 </div>
@@ -3154,7 +3266,8 @@
                     <h4
                       class="font-semibold text-gray-800 text-center text-sm leading-tight"
                     >
-                      Marie<br />Lecomte
+                      <div>Marie</div>
+                      <div>Lecomte</div>
                     </h4>
                   </div>
                 </div>
@@ -3172,7 +3285,46 @@
                     <h4
                       class="font-semibold text-gray-800 text-center text-sm leading-tight"
                     >
-                      Oscar<br />Verquin
+                      <div>Oscar</div>
+                      <div>Verquin</div>
+                    </h4>
+                  </div>
+                </div>
+
+                <!-- Thibaut Debruille -->
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="w-14 h-14 bg-cyan-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
+                      TD
+                    </div>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      <div>Thibaut</div>
+                      <div>Debruille</div>
+                    </h4>
+                  </div>
+                </div>
+
+                <!-- Paulyne Meermans -->
+                <div
+                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                >
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="w-14 h-14 bg-rose-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                    >
+                      PM
+                    </div>
+                    <h4
+                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                    >
+                      <div>Paulyne</div>
+                      <div>Meermans</div>
                     </h4>
                   </div>
                 </div>
@@ -3269,6 +3421,9 @@
               <div v-if="elapsedTime" class="text-white text-sm opacity-60">
                 ⏱️ {{ elapsedTime }}
               </div>
+              <div class="text-white text-sm opacity-70 mt-1">
+                👥 {{ playerCount }} joueur{{ playerCount > 1 ? 's' : '' }}
+              </div>
               <div
                 v-if="turnNumber > 0"
                 class="text-white text-xs opacity-50 mt-1"
@@ -3335,6 +3490,7 @@
               </button>
             </div>
           </div>
+
 
           <!-- Zone principale avec pions -->
           <div class="flex-1 relative">
@@ -3991,6 +4147,26 @@
                   }}</span>
                 </div>
               </div>
+
+              <!-- Initialisation -->
+              <div v-else-if="item.type === 'init'">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-green-600 text-sm font-bold">🎯</span>
+                    <span class="text-sm font-medium text-green-700">
+                      {{ item.action }}
+                    </span>
+                    <span
+                      class="text-sm text-green-600 font-mono bg-green-100 px-2 py-1 rounded"
+                    >
+                      {{ item.oldValue }} → {{ item.newValue }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-green-500">{{
+                    item.timestamp
+                  }}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -4169,7 +4345,6 @@
           </h3>
           <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
             Êtes-vous sûr de vouloir fermer la partie en cours ?
-            <br />
             <strong>Toutes les données seront perdues.</strong>
           </p>
           <div class="flex space-x-2 sm:space-x-3">
@@ -4461,7 +4636,7 @@
                   Victoire par Élimination :
                 </div>
                 <div>• Tous les Saboteurs sont éliminés</div>
-                <div>• L'Agent Double n'a pas atteint son objectif</div>
+                <div>• L'Agent Double n'a pas gagné immédiatement</div>
                 <div>• La bombe n'a pas explosé</div>
               </div>
             </div>
@@ -4486,10 +4661,10 @@
               <div class="text-2xl mb-4">🎭</div>
               <h5 class="text-lg font-bold text-white mb-4">AGENT DOUBLE</h5>
               <div class="text-yellow-100 text-sm space-y-2">
-                <div class="font-semibold text-yellow-200">Victoire si :</div>
-                <div>• Possède 2 cartes objectif spécifiques</div>
-                <div>• La bombe n'explose pas</div>
-                <div>• Survit jusqu'à la fin</div>
+                <div class="font-semibold text-yellow-200">Victoire immédiate :</div>
+                <div>• A au moins 2 cartes objectifs en main</div>
+                <div>• ET le compteur est entre 15-18</div>
+                <div>• A son tour seulement !</div>
               </div>
             </div>
           </div>
@@ -4505,6 +4680,71 @@
           </button>
         </div>
       </div>
+    </div>
+
+  </div>
+
+  <!-- Modale Sélection Nombre de Joueurs -->
+  <div
+    v-if="showPlayerCountModal"
+    class="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center p-4"
+  >
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8">
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m3 5.197H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">Mode Compétitif</h2>
+        <p class="text-gray-600">Sélectionnez le nombre de joueurs</p>
+      </div>
+      
+      <div class="space-y-3">
+        <button
+          @click="selectPlayerCount(3)"
+          class="w-full p-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-between"
+        >
+          <span>3 Joueurs</span>
+          <div class="flex space-x-1">
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+          </div>
+        </button>
+        <button
+          @click="selectPlayerCount(4)"
+          class="w-full p-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-between"
+        >
+          <span>4 Joueurs</span>
+          <div class="flex space-x-1">
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+          </div>
+        </button>
+        <button
+          @click="selectPlayerCount(5)"
+          class="w-full p-4 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-between"
+        >
+          <span>5 Joueurs</span>
+          <div class="flex space-x-1">
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+          </div>
+        </button>
+      </div>
+      
+      <button
+        @click="closePlayerCountModal"
+        class="w-full mt-6 p-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-colors duration-200"
+      >
+        ← Retour
+      </button>
     </div>
   </div>
 </template>
@@ -4625,35 +4865,35 @@ const objectiveCards = [
     name: "Dossier classé",
     type: "Bluff & Objectif",
     effect:
-      "Nécessaire pour la victoire de l'Agent Double (2/X selon le nombre de joueurs)",
+      "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
     quantity: 1,
   },
   {
     name: "Robot de déminage",
     type: "Bluff & Objectif",
     effect:
-      "Nécessaire pour la victoire de l'Agent Double (2/X selon le nombre de joueurs)",
+      "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
     quantity: 1,
   },
   {
     name: "Plan d'évacuation",
     type: "Bluff & Objectif",
     effect:
-      "Nécessaire pour la victoire de l'Agent Double (2/X selon le nombre de joueurs)",
+      "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
     quantity: 1,
   },
   {
     name: "Neutralisation chimique",
     type: "Bluff & Objectif",
     effect:
-      "Nécessaire pour la victoire de l'Agent Double (2/X selon le nombre de joueurs)",
+      "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
     quantity: 1,
   },
   {
     name: "Schéma électrique",
     type: "Bluff & Objectif",
     effect:
-      "Nécessaire pour la victoire de l'Agent Double (2/X selon le nombre de joueurs)",
+      "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
     quantity: 1,
   },
 ];
@@ -4769,14 +5009,14 @@ const actionCards = [
 // Setup steps
 const setupSteps = [
   "<strong>Séparez les cartes système</strong> (rôles, événements, premier joueur)",
-  "<strong>Sélectionnez les cartes selon le nombre de joueurs :</strong><br>• <strong>3 joueurs :</strong> Prenez uniquement les cartes marquées 3+<br>• <strong>4 joueurs :</strong> Ajoutez les cartes marquées 4+<br>• <strong>5 joueurs :</strong> Ajoutez aussi les cartes marquées 5+<br><em>Les indicateurs se trouvent en haut à droite des cartes</em>",
+  "<strong>Sélectionnez les cartes selon le nombre de joueurs :</strong><span class='block mt-2'>• <strong>3 joueurs :</strong> Prenez uniquement les cartes marquées 3+</span><span class='block'>• <strong>4 joueurs :</strong> Ajoutez les cartes marquées 4+</span><span class='block'>• <strong>5 joueurs :</strong> Ajoutez aussi les cartes marquées 5+</span><span class='block mt-2'><em>Les indicateurs se trouvent en haut à droite des cartes</em></span>",
   "<strong>Mélangez toutes les cartes de jeu séléctionnées</strong>",
   "Chaque joueur reçoit <strong>5 cartes</strong>",
   "<strong>Assemblez la jauge :</strong> placez les 3 cartes piste côte à côte <span class='text-blue-600 text-sm'>(<em>Peut être passé si vous utilisez l'application</em>)</span>",
-  "Placez le <strong>Compteur sur 0</strong> et le <strong>Seuil sur 20</strong> <span class='text-blue-600 text-sm'>(<em>Peut être passé si vous utilisez l'application</em>)</span>",
+  "Placez le <strong>Compteur sur le nombre de joueurs</strong> (3, 4 ou 5) et le <strong>Seuil sur 20</strong> <span class='text-blue-600 text-sm'>(<em>Peut être passé si vous utilisez l'application</em>)</span>",
   '<strong>Désignez le premier joueur</strong> et donnez-lui la carte "Premier Joueur" qu\'il place devant lui',
-  '<strong>Préparez les événements :</strong><br>• Piochez 9 cartes Événement au hasard (hors Compte à rebours final)<br>• Prenez 2 cartes au hasard de ce paquet + la carte "Compte à rebours final"<br>• Mélangez ces 3 cartes et placez-les <strong>sous la pile</strong> d\'événements <span class="text-blue-600 text-sm">(<em>Peut être passé si vous utilisez l\'application</em>)</span>',
-  "<strong>Distribuez les rôles</strong> selon le tableau de répartition avec incertitude :<br><br><div class='bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border-l-4 border-yellow-400 mb-4'><p class='text-sm text-yellow-800'><strong>🎭 Principe :</strong> Prenez plus de cartes rôles que de joueurs, mélangez-les et distribuez-en une par joueur. La carte non distribuée reste secrète, créant de l'incertitude sur la composition exacte.</p></div><table class='w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden text-sm'><thead><tr class='bg-gradient-to-r from-red-500 to-orange-500 text-white'><th class='border border-gray-200 p-3 font-bold'>Joueurs</th><th class='border border-gray-200 p-3 font-bold'>Cartes dans le pool</th><th class='border border-gray-200 p-3 font-bold'>Composition du mélange</th><th class='border border-gray-200 p-3 font-bold'>Cartes distribuées</th></tr></thead><tbody><tr class='bg-gray-50 hover:bg-gray-100'><td class='border border-gray-200 p-3 text-center font-bold text-red-600'>3</td><td class='border border-gray-200 p-3 text-center'>4 cartes</td><td class='border border-gray-200 p-3'>1 Démineur + 2 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 p-3 text-center font-semibold text-green-600'>3 <span class='text-gray-500 text-xs'>(1 retirée)</span></td></tr><tr class='bg-white hover:bg-gray-100'><td class='border border-gray-200 p-3 text-center font-bold text-red-600'>4</td><td class='border border-gray-200 p-3 text-center'>5 cartes</td><td class='border border-gray-200 p-3'>2 Démineurs + 2 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 p-3 text-center font-semibold text-green-600'>4 <span class='text-gray-500 text-xs'>(1 retirée)</span></td></tr><tr class='bg-gray-50 hover:bg-gray-100'><td class='border border-gray-200 p-3 text-center font-bold text-red-600'>5</td><td class='border border-gray-200 p-3 text-center'>6 cartes</td><td class='border border-gray-200 p-3'>2 Démineurs + 3 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 p-3 text-center font-semibold text-green-600'>5 <span class='text-gray-500 text-xs'>(1 retirée)</span></td></tr></tbody></table>",
+  '<strong>Préparez les événements :</strong><span class="block mt-2">• Piochez 9 cartes Événement au hasard (hors Compte à rebours final)</span><span class="block">• Prenez 2 cartes au hasard de ce paquet + la carte "Compte à rebours final"</span><span class="block">• Mélangez ces 3 cartes et placez-les <strong>sous la pile</strong> d\'événements</span><span class="block mt-2"><span class="text-blue-600 text-sm">(<em>Peut être passé si vous utilisez l\'application</em>)</span></span>',
+  "<strong>Distribuez les rôles</strong> selon le tableau de répartition avec incertitude :<div class='mt-4'></div><div class='bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border-l-4 border-yellow-400 mb-4'><div class='text-sm text-yellow-800'><strong>🎭 Principe :</strong> Prenez plus de cartes rôles que de joueurs, mélangez-les et distribuez-en une par joueur. La carte non distribuée reste secrète, créant de l'incertitude sur la composition exacte.</div></div><table class='w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden text-sm'><thead><tr class='bg-gradient-to-r from-red-500 to-orange-500 text-white'><th class='border border-gray-200 p-3 font-bold'>Joueurs</th><th class='border border-gray-200 p-3 font-bold'>Cartes dans le pool</th><th class='border border-gray-200 p-3 font-bold'>Composition du mélange</th><th class='border border-gray-200 p-3 font-bold'>Cartes distribuées</th></tr></thead><tbody><tr class='bg-gray-50 hover:bg-gray-100'><td class='border border-gray-200 p-3 text-center font-bold text-red-600'>3</td><td class='border border-gray-200 p-3 text-center'>4 cartes</td><td class='border border-gray-200 p-3'>1 Démineur + 2 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 p-3 text-center font-semibold text-green-600'>3 <span class='text-gray-500 text-xs'>(1 retirée)</span></td></tr><tr class='bg-white hover:bg-gray-100'><td class='border border-gray-200 p-3 text-center font-bold text-red-600'>4</td><td class='border border-gray-200 p-3 text-center'>5 cartes</td><td class='border border-gray-200 p-3'>2 Démineurs + 2 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 p-3 text-center font-semibold text-green-600'>4 <span class='text-gray-500 text-xs'>(1 retirée)</span></td></tr><tr class='bg-gray-50 hover:bg-gray-100'><td class='border border-gray-200 p-3 text-center font-bold text-red-600'>5</td><td class='border border-gray-200 p-3 text-center'>6 cartes</td><td class='border border-gray-200 p-3'>2 Démineurs + 3 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 p-3 text-center font-semibold text-green-600'>5 <span class='text-gray-500 text-xs'>(1 retirée)</span></td></tr></tbody></table>",
 ];
 
 // Game steps
@@ -4915,12 +5155,12 @@ const faqs = [
   {
     question: "Seuil Réduit - Règles importantes",
     answer:
-      "• Cette carte <strong>ne peut jamais</strong> déclencher l'explosion<br>• Le nouveau seuil doit être <strong>au minimum</strong> à (compteur actuel + 1)<br>• Le montant de réduction est déterminé par une carte numérotée tirée au hasard<br>• Si la réduction rendrait le seuil trop bas, la carte ne peut pas être jouée",
+      "<span class='block'>• Cette carte <strong>ne peut jamais</strong> déclencher l'explosion</span><span class='block'>• Le nouveau seuil doit être <strong>au minimum</strong> à (compteur actuel + 1)</span><span class='block'>• Le montant de réduction est déterminé par une carte numérotée tirée au hasard</span><span class='block'>• Si la réduction rendrait le seuil trop bas, la carte ne peut pas être jouée</span>",
   },
   {
     question: "Comment fonctionne la carte Miroir ?",
     answer:
-      "La carte Miroir peut :<br>• <strong>Rediriger une action</strong> dirigée contre vous vers son auteur<br>• <strong>Inverser le signe</strong> d'une carte (dé)charge (+ devient -, - devient +)",
+      "La carte Miroir peut :<span class='block mt-2'>• <strong>Rediriger une action</strong> dirigée contre vous vers son auteur</span><span class='block'>• <strong>Inverser le signe</strong> d'une carte (dé)charge (+ devient -, - devient +)</span>",
   },
   {
     question: "Peut-on jouer Surcharge sur une carte Miroir ?",
@@ -4935,12 +5175,12 @@ const faqs = [
   {
     question: "Que faire si je ne peux pas ou ne veux pas jouer de carte ?",
     answer:
-      "<strong>Si aucune carte de votre main ne peut être jouée :</strong> Défaussez une carte de votre choix.<br><strong>Si vous pouvez jouer au moins une carte :</strong> Vous êtes <strong>obligé(e) de la jouer</strong>, même si cela ne vous arrange pas stratégiquement.",
+      "<span class='block mb-2'><strong>Si aucune carte de votre main ne peut être jouée :</strong> Défaussez une carte de votre choix.</span><span class='block'><strong>Si vous pouvez jouer au moins une carte :</strong> Vous êtes <strong>obligé(e) de la jouer</strong>, même si cela ne vous arrange pas stratégiquement.</span>",
   },
   {
     question: "Comment distribuer les cartes avec Grand mélange ?",
     answer:
-      "Après avoir mélangé toutes les cartes des mains et de la défausse :<br>• Distribuez <strong>1 carte à la fois</strong> en tournant dans le sens des aiguilles d'une montre<br>• Continuez jusqu'à ce que chaque joueur ait <strong>5 cartes</strong><br>• <strong>S'il n'y a pas assez de cartes</strong> dans la pile, distribuez tout de même jusqu'à épuisement (certains joueurs peuvent avoir moins de 5 cartes)",
+      "Après avoir mélangé toutes les cartes des mains et de la défausse :<span class='block mt-2'>• Distribuez <strong>1 carte à la fois</strong> en tournant dans le sens des aiguilles d'une montre</span><span class='block'>• Continuez jusqu'à ce que chaque joueur ait <strong>5 cartes</strong></span><span class='block'>• <strong>S'il n'y a pas assez de cartes</strong> dans la pile, distribuez tout de même jusqu'à épuisement (certains joueurs peuvent avoir moins de 5 cartes)</span>",
   },
 ];
 
@@ -4967,6 +5207,7 @@ const showCardModal = ref(false);
 const isMobileMenuOpen = ref(false);
 // Counter mode functionality
 const showCounterMode = ref(false);
+const playerCount = ref(3); // Nombre de joueurs (3, 4 ou 5)
 const counterValue = ref(0);
 const thresholdValue = ref(20);
 const minThreshold = ref(10);
@@ -4993,6 +5234,7 @@ const showEndGameModal = ref(false);
 
 // Game mode selection
 const showGameModeModal = ref(false);
+const showPlayerCountModal = ref(false);
 
 // AI mode functionality
 const showAIMode = ref(false);
@@ -5133,7 +5375,7 @@ const openCounterMode = () => {
   showCounterMode.value = true;
 
   // Initialize counter values
-  counterValue.value = 0;
+  counterValue.value = playerCount.value;
   thresholdValue.value = 20;
   counterHistory.value = [];
   showExplosion.value = false;
@@ -5168,9 +5410,10 @@ const quitGame = () => {
   showEndGameModal.value = false;
   showHistoryModal.value = false;
   showEventModal.value = false;
+  showPlayerCountModal.value = false;
 
   // Remettre à zéro tous les états du jeu
-  counterValue.value = 0;
+  counterValue.value = playerCount.value;
   thresholdValue.value = 20;
   minThreshold.value = 10;
   maxThreshold.value = 30;
@@ -5322,6 +5565,8 @@ const handleEscape = (event) => {
       closeAIMode();
     } else if (showAIDifficultyModal.value) {
       closeAIDifficultyModal();
+    } else if (showPlayerCountModal.value) {
+      closePlayerCountModal();
     } else if (showGameModeModal.value) {
       closeGameModeModal();
     } else if (showCounterMode.value) {
@@ -5454,12 +5699,41 @@ const closeGameModeModal = () => {
   showGameModeModal.value = false;
 };
 const selectCompetitiveMode = () => {
+  console.log("selectCompetitiveMode called");
+  console.log("showPlayerCountModal BEFORE:", showPlayerCountModal.value);
   closeGameModeModal();
-  openCounterMode();
+  showPlayerCountModal.value = true;
+  console.log("showPlayerCountModal AFTER:", showPlayerCountModal.value);
+  
+  // Force une re-render après un court délai pour tester
+  setTimeout(() => {
+    console.log("showPlayerCountModal after timeout:", showPlayerCountModal.value);
+  }, 100);
 };
 const selectCooperativeMode = () => {
   closeGameModeModal();
   showAIDifficultyModal.value = true;
+};
+
+// Player count selection functions
+const selectPlayerCount = (count) => {
+  playerCount.value = count;
+  closePlayerCountModal();
+  openCounterMode();
+  
+  // Ajouter l'initialisation dans l'historique APRÈS l'ouverture du mode
+  counterHistory.value.push({
+    action: "Initialisation compteur",
+    oldValue: 0,
+    newValue: count,
+    timestamp: new Date().toLocaleTimeString(),
+    type: "init",
+    icon: "🎯"
+  });
+};
+
+const closePlayerCountModal = () => {
+  showPlayerCountModal.value = false;
 };
 
 // AI difficulty selection functions
