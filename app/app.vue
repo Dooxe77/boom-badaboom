@@ -215,121 +215,329 @@
 
             <!-- L'Incident de la Mine d'Argent -->
             <div class="mb-8">
-              <h3 class="text-2xl font-bold text-gray-800 mb-6">📖 L'Incident de la Mine d'Argent</h3>
+              <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                📖 L'Incident de la Mine d'Argent
+              </h3>
 
-              <!-- Le Contexte -->
-              <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 mb-6 border-l-4 border-gray-500">
-                <h4 class="text-lg font-bold text-gray-800 mb-3">🏭 Le Contexte</h4>
-                <div class="space-y-3">
-                  <p class="text-gray-700 leading-relaxed font-medium">
-                    <strong>Vallée de Silverbrook, laboratoire souterrain "Projet Mercure"</strong>
-                  </p>
-                  <p class="text-gray-700 leading-relaxed">
-                    Il y a 50 ans, la mine d'argent de Silverbrook était la fierté de la région. Aujourd'hui, ses galeries abritent le laboratoire le plus secret du gouvernement. L'expérience "Mercure" - un nouveau carburant révolutionnaire - vient de mal tourner. Les cuves de produits chimiques montent en pression, et dans moins d'une heure, tout explosera.
-                  </p>
-                  <p class="text-gray-800 font-medium italic">
-                    Mais au fond de la mine, trois personnes ont des objectifs très différents...
-                  </p>
+              <!-- L'Histoire -->
+              <div
+                class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 mb-6 border-l-4 border-gray-500"
+              >
+                <h4 class="text-lg font-bold text-gray-800 mb-3">
+                  📚 L'Histoire
+                </h4>
+                <p class="text-gray-700 leading-relaxed mb-3">
+                  Une ancienne mine d'argent reconvertie en laboratoire
+                  souterrain. Une expérience tourne mal, la pression monte dans
+                  les cuves chimiques. L'explosion menace.
+                </p>
+              </div>
+
+              <!-- Les Factions -->
+              <div class="grid gap-6 mb-6">
+                <!-- Les Secouristes -->
+                <div
+                  class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-l-4 border-blue-500"
+                >
+                  <div class="flex items-start">
+                    <span class="text-3xl mr-4">🔧</span>
+                    <div class="flex-1">
+                      <h5 class="text-xl font-bold text-blue-800 mb-2">
+                        LES SECOURISTES (démineurs actuellement)
+                      </h5>
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <span class="text-blue-700 font-medium text-sm mr-2"
+                            >Qui :</span
+                          >
+                          <span class="text-blue-800 text-sm"
+                            >Équipe de sécurité du laboratoire</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <span class="text-blue-700 font-medium text-sm mr-2"
+                            >Objectif :</span
+                          >
+                          <span class="text-blue-800 text-sm font-medium"
+                            >Empêcher l'explosion et maintenir la sécurité</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <span class="text-blue-700 font-medium text-sm mr-2"
+                            >Pourquoi :</span
+                          >
+                          <span class="text-blue-800 text-sm italic"
+                            >C'est leur travail de protéger le site et les
+                            gens</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Les Saboteurs -->
+                <div
+                  class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 border-l-4 border-red-500"
+                >
+                  <div class="flex items-start">
+                    <span class="text-3xl mr-4">💥</span>
+                    <div class="flex-1">
+                      <h5 class="text-xl font-bold text-red-800 mb-2">
+                        LES SABOTEURS
+                      </h5>
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <span class="text-red-700 font-medium text-sm mr-2"
+                            >Qui :</span
+                          >
+                          <span class="text-red-800 text-sm"
+                            >Personnes qui veulent détruire le laboratoire</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <span class="text-red-700 font-medium text-sm mr-2"
+                            >Objectif :</span
+                          >
+                          <span class="text-red-800 text-sm font-medium"
+                            >Faire exploser les cuves</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <span class="text-red-700 font-medium text-sm mr-2"
+                            >Pourquoi :</span
+                          >
+                          <span class="text-red-800 text-sm italic"
+                            >Vengeance, espionnage, ou opposition au
+                            projet</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- L'Opportuniste -->
+                <div
+                  class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 border-l-4 border-yellow-500"
+                >
+                  <div class="flex items-start">
+                    <span class="text-3xl mr-4">🎯</span>
+                    <div class="flex-1">
+                      <h5 class="text-xl font-bold text-yellow-800 mb-2">
+                        L'OPPORTUNISTE (agent double actuellement)
+                      </h5>
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <span class="text-yellow-700 font-medium text-sm mr-2"
+                            >Qui :</span
+                          >
+                          <span class="text-yellow-800 text-sm"
+                            >Journaliste local</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <span class="text-yellow-700 font-medium text-sm mr-2"
+                            >Objectif :</span
+                          >
+                          <span class="text-yellow-800 text-sm font-medium"
+                            >Créer un incident contrôlé (pression entre
+                            15-18)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <span class="text-yellow-700 font-medium text-sm mr-2"
+                            >Pourquoi :</span
+                          >
+                          <span class="text-yellow-800 text-sm italic"
+                            >Un petit accident fait un bon article sans
+                            tragédie, parfait pour relancer sa carrière</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Les personnages en détail -->
-              <h4 class="text-xl font-bold text-gray-800 mb-4">🎭 Les Personnages en détail</h4>
-              
-              <div class="space-y-6 mb-6">
-                <!-- Marcus "Tank" Henderson - Le Démineur -->
-                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-l-4 border-blue-500">
-                  <div class="flex items-start mb-4">
-                    <span class="text-3xl mr-4 mt-1">🔧</span>
-                    <div class="flex-1">
-                      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                        <h5 class="text-lg font-bold text-blue-800">Marcus "Tank" Henderson</h5>
-                        <span class="text-sm text-blue-600 font-medium">Le Démineur • Ancien sapeur de l'armée, 45 ans</span>
-                      </div>
-                      <p class="text-blue-700 font-medium italic mb-3">
-                        "J'ai désamorcé des bombes en Irak, je ne vais pas laisser une cuve de chimiste me faire peur."
-                      </p>
-                      <p class="text-blue-800 text-sm leading-relaxed">
-                        Reconverti comme chef de la sécurité du laboratoire après une blessure au combat. Il connaît chaque protocole d'urgence et n'abandonne jamais ses hommes. <strong>Sa mission :</strong> évacuer les 12 scientifiques restés coincés et stabiliser les cuves avant que la vallée entière ne soit rayée de la carte.
-                      </p>
-                    </div>
+              <!-- Le Jeu -->
+              <div
+                class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 border-l-4 border-purple-500"
+              >
+                <h4 class="text-lg font-bold text-purple-800 mb-3">
+                  🎮 Le Jeu
+                </h4>
+                <p class="text-purple-800 leading-relaxed">
+                  La pression monte dans les cuves. Si elle atteint le point de
+                  rupture, tout explose. Chaque camp joue pour atteindre son
+                  objectif.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WIP (Work In Progress) -->
+      <section id="wip" class="mb-12">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="p-4 sm:p-8">
+            <h2
+              class="text-2xl sm:text-4xl font-bold text-orange-600 border-b-4 border-orange-500 pb-4 mb-8"
+            >
+              🚧 Work In Progress (WIP)
+            </h2>
+
+            <div
+              class="bg-orange-50 border-l-4 border-orange-400 p-6 rounded-r-lg mb-6"
+            >
+              <h3 class="font-bold text-orange-800 mb-3 text-xl">
+                ⚠️ Points en cours de développement
+              </h3>
+              <p class="text-orange-700 mb-4">
+                Ces éléments sont actuellement en réflexion ou en cours de
+                développement et peuvent évoluer.
+              </p>
+            </div>
+
+            <div class="space-y-6">
+              <!-- Groupe 1: Design & Contenu du jeu -->
+              <div
+                class="bg-gradient-to-br from-yellow-50 to-green-50 border-2 border-yellow-300 rounded-2xl p-6"
+              >
+                <div class="flex items-start space-x-4 mb-6">
+                  <div
+                    class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-yellow-500 to-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg"
+                  >
+                    1
+                  </div>
+                  <div class="flex-grow">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">
+                      🎨 Design & Contenu du Jeu
+                    </h4>
+                    <p class="text-gray-600 text-sm mb-4">
+                      Amélioration de l'expérience de jeu et de l'immersion
+                    </p>
                   </div>
                 </div>
 
-                <!-- Dr. Elena Vasquez - Le Saboteur -->
-                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 border-l-4 border-red-500">
-                  <div class="flex items-start mb-4">
-                    <span class="text-3xl mr-4 mt-1">💥</span>
-                    <div class="flex-1">
-                      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                        <h5 class="text-lg font-bold text-red-800">Dr. Elena Vasquez</h5>
-                        <span class="text-sm text-red-600 font-medium">Le Saboteur • Biochimiste brillante, 38 ans</span>
-                      </div>
-                      <p class="text-red-700 font-medium italic mb-3">
-                        "Ils m'ont volé mes recherches, maintenant ils vont payer. Tous."
-                      </p>
-                      <p class="text-red-800 text-sm leading-relaxed">
-                        Ancienne star du laboratoire, elle a été licenciée quand ses expériences sur les cobayes ont été découvertes. Mais elle a gardé ses accès... Elle a délibérément saboté l'expérience ce matin. <strong>Son plan :</strong> tout faire exploser pour détruire les preuves de ses crimes et éliminer les témoins gênants.
-                      </p>
-                    </div>
+                <div class="space-y-4">
+                  <!-- Nommage -->
+                  <div
+                    class="bg-yellow-100/50 rounded-xl p-4 border-l-4 border-yellow-400"
+                  >
+                    <h5
+                      class="font-semibold text-yellow-800 mb-2 flex items-center"
+                    >
+                      🏷️ Nommage des éléments de jeu
+                    </h5>
+                    <p class="text-yellow-700 text-sm leading-relaxed">
+                      Réflexion en cours sur la terminologie :
+                      <strong>Compteur x Seuil</strong> VS
+                      <strong>Pression x Point de rupture</strong> ? L'objectif
+                      est de trouver des termes plus immersifs et intuitifs.
+                    </p>
                   </div>
-                </div>
 
-                <!-- Victor "Vic" Chen - L'Agent Double -->
-                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 border-l-4 border-yellow-500">
-                  <div class="flex items-start mb-4">
-                    <span class="text-3xl mr-4 mt-1">🎯</span>
-                    <div class="flex-1">
-                      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                        <h5 class="text-lg font-bold text-yellow-800">Victor "Vic" Chen</h5>
-                        <span class="text-sm text-yellow-600 font-medium">L'Agent Double • Technicien de maintenance, 32 ans</span>
-                      </div>
-                      <p class="text-yellow-700 font-medium italic mb-3">
-                        "Une petite explosion, quelques fichiers qui traînent, et je suis riche à vie."
-                      </p>
-                      <p class="text-yellow-800 text-sm leading-relaxed">
-                        En réalité espion industriel au service du plus offrant. Il s'est fait embaucher comme simple technicien pour accéder aux secrets du Projet Mercure. <strong>Il veut que l'explosion soit juste assez forte</strong> pour créer le chaos parfait : voler les données dans la panique, mais pas assez pour détruire les serveurs qui valent des millions.
-                      </p>
-                    </div>
+                  <!-- Refonte descriptions -->
+                  <div
+                    class="bg-green-100/50 rounded-xl p-4 border-l-4 border-green-400"
+                  >
+                    <h5
+                      class="font-semibold text-green-800 mb-2 flex items-center"
+                    >
+                      📝 Refonte des descriptions de cartes
+                    </h5>
+                    <p class="text-green-700 text-sm leading-relaxed">
+                      Amélioration et
+                      <strong>unification des descriptions</strong> de toutes
+                      les cartes. Objectif : rendre les effets plus clairs et
+                      plus cohérents.
+                    </p>
+                  </div>
+
+                  <!-- Thématisation -->
+                  <div
+                    class="bg-indigo-100/50 rounded-xl p-4 border-l-4 border-indigo-400"
+                  >
+                    <h5
+                      class="font-semibold text-indigo-800 mb-2 flex items-center"
+                    >
+                      🎭 Thématisation du jeu
+                    </h5>
+                    <p class="text-indigo-700 text-sm leading-relaxed">
+                      <strong>Développement narratif</strong> pour enrichir
+                      l'univers du jeu. Création d'actions et d'effets en
+                      rapport avec l'histoire de la mine d'argent.
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <!-- L'ambiance -->
-              <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 border-l-4 border-purple-500">
-                <h4 class="text-lg font-bold text-purple-800 mb-4">🌟 L'Ambiance</h4>
-                <div class="grid md:grid-cols-2 gap-4 mb-4">
-                  <div class="space-y-2">
-                    <div class="flex items-center">
-                      <span class="text-lg mr-3">🃏</span>
-                      <span class="text-purple-700 font-medium">Les cartes</span>
-                      <span class="text-purple-600 ml-auto text-sm">= manipulations des systèmes de la mine</span>
-                    </div>
-                    <div class="flex items-center">
-                      <span class="text-lg mr-3">📊</span>
-                      <span class="text-purple-700 font-medium">Le compteur</span>
-                      <span class="text-purple-600 ml-auto text-sm">= pression dans les cuves chimiques</span>
-                    </div>
+              <!-- Groupe 2: Modes avec IA -->
+              <div
+                class="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-300 rounded-2xl p-6"
+              >
+                <div class="flex items-start space-x-4 mb-6">
+                  <div
+                    class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg"
+                  >
+                    2
                   </div>
-                  <div class="space-y-2">
-                    <div class="flex items-center">
-                      <span class="text-lg mr-3">⚡</span>
-                      <span class="text-purple-700 font-medium">Zone 15-18</span>
-                      <span class="text-purple-600 ml-auto text-sm">= "explosion contrôlée" parfaite</span>
-                    </div>
-                    <div class="flex items-center">
-                      <span class="text-lg mr-3">🎲</span>
-                      <span class="text-purple-700 font-medium">Les événements</span>
-                      <span class="text-purple-600 ml-auto text-sm">= défaillances du vieux matériel minier</span>
-                    </div>
+                  <div class="flex-grow">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">
+                      🤖 Modes avec Intelligence Artificielle
+                    </h4>
+                    <p class="text-gray-600 text-sm mb-4">
+                      Développement et amélioration des modes de jeu contre l'IA
+                    </p>
                   </div>
                 </div>
-                <div class="text-center mt-6 p-4 bg-purple-100 rounded-lg">
-                  <p class="text-purple-800 font-medium italic">
-                    "Dans les profondeurs de la mine, chaque décision compte. Mais qui peut-on vraiment faire confiance quand les enjeux sont si élevés ?"
-                  </p>
+
+                <div class="space-y-4">
+                  <!-- Mode coop -->
+                  <div
+                    class="bg-blue-100/50 rounded-xl p-4 border-l-4 border-blue-400"
+                  >
+                    <h5
+                      class="font-semibold text-blue-800 mb-2 flex items-center"
+                    >
+                      🤖 Développement du Mode Coopératif
+                    </h5>
+                    <p class="text-blue-700 text-sm leading-relaxed">
+                      Création d'une application dédiée pour le
+                      <strong>mode coopératif</strong> avec IA. Permettra aux
+                      joueurs de jouer seuls ou à deux contre une intelligence
+                      artificielle.
+                    </p>
+                  </div>
+
+                  <!-- Mode vs IA -->
+                  <div
+                    class="bg-purple-100/50 rounded-xl p-4 border-l-4 border-purple-400"
+                  >
+                    <h5
+                      class="font-semibold text-purple-800 mb-2 flex items-center"
+                    >
+                      🎯 Ajustement du mode vs IA
+                    </h5>
+                    <p class="text-purple-700 text-sm leading-relaxed">
+                      <strong>Équilibrage et amélioration</strong> du mode de
+                      jeu contre l'IA. Ajustement des niveaux de difficulté et
+                      optimisation des stratégies.
+                    </p>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            <div
+              class="mt-8 p-4 bg-gray-50 rounded-lg border-2 border-gray-200"
+            >
+              <p class="text-gray-600 text-sm text-center">
+                💬 <strong>Vos retours sont les bienvenus !</strong> Ces points
+                évoluent en fonction des tests et des retours des joueurs.
+              </p>
             </div>
           </div>
         </div>
@@ -377,7 +585,6 @@
         </div>
       </section>
 
-
       <!-- Mise en Place -->
       <section id="mise-en-place" class="mb-12">
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -388,19 +595,22 @@
               ⚙️ Mise en Place
             </h2>
 
-            <ol class="space-y-6">
+            <ol class="space-y-4 sm:space-y-6">
               <li
                 v-for="(step, index) in setupSteps"
                 :key="index"
-                class="flex items-start space-x-4"
+                class="flex items-start space-x-3 sm:space-x-4"
               >
                 <div
-                  class="flex-shrink-0 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold"
+                  class="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-base"
                 >
                   {{ index + 1 }}
                 </div>
-                <div class="flex-1">
-                  <div class="text-gray-700" v-html="step"></div>
+                <div class="flex-1 min-w-0">
+                  <div
+                    class="text-gray-700 text-sm sm:text-base"
+                    v-html="step"
+                  ></div>
                 </div>
               </li>
             </ol>
@@ -590,9 +800,13 @@
                         </p>
                         <div class="space-y-2">
                           <p class="text-gray-700 text-sm leading-relaxed">
-                            Gagner <strong>immédiatement pendant son tour</strong> si :
-                            <strong>au moins 2 cartes objectifs en main</strong> 
-                            <strong>ET</strong> compteur entre <strong>15-18</strong>
+                            Gagne
+                            <strong>immédiatement pendant son tour</strong> si :
+                            <strong
+                              >au moins 2 cartes objectifs en main
+                            </strong>
+                            <strong>ET</strong> compteur entre
+                            <strong>15-18</strong>
                           </p>
                         </div>
                       </div>
@@ -608,9 +822,6 @@
               <h4 class="font-bold text-blue-800 mb-6 text-center text-2xl">
                 🎯 Cartes Objectif de l'Agent Double
               </h4>
-              <p class="text-blue-700 mb-6 text-center text-lg">
-                <strong>Nouveau Objectif :</strong> L'Agent Double gagne immédiatement pendant son tour s'il a au moins 2 cartes objectifs en main ET que le compteur est entre 15-18 :
-              </p>
 
               <div class="grid md:grid-cols-5 gap-6">
                 <!-- Dossier classé -->
@@ -776,7 +987,9 @@
 
               <div class="mt-6 text-center">
                 <p class="text-blue-700 font-medium">
-                  ⚠️ L'Agent Double doit avoir au moins 2 de ces cartes en main ET que le compteur soit entre 15-18 pendant SON tour pour gagner immédiatement
+                  ⚠️ L'Agent Double doit avoir au moins 2 de ces cartes en main
+                  ET que le compteur soit entre 15-18 pendant SON tour pour
+                  gagner immédiatement
                 </p>
               </div>
             </div>
@@ -915,7 +1128,8 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    🎯 Gagner immédiatement pendant son tour si : 2+ cartes objectifs en main ET compteur 15-18
+                    🎯 Gagner immédiatement pendant son tour si : 2+ cartes
+                    objectifs en main ET compteur 15-18
                   </p>
                 </div>
               </div>
@@ -970,7 +1184,8 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire immédiate de l'Agent Double (compteur 15-18)
+                    Nécessaire pour la victoire immédiate de l'Agent Double
+                    (compteur 15-18)
                   </p>
                 </div>
 
@@ -1015,7 +1230,8 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire immédiate de l'Agent Double (compteur 15-18)
+                    Nécessaire pour la victoire immédiate de l'Agent Double
+                    (compteur 15-18)
                   </p>
                 </div>
 
@@ -1060,7 +1276,8 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire immédiate de l'Agent Double (compteur 15-18)
+                    Nécessaire pour la victoire immédiate de l'Agent Double
+                    (compteur 15-18)
                   </p>
                 </div>
 
@@ -1105,7 +1322,8 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire immédiate de l'Agent Double (compteur 15-18)
+                    Nécessaire pour la victoire immédiate de l'Agent Double
+                    (compteur 15-18)
                   </p>
                 </div>
 
@@ -1150,7 +1368,8 @@
                     >
                   </div>
                   <p class="text-sm text-gray-600">
-                    Nécessaire pour la victoire immédiate de l'Agent Double (compteur 15-18)
+                    Nécessaire pour la victoire immédiate de l'Agent Double
+                    (compteur 15-18)
                   </p>
                 </div>
               </div>
@@ -2940,141 +3159,6 @@
         </div>
       </section>
 
-      <!-- WIP (Work In Progress) -->
-      <section id="wip" class="mb-12">
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div class="p-4 sm:p-8">
-            <h2
-              class="text-2xl sm:text-4xl font-bold text-orange-600 border-b-4 border-orange-500 pb-4 mb-8"
-            >
-              🚧 Work In Progress (WIP)
-            </h2>
-
-            <div
-              class="bg-orange-50 border-l-4 border-orange-400 p-6 rounded-r-lg mb-6"
-            >
-              <h3 class="font-bold text-orange-800 mb-3 text-xl">
-                ⚠️ Points en cours de développement
-              </h3>
-              <p class="text-orange-700 mb-4">
-                Ces éléments sont actuellement en réflexion ou en cours de
-                développement et peuvent évoluer.
-              </p>
-            </div>
-
-            <div class="space-y-6">
-              <!-- Nommage -->
-              <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
-                <div class="flex items-start space-x-4">
-                  <div
-                    class="flex-shrink-0 w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
-                  >
-                    1
-                  </div>
-                  <div class="flex-grow">
-                    <h4 class="text-lg font-semibold text-yellow-800 mb-2">
-                      🏷️ Nommage des éléments de jeu
-                    </h4>
-                    <p class="text-yellow-700 leading-relaxed">
-                      Réflexion en cours sur la terminologie :
-                      <strong>Compteur x Seuil</strong> VS
-                      <strong>Méche x Bombe</strong> ?
-                      <span class="block mt-2"
-                        >L'objectif est de trouver des termes plus immersifs et
-                        intuitifs pour les joueurs.</span
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Mode coop -->
-              <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                <div class="flex items-start space-x-4">
-                  <div
-                    class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
-                  >
-                    2
-                  </div>
-                  <div class="flex-grow">
-                    <h4 class="text-lg font-semibold text-blue-800 mb-2">
-                      🤖 Développement du Mode Coopératif
-                    </h4>
-                    <p class="text-blue-700 leading-relaxed">
-                      Création d'une application dédiée pour le
-                      <strong>mode coopératif</strong> avec IA.
-                      <span class="block mt-2"
-                        >Permettra aux joueurs de jouer seuls ou à deux contre
-                        une intelligence artificielle.</span
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Refonte descriptions -->
-              <div class="bg-green-50 border border-green-200 rounded-xl p-6">
-                <div class="flex items-start space-x-4">
-                  <div
-                    class="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
-                  >
-                    3
-                  </div>
-                  <div class="flex-grow">
-                    <h4 class="text-lg font-semibold text-green-800 mb-2">
-                      📝 Refonte des descriptions de cartes
-                    </h4>
-                    <p class="text-green-700 leading-relaxed">
-                      Amélioration et
-                      <strong>unification des descriptions</strong> de toutes
-                      les cartes du jeu.
-                      <span class="block mt-2"
-                        >Objectif : rendre les effets plus clairs et plus
-                        cohérents entre elles.</span
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Mode vs IA -->
-              <div class="bg-purple-50 border border-purple-200 rounded-xl p-6">
-                <div class="flex items-start space-x-4">
-                  <div
-                    class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
-                  >
-                    4
-                  </div>
-                  <div class="flex-grow">
-                    <h4 class="text-lg font-semibold text-purple-800 mb-2">
-                      🎯 Ajustement du mode vs IA
-                    </h4>
-                    <p class="text-purple-700 leading-relaxed">
-                      <strong>Équilibrage et amélioration</strong> du mode de
-                      jeu contre l'intelligence artificielle.
-                      <span class="block mt-2"
-                        >Ajustement des niveaux de difficulté et optimisation
-                        des stratégies de l'IA pour une expérience de jeu plus
-                        équilibrée.</span
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="mt-8 p-4 bg-gray-50 rounded-lg border-2 border-gray-200"
-            >
-              <p class="text-gray-600 text-sm text-center">
-                💬 <strong>Vos retours sont les bienvenus !</strong> Ces points
-                évoluent en fonction des tests et des retours des joueurs.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- FAQ -->
       <section id="faq" class="mb-12">
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -3119,7 +3203,9 @@
               </h3>
 
               <!-- Grille fixe avec taille homogène -->
-              <div class="grid grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
+              <div
+                class="grid grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8"
+              >
                 <!-- Laura Ruelle -->
                 <div
                   class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
@@ -3341,6 +3427,472 @@
           </div>
         </div>
       </section>
+
+      <!-- Section Refonte Thématique -->
+      <section
+        id="refonte-thematique"
+        class="mb-12"
+        v-show="showRefonteSection"
+      >
+        <div
+          class="bg-gradient-to-br from-slate-900 to-gray-900 rounded-2xl shadow-2xl overflow-hidden"
+        >
+          <div class="p-4 sm:p-8">
+            <h2
+              class="text-2xl sm:text-4xl font-bold text-amber-400 border-b-4 border-amber-500 pb-4 mb-8"
+            >
+              🎭 Refonte Thématique - Mine d'Argent
+            </h2>
+
+            <div
+              class="bg-gradient-to-r from-amber-600 to-orange-600 text-white p-8 rounded-2xl mb-8"
+            >
+              <h3 class="text-2xl font-bold mb-4">
+                L'Incident de la Mine d'Argent
+              </h3>
+              <p class="text-lg mb-4">
+                <strong
+                  >Adaptation complète de toutes les cartes pour s'intégrer dans
+                  l'univers narratif</strong
+                >
+              </p>
+              <p class="opacity-90">
+                De "Charge +1" à "Fuite mineure", de "Agent Double" à
+                "L'Opportuniste" - chaque carte a été repensée pour créer une
+                expérience immersive cohérente.
+              </p>
+            </div>
+
+            <!-- Section Cartes Charge -->
+            <div id="refonte-charges" class="mb-12">
+              <div
+                class="bg-gradient-to-r from-red-600 to-pink-600 rounded-2xl p-6 mb-6"
+              >
+                <h3
+                  class="text-2xl font-bold text-white mb-4 flex items-center"
+                >
+                  🔥 Cartes Charge - Incidents qui augmentent la pression
+                </h3>
+              </div>
+
+              <div class="grid gap-4">
+                <div
+                  v-for="card in chargeCards"
+                  :key="card.ancien"
+                  class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300"
+                >
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                      <h4 class="text-red-300 font-bold">
+                        📜 {{ card.ancien }}
+                      </h4>
+                      <p class="text-red-200 text-sm italic">
+                        {{ card.ancienneDesc }}
+                      </p>
+                    </div>
+                    <div class="space-y-2">
+                      <h4 class="text-amber-300 font-bold">
+                        ⚡ {{ card.nouveau }}
+                      </h4>
+                      <p class="text-amber-100 text-sm">
+                        {{ card.nouvelleDesc }}
+                      </p>
+                      <div class="flex items-center justify-between mt-2">
+                        <span
+                          class="bg-amber-500 text-black px-2 py-1 rounded text-xs font-bold"
+                          >{{ card.type }}</span
+                        >
+                        <span class="text-gray-400 text-xs"
+                          >Quantité: {{ card.quantite }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section Cartes Décharge -->
+            <div id="refonte-decharges" class="mb-12">
+              <div
+                class="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 mb-6"
+              >
+                <h3
+                  class="text-2xl font-bold text-white mb-4 flex items-center"
+                >
+                  ❄️ Cartes Décharge - Interventions qui réduisent la pression
+                </h3>
+              </div>
+
+              <div class="grid gap-4">
+                <div
+                  v-for="card in dechargeCards"
+                  :key="card.ancien"
+                  class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300"
+                >
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                      <h4 class="text-blue-300 font-bold">
+                        📜 {{ card.ancien }}
+                      </h4>
+                      <p class="text-blue-200 text-sm italic">
+                        {{ card.ancienneDesc }}
+                      </p>
+                    </div>
+                    <div class="space-y-2">
+                      <h4 class="text-cyan-300 font-bold">
+                        🛡️ {{ card.nouveau }}
+                      </h4>
+                      <p class="text-cyan-100 text-sm">
+                        {{ card.nouvelleDesc }}
+                      </p>
+                      <div class="flex items-center justify-between mt-2">
+                        <span
+                          class="bg-cyan-500 text-black px-2 py-1 rounded text-xs font-bold"
+                          >{{ card.type }}</span
+                        >
+                        <span class="text-gray-400 text-xs"
+                          >Quantité: {{ card.quantite }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section Cartes Objectifs -->
+            <div id="refonte-objectifs" class="mb-12">
+              <div
+                class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 mb-6"
+              >
+                <h3
+                  class="text-2xl font-bold text-white mb-4 flex items-center"
+                >
+                  🎯 Cartes Objectifs de l'Opportuniste (Journaliste)
+                </h3>
+              </div>
+
+              <div class="grid gap-4">
+                <div
+                  v-for="card in objectifCards"
+                  :key="card.ancien"
+                  class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300"
+                >
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                      <h4 class="text-purple-300 font-bold">
+                        📜 {{ card.ancien }}
+                      </h4>
+                      <p class="text-purple-200 text-sm italic">
+                        {{ card.ancienneDesc }}
+                      </p>
+                    </div>
+                    <div class="space-y-2">
+                      <h4 class="text-indigo-300 font-bold">
+                        📸 {{ card.nouveau }}
+                      </h4>
+                      <p class="text-indigo-100 text-sm">
+                        {{ card.nouvelleDesc }}
+                      </p>
+                      <div class="flex items-center justify-between mt-2">
+                        <span
+                          class="bg-indigo-500 text-white px-2 py-1 rounded text-xs font-bold"
+                          >{{ card.type }}</span
+                        >
+                        <span class="text-gray-400 text-xs"
+                          >Quantité: {{ card.quantite }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section Cartes Action Offensives -->
+            <div id="refonte-actions-offensives" class="mb-12">
+              <div
+                class="bg-gradient-to-r from-yellow-600 to-orange-600 rounded-2xl p-6 mb-6"
+              >
+                <h3
+                  class="text-2xl font-bold text-white mb-4 flex items-center"
+                >
+                  ⚔️ Cartes Action Offensives (Jaunes)
+                </h3>
+              </div>
+
+              <div class="grid gap-4">
+                <div
+                  v-for="card in actionOffensiveCards"
+                  :key="card.ancien"
+                  class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300"
+                >
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                      <h4 class="text-yellow-300 font-bold">
+                        📜 {{ card.ancien }}
+                      </h4>
+                      <p class="text-yellow-200 text-sm italic">
+                        {{ card.ancienneDesc }}
+                      </p>
+                    </div>
+                    <div class="space-y-2">
+                      <h4 class="text-orange-300 font-bold">
+                        🔧 {{ card.nouveau }}
+                      </h4>
+                      <p class="text-orange-100 text-sm">
+                        {{ card.nouvelleDesc }}
+                      </p>
+                      <div class="flex items-center justify-between mt-2">
+                        <span
+                          class="bg-orange-500 text-black px-2 py-1 rounded text-xs font-bold"
+                          >{{ card.type }}</span
+                        >
+                        <span class="text-gray-400 text-xs"
+                          >Quantité: {{ card.quantite }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section Cartes Action Réactives -->
+            <div id="refonte-actions-reactives" class="mb-12">
+              <div
+                class="bg-gradient-to-r from-red-600 to-rose-600 rounded-2xl p-6 mb-6"
+              >
+                <h3
+                  class="text-2xl font-bold text-white mb-4 flex items-center"
+                >
+                  ⚡ Cartes Action Réactives (Rouges)
+                </h3>
+              </div>
+
+              <div class="grid gap-4">
+                <div
+                  v-for="card in actionReactiveCards"
+                  :key="card.ancien"
+                  class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300"
+                >
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                      <h4 class="text-red-300 font-bold">
+                        📜 {{ card.ancien }}
+                      </h4>
+                      <p class="text-red-200 text-sm italic">
+                        {{ card.ancienneDesc }}
+                      </p>
+                    </div>
+                    <div class="space-y-2">
+                      <h4 class="text-rose-300 font-bold">
+                        ⚡ {{ card.nouveau }}
+                      </h4>
+                      <p class="text-rose-100 text-sm">
+                        {{ card.nouvelleDesc }}
+                      </p>
+                      <div class="flex items-center justify-between mt-2">
+                        <span
+                          class="bg-rose-500 text-white px-2 py-1 rounded text-xs font-bold"
+                          >{{ card.type }}</span
+                        >
+                        <span class="text-gray-400 text-xs"
+                          >Quantité: {{ card.quantite }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section Cartes Événements -->
+            <div id="refonte-evenements" class="mb-12">
+              <div
+                class="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-2xl p-6 mb-6"
+              >
+                <h3
+                  class="text-2xl font-bold text-white mb-4 flex items-center"
+                >
+                  🌪️ Cartes Événements
+                </h3>
+              </div>
+
+              <div class="grid gap-4">
+                <div
+                  v-for="card in evenementCards"
+                  :key="card.ancien"
+                  class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300"
+                >
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                      <h4 class="text-teal-300 font-bold">
+                        📜 {{ card.ancien }}
+                      </h4>
+                      <p class="text-teal-200 text-sm italic">
+                        {{ card.ancienneDesc }}
+                      </p>
+                    </div>
+                    <div class="space-y-2">
+                      <h4 class="text-emerald-300 font-bold">
+                        ⚠️ {{ card.nouveau }}
+                      </h4>
+                      <p class="text-emerald-100 text-sm">
+                        {{ card.nouvelleDesc }}
+                      </p>
+                      <div class="flex items-center justify-between mt-2">
+                        <span
+                          class="bg-emerald-500 text-black px-2 py-1 rounded text-xs font-bold"
+                          >{{ card.type }}</span
+                        >
+                        <span class="text-gray-400 text-xs"
+                          >Quantité: {{ card.quantite }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section Cartes Système -->
+            <div id="refonte-systeme" class="mb-12">
+              <div
+                class="bg-gradient-to-r from-gray-600 to-slate-600 rounded-2xl p-6 mb-6"
+              >
+                <h3
+                  class="text-2xl font-bold text-white mb-4 flex items-center"
+                >
+                  ⚙️ Cartes Système - Interprétation Narrative
+                </h3>
+              </div>
+
+              <div class="grid gap-4">
+                <div
+                  v-for="card in systemCards"
+                  :key="card.nom"
+                  class="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300"
+                >
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                      <h4 class="text-gray-300 font-bold">📜 {{ card.nom }}</h4>
+                      <p class="text-gray-200 text-sm italic">
+                        {{ card.description }}
+                      </p>
+                    </div>
+                    <div class="space-y-2">
+                      <h4 class="text-amber-300 font-bold">
+                        🏭 {{ card.thematique }}
+                      </h4>
+                      <p class="text-amber-100 text-sm">
+                        {{ card.descriptionThematique }}
+                      </p>
+                      <div class="flex items-center justify-between mt-2">
+                        <span
+                          class="bg-gray-500 text-white px-2 py-1 rounded text-xs font-bold"
+                          >{{ card.type }}</span
+                        >
+                        <span class="text-gray-400 text-xs"
+                          >Quantité: {{ card.quantite }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-blue-900 bg-opacity-50 rounded-xl p-4">
+                <h5 class="text-blue-300 font-bold mb-2">
+                  💡 Note sur les Cartes Système
+                </h5>
+                <p class="text-blue-200 text-sm">
+                  Les cartes système conservent leur fonction mécanique
+                  originale car elles sont essentielles au gameplay. Seule
+                  l'interprétation narrative change :
+                  <strong>l'Agent Double devient "L'Opportuniste"</strong> - un
+                  journaliste cherchant à documenter l'incident pour en faire un
+                  scoop médiatique.
+                </p>
+              </div>
+            </div>
+
+            <!-- Récapitulatif -->
+            <div
+              class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 text-center"
+            >
+              <h3 class="text-2xl font-bold text-white mb-6">
+                📊 Récapitulatif de la Refonte
+              </h3>
+
+              <div
+                class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6"
+              >
+                <div class="bg-white bg-opacity-20 rounded-xl p-4">
+                  <div class="text-3xl mb-2">🔥</div>
+                  <div class="text-xl font-bold text-white">24</div>
+                  <div class="text-green-200 text-xs">Charges</div>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-xl p-4">
+                  <div class="text-3xl mb-2">❄️</div>
+                  <div class="text-xl font-bold text-white">17</div>
+                  <div class="text-green-200 text-xs">Décharges</div>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-xl p-4">
+                  <div class="text-3xl mb-2">🎯</div>
+                  <div class="text-xl font-bold text-white">5</div>
+                  <div class="text-green-200 text-xs">Objectifs</div>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-xl p-4">
+                  <div class="text-3xl mb-2">⚔️</div>
+                  <div class="text-xl font-bold text-white">24</div>
+                  <div class="text-green-200 text-xs">Actions Off.</div>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-xl p-4">
+                  <div class="text-3xl mb-2">⚡</div>
+                  <div class="text-xl font-bold text-white">11</div>
+                  <div class="text-green-200 text-xs">Actions Réact.</div>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-xl p-4">
+                  <div class="text-3xl mb-2">🌪️</div>
+                  <div class="text-xl font-bold text-white">15</div>
+                  <div class="text-green-200 text-xs">Événements</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="bg-white bg-opacity-10 rounded-xl p-4">
+                  <div class="text-4xl mb-2">🎭</div>
+                  <div class="text-3xl font-bold text-white">96</div>
+                  <div class="text-green-200 text-sm">Cartes Principales</div>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-xl p-4">
+                  <div class="text-4xl mb-2">⚙️</div>
+                  <div class="text-3xl font-bold text-white">15</div>
+                  <div class="text-green-200 text-sm">Cartes Système</div>
+                </div>
+              </div>
+
+              <div class="bg-white bg-opacity-20 rounded-xl p-6 mb-6">
+                <div class="text-5xl mb-3">🏭</div>
+                <div class="text-4xl font-bold text-white">111</div>
+                <div class="text-green-200 text-lg">
+                  Total Cartes Mine d'Argent
+                </div>
+              </div>
+
+              <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                <p class="text-green-100 text-lg">
+                  <strong>✅ Refonte complète terminée !</strong><br />
+                  Toutes les cartes ont été adaptées au thème de l'Incident de
+                  la Mine d'Argent
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- Back to top button -->
@@ -3422,7 +3974,7 @@
                 ⏱️ {{ elapsedTime }}
               </div>
               <div class="text-white text-sm opacity-70 mt-1">
-                👥 {{ playerCount }} joueur{{ playerCount > 1 ? 's' : '' }}
+                👥 {{ playerCount }} joueur{{ playerCount > 1 ? "s" : "" }}
               </div>
               <div
                 v-if="turnNumber > 0"
@@ -3490,7 +4042,6 @@
               </button>
             </div>
           </div>
-
 
           <!-- Zone principale avec pions -->
           <div class="flex-1 relative">
@@ -4016,6 +4567,15 @@
         <p class="text-gray-400">
           Jeu de cartes à rôles cachés - Bluff, Tension, Stratégie
         </p>
+        <button
+          @click="toggleRefonteSection"
+          class="mt-4 px-3 py-1 text-xs text-gray-500 hover:text-gray-300 transition-colors duration-200"
+          title="Afficher/masquer la refonte thématique"
+        >
+          {{
+            showRefonteSection ? "◾ Masquer refonte" : "◽ Afficher refonte"
+          }}
+        </button>
       </div>
     </footer>
 
@@ -4661,7 +5221,9 @@
               <div class="text-2xl mb-4">🎭</div>
               <h5 class="text-lg font-bold text-white mb-4">AGENT DOUBLE</h5>
               <div class="text-yellow-100 text-sm space-y-2">
-                <div class="font-semibold text-yellow-200">Victoire immédiate :</div>
+                <div class="font-semibold text-yellow-200">
+                  Victoire immédiate :
+                </div>
                 <div>• A au moins 2 cartes objectifs en main</div>
                 <div>• ET le compteur est entre 15-18</div>
                 <div>• A son tour seulement !</div>
@@ -4681,7 +5243,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <!-- Modale Sélection Nombre de Joueurs -->
@@ -4691,15 +5252,27 @@
   >
     <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8">
       <div class="text-center mb-6">
-        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m3 5.197H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        <div
+          class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center"
+        >
+          <svg
+            class="w-8 h-8 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m3 5.197H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
           </svg>
         </div>
         <h2 class="text-2xl font-bold text-gray-800 mb-2">Mode Compétitif</h2>
         <p class="text-gray-600">Sélectionnez le nombre de joueurs</p>
       </div>
-      
+
       <div class="space-y-3">
         <button
           @click="selectPlayerCount(3)"
@@ -4738,7 +5311,7 @@
           </div>
         </button>
       </div>
-      
+
       <button
         @click="closePlayerCountModal"
         class="w-full mt-6 p-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-colors duration-200"
@@ -4807,6 +5380,517 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 // PWA Update management
 const showUpdateButton = ref(false);
 
+// Section refonte cachée
+const showRefonteSection = ref(false);
+
+// Données des cartes de refonte
+const chargeCards = [
+  {
+    ancien: "Charge +1",
+    ancienneDesc: "Augmente le compteur de 1",
+    nouveau: "Fuite mineure",
+    nouvelleDesc: "Un joint se desserre dans la canalisation principale.",
+    quantite: 5,
+    type: "Charge +1",
+  },
+  {
+    ancien: "Charge +2",
+    ancienneDesc: "Augmente le compteur de 2",
+    nouveau: "Court-circuit",
+    nouvelleDesc:
+      "Les circuits électriques surchauffent les pompes de circulation.",
+    quantite: 6,
+    type: "Charge +2",
+  },
+  {
+    ancien: "Charge +3",
+    ancienneDesc: "Augmente le compteur de 3",
+    nouveau: "Valve grippée",
+    nouvelleDesc: "Le mécanisme de décompression se bloque complètement.",
+    quantite: 5,
+    type: "Charge +3",
+  },
+  {
+    ancien: "Charge +4",
+    ancienneDesc: "Augmente le compteur de 4",
+    nouveau: "Rupture de conduite",
+    nouvelleDesc: "Une canalisation principale cède sous la pression.",
+    quantite: 4,
+    type: "Charge +4",
+  },
+  {
+    ancien: "Charge +5",
+    ancienneDesc: "Augmente le compteur de 5",
+    nouveau: "Réaction en chaîne",
+    nouvelleDesc: "Les composés du Projet Mercure entrent en fusion critique.",
+    quantite: 2,
+    type: "Charge +5",
+  },
+  {
+    ancien: "Charge X",
+    ancienneDesc:
+      "Augmente le compteur d'un montant déterminé par une carte tirée au hasard",
+    nouveau: "Incident imprévu",
+    nouvelleDesc:
+      "Une défaillance mystérieuse secoue le laboratoire souterrain.",
+    quantite: 2,
+    type: "Charge X",
+  },
+];
+
+const dechargeCards = [
+  {
+    ancien: "Décharge -1",
+    ancienneDesc: "Réduit le compteur de 1",
+    nouveau: "Ventilation d'urgence",
+    nouvelleDesc:
+      "Les extracteurs évacuent les vapeurs toxiques vers l'extérieur.",
+    quantite: 5,
+    type: "Décharge -1",
+  },
+  {
+    ancien: "Décharge -2",
+    ancienneDesc: "Réduit le compteur de 2",
+    nouveau: "Refroidissement",
+    nouvelleDesc:
+      "Le système de refroidissement fait baisser la température des cuves.",
+    quantite: 5,
+    type: "Décharge -2",
+  },
+  {
+    ancien: "Décharge -3",
+    ancienneDesc: "Réduit le compteur de 3",
+    nouveau: "Purge manuelle",
+    nouvelleDesc:
+      "Évacuation directe de la pression par les soupapes de sécurité.",
+    quantite: 5,
+    type: "Décharge -3",
+  },
+  {
+    ancien: "Décharge X",
+    ancienneDesc:
+      "Réduit le compteur d'un montant déterminé par une carte tirée au hasard",
+    nouveau: "Intervention d'urgence",
+    nouvelleDesc: "Une action de sauvetage d'efficacité imprévisible.",
+    quantite: 2,
+    type: "Décharge X",
+  },
+];
+
+// Cartes Objectifs de l'Opportuniste
+const objectifCards = [
+  {
+    ancien: "Dossier classé",
+    ancienneDesc:
+      "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
+    nouveau: "Photos exclusives",
+    nouvelleDesc:
+      "Clichés spectaculaires de l'incident pour faire sensation dans les médias.",
+    quantite: 1,
+    type: "Bluff & Objectif",
+  },
+  {
+    ancien: "Robot de déminage",
+    ancienneDesc:
+      "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
+    nouveau: "Preuve accablante",
+    nouvelleDesc:
+      "Élément décisif qui révèle les vraies responsabilités de la catastrophe.",
+    quantite: 1,
+    type: "Bluff & Objectif",
+  },
+  {
+    ancien: "Plan d'évacuation",
+    ancienneDesc:
+      "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
+    nouveau: "Rapport d'expert",
+    nouvelleDesc:
+      "Analyse technique qui donne de la crédibilité scientifique au scoop.",
+    quantite: 1,
+    type: "Bluff & Objectif",
+  },
+  {
+    ancien: "Neutralisation chimique",
+    ancienneDesc:
+      "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
+    nouveau: "Échantillon chimique",
+    nouvelleDesc:
+      "Preuve matérielle des substances dangereuses manipulées dans la mine.",
+    quantite: 1,
+    type: "Bluff & Objectif",
+  },
+  {
+    ancien: "Schéma électrique",
+    ancienneDesc:
+      "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
+    nouveau: "Enregistrement secret",
+    nouvelleDesc:
+      "Conversation compromettante révélant les négligences des responsables.",
+    quantite: 1,
+    type: "Bluff & Objectif",
+  },
+];
+
+// Cartes Action Offensives
+const actionOffensiveCards = [
+  {
+    ancien: "Espion",
+    ancienneDesc:
+      "Regarde secrètement la main d'un joueur et vole une carte au choix",
+    nouveau: "Espionnage industriel",
+    nouvelleDesc:
+      "Regarde secrètement la main d'un joueur et vole une carte au choix.",
+    quantite: 3,
+    type: "Action",
+  },
+  {
+    ancien: "Blocage",
+    ancienneDesc: "Un joueur passe complètement son prochain tour",
+    nouveau: "Sabotage des communications",
+    nouvelleDesc: "Un joueur passe complètement son prochain tour.",
+    quantite: 3,
+    type: "Action",
+  },
+  {
+    ancien: "Sabotage",
+    ancienneDesc:
+      "Un joueur doit jouer une carte au hasard de sa main. Si c'est une carte objectif Agent Double, elle est défaussée sans effet",
+    nouveau: "Piratage informatique",
+    nouvelleDesc: "Un joueur doit jouer une carte au hasard de sa main.",
+    quantite: 2,
+    type: "Action",
+  },
+  {
+    ancien: "Seuil augmenté",
+    ancienneDesc:
+      "Augmente le seuil d'explosion du montant d'une carte numérotée tirée au hasard (maximum 30 points)",
+    nouveau: "Modification des seuils",
+    nouvelleDesc:
+      "Augmente le point de rupture d'une valeur aléatoire (maximum 30).",
+    quantite: 3,
+    type: "Action",
+  },
+  {
+    ancien: "Seuil réduit",
+    ancienneDesc:
+      "Réduit le seuil du montant d'une carte numérotée tirée au hasard. Le nouveau seuil doit être au minimum à (compteur actuel +1)",
+    nouveau: "Sabotage des sécurités",
+    nouvelleDesc:
+      "Réduit le point de rupture d'une valeur aléatoire (minimum : pression actuelle +1).",
+    quantite: 3,
+    type: "Action",
+  },
+  {
+    ancien: "Contrebande",
+    ancienneDesc: "Reprend une carte au choix dans la défausse",
+    nouveau: "Récupération de données",
+    nouvelleDesc: "Reprend une carte au choix dans la défausse.",
+    quantite: 4,
+    type: "Action",
+  },
+  {
+    ancien: "Redistribution",
+    ancienneDesc: "Échange ta main avec celle d'un joueur",
+    nouveau: "Échange de postes",
+    nouvelleDesc: "Échange ta main avec celle d'un joueur.",
+    quantite: 1,
+    type: "Action",
+  },
+  {
+    ancien: "Manipulation",
+    ancienneDesc: "Voit les 3 prochaines cartes de la pioche et change l'ordre",
+    nouveau: "Prédiction",
+    nouvelleDesc:
+      "Vois les 3 prochaines cartes de la pioche et change l'ordre.",
+    quantite: 1,
+    type: "Action",
+  },
+  {
+    ancien: "Pile ou Fiasco",
+    ancienneDesc: "Lance une pièce : Pile = +3 / Face = -3",
+    nouveau: "Pari risqué",
+    nouvelleDesc: "Lance une pièce : Pile = +3 / Face = -3.",
+    quantite: 1,
+    type: "Action",
+  },
+  {
+    ancien: "Changement de masque",
+    ancienneDesc: "Échange ta carte rôle avec celle face cachée",
+    nouveau: "Changement d'équipe",
+    nouvelleDesc: "Échange ta carte rôle avec celle face cachée.",
+    quantite: 1,
+    type: "Action",
+  },
+  {
+    ancien: "Coup de balai",
+    ancienneDesc: "Défaussez toutes vos cartes et piochez-en le même nombre",
+    nouveau: "Réinitialisation",
+    nouvelleDesc: "Défausse toutes tes cartes et pioche-en le même nombre.",
+    quantite: 1,
+    type: "Action",
+  },
+  {
+    ancien: "Grand mélange",
+    ancienneDesc:
+      "Mélange toutes les cartes des mains et de la défausse. Redistribue 5 cartes par joueur",
+    nouveau: "Panique générale",
+    nouvelleDesc:
+      "Mélange toutes les cartes des mains et de la défausse. Redistribue 5 cartes par joueur.",
+    quantite: 1,
+    type: "Action",
+  },
+];
+
+// Cartes Action Réactives
+const actionReactiveCards = [
+  {
+    ancien: "Blocage",
+    ancienneDesc: "Annule l'effet de la carte jouée",
+    nouveau: "Protocole d'urgence",
+    nouvelleDesc: "Annule l'effet de l'action en cours.",
+    quantite: 4,
+    type: "Action Réactive ⚡",
+  },
+  {
+    ancien: "Miroir",
+    ancienneDesc: "Redirige une action contre vous ou inverse le signe (+ ↔ -)",
+    nouveau: "Équipement de protection",
+    nouvelleDesc:
+      "Redirige une action contre toi ou inverse son effet (+ ↔ -).",
+    quantite: 4,
+    type: "Action Réactive ⚡",
+  },
+  {
+    ancien: "Surcharge",
+    ancienneDesc: "Double la valeur de la carte (dé)charge ou seuil jouée",
+    nouveau: "Amplificateur de pression",
+    nouvelleDesc: "Double la valeur de l'action pression ou seuil jouée.",
+    quantite: 3,
+    type: "Action Réactive ⚡",
+  },
+];
+
+// Cartes Événements
+const evenementCards = [
+  {
+    ancien: "Changement de vent",
+    ancienneDesc: "Tous les joueurs passent leur main au joueur à leur gauche",
+    nouveau: "Rotation des équipes",
+    nouvelleDesc:
+      "Changement de poste : tous les joueurs passent leur main au joueur à leur gauche.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Perturbation électrique",
+    ancienneDesc: "Personne ne pioche à la fin de son tour ce tour-ci",
+    nouveau: "Panne d'éclairage",
+    nouvelleDesc:
+      "Éclairage de secours : personne ne pioche à la fin de son tour ce tour-ci.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Espionnage inversé",
+    ancienneDesc: "Tous les joueurs révèlent 1 carte au hasard de leur main",
+    nouveau: "Inspection surprise",
+    nouvelleDesc:
+      "Contrôle qualité : tous les joueurs révèlent 1 carte au hasard de leur main.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Transparence totale",
+    ancienneDesc:
+      "Pendant ce tour, toutes les cartes piochées doivent être révélées",
+    nouveau: "Audit de sécurité",
+    nouvelleDesc:
+      "Transparence totale : toutes les cartes piochées doivent être révélées.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Court-circuit",
+    ancienneDesc:
+      "Les effets des cartes influant sur la piste sont inversés (les + deviennent des - et les - des +)",
+    nouveau: "Dysfonctionnement général",
+    nouvelleDesc:
+      "Systèmes inversés : les effets de pression sont inversés (les + deviennent des - et vice-versa).",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Effet domino",
+    ancienneDesc:
+      "Toute carte jouée ce tour déclenche automatiquement sa réaction en chaîne",
+    nouveau: "Réaction chimique",
+    nouvelleDesc:
+      "Instabilité : si une carte de décharge est jouée, révélez une carte de la pioche et appliquez son effet immédiatement.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Double vision",
+    ancienneDesc:
+      "Chaque carte (dé)charge compte double (Surcharge interdite ce tour)",
+    nouveau: "Effet de serre",
+    nouvelleDesc:
+      "Concentration maximale : chaque carte de pression compte double (Amplificateur interdit ce tour).",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Panique générale",
+    ancienneDesc:
+      "Ce tour, après avoir joué votre carte, défaussez immédiatement une autre carte de votre main au hasard",
+    nouveau: "Évacuation partielle",
+    nouvelleDesc:
+      "Procédure d'urgence : après avoir joué votre carte, défaussez immédiatement une autre carte au hasard.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Blackout",
+    ancienneDesc:
+      "Toutes les cartes Actions (cartes jaune et rouge) sont interdites ce tour",
+    nouveau: "Maintenance d'urgence",
+    nouvelleDesc:
+      "Interventions techniques : toutes les cartes Action (jaunes et rouges) sont interdites ce tour.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Chaos total",
+    ancienneDesc:
+      "À son tour, chaque joueur pioche une carte et la joue immédiatement",
+    nouveau: "Code rouge",
+    nouvelleDesc:
+      "Protocole automatique : chaque joueur pioche une carte et la joue immédiatement.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Inversion des rôles",
+    ancienneDesc: "L'ordre de jeu s'inverse pour le reste de ce tour",
+    nouveau: "Sens de circulation inversé",
+    nouvelleDesc:
+      "Changement de procédure : l'ordre de jeu s'inverse pour le reste de ce tour.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Tensions diplomatique",
+    ancienneDesc:
+      "À la fin du tour de chaque joueur qui joue, le compteur monte de +1",
+    nouveau: "Surchauffe progressive",
+    nouvelleDesc:
+      "Montée en température : à la fin du tour de chaque joueur, la pression monte de +1.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Matériel instable",
+    ancienneDesc: "Si le compteur est à plus de 15 à la fin du tour, retirer 3",
+    nouveau: "Stabilisation automatique (partie 1)",
+    nouvelleDesc:
+      "Système de régulation : si la pression > 15 en fin de tour, retirer 3.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Accélération critique",
+    ancienneDesc:
+      "Si le compteur est à moins de 10 à la fin du tour, ajouter 2",
+    nouveau: "Stabilisation automatique (partie 2)",
+    nouvelleDesc:
+      "Système de régulation : si la pression < 10 en fin de tour, ajouter 2.",
+    quantite: 1,
+    type: "Événement",
+  },
+  {
+    ancien: "Compte à rebours final",
+    ancienneDesc:
+      "🚨 DERNIER TOUR ! Chaque joueur joue une dernière fois, puis la partie s'arrête",
+    nouveau: "ÉVACUATION GÉNÉRALE !",
+    nouvelleDesc:
+      "🚨 DERNIER TOUR ! Chaque joueur joue une dernière fois, puis l'incident se résout.",
+    quantite: 1,
+    type: "Événement",
+  },
+];
+
+// Cartes Système
+const systemCards = [
+  {
+    nom: "Démineur",
+    description:
+      "Empêcher l'explosion ET empêcher l'Agent Double de remplir son objectif",
+    thematique: "Ingénieur en sécurité minière",
+    descriptionThematique:
+      "Expert technique chargé de contenir l'incident et neutraliser les menaces.",
+    quantite: 2,
+    type: "Rôle",
+  },
+  {
+    nom: "Saboteur",
+    description: "Provoquer l'explosion ou faire gagner l'Agent Double",
+    thematique: "Complice de l'incident",
+    descriptionThematique:
+      "Individu cherchant à aggraver la situation pour des raisons personnelles.",
+    quantite: 3,
+    type: "Rôle",
+  },
+  {
+    nom: "Agent Double",
+    description:
+      "Réunir 2+ cartes objectifs et maintenir le compteur entre 15-18 pendant son tour",
+    thematique: "L'Opportuniste (Journaliste)",
+    descriptionThematique:
+      "Reporter cherchant à documenter l'incident pour un scoop médiatique exclusif.",
+    quantite: 1,
+    type: "Rôle",
+  },
+  {
+    nom: "Premier Joueur",
+    description: "Indique qui commence la partie",
+    thematique: "Chef d'équipe d'urgence",
+    descriptionThematique:
+      "Responsable de la coordination des opérations de sauvetage.",
+    quantite: 1,
+    type: "Système",
+  },
+  {
+    nom: "Cartes Système 1-5",
+    description: "Valeurs aléatoires pour les effets de cartes",
+    thematique: "Niveaux de criticité",
+    descriptionThematique:
+      "Indices de gravité et d'urgence des différents incidents.",
+    quantite: 5,
+    type: "Système",
+  },
+  {
+    nom: "Cartes Piste",
+    description: "Jauge de pression et seuils d'explosion",
+    thematique: "Capteurs de pression",
+    descriptionThematique:
+      "Instruments de mesure de la pression dans les galeries souterraines.",
+    quantite: 3,
+    type: "Système",
+  },
+];
+
+// Toggle simple pour la section refonte
+const toggleRefonteSection = () => {
+  showRefonteSection.value = !showRefonteSection.value;
+  if (showRefonteSection.value) {
+    setTimeout(() => {
+      document
+        .getElementById("refonte-thematique")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }
+};
+
 // Forcer le rechargement sans cache
 const forceReload = () => {
   if (process.client) {
@@ -4847,13 +5931,13 @@ const handleUpdate = () => {
 // Navigation
 const navLinks = [
   { id: "concept", label: "Concept" },
+  { id: "wip", label: "WIP" },
   { id: "contenu", label: "Contenu" },
   { id: "mise-en-place", label: "Mise en Place" },
   { id: "deroulement", label: "Déroulement" },
   { id: "victoire", label: "Victoire" },
   { id: "cartes", label: "Cartes" },
   { id: "cooperatif", label: "Mode Coopératif" },
-  { id: "wip", label: "WIP" },
   { id: "faq", label: "FAQ" },
   { id: "remerciements", label: "Remerciements" },
   { id: "contact", label: "Contact" },
@@ -4896,22 +5980,6 @@ const objectiveCards = [
       "Nécessaire pour la victoire immédiate de l'Agent Double (au moins 2 en main + compteur 15-18)",
     quantity: 1,
   },
-];
-
-const chargeCards = [
-  { name: "Charge +1", quantity: 5 },
-  { name: "Charge +2", quantity: 6 },
-  { name: "Charge +3", quantity: 5 },
-  { name: "Charge +4", quantity: 4 },
-  { name: "Charge +5", quantity: 2 },
-];
-
-const dischargeCards = [
-  { name: "Décharge -1", quantity: 5 },
-  { name: "Décharge -2", quantity: 5 },
-  { name: "Décharge -3", quantity: 5 },
-  { name: "Charge X", quantity: 2 },
-  { name: "Décharge X", quantity: 2 },
 ];
 
 const actionCards = [
@@ -5016,7 +6084,7 @@ const setupSteps = [
   "Placez le <strong>Compteur sur le nombre de joueurs</strong> (3, 4 ou 5) et le <strong>Seuil sur 20</strong> <span class='text-blue-600 text-sm'>(<em>Peut être passé si vous utilisez l'application</em>)</span>",
   '<strong>Désignez le premier joueur</strong> et donnez-lui la carte "Premier Joueur" qu\'il place devant lui',
   '<strong>Préparez les événements :</strong><span class="block mt-2">• Piochez 9 cartes Événement au hasard (hors Compte à rebours final)</span><span class="block">• Prenez 2 cartes au hasard de ce paquet + la carte "Compte à rebours final"</span><span class="block">• Mélangez ces 3 cartes et placez-les <strong>sous la pile</strong> d\'événements</span><span class="block mt-2"><span class="text-blue-600 text-sm">(<em>Peut être passé si vous utilisez l\'application</em>)</span></span>',
-  "<strong>Distribuez les rôles</strong> selon le tableau de répartition avec incertitude :<div class='mt-4'></div><div class='bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border-l-4 border-yellow-400 mb-4'><div class='text-sm text-yellow-800'><strong>🎭 Principe :</strong> Prenez plus de cartes rôles que de joueurs, mélangez-les et distribuez-en une par joueur. La carte non distribuée reste secrète, créant de l'incertitude sur la composition exacte.</div></div><table class='w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden text-sm'><thead><tr class='bg-gradient-to-r from-red-500 to-orange-500 text-white'><th class='border border-gray-200 p-3 font-bold'>Joueurs</th><th class='border border-gray-200 p-3 font-bold'>Cartes dans le pool</th><th class='border border-gray-200 p-3 font-bold'>Composition du mélange</th><th class='border border-gray-200 p-3 font-bold'>Cartes distribuées</th></tr></thead><tbody><tr class='bg-gray-50 hover:bg-gray-100'><td class='border border-gray-200 p-3 text-center font-bold text-red-600'>3</td><td class='border border-gray-200 p-3 text-center'>4 cartes</td><td class='border border-gray-200 p-3'>1 Démineur + 2 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 p-3 text-center font-semibold text-green-600'>3 <span class='text-gray-500 text-xs'>(1 retirée)</span></td></tr><tr class='bg-white hover:bg-gray-100'><td class='border border-gray-200 p-3 text-center font-bold text-red-600'>4</td><td class='border border-gray-200 p-3 text-center'>5 cartes</td><td class='border border-gray-200 p-3'>2 Démineurs + 2 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 p-3 text-center font-semibold text-green-600'>4 <span class='text-gray-500 text-xs'>(1 retirée)</span></td></tr><tr class='bg-gray-50 hover:bg-gray-100'><td class='border border-gray-200 p-3 text-center font-bold text-red-600'>5</td><td class='border border-gray-200 p-3 text-center'>6 cartes</td><td class='border border-gray-200 p-3'>2 Démineurs + 3 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 p-3 text-center font-semibold text-green-600'>5 <span class='text-gray-500 text-xs'>(1 retirée)</span></td></tr></tbody></table>",
+  "<strong>Distribuez les rôles</strong> selon le tableau de répartition avec incertitude :<div class='mt-4'></div><div class='bg-gradient-to-r from-yellow-50 to-orange-50 p-3 sm:p-4 rounded-lg border-l-4 border-yellow-400 mb-4'><div class='text-sm text-yellow-800'><strong>🎭 Principe :</strong> Prenez plus de cartes rôles que de joueurs, mélangez-les et distribuez-en une par joueur. La carte non distribuée reste secrète, créant de l'incertitude sur la composition exacte.</div></div><div class='overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0'><div class='inline-block min-w-full'><table class='min-w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden'><thead><tr class='bg-gradient-to-r from-red-500 to-orange-500 text-white'><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Joueurs</th><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Cartes</th><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Composition</th><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Distribuées</th></tr></thead><tbody><tr class='bg-gray-50'><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-bold text-red-600 text-xs sm:text-sm'>3</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>4 cartes</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>1 Démineur + 2 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-semibold text-green-600 text-xs sm:text-sm'>3 <span class='text-gray-500 text-xs block sm:inline'>(1 retirée)</span></td></tr><tr class='bg-white'><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-bold text-red-600 text-xs sm:text-sm'>4</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>5 cartes</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>2 Démineurs + 2 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-semibold text-green-600 text-xs sm:text-sm'>4 <span class='text-gray-500 text-xs block sm:inline'>(1 retirée)</span></td></tr><tr class='bg-gray-50'><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-bold text-red-600 text-xs sm:text-sm'>5</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>6 cartes</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>2 Démineurs + 3 Saboteurs + 1 Agent Double</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-semibold text-green-600 text-xs sm:text-sm'>5 <span class='text-gray-500 text-xs block sm:inline'>(1 retirée)</span></td></tr></tbody></table></div></div>",
 ];
 
 // Game steps
@@ -5704,10 +6772,13 @@ const selectCompetitiveMode = () => {
   closeGameModeModal();
   showPlayerCountModal.value = true;
   console.log("showPlayerCountModal AFTER:", showPlayerCountModal.value);
-  
+
   // Force une re-render après un court délai pour tester
   setTimeout(() => {
-    console.log("showPlayerCountModal after timeout:", showPlayerCountModal.value);
+    console.log(
+      "showPlayerCountModal after timeout:",
+      showPlayerCountModal.value
+    );
   }, 100);
 };
 const selectCooperativeMode = () => {
@@ -5720,7 +6791,7 @@ const selectPlayerCount = (count) => {
   playerCount.value = count;
   closePlayerCountModal();
   openCounterMode();
-  
+
   // Ajouter l'initialisation dans l'historique APRÈS l'ouverture du mode
   counterHistory.value.push({
     action: "Initialisation compteur",
@@ -5728,7 +6799,7 @@ const selectPlayerCount = (count) => {
     newValue: count,
     timestamp: new Date().toLocaleTimeString(),
     type: "init",
-    icon: "🎯"
+    icon: "🎯",
   });
 };
 
