@@ -1,48 +1,6 @@
 <template>
+  <Analytics />
   <div class="min-h-screen bg-gray-50">
-    <!-- Indicateur de connexion discret -->
-    <div
-      v-if="showOfflineBar"
-      class="fixed top-0 left-0 right-0 z-[100] bg-red-500/95 text-white text-center py-2 px-4 shadow-lg backdrop-blur-sm transition-all duration-300 ease-in-out"
-    >
-      <div class="flex items-center justify-center gap-3">
-        <div class="flex items-center gap-2">
-          <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-          <span class="text-sm font-medium">Mode hors ligne</span>
-        </div>
-        <button
-          @click="checkConnection"
-          :disabled="isRetrying"
-          class="bg-white/20 hover:bg-white/30 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-1 rounded-full text-xs font-medium transition-colors duration-200 border border-white/30"
-        >
-          {{ isRetrying ? "⏳ Connexion en cours..." : "🔄 Se connecter" }}
-        </button>
-      </div>
-    </div>
-
-    <!-- Bouton de mise à jour PWA -->
-    <div
-      v-if="showUpdateButton"
-      class="fixed bottom-4 right-4 z-[99] bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-200 cursor-pointer"
-      @click="handleUpdate"
-    >
-      <div class="flex items-center gap-2">
-        <svg
-          class="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-          ></path>
-        </svg>
-        <span class="text-sm font-medium">Mise à jour</span>
-      </div>
-    </div>
     <!-- Header -->
     <header
       class="bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 text-white"
@@ -102,12 +60,7 @@
     </header>
 
     <!-- Navigation -->
-    <nav
-      :class="[
-        'sticky z-50 bg-white shadow-lg',
-        showOfflineBar ? 'top-10' : 'top-0',
-      ]"
-    >
+    <nav :class="['sticky z-50 bg-white shadow-lg']">
       <div class="container mx-auto px-4 sm:px-6">
         <div class="flex justify-between items-center py-4">
           <!-- Logo/Title for mobile -->
@@ -5376,9 +5329,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
-
-// PWA Update management
-const showUpdateButton = ref(false);
+import { Analytics } from "@vercel/analytics/vue";
 
 // Section refonte cachée
 const showRefonteSection = ref(false);
@@ -5608,8 +5559,9 @@ const actionOffensiveCards = [
   {
     ancien: "Pile ou Fiasco",
     ancienneDesc: "Lance une pièce : Pile = +3 / Face = -3",
-    nouveau: "Pari risqué",
-    nouvelleDesc: "Lance une pièce : Pile = +3 / Face = -3.",
+    nouveau: "Intervention hasardeuse",
+    nouvelleDesc:
+      "Pioche une carte de valeur aléatoire : 1-2-3 = +3 / 4-5 = -3.",
     quantite: 1,
     type: "Action",
   },
@@ -5911,21 +5863,6 @@ const forceReload = () => {
       window.location.reload();
     }
   }
-};
-
-// Vérifier les mises à jour PWA
-const checkForPWAUpdate = () => {
-  if (process.client && "serviceWorker" in navigator) {
-    navigator.serviceWorker.addEventListener("message", (event) => {
-      if (event.data && event.data.type === "UPDATE_AVAILABLE") {
-        showUpdateButton.value = true;
-      }
-    });
-  }
-};
-
-const handleUpdate = () => {
-  forceReload();
 };
 
 // Navigation
@@ -6255,18 +6192,6 @@ const faqs = [
 // Back to top functionality
 const showBackToTop = ref(false);
 
-// PWA functionality
-const deferredPrompt = ref(null);
-const showInstallPrompt = ref(false);
-const isStandalone = ref(false);
-const isDev = ref(false);
-const userEngaged = ref(false);
-
-// Connection status
-const isOnline = ref(true);
-const showOfflineBar = ref(false);
-const isRetrying = ref(false);
-
 // Card modal functionality
 const selectedCard = ref(null);
 const showCardModal = ref(false);
@@ -6378,64 +6303,6 @@ const toggleMobileMenu = () => {
 
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false;
-};
-
-// PWA functions
-const installPWA = async () => {
-  if (deferredPrompt.value) {
-    // Show the install prompt
-    deferredPrompt.value.prompt();
-
-    // Wait for the user to respond to the prompt
-    const { outcome } = await deferredPrompt.value.userChoice;
-
-    if (outcome === "accepted") {
-      console.log("User accepted the A2HS prompt");
-    } else {
-      console.log("User dismissed the A2HS prompt");
-    }
-
-    // Clear the deferred prompt, as it can only be used once
-    deferredPrompt.value = null;
-    showInstallPrompt.value = false;
-  }
-};
-
-// Connection management functions
-const checkConnection = async () => {
-  isRetrying.value = true;
-
-  try {
-    // Test de connexion réelle avec un timeout court
-    const response = await fetch("/?_=" + Date.now(), {
-      method: "HEAD",
-      mode: "no-cors",
-      cache: "no-store",
-      signal: AbortSignal.timeout(5000), // Timeout 5 secondes
-    });
-
-    // Connexion rétablie
-    isOnline.value = true;
-    showOfflineBar.value = false;
-  } catch (error) {
-    // Toujours hors ligne
-    isOnline.value = false;
-    showOfflineBar.value = true;
-  } finally {
-    isRetrying.value = false;
-  }
-};
-
-const handleOnline = () => {
-  isOnline.value = true;
-  showOfflineBar.value = false;
-  console.log("Connexion rétablie");
-};
-
-const handleOffline = () => {
-  isOnline.value = false;
-  showOfflineBar.value = true;
-  console.log("Connexion perdue");
 };
 
 // Counter mode functions
@@ -6840,65 +6707,6 @@ onMounted(() => {
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("keydown", handleEscape);
 
-  // Initialize PWA update checker
-  checkForPWAUpdate();
-
-  // Check development mode
-  isDev.value =
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1";
-
-  // Check if already installed as PWA
-  isStandalone.value =
-    window.matchMedia("(display-mode: standalone)").matches ||
-    window.navigator.standalone === true;
-
-  // Track user engagement for PWA
-  const trackEngagement = () => {
-    if (!userEngaged.value) {
-      userEngaged.value = true;
-      console.log("User engaged with the app");
-    }
-  };
-
-  // Track user engagement
-  window.addEventListener("click", trackEngagement);
-  window.addEventListener("scroll", trackEngagement);
-  window.addEventListener("touchstart", trackEngagement);
-
-  // PWA install prompt
-  window.addEventListener("beforeinstallprompt", (e) => {
-    console.log("beforeinstallprompt event fired");
-    // Prevent Chrome 67 and earlier from automatically showing the prompt
-    e.preventDefault();
-    // Stash the event so it can be triggered later
-    deferredPrompt.value = e;
-
-    // Show the install button only if not already in standalone mode and user has engaged
-    if (!isStandalone.value) {
-      showInstallPrompt.value = true;
-      console.log("Install prompt is now available");
-    }
-  });
-
-  // Listen for the app being installed
-  window.addEventListener("appinstalled", () => {
-    console.log("PWA was installed");
-    showInstallPrompt.value = false;
-    deferredPrompt.value = null;
-    isStandalone.value = true;
-  });
-
-  // Connection status listeners
-  window.addEventListener("online", handleOnline);
-  window.addEventListener("offline", handleOffline);
-
-  // Vérification initiale de la connexion
-  isOnline.value = navigator.onLine;
-  if (!navigator.onLine) {
-    showOfflineBar.value = true;
-  }
-
   // Start timer interval on client side only
   timerInterval = setInterval(() => {
     currentTime.value = Date.now();
@@ -6908,8 +6716,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
   window.removeEventListener("keydown", handleEscape);
-  window.removeEventListener("online", handleOnline);
-  window.removeEventListener("offline", handleOffline);
 
   // Clean up timer interval
   if (timerInterval) {
