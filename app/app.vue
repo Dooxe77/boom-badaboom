@@ -2693,7 +2693,7 @@
               <!-- Deck Joueur -->
               <div>
                 <h3 class="text-2xl font-bold text-orange-600 mb-6">
-                  🙋‍♂️ Deck Joueur (51 cartes)
+                  🙋‍♂️ Deck Joueur (41 cartes)
                 </h3>
                 <div
                   class="bg-green-50 border-2 border-green-200 rounded-lg p-4"
