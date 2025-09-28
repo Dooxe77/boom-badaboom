@@ -938,11 +938,11 @@
                           class="w-10 h-14 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/demineur.png"
+                            src="/placeholder-card.png"
                             alt="Carte Pâtissier"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/demineur.png', 'Pâtissier')"
+                            @click="openCardModal('/placeholder-card.png', 'Pâtissier')"
                             @error="handleImageError"
                           />
                         </div>
@@ -950,11 +950,11 @@
                           class="w-10 h-14 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/demineur.png"
+                            src="/placeholder-card.png"
                             alt="Carte Pâtissier"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/demineur.png', 'Pâtissier')"
+                            @click="openCardModal('/placeholder-card.png', 'Pâtissier')"
                             @error="handleImageError"
                           />
                         </div>
@@ -992,11 +992,11 @@
                           class="w-8 h-12 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/saboteur.png"
+                            src="/placeholder-card.png"
                             alt="Carte Farceur"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/saboteur.png', 'Farceur')"
+                            @click="openCardModal('/placeholder-card.png', 'Farceur')"
                             @error="handleImageError"
                           />
                         </div>
@@ -1004,11 +1004,11 @@
                           class="w-8 h-12 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/saboteur.png"
+                            src="/placeholder-card.png"
                             alt="Carte Farceur"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/saboteur.png', 'Farceur')"
+                            @click="openCardModal('/placeholder-card.png', 'Farceur')"
                             @error="handleImageError"
                           />
                         </div>
@@ -1016,11 +1016,11 @@
                           class="w-8 h-12 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/saboteur.png"
+                            src="/placeholder-card.png"
                             alt="Carte Farceur"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/saboteur.png', 'Farceur')"
+                            @click="openCardModal('/placeholder-card.png', 'Farceur')"
                             @error="handleImageError"
                           />
                         </div>
@@ -1057,11 +1057,11 @@
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                       >
                         <img
-                          src="/agentDouble.png"
+                          src="/placeholder-card.png"
                           alt="Carte Glouton"
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                          @click="openCardModal('/agentDouble.png', 'Glouton')"
+                          @click="openCardModal('/placeholder-card.png', 'Glouton')"
                           @error="handleImageError"
                         />
                       </div>
@@ -1401,11 +1401,11 @@
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/charge1.png"
+                            src="/placeholder-card.png"
                             alt="Carte Chaleur +1"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/charge1.png', 'Chaleur +1')"
+                            @click="openCardModal('/placeholder-card.png', 'Chaleur +1')"
                             @error="handleImageError"
                           />
                         </div>
@@ -1444,11 +1444,11 @@
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/charge2.png"
+                            src="/placeholder-card.png"
                             alt="Carte Chaleur +2"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/charge2.png', 'Chaleur +2')"
+                            @click="openCardModal('/placeholder-card.png', 'Chaleur +2')"
                             @error="handleImageError"
                           />
                         </div>
@@ -1487,11 +1487,11 @@
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/charge3.png"
+                            src="/placeholder-card.png"
                             alt="Carte Chaleur +3"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/charge3.png', 'Chaleur +3')"
+                            @click="openCardModal('/placeholder-card.png', 'Chaleur +3')"
                             @error="handleImageError"
                           />
                         </div>
@@ -1530,11 +1530,11 @@
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/charge4.png"
+                            src="/placeholder-card.png"
                             alt="Carte Chaleur +4"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/charge4.png', 'Chaleur +4')"
+                            @click="openCardModal('/placeholder-card.png', 'Chaleur +4')"
                             @error="handleImageError"
                           />
                         </div>
@@ -1573,11 +1573,11 @@
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/charge5.png"
+                            src="/placeholder-card.png"
                             alt="Carte Charge +5"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/charge5.png', 'Chaleur +5')"
+                            @click="openCardModal('/placeholder-card.png', 'Chaleur +5')"
                             @error="handleImageError"
                           />
                         </div>
@@ -1616,11 +1616,11 @@
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/chargeX.png"
+                            src="/placeholder-card.png"
                             alt="Carte Charge X"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/chargeX.png', 'Chaleur ?')"
+                            @click="openCardModal('/placeholder-card.png', 'Chaleur ?')"
                             @error="handleImageError"
                           />
                         </div>
@@ -1670,13 +1670,13 @@
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/decharge1.png"
+                            src="/placeholder-card.png"
                             alt="Carte Refroidissement -1"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                             @click="
                               openCardModal(
-                                '/decharge1.png',
+                                '/placeholder-card.png',
                                 'Refroidissement -1'
                               )
                             "
@@ -1720,13 +1720,13 @@
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/decharge2.png"
+                            src="/placeholder-card.png"
                             alt="Carte Refroidissement -2"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                             @click="
                               openCardModal(
-                                '/decharge2.png',
+                                '/placeholder-card.png',
                                 'Refroidissement -2'
                               )
                             "
@@ -1770,13 +1770,13 @@
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/decharge3.png"
+                            src="/placeholder-card.png"
                             alt="Carte Refroidissement -3"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                             @click="
                               openCardModal(
-                                '/decharge3.png',
+                                '/placeholder-card.png',
                                 'Refroidissement -3'
                               )
                             "
@@ -1820,13 +1820,13 @@
                           class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                         >
                           <img
-                            src="/dechargeX.png"
+                            src="/placeholder-card.png"
                             alt="Carte Refroidissement ?"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                             @click="
                               openCardModal(
-                                '/dechargeX.png',
+                                '/placeholder-card.png',
                                 'Refroidissement ?'
                               )
                             "
@@ -2012,13 +2012,13 @@
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                       >
                         <img
-                          src="/action_desamorceur.png"
+                          src="/placeholder-card.png"
                           alt="Carte Tablier de Protection"
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                           @click="
                             openCardModal(
-                              '/action_desamorceur.png',
+                              '/placeholder-card.png',
                               'Tablier de Protection'
                             )
                           "
@@ -2071,13 +2071,13 @@
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                       >
                         <img
-                          src="/action_miroir.png"
+                          src="/placeholder-card.png"
                           alt="Carte Renvoi de spatule"
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                           @click="
                             openCardModal(
-                              '/action_miroir.png',
+                              '/placeholder-card.png',
                               'Renvoi de spatule'
                             )
                           "
@@ -2130,13 +2130,13 @@
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                       >
                         <img
-                          src="/action_surcharge.png"
+                          src="/placeholder-card.png"
                           alt="Carte Coup de boost"
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                           @click="
                             openCardModal(
-                              '/action_surcharge.png',
+                              '/placeholder-card.png',
                               'Coup de boost'
                             )
                           "
@@ -2326,13 +2326,13 @@
                             class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                           >
                             <img
-                              src="/premierjoueur.png"
+                              src="/placeholder-card.png"
                               alt="Carte Premier Joueur"
                               loading="lazy"
                               class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                               @click="
                                 openCardModal(
-                                  '/premierjoueur.png',
+                                  '/placeholder-card.png',
                                   'Premier Joueur'
                                 )
                               "
@@ -2390,11 +2390,11 @@
                           class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
                         >
                           <img
-                            src="/sys_1.png"
+                            src="/placeholder-card.png"
                             alt="Carte Système 1"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/sys_1.png', 'Système 1')"
+                            @click="openCardModal('/placeholder-card.png', 'Système 1')"
                             @error="handleImageError"
                           />
                         </div>
@@ -2419,11 +2419,11 @@
                           class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
                         >
                           <img
-                            src="/sys_2.png"
+                            src="/placeholder-card.png"
                             alt="Carte Système 2"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/sys_2.png', 'Système 2')"
+                            @click="openCardModal('/placeholder-card.png', 'Système 2')"
                             @error="handleImageError"
                           />
                         </div>
@@ -2448,11 +2448,11 @@
                           class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
                         >
                           <img
-                            src="/sys_3.png"
+                            src="/placeholder-card.png"
                             alt="Carte Système 3"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/sys_3.png', 'Système 3')"
+                            @click="openCardModal('/placeholder-card.png', 'Système 3')"
                             @error="handleImageError"
                           />
                         </div>
@@ -2477,11 +2477,11 @@
                           class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
                         >
                           <img
-                            src="/sys_4.png"
+                            src="/placeholder-card.png"
                             alt="Carte Système 4"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/sys_4.png', 'Système 4')"
+                            @click="openCardModal('/placeholder-card.png', 'Système 4')"
                             @error="handleImageError"
                           />
                         </div>
@@ -2506,11 +2506,11 @@
                           class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
                         >
                           <img
-                            src="/sys_5.png"
+                            src="/placeholder-card.png"
                             alt="Carte Système 5"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/sys_5.png', 'Système 5')"
+                            @click="openCardModal('/placeholder-card.png', 'Système 5')"
                             @error="handleImageError"
                           />
                         </div>
@@ -2678,11 +2678,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/charge1.png"
+                          src="/placeholder-card.png"
                           alt="Charge +1"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/charge1.png', 'Charge +1')"
+                          @click="openCardModal('/placeholder-card.png', 'Charge +1')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-red-700">Charge +1</span>
@@ -2700,11 +2700,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/charge2.png"
+                          src="/placeholder-card.png"
                           alt="Charge +2"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/charge2.png', 'Charge +2')"
+                          @click="openCardModal('/placeholder-card.png', 'Charge +2')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-red-700">Charge +2</span>
@@ -2722,11 +2722,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/charge3.png"
+                          src="/placeholder-card.png"
                           alt="Charge +3"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/charge3.png', 'Charge +3')"
+                          @click="openCardModal('/placeholder-card.png', 'Charge +3')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-red-700">Charge +3</span>
@@ -2744,11 +2744,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/charge4.png"
+                          src="/placeholder-card.png"
                           alt="Charge +4"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/charge4.png', 'Charge +4')"
+                          @click="openCardModal('/placeholder-card.png', 'Charge +4')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-red-700">Charge +4</span>
@@ -2766,11 +2766,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/charge5.png"
+                          src="/placeholder-card.png"
                           alt="Charge +5"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/charge5.png', 'Charge +5')"
+                          @click="openCardModal('/placeholder-card.png', 'Charge +5')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-red-700">Charge +5</span>
@@ -2788,11 +2788,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/chargeX.png"
+                          src="/placeholder-card.png"
                           alt="Charge X"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/chargeX.png', 'Charge X')"
+                          @click="openCardModal('/placeholder-card.png', 'Charge X')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-red-700">Charge X</span>
@@ -2810,12 +2810,12 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/action_blocage.png"
+                          src="/placeholder-card.png"
                           alt="Blocage"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
-                            openCardModal('/action_blocage.png', 'Blocage')
+                            openCardModal('/placeholder-card.png', 'Blocage')
                           "
                         
                         @error="handleImageError"/>
@@ -2834,13 +2834,13 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/action_seuilReduit.png"
+                          src="/placeholder-card.png"
                           alt="Seuil réduit"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
-                              '/action_seuilReduit.png',
+                              '/placeholder-card.png',
                               'Seuil réduit'
                             )
                           "
@@ -2863,12 +2863,12 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/action_sabotage.png"
+                          src="/placeholder-card.png"
                           alt="Sabotage"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
-                            openCardModal('/action_sabotage.png', 'Sabotage')
+                            openCardModal('/placeholder-card.png', 'Sabotage')
                           "
                         
                         @error="handleImageError"/>
@@ -2905,11 +2905,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/charge2.png"
+                          src="/placeholder-card.png"
                           alt="Charge +2"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/charge2.png', 'Charge +2')"
+                          @click="openCardModal('/placeholder-card.png', 'Charge +2')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-red-700">Charge +2</span>
@@ -2927,11 +2927,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/charge3.png"
+                          src="/placeholder-card.png"
                           alt="Charge +3"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/charge3.png', 'Charge +3')"
+                          @click="openCardModal('/placeholder-card.png', 'Charge +3')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-red-700">Charge +3</span>
@@ -2949,11 +2949,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/charge4.png"
+                          src="/placeholder-card.png"
                           alt="Charge +4"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/charge4.png', 'Charge +4')"
+                          @click="openCardModal('/placeholder-card.png', 'Charge +4')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-red-700">Charge +4</span>
@@ -2971,11 +2971,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/charge5.png"
+                          src="/placeholder-card.png"
                           alt="Charge +5"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/charge5.png', 'Charge +5')"
+                          @click="openCardModal('/placeholder-card.png', 'Charge +5')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-red-700">Charge +5</span>
@@ -2993,12 +2993,12 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/decharge1.png"
+                          src="/placeholder-card.png"
                           alt="Décharge -1"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
-                            openCardModal('/decharge1.png', 'Décharge -1')
+                            openCardModal('/placeholder-card.png', 'Décharge -1')
                           "
                         
                         @error="handleImageError"/>
@@ -3019,12 +3019,12 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/decharge2.png"
+                          src="/placeholder-card.png"
                           alt="Décharge -2"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
-                            openCardModal('/decharge2.png', 'Décharge -2')
+                            openCardModal('/placeholder-card.png', 'Décharge -2')
                           "
                         
                         @error="handleImageError"/>
@@ -3045,12 +3045,12 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/decharge3.png"
+                          src="/placeholder-card.png"
                           alt="Décharge -3"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
-                            openCardModal('/decharge3.png', 'Décharge -3')
+                            openCardModal('/placeholder-card.png', 'Décharge -3')
                           "
                         
                         @error="handleImageError"/>
@@ -3071,11 +3071,11 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/dechargeX.png"
+                          src="/placeholder-card.png"
                           alt="Décharge X"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                          @click="openCardModal('/dechargeX.png', 'Décharge X')"
+                          @click="openCardModal('/placeholder-card.png', 'Décharge X')"
                         
                         @error="handleImageError"/>
                         <span class="font-medium text-green-700"
@@ -3095,12 +3095,12 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/action_blocage.png"
+                          src="/placeholder-card.png"
                           alt="Blocage"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
-                            openCardModal('/action_blocage.png', 'Blocage')
+                            openCardModal('/placeholder-card.png', 'Blocage')
                           "
                         
                         @error="handleImageError"/>
@@ -3119,13 +3119,13 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/action_seuilAugmente.png"
+                          src="/placeholder-card.png"
                           alt="Seuil augmenté"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
-                              '/action_seuilAugmente.png',
+                              '/placeholder-card.png',
                               'Seuil augmenté'
                             )
                           "
@@ -3148,13 +3148,13 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/action_seuilReduit.png"
+                          src="/placeholder-card.png"
                           alt="Seuil réduit"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
-                              '/action_seuilReduit.png',
+                              '/placeholder-card.png',
                               'Seuil réduit'
                             )
                           "
@@ -3177,13 +3177,13 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/action_contrebande.png"
+                          src="/placeholder-card.png"
                           alt="Contrebande"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
-                              '/action_contrebande.png',
+                              '/placeholder-card.png',
                               'Contrebande'
                             )
                           "
@@ -3206,13 +3206,13 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/action_manipulation.png"
+                          src="/placeholder-card.png"
                           alt="Manipulation"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
-                              '/action_manipulation.png',
+                              '/placeholder-card.png',
                               'Manipulation'
                             )
                           "
@@ -3235,13 +3235,13 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/action_interventionHasardeuse.png"
+                          src="/placeholder-card.png"
                           alt="Intervention hasardeuse"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
-                              '/action_interventionHasardeuse.png',
+                              '/placeholder-card.png',
                               'Intervention hasardeuse'
                             )
                           "
@@ -3264,13 +3264,13 @@
                     >
                       <div class="flex items-center space-x-3">
                         <img
-                          src="/action_desamorceur.png"
+                          src="/placeholder-card.png"
                           alt="Tablier de Protection"
                           loading="lazy"
                           class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                           @click="
                             openCardModal(
-                              '/action_desamorceur.png',
+                              '/placeholder-card.png',
                               'Tablier de Protection'
                             )
                           "
@@ -5230,7 +5230,7 @@ const actionCards = [
     type: "Action",
     effect: "Un joueur de votre choix passe complètement son prochain tour",
     quantity: 3,
-    image: "/action_blocage.png",
+    image: "/placeholder-card.png",
   },
   {
     name: "Maladresse",
@@ -5238,28 +5238,28 @@ const actionCards = [
     effect:
       "Un joueur de votre choix doit jouer une carte au hasard de sa main",
     quantity: 2,
-    image: "/action_sabotage.png",
+    image: "/placeholder-card.png",
   },
   {
     name: "Four élargi",
     type: "Action",
     effect: "Augmentez la capacité du four d'une valeur mystère",
     quantity: 3,
-    image: "/action_seuilAugmente.png",
+    image: "/placeholder-card.png",
   },
   {
     name: "Four rétréci",
     type: "Action",
     effect: "Diminuez la capacité du four d'une valeur mystère",
     quantity: 3,
-    image: "/action_seuilReduit.png",
+    image: "/placeholder-card.png",
   },
   {
     name: "Récupération d'ingrédient",
     type: "Action",
     effect: "Reprenez une carte au choix dans la défausse",
     quantity: 4,
-    image: "/action_contrebande.png",
+    image: "/placeholder-card.png",
   },
   {
     name: "Échange de Tablier",
@@ -5273,7 +5273,7 @@ const actionCards = [
     type: "Action",
     effect: "Regardez les 3 prochaines cartes de la pioche et changez l'ordre",
     quantity: 1,
-    image: "/action_manipulation.png",
+    image: "/placeholder-card.png",
   },
   {
     name: "Pincée de hasard",
@@ -5281,7 +5281,7 @@ const actionCards = [
     effect:
       "Piochez une carte de valeur aléatoire et modifiez la taille du gâteau : 1 ou 2 = +3 / 3 = 0 / 4 ou 5 = -3",
     quantity: 1,
-    image: "/action_interventionHasardeuse.png",
+    image: "/placeholder-card.png",
   },
   {
     name: "Changement de toque",
