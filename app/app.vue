@@ -892,11 +892,104 @@
               <h2
                 class="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent mb-4"
               >
-                Liste Complète des Cartes
+                Matériel de Jeu
               </h2>
               <div
                 class="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4"
               ></div>
+            </div>
+
+            <!-- Plateau de jeu -->
+            <div class="mb-8">
+              <h3
+                class="text-2xl font-bold p-4 border-l-4 rounded mb-6"
+                style="
+                  background: linear-gradient(
+                    to right,
+                    rgba(20, 184, 166, 0.1),
+                    rgba(6, 182, 212, 0.1)
+                  );
+                  border-left: 4px solid;
+                  border-image: linear-gradient(to bottom, #14b8a6, #06b6d4) 1;
+                "
+              >
+                <span class="flex items-center">
+                  <span class="mr-2">🎯</span>
+                  <span class="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
+                    Plateau de Jeu
+                  </span>
+                </span>
+              </h3>
+              <div class="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl p-6">
+                <div class="text-center mb-4">
+                  <div class="inline-block bg-white rounded-xl shadow-lg p-4 mb-4">
+                    <img
+                      src="/placeholder-card.png"
+                      alt="Plateau de jeu"
+                      class="h-48 w-auto mx-auto object-contain"
+                    />
+                  </div>
+                  <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                    Le plateau permet de suivre l'avancée de la partie entre la taille du gâteau et la capacité du four. Il offre une visualisation claire de l'état du jeu et aide les joueurs à comprendre rapidement la situation actuelle.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pions -->
+            <div class="mb-8">
+              <h3
+                class="text-2xl font-bold p-4 border-l-4 rounded mb-6"
+                style="
+                  background: linear-gradient(
+                    to right,
+                    rgba(99, 102, 241, 0.1),
+                    rgba(139, 92, 246, 0.1)
+                  );
+                  border-left: 4px solid;
+                  border-image: linear-gradient(to bottom, #6366f1, #8b5cf6) 1;
+                "
+              >
+                <span class="flex items-center">
+                  <span class="mr-2">🎲</span>
+                  <span class="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
+                    Pions
+                  </span>
+                </span>
+              </h3>
+              <div class="bg-gradient-to-r from-indigo-50 to-violet-50 rounded-xl p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <!-- Pion Taille du Gâteau -->
+                  <div class="bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="inline-block bg-gray-50 rounded-xl p-4 mb-4">
+                      <img
+                        src="/placeholder-card.png"
+                        alt="Pion taille du gâteau"
+                        class="h-32 w-auto mx-auto object-contain"
+                      />
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">Pion Taille du Gâteau</h4>
+                    <p class="text-gray-600 text-sm">
+                      Indique la taille actuelle du gâteau sur le plateau
+                    </p>
+                  </div>
+
+                  <!-- Pion Capacité du Four -->
+                  <div class="bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="inline-block bg-gray-50 rounded-xl p-4 mb-4">
+                      <img
+                        src="/placeholder-card.png"
+                        alt="Pion capacité du four"
+                        class="h-32 w-auto mx-auto object-contain"
+                      />
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">Pion Capacité du Four</h4>
+                    <p class="text-gray-600 text-sm">
+                      Indique la capacité maximale du four sur le plateau
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- Cartes Rôles -->
@@ -920,10 +1013,11 @@
                     1;
                 "
               >
-                <span
-                  class="bg-gradient-to-r from-green-600 via-red-600 to-yellow-600 bg-clip-text text-transparent"
-                >
-                  Cartes Rôles
+                <span class="flex items-center">
+                  <span class="mr-2">🎭</span>
+                  <span class="bg-gradient-to-r from-green-600 via-red-600 to-yellow-600 bg-clip-text text-transparent">
+                    Cartes Rôles
+                  </span>
                 </span>
               </h3>
               <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -2613,11 +2707,6 @@
               </div>
             </div>
 
-            <div class="text-center bg-gray-100 p-4 rounded-lg">
-              <p class="text-lg font-bold text-gray-700">
-                📊 TOTAL CARTES : 108 cartes
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -5375,7 +5464,7 @@ const navLinks = [
   { id: "mise-en-place", label: "Mise en Place" },
   { id: "deroulement", label: "Déroulement" },
   { id: "victoire", label: "Victoire" },
-  { id: "cartes", label: "Cartes" },
+  { id: "cartes", label: "Matériel" },
   { id: "faq", label: "FAQ" },
   { id: "cooperative-mode", label: "Mode Coopératif" },
   { id: "remerciements", label: "Remerciements" },
