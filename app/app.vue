@@ -601,7 +601,7 @@
               >
                 <p class="text-green-800 font-medium">
                   🍰 Une fois la mise en place terminée, que le meilleur
-                  gagne... et que le gâteau survive ! 🍰
+                  gagne... et que le gâteau survive (ou pas) ! 🍰
                 </p>
               </div>
             </div>
@@ -942,7 +942,12 @@
                             alt="Carte Pâtissier"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Pâtissier')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Pâtissier'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -954,7 +959,12 @@
                             alt="Carte Pâtissier"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Pâtissier')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Pâtissier'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -996,7 +1006,9 @@
                             alt="Carte Farceur"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Farceur')"
+                            @click="
+                              openCardModal('/placeholder-card.png', 'Farceur')
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -1008,7 +1020,9 @@
                             alt="Carte Farceur"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Farceur')"
+                            @click="
+                              openCardModal('/placeholder-card.png', 'Farceur')
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -1020,7 +1034,9 @@
                             alt="Carte Farceur"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Farceur')"
+                            @click="
+                              openCardModal('/placeholder-card.png', 'Farceur')
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -1061,7 +1077,9 @@
                           alt="Carte Glouton"
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                          @click="openCardModal('/placeholder-card.png', 'Glouton')"
+                          @click="
+                            openCardModal('/placeholder-card.png', 'Glouton')
+                          "
                           @error="handleImageError"
                         />
                       </div>
@@ -1405,7 +1423,12 @@
                             alt="Carte Chaleur +1"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Chaleur +1')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Chaleur +1'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -1448,7 +1471,12 @@
                             alt="Carte Chaleur +2"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Chaleur +2')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Chaleur +2'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -1491,7 +1519,12 @@
                             alt="Carte Chaleur +3"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Chaleur +3')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Chaleur +3'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -1534,7 +1567,12 @@
                             alt="Carte Chaleur +4"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Chaleur +4')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Chaleur +4'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -1577,7 +1615,12 @@
                             alt="Carte Charge +5"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Chaleur +5')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Chaleur +5'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -1620,7 +1663,12 @@
                             alt="Carte Charge X"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Chaleur ?')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Chaleur ?'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -2394,7 +2442,12 @@
                             alt="Carte Système 1"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Système 1')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Système 1'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -2423,7 +2476,12 @@
                             alt="Carte Système 2"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Système 2')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Système 2'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -2452,7 +2510,12 @@
                             alt="Carte Système 3"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Système 3')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Système 3'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -2481,7 +2544,12 @@
                             alt="Carte Système 4"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Système 4')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Système 4'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -2510,7 +2578,12 @@
                             alt="Carte Système 5"
                             loading="lazy"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                            @click="openCardModal('/placeholder-card.png', 'Système 5')"
+                            @click="
+                              openCardModal(
+                                '/placeholder-card.png',
+                                'Système 5'
+                              )
+                            "
                             @error="handleImageError"
                           />
                         </div>
@@ -3378,6 +3451,101 @@
                         v-html="faq.answer"
                       ></p>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mode Coopératif -->
+      <section
+        id="cooperative-mode"
+        class="mb-12 relative overflow-hidden rounded-3xl"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-orange-50/30 to-red-50/30"
+        ></div>
+        <div class="absolute inset-0 opacity-5">
+          <div class="absolute top-8 left-8 text-5xl">🤖</div>
+          <div class="absolute top-16 right-12 text-3xl">🤝</div>
+          <div class="absolute bottom-20 left-1/4 text-4xl">⚙️</div>
+          <div class="absolute bottom-12 right-1/3 text-2xl">🎮</div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-white via-orange-50/30 to-amber-50/50 rounded-3xl shadow-lg border border-orange-100/50 backdrop-blur-sm overflow-hidden relative z-10"
+        >
+          <div class="p-6 sm:p-10">
+            <div class="text-center mb-10">
+              <h2
+                class="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent mb-4"
+              >
+                Mode Coopératif
+              </h2>
+              <div
+                class="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4"
+              ></div>
+              <p class="text-gray-600 text-lg font-medium">
+                1-2 Joueurs • Unis contre la machine folle
+              </p>
+            </div>
+
+            <div
+              class="bg-gradient-to-br from-orange-50/80 to-red-50/80 backdrop-blur-sm rounded-2xl p-8 border border-orange-200/50 shadow-lg"
+            >
+              <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">
+                🤖 L'Histoire : La Machine Devenue Folle
+              </h3>
+
+              <div class="space-y-6 text-gray-700">
+                <p class="leading-relaxed">
+                  Dans les cuisines automatisées du futur, le système d'intelligence artificielle qui contrôle tous les fours a subi un dysfonctionnement critique. La machine, jadis fidèle assistante des pâtissiers, est maintenant <strong class="text-red-600">devenue folle</strong> et cherche à faire exploser tous les gâteaux !
+                </p>
+
+                <div class="bg-white/60 rounded-xl p-6 border border-orange-200">
+                  <h4 class="font-bold text-lg text-gray-800 mb-4">Votre Mission :</h4>
+                  <p class="mb-4">
+                    En tant que derniers pâtissiers humains encore présents dans la cuisine, vous devez <strong class="text-blue-600">travailler ensemble</strong> pour :
+                  </p>
+                  <ul class="space-y-3">
+                    <li class="flex items-start">
+                      <span class="text-orange-500 mr-3 text-xl">🎯</span>
+                      <span>Contrecarrer les sabotages de l'IA rebelle qui tente de surchauffer le four</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-orange-500 mr-3 text-xl">🛡️</span>
+                      <span>Maintenir la température du four sous contrôle malgré les attaques</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-orange-500 mr-3 text-xl">⏰</span>
+                      <span>Survivre jusqu'à la fin du minuteur avant l'explosion finale</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <p class="leading-relaxed text-center italic text-gray-600">
+                  La machine joue contre vous, utilisant des cartes d'action pour saboter vos efforts. Saurez-vous déjouer ses plans et empêcher la catastrophe culinaire ultime ?
+                </p>
+
+                <!-- Work in Progress -->
+                <div class="bg-gradient-to-r from-yellow-100 to-amber-100 rounded-xl p-6 border-2 border-yellow-400 mt-8">
+                  <div class="flex items-center justify-center mb-4">
+                    <div class="w-16 h-16 bg-yellow-300 rounded-full flex items-center justify-center">
+                      <span class="text-2xl">🚧</span>
+                    </div>
+                  </div>
+                  <h4 class="text-xl font-bold text-yellow-800 text-center mb-3">
+                    Work In Progress
+                  </h4>
+                  <p class="text-yellow-700 text-center">
+                    Ce mode est actuellement en développement. Les règles détaillées et les mécaniques spécifiques seront bientôt disponibles. Restez connectés pour découvrir cette nouvelle façon palpitante de jouer à Boom Badaboom !
+                  </p>
+                  <div class="flex justify-center mt-4 space-x-2">
+                    <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+                    <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+                    <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
                   </div>
                 </div>
               </div>
@@ -5208,8 +5376,8 @@ const navLinks = [
   { id: "deroulement", label: "Déroulement" },
   { id: "victoire", label: "Victoire" },
   { id: "cartes", label: "Cartes" },
-  // { id: "cooperatif", label: "Mode Coopératif" }, // COMMENTÉ TEMPORAIREMENT
   { id: "faq", label: "FAQ" },
+  { id: "cooperative-mode", label: "Mode Coopératif" },
   { id: "remerciements", label: "Remerciements" },
   { id: "contact", label: "Contact" },
 ];
