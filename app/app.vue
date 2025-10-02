@@ -41,11 +41,20 @@
             </div>
           </div>
 
-          <!-- Badge prototype -->
-          <div
-            class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-medium border border-orange-200"
-          >
-            ⚠️ Prototype
+          <!-- Actions -->
+          <div class="flex items-center gap-2 sm:gap-3">
+            <button
+              @click="openGameModeSelection"
+              class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-base"
+            >
+              <span class="hidden sm:inline">🎮 Démarrer la partie</span>
+              <span class="sm:hidden">🎮 Jouer</span>
+            </button>
+            <div
+              class="bg-orange-100 text-orange-700 px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-medium border border-orange-200"
+            >
+              ⚠️ Prototype
+            </div>
           </div>
         </div>
 
@@ -234,27 +243,38 @@
                   </h5>
                   <div class="space-y-3 text-sm" style="color: #d63031">
                     <p>
-                      Dans cette cuisine familiale, un
-                      <strong>délicieux gâteau d'anniversaire</strong> mijote
-                      tranquillement dans un four magique. Mais attention :
-                      cette recette est
-                      <span class="font-bold">explosive</span> !
+                      <strong>C'est l'anniversaire de Mamie Madeleine</strong>,
+                      la matriarche adorée de la famille. Dans sa cuisine
+                      légendaire trône son four ancestral, un véritable trésor
+                      familial transmis de génération en génération. La légende
+                      raconte qu'il est
+                      <span class="font-bold">capricieux</span> et capable de
+                      créer les gâteaux les plus délicieux... mais aussi les
+                      plus <span class="font-bold">explosifs</span> !
                     </p>
 
                     <p>
-                      Si le gâteau gonfle trop, c'est le
-                      <strong>BOOM BADABOOM</strong> assuré, et tout le monde
-                      finira recouvert de crème ! 🎂💥
+                      Le four réagit de manière imprévisible aux variations de
+                      température : trop de
+                      <strong>chaleur</strong> et le gâteau gonfle
+                      dangereusement, un bon <strong>refroidissement</strong> et
+                      il diminue de taille. Mais attention ! Si le gâteau
+                      devient trop gros, c'est le
+                      <strong>BOOM BADABOOM</strong> garanti, et toute la
+                      cuisine finira recouverte de pâte et de crème ! 🎂💥
                     </p>
 
                     <p class="italic">
-                      Seulement voilà...
-                      <strong
-                        >tout le monde n'a pas les mêmes intentions</strong
-                      >
-                      autour de ce four magique ! Bluff, tension et pure
-                      gourmandise se mélangent dans cette cuisine où les rôles
-                      secrets créent une ambiance... explosive !
+                      Mais voilà le problème... Toute la famille s'est réunie
+                      pour préparer ce gâteau d'anniversaire, et
+                      <strong>chacun a ses propres motivations secrètes</strong>
+                      ! Entre les <strong>Pâtissiers Passionnés</strong> qui
+                      contrôlent minutieusement la température pour réussir le
+                      gâteau parfait, les <strong>Farceurs Fous</strong> qui
+                      poussent le four à fond pour tout faire exploser, et le
+                      <strong>Glouton Opportuniste</strong> qui attend le moment
+                      parfait pour dévorer le gâteau... La cuisson promet d'être
+                      <span class="font-bold">explosive</span> !
                     </p>
                   </div>
                 </div>
@@ -279,45 +299,50 @@
                   class="bg-gradient-to-br from-green-50/70 via-lime-50/60 to-green-100/80 rounded-2xl p-6 border border-green-200/50 shadow-sm backdrop-blur-sm hover:shadow-md transition-all duration-300"
                   style="border-color: #55a831"
                 >
-                  <div class="flex items-start">
-                    <span class="text-3xl mr-4">👩‍🍳</span>
+                  <div class="flex flex-col sm:flex-row sm:items-start">
+                    <span class="text-3xl mb-3 sm:mb-0 sm:mr-4">👩‍🍳</span>
                     <div class="flex-1">
-                      <h5 class="text-xl font-bold mb-2" style="color: #55a831">
+                      <h5 class="text-xl font-bold mb-3" style="color: #55a831">
                         LES PÂTISSIERS
                       </h5>
-                      <div class="space-y-2">
-                        <div class="flex items-center">
+                      <div class="space-y-3">
+                        <div>
                           <span
-                            class="font-medium text-sm mr-2"
+                            class="font-medium text-sm block mb-1"
                             style="color: #55a831"
                             >Qui :</span
                           >
-                          <span class="text-sm" style="color: #3d7a23"
-                            >Maîtres pâtissiers passionnés de perfection</span
+                          <span class="text-sm block" style="color: #3d7a23"
+                            >Les perfectionnistes de la famille, passionnés de
+                            pâtisserie</span
                           >
                         </div>
-                        <div class="flex items-center">
+                        <div>
                           <span
-                            class="font-medium text-sm mr-2"
+                            class="font-medium text-sm block mb-1"
                             style="color: #55a831"
                             >Objectif :</span
                           >
                           <span
-                            class="text-sm font-medium"
+                            class="text-sm font-medium block"
                             style="color: #3d7a23"
-                            >Réussir le gâteau parfait et empêcher
-                            l'explosion</span
+                            >Réussir le gâteau parfait pour honorer Mamie
+                            Madeleine</span
                           >
                         </div>
-                        <div class="flex items-center">
+                        <div>
                           <span
-                            class="font-medium text-sm mr-2"
+                            class="font-medium text-sm block mb-1"
                             style="color: #55a831"
-                            >Pourquoi :</span
+                            >Motivation :</span
                           >
-                          <span class="text-sm italic" style="color: #3d7a23"
-                            >Ils rêvent d'un gâteau parfait et surveillent
-                            anxieusement la cuisson</span
+                          <span
+                            class="text-sm italic block"
+                            style="color: #3d7a23"
+                            >Pour eux, la pâtisserie est un art sacré. Ils
+                            veulent honorer la tradition familiale et créer un
+                            chef-d'œuvre digne du four ancestral. Chaque geste
+                            compte !</span
                           >
                         </div>
                       </div>
@@ -330,44 +355,49 @@
                   class="bg-gradient-to-br from-red-50/70 via-rose-50/60 to-red-100/80 rounded-2xl p-6 border shadow-sm backdrop-blur-sm hover:shadow-md transition-all duration-300"
                   style="border-color: #ac0b17"
                 >
-                  <div class="flex items-start">
-                    <span class="text-3xl mr-4">🤡</span>
+                  <div class="flex flex-col sm:flex-row sm:items-start">
+                    <span class="text-3xl mb-3 sm:mb-0 sm:mr-4">🤡</span>
                     <div class="flex-1">
-                      <h5 class="text-xl font-bold mb-2" style="color: #ac0b17">
+                      <h5 class="text-xl font-bold mb-3" style="color: #ac0b17">
                         LES FARCEURS
                       </h5>
-                      <div class="space-y-2">
-                        <div class="flex items-center">
+                      <div class="space-y-3">
+                        <div>
                           <span
-                            class="font-medium text-sm mr-2"
+                            class="font-medium text-sm block mb-1"
                             style="color: #ac0b17"
                             >Qui :</span
                           >
-                          <span class="text-sm" style="color: #7c0b0b"
-                            >Espièges qui adorent semer le chaos</span
+                          <span class="text-sm block" style="color: #7c0b0b"
+                            >Les esprits espiègles de la famille qui adorent le
+                            chaos</span
                           >
                         </div>
-                        <div class="flex items-center">
+                        <div>
                           <span
-                            class="font-medium text-sm mr-2"
+                            class="font-medium text-sm block mb-1"
                             style="color: #ac0b17"
                             >Objectif :</span
                           >
                           <span
-                            class="text-sm font-medium"
+                            class="text-sm font-medium block"
                             style="color: #7c0b0b"
-                            >Provoquer l'explosion du gâteau</span
+                            >Provoquer l'explosion spectaculaire du gâteau</span
                           >
                         </div>
-                        <div class="flex items-center">
+                        <div>
                           <span
-                            class="font-medium text-sm mr-2"
+                            class="font-medium text-sm block mb-1"
                             style="color: #ac0b17"
-                            >Pourquoi :</span
+                            >Motivation :</span
                           >
-                          <span class="text-sm italic" style="color: #7c0b0b"
-                            >Ils cachent leur jeu et tentent discrètement de
-                            saboter la recette pour le BOOM BADABOOM</span
+                          <span
+                            class="text-sm italic block"
+                            style="color: #7c0b0b"
+                            >Jeunes ou vieux, qu'importe ! Pour eux, un
+                            anniversaire réussi est un anniversaire MÉMORABLE.
+                            Et quoi de plus mémorable qu'une explosion de gâteau
+                            ? L'important, c'est de rire ensemble !</span
                           >
                         </div>
                       </div>
@@ -380,45 +410,52 @@
                   class="bg-gradient-to-br from-yellow-50/70 via-amber-50/60 to-yellow-100/80 rounded-2xl p-6 border shadow-sm backdrop-blur-sm hover:shadow-md transition-all duration-300"
                   style="border-color: #ffd700"
                 >
-                  <div class="flex items-start">
-                    <span class="text-3xl mr-4">😋</span>
+                  <div class="flex flex-col sm:flex-row sm:items-start">
+                    <span class="text-3xl mb-3 sm:mb-0 sm:mr-4">😋</span>
                     <div class="flex-1">
-                      <h5 class="text-xl font-bold mb-2" style="color: #ffd700">
+                      <h5 class="text-xl font-bold mb-3" style="color: #ffd700">
                         LE GLOUTON
                       </h5>
-                      <div class="space-y-2">
-                        <div class="flex items-center">
+                      <div class="space-y-3">
+                        <div>
                           <span
-                            class="font-medium text-sm mr-2"
+                            class="font-medium text-sm block mb-1"
                             style="color: #ffd700"
                             >Qui :</span
                           >
-                          <span class="text-sm" style="color: #cc9900"
-                            >Petit malin gourmand et opportuniste</span
+                          <span class="text-sm block" style="color: #cc9900"
+                            >Le cousin lointain venu de loin, attiré par la
+                            légende du four</span
                           >
                         </div>
-                        <div class="flex items-center">
+                        <div>
                           <span
-                            class="font-medium text-sm mr-2"
+                            class="font-medium text-sm block mb-1"
                             style="color: #ffd700"
                             >Objectif :</span
                           >
                           <span
-                            class="text-sm font-medium"
+                            class="text-sm font-medium block"
                             style="color: #cc9900"
-                            >Voler le gâteau quand il atteint la taille
-                            parfaite</span
+                            >Voler le gâteau au moment parfait et s'éclipser
+                            discrètement</span
                           >
                         </div>
-                        <div class="flex items-center">
+                        <div>
                           <span
-                            class="font-medium text-sm mr-2"
+                            class="font-medium text-sm block mb-1"
                             style="color: #ffd700"
-                            >Pourquoi :</span
+                            >Motivation :</span
                           >
-                          <span class="text-sm italic" style="color: #cc9900"
-                            >Il attend patiemment d'ouvrir la trappe secrète du
-                            four et s'enfuir avec le butin</span
+                          <span
+                            class="text-sm italic block"
+                            style="color: #cc9900"
+                            >Il connaît la légende du four ancestral et sait que
+                            le gâteau à sa taille idéale (entre 15 et 18) est
+                            absolument divin. Il collecte discrètement des
+                            cartes Dégourmandise et attend le moment parfait :
+                            avec au moins 2 de ces cartes en main, il pourra
+                            voler le gâteau et s'enfuir !</span
                           >
                         </div>
                       </div>
@@ -464,36 +501,44 @@
                       Cartes & Matériel
                     </h3>
                   </div>
-                  <ul class="space-y-2 text-gray-700 text-sm">
-                    <li class="flex items-center">
+                  <ul class="space-y-3 text-gray-700 text-sm">
+                    <li class="flex items-start">
                       <span
-                        class="w-2 h-2 bg-orange-400 rounded-full mr-3"
+                        class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-1.5 flex-shrink-0"
                       ></span>
-                      <strong>108 cartes</strong>
+                      <div>
+                        <strong>108 cartes</strong>
+                      </div>
                     </li>
-                    <li class="flex items-center">
+                    <li class="flex items-start">
                       <span
-                        class="w-2 h-2 bg-orange-400 rounded-full mr-3"
+                        class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-1.5 flex-shrink-0"
                       ></span>
-                      <strong>Un plateau</strong>
-                      <small class="ml-1"
-                        >(permettant de suivre l'avancé du jeu)</small
-                      >
+                      <div>
+                        <strong>Un plateau</strong>
+                        <span class="block sm:inline sm:ml-1 text-gray-600"
+                          >(permettant de suivre l'avancé du jeu)</span
+                        >
+                      </div>
                     </li>
-                    <li class="flex items-center">
+                    <li class="flex items-start">
                       <span
-                        class="w-2 h-2 bg-orange-400 rounded-full mr-3"
+                        class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-1.5 flex-shrink-0"
                       ></span>
-                      <strong>2 jetons punchboards </strong>
-                      <small class="ml-1"
-                        >(capacité du four & taille du gâteau)</small
-                      >
+                      <div>
+                        <strong>2 jetons punchboards</strong>
+                        <span class="block sm:inline sm:ml-1 text-gray-600"
+                          >(capacité du four & taille du gâteau)</span
+                        >
+                      </div>
                     </li>
-                    <li class="flex items-center">
+                    <li class="flex items-start">
                       <span
-                        class="w-2 h-2 bg-orange-400 rounded-full mr-3"
+                        class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-1.5 flex-shrink-0"
                       ></span>
-                      <strong>1 Livret de règles</strong>
+                      <div>
+                        <strong>1 Livret de règles</strong>
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -507,32 +552,50 @@
                       Informations Générales
                     </h3>
                   </div>
-                  <ul class="space-y-2 text-gray-700 text-sm">
-                    <li class="flex items-center">
+                  <ul class="space-y-3 text-gray-700 text-sm">
+                    <li class="flex items-start">
                       <span
-                        class="w-2 h-2 bg-orange-400 rounded-full mr-3"
+                        class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-1.5 flex-shrink-0"
                       ></span>
-                      <strong class="mr-1">Joueurs: </strong> 1-2 (Coopératif)
-                      ou 3-5 (Rôles cachés)
+                      <div>
+                        <strong class="block sm:inline">Joueurs:</strong>
+                        <span class="block sm:inline sm:ml-1"
+                          >1-2 (Coopératif) ou 3-5 (Rôles cachés)</span
+                        >
+                      </div>
                     </li>
-                    <li class="flex items-center">
+                    <li class="flex items-start">
                       <span
-                        class="w-2 h-2 bg-orange-400 rounded-full mr-3"
+                        class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-1.5 flex-shrink-0"
                       ></span>
-                      <strong class="mr-1">Âge: </strong> À partir de 8 ans
+                      <div>
+                        <strong class="block sm:inline">Âge:</strong>
+                        <span class="block sm:inline sm:ml-1"
+                          >À partir de 7 ans</span
+                        >
+                      </div>
                     </li>
-                    <li class="flex items-center">
+                    <li class="flex items-start">
                       <span
-                        class="w-2 h-2 bg-orange-400 rounded-full mr-3"
+                        class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-1.5 flex-shrink-0"
                       ></span>
-                      <strong class="mr-1">Durée: </strong> 15-20 minutes
+                      <div>
+                        <strong class="block sm:inline">Durée:</strong>
+                        <span class="block sm:inline sm:ml-1"
+                          >15-20 minutes</span
+                        >
+                      </div>
                     </li>
-                    <li class="flex items-center">
+                    <li class="flex items-start">
                       <span
-                        class="w-2 h-2 bg-orange-400 rounded-full mr-3"
+                        class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-1.5 flex-shrink-0"
                       ></span>
-                      <strong class="mr-1">Genre: </strong> Bluff, Tension,
-                      Gourmandise
+                      <div>
+                        <strong class="block sm:inline">Genre:</strong>
+                        <span class="block sm:inline sm:ml-1"
+                          >Bluff, Tension, Gourmandise</span
+                        >
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -859,7 +922,9 @@
                         <p
                           class="text-yellow-800 text-sm leading-relaxed font-medium"
                         >
-                          <strong>au moins 2 cartes objectifs en main</strong>
+                          <strong
+                            >au moins 2 cartes objectifs glouton en main</strong
+                          >
                           <strong> ET</strong> taille du gâteau entre
                           <strong>15-18</strong>
                         </p>
@@ -915,14 +980,20 @@
               >
                 <span class="flex items-center">
                   <span class="mr-2">🎯</span>
-                  <span class="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
+                  <span
+                    class="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent"
+                  >
                     Plateau de Jeu
                   </span>
                 </span>
               </h3>
-              <div class="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl p-6">
+              <div
+                class="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl p-6"
+              >
                 <div class="text-center mb-4">
-                  <div class="inline-block bg-white rounded-xl shadow-lg p-4 mb-4">
+                  <div
+                    class="inline-block bg-white rounded-xl shadow-lg p-4 mb-4"
+                  >
                     <img
                       src="/placeholder-card.png"
                       alt="Plateau de jeu"
@@ -930,7 +1001,10 @@
                     />
                   </div>
                   <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                    Le plateau permet de suivre l'avancée de la partie entre la taille du gâteau et la capacité du four. Il offre une visualisation claire de l'état du jeu et aide les joueurs à comprendre rapidement la situation actuelle.
+                    Le plateau permet de suivre l'avancée de la partie entre la
+                    taille du gâteau et la capacité du four. Il offre une
+                    visualisation claire de l'état du jeu et aide les joueurs à
+                    comprendre rapidement la situation actuelle.
                   </p>
                 </div>
               </div>
@@ -952,12 +1026,16 @@
               >
                 <span class="flex items-center">
                   <span class="mr-2">🎲</span>
-                  <span class="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
+                  <span
+                    class="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent"
+                  >
                     Pions
                   </span>
                 </span>
               </h3>
-              <div class="bg-gradient-to-r from-indigo-50 to-violet-50 rounded-xl p-6">
+              <div
+                class="bg-gradient-to-r from-indigo-50 to-violet-50 rounded-xl p-6"
+              >
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <!-- Pion Taille du Gâteau -->
                   <div class="bg-white rounded-xl shadow-md p-6 text-center">
@@ -968,7 +1046,9 @@
                         class="h-32 w-auto mx-auto object-contain"
                       />
                     </div>
-                    <h4 class="font-bold text-lg text-gray-800 mb-2">Pion Taille du Gâteau</h4>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">
+                      Pion Taille du Gâteau
+                    </h4>
                     <p class="text-gray-600 text-sm">
                       Indique la taille actuelle du gâteau sur le plateau
                     </p>
@@ -983,7 +1063,9 @@
                         class="h-32 w-auto mx-auto object-contain"
                       />
                     </div>
-                    <h4 class="font-bold text-lg text-gray-800 mb-2">Pion Capacité du Four</h4>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">
+                      Pion Capacité du Four
+                    </h4>
                     <p class="text-gray-600 text-sm">
                       Indique la capacité maximale du four sur le plateau
                     </p>
@@ -1015,7 +1097,9 @@
               >
                 <span class="flex items-center">
                   <span class="mr-2">🎭</span>
-                  <span class="bg-gradient-to-r from-green-600 via-red-600 to-yellow-600 bg-clip-text text-transparent">
+                  <span
+                    class="bg-gradient-to-r from-green-600 via-red-600 to-yellow-600 bg-clip-text text-transparent"
+                  >
                     Cartes Rôles
                   </span>
                 </span>
@@ -2706,7 +2790,6 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -3577,7 +3660,7 @@
                 class="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4"
               ></div>
               <p class="text-gray-600 text-lg font-medium">
-                1-2 Joueurs • Unis contre la machine folle
+                1-2 Joueurs • Unis contre le fantôme farceur
               </p>
             </div>
 
@@ -3585,56 +3668,96 @@
               class="bg-gradient-to-br from-orange-50/80 to-red-50/80 backdrop-blur-sm rounded-2xl p-8 border border-orange-200/50 shadow-lg"
             >
               <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">
-                🤖 L'Histoire : La Machine Devenue Folle
+                👻 L'Histoire : Le Fantôme du Four Ancestral
               </h3>
 
               <div class="space-y-6 text-gray-700">
                 <p class="leading-relaxed">
-                  Dans les cuisines automatisées du futur, le système d'intelligence artificielle qui contrôle tous les fours a subi un dysfonctionnement critique. La machine, jadis fidèle assistante des pâtissiers, est maintenant <strong class="text-red-600">devenue folle</strong> et cherche à faire exploser tous les gâteaux !
+                  La légende raconte qu'un
+                  <strong class="text-purple-600">esprit farceur</strong> hante
+                  le vieux four de Mamie Madeleine depuis des générations. Ce
+                  fantôme espiègle, surnommé "Fourneau le Facétieux", s'amuse à
+                  jouer des tours aux cuisiniers trop sérieux. Aujourd'hui, il a
+                  décidé de
+                  <strong class="text-red-600">mettre le chaos</strong> dans la
+                  préparation du gâteau d'anniversaire !
                 </p>
 
-                <div class="bg-white/60 rounded-xl p-6 border border-orange-200">
-                  <h4 class="font-bold text-lg text-gray-800 mb-4">Votre Mission :</h4>
+                <div
+                  class="bg-white/60 rounded-xl p-6 border border-orange-200"
+                >
+                  <h4 class="font-bold text-lg text-gray-800 mb-4">
+                    Votre Mission :
+                  </h4>
                   <p class="mb-4">
-                    En tant que derniers pâtissiers humains encore présents dans la cuisine, vous devez <strong class="text-blue-600">travailler ensemble</strong> pour :
+                    En tant que membres sérieux de la famille, vous devez
+                    <strong class="text-blue-600">coopérer</strong> pour :
                   </p>
                   <ul class="space-y-3">
                     <li class="flex items-start">
                       <span class="text-orange-500 mr-3 text-xl">🎯</span>
-                      <span>Contrecarrer les sabotages de l'IA rebelle qui tente de surchauffer le four</span>
+                      <span
+                        >Déjouer les farces du fantôme qui tente de faire
+                        surchauffer le four magique</span
+                      >
                     </li>
                     <li class="flex items-start">
                       <span class="text-orange-500 mr-3 text-xl">🛡️</span>
-                      <span>Maintenir la température du four sous contrôle malgré les attaques</span>
+                      <span
+                        >Maintenir le gâteau sous contrôle malgré les sabotages
+                        surnaturels</span
+                      >
                     </li>
                     <li class="flex items-start">
                       <span class="text-orange-500 mr-3 text-xl">⏰</span>
-                      <span>Survivre jusqu'à la fin du minuteur avant l'explosion finale</span>
+                      <span
+                        >Réussir à finir la recette avant que le four n'explose
+                        dans un grand BOOM BADABOOM !</span
+                      >
                     </li>
                   </ul>
                 </div>
 
                 <p class="leading-relaxed text-center italic text-gray-600">
-                  La machine joue contre vous, utilisant des cartes d'action pour saboter vos efforts. Saurez-vous déjouer ses plans et empêcher la catastrophe culinaire ultime ?
+                  Le fantôme joue ses cartes contre vous, tentant de saboter
+                  chaque étape. Saurez-vous apaiser Fourneau le Facétieux et
+                  offrir à Mamie Madeleine le gâteau qu'elle mérite ?
                 </p>
 
                 <!-- Work in Progress -->
-                <div class="bg-gradient-to-r from-yellow-100 to-amber-100 rounded-xl p-6 border-2 border-yellow-400 mt-8">
+                <div
+                  class="bg-gradient-to-r from-yellow-100 to-amber-100 rounded-xl p-6 border-2 border-yellow-400 mt-8"
+                >
                   <div class="flex items-center justify-center mb-4">
-                    <div class="w-16 h-16 bg-yellow-300 rounded-full flex items-center justify-center">
+                    <div
+                      class="w-16 h-16 bg-yellow-300 rounded-full flex items-center justify-center"
+                    >
                       <span class="text-2xl">🚧</span>
                     </div>
                   </div>
-                  <h4 class="text-xl font-bold text-yellow-800 text-center mb-3">
+                  <h4
+                    class="text-xl font-bold text-yellow-800 text-center mb-3"
+                  >
                     Work In Progress
                   </h4>
                   <p class="text-yellow-700 text-center">
-                    Ce mode est actuellement en développement. Les règles détaillées et les mécaniques spécifiques seront bientôt disponibles. Restez connectés pour découvrir cette nouvelle façon palpitante de jouer à Boom Badaboom !
+                    Ce mode est actuellement en développement. Les règles
+                    détaillées et les mécaniques spécifiques seront bientôt
+                    disponibles. Restez connectés pour découvrir cette nouvelle
+                    façon palpitante de jouer à Boom Badaboom !
                   </p>
                   <div class="flex justify-center mt-4 space-x-2">
-                    <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
-                    <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
-                    <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+                    <div
+                      class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"
+                    ></div>
+                    <div
+                      class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"
+                      style="animation-delay: 0.2s"
+                    ></div>
+                    <div
+                      class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"
+                      style="animation-delay: 0.4s"
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -3685,20 +3808,20 @@
 
               <!-- Grille fixe avec taille homogène -->
               <div
-                class="grid grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8"
+                class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mb-8"
               >
                 <!-- Laura Ruelle -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-yellow-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-yellow-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       LR
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Laura</div>
                       <div>Ruelle</div>
@@ -3708,16 +3831,16 @@
 
                 <!-- Mathieu Lecomte -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       ML
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Mathieu</div>
                       <div>Lecomte</div>
@@ -3727,16 +3850,16 @@
 
                 <!-- Amélia Lecomte -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       AL
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Amélia</div>
                       <div>Lecomte</div>
@@ -3746,16 +3869,16 @@
 
                 <!-- Malone Lecomte -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       MA
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Malone</div>
                       <div>Lecomte</div>
@@ -3765,16 +3888,16 @@
 
                 <!-- Hugues Ruelle -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       HR
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Hugues</div>
                       <div>Ruelle</div>
@@ -3784,16 +3907,16 @@
 
                 <!-- Evelyne Ruelle -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       ER
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Evelyne</div>
                       <div>Ruelle</div>
@@ -3803,16 +3926,16 @@
 
                 <!-- Julie Lecomte -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       JL
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Julie</div>
                       <div>Lecomte</div>
@@ -3822,16 +3945,16 @@
 
                 <!-- Marie Lecomte -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       MC
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Marie</div>
                       <div>Lecomte</div>
@@ -3841,16 +3964,16 @@
 
                 <!-- Oscar Verquin -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-indigo-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-indigo-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       OV
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Oscar</div>
                       <div>Verquin</div>
@@ -3860,16 +3983,16 @@
 
                 <!-- Thibaut Debruille -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-cyan-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-cyan-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       TD
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Thibaut</div>
                       <div>Debruille</div>
@@ -3879,16 +4002,16 @@
 
                 <!-- Paulyne Meermans -->
                 <div
-                  class="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+                  class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div class="flex flex-col items-center">
                     <div
-                      class="w-14 h-14 bg-rose-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mb-3"
+                      class="w-12 h-12 sm:w-14 sm:h-14 bg-rose-500 rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3"
                     >
                       PM
                     </div>
                     <h4
-                      class="font-semibold text-gray-800 text-center text-sm leading-tight"
+                      class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
                     >
                       <div>Paulyne</div>
                       <div>Meermans</div>
@@ -3980,222 +4103,281 @@
         <!-- Interface utilisateur -->
         <div class="relative z-10 h-full flex flex-col">
           <!-- Header -->
-          <div
-            class="flex justify-between items-center p-4 bg-black bg-opacity-70"
-          >
-            <h2
-              class="text-white text-lg sm:text-xl font-bold flex items-center"
-            >
-              <span>🎯</span>
-              <span class="ml-1 text-sm sm:text-xl">Compteur</span>
-            </h2>
+          <div class="flex flex-col bg-black bg-opacity-70">
+            <!-- Ligne principale header -->
+            <div class="flex justify-between items-center p-4">
+              <!-- Timer et informations centrés -->
+              <div class="flex-1 text-center">
+                <div v-if="elapsedTime" class="text-white text-sm opacity-60">
+                  ⏱️ {{ elapsedTime }}
+                </div>
+                <div class="text-white text-sm opacity-70 mt-1">
+                  👥 {{ playerCount }} joueur{{ playerCount > 1 ? "s" : "" }}
+                </div>
+                <div
+                  v-if="turnNumber > 0"
+                  class="text-white text-xs opacity-50 mt-1"
+                >
+                  <span
+                    v-if="finalCountdownRevealed"
+                    class="text-red-300 font-bold"
+                    >🚨 DERNIER TOUR 🚨</span
+                  >
+                  <span v-else
+                    >Tour {{ turnNumber }} |
+                    {{
+                      eventDeck.length > 0
+                        ? eventDeck.length + " événements max restants"
+                        : "Tous les événements révélés"
+                    }}</span
+                  >
+                </div>
+              </div>
 
-            <!-- Timer et informations centrés -->
-            <div class="flex-1 text-center">
-              <div v-if="elapsedTime" class="text-white text-sm opacity-60">
-                ⏱️ {{ elapsedTime }}
-              </div>
-              <div class="text-white text-sm opacity-70 mt-1">
-                👥 {{ playerCount }} joueur{{ playerCount > 1 ? "s" : "" }}
-              </div>
-              <div
-                v-if="turnNumber > 0"
-                class="text-white text-xs opacity-50 mt-1"
-              >
-                <span
-                  v-if="finalCountdownRevealed"
-                  class="text-red-300 font-bold"
-                  >🚨 DERNIER TOUR 🚨</span
+              <div class="flex space-x-2">
+                <button
+                  @click="finalCountdownRevealed ? endGame() : drawNextEvent()"
+                  :disabled="
+                    gameOver ||
+                    (eventDeck.length === 0 && !finalCountdownRevealed)
+                  "
+                  :class="{
+                    'bg-purple-500 hover:bg-purple-600':
+                      !gameOver &&
+                      eventDeck.length > 0 &&
+                      !finalCountdownRevealed,
+                    'bg-red-500 hover:bg-red-600':
+                      !gameOver && finalCountdownRevealed,
+                    'bg-gray-600 opacity-50 cursor-not-allowed':
+                      gameOver ||
+                      (eventDeck.length === 0 && !finalCountdownRevealed),
+                  }"
+                  class="text-white px-2 sm:px-3 py-2 rounded-lg font-bold transition-colors text-xs sm:text-sm flex items-center space-x-1"
                 >
-                <span v-else
-                  >Tour {{ turnNumber }} |
-                  {{
-                    eventDeck.length > 0
-                      ? eventDeck.length + " événements max restants"
-                      : "Tous les événements révélés"
-                  }}</span
+                  <span>🎲</span>
+                  <span class="hidden xs:inline sm:inline">
+                    {{
+                      finalCountdownRevealed
+                        ? "Fin de partie"
+                        : eventDeck.length > 0
+                        ? "Nouveau Tour"
+                        : "Plus d'événements"
+                    }}
+                  </span>
+                </button>
+                <button
+                  @click="showHistoryModal = true"
+                  class="bg-gray-700 hover:bg-gray-800 text-white px-2 sm:px-3 py-2 rounded-lg font-bold transition-colors text-xs sm:text-sm flex items-center space-x-1"
                 >
+                  <span>📋</span>
+                  <span class="hidden xs:inline sm:inline">Historique</span>
+                </button>
+                <button
+                  @click="showCloseConfirmModal = true"
+                  class="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg font-bold transition-colors"
+                >
+                  ✕
+                </button>
               </div>
             </div>
+          </div>
 
-            <div class="flex space-x-2">
-              <button
-                @click="finalCountdownRevealed ? endGame() : drawNextEvent()"
-                :disabled="
-                  gameOver ||
-                  (eventDeck.length === 0 && !finalCountdownRevealed)
-                "
+          <!-- Bandeau des valeurs (légende) -->
+          <div
+            class="flex justify-center items-center gap-4 sm:gap-6 px-4 py-2 bg-black bg-opacity-50 border-b border-gray-700"
+          >
+            <!-- Taille du gâteau -->
+            <div class="flex items-center gap-2">
+              <span class="text-white text-xs sm:text-sm opacity-70">
+                <span class="md:hidden">🎂 Gâteau:</span>
+                <span class="hidden md:inline">🎂 Taille du gâteau:</span>
+              </span>
+              <span
+                class="text-white font-bold text-sm sm:text-base px-2 py-1 rounded"
                 :class="{
-                  'bg-purple-500 hover:bg-purple-600':
-                    !gameOver &&
-                    eventDeck.length > 0 &&
-                    !finalCountdownRevealed,
-                  'bg-red-500 hover:bg-red-600':
-                    !gameOver && finalCountdownRevealed,
-                  'bg-gray-600 opacity-50 cursor-not-allowed':
-                    gameOver ||
-                    (eventDeck.length === 0 && !finalCountdownRevealed),
+                  'bg-blue-600': counterValue < thresholdValue - 3,
+                  'bg-orange-600':
+                    counterValue >= thresholdValue - 3 &&
+                    counterValue < thresholdValue,
+                  'bg-red-600': counterValue >= thresholdValue,
                 }"
-                class="text-white px-2 sm:px-3 py-2 rounded-lg font-bold transition-colors text-xs sm:text-sm flex items-center space-x-1"
               >
-                <span>🎲</span>
-                <span class="hidden xs:inline sm:inline">
-                  {{
-                    finalCountdownRevealed
-                      ? "Fin de partie"
-                      : eventDeck.length > 0
-                      ? "Nouveau Tour"
-                      : "Plus d'événements"
-                  }}
-                </span>
-              </button>
-              <button
-                @click="showHistoryModal = true"
-                class="bg-gray-700 hover:bg-gray-800 text-white px-2 sm:px-3 py-2 rounded-lg font-bold transition-colors text-xs sm:text-sm flex items-center space-x-1"
+                {{ counterValue }}
+              </span>
+            </div>
+
+            <!-- Capacité du four -->
+            <div class="flex items-center gap-2">
+              <span class="text-white text-xs sm:text-sm opacity-70">
+                <span class="md:hidden">🔥 Four:</span>
+                <span class="hidden md:inline">🔥 Capacité du four:</span>
+              </span>
+              <span
+                class="text-white font-bold text-sm sm:text-base bg-red-600 px-2 py-1 rounded"
               >
-                <span>📋</span>
-                <span class="hidden xs:inline sm:inline">Historique</span>
-              </button>
-              <button
-                @click="showCloseConfirmModal = true"
-                class="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg font-bold transition-colors"
-              >
-                ✕
-              </button>
+                {{ thresholdValue }}
+              </span>
             </div>
           </div>
 
           <!-- Zone principale avec pions -->
           <div class="flex-1 relative">
-            <!-- Ligne principale unique -->
+            <!-- Ligne principale améliorée avec effet 3D -->
             <div
-              class="absolute h-0.5 bg-gradient-to-r from-blue-400 to-red-400 opacity-60 transition-all duration-300"
+              class="absolute h-3 rounded-full bg-gradient-to-b from-gray-600 via-gray-700 to-gray-800 shadow-inner transition-all duration-300"
               :style="{
                 left: '10%',
                 right: '10%',
                 top: '50%',
-              }"
-            ></div>
-
-            <!-- Flèche et label Seuil -->
-            <div
-              class="absolute transition-all duration-500 z-30"
-              :style="{
-                left: `${Math.max(20, Math.min(80, getThresholdPosition()))}%`,
-                top: '20%',
-                transform: 'translateX(-50%)',
+                transform: 'translateY(-50%)',
               }"
             >
-              <!-- Label avec flèche -->
-              <div class="text-center mb-2">
+              <!-- Barre de progression avec dégradé -->
+              <div
+                class="absolute inset-0 h-full rounded-full bg-gradient-to-r from-blue-400 via-yellow-500 to-red-600 opacity-40"
+              ></div>
+              <!-- Effet de brillance sur le dessus -->
+              <div
+                class="absolute top-0 left-0 right-0 h-1 rounded-t-full bg-gradient-to-b from-white to-transparent opacity-30"
+              ></div>
+
+              <!-- Graduations sur la ligne -->
+              <div
+                v-for="mark in [0, 5, 10, 15, 20, 25, 30]"
+                :key="'mark-' + mark"
+                class="absolute"
+                :style="{
+                  left: `${(mark / 30) * 100}%`,
+                  top: '50%',
+                  transform: 'translate(-50%, -50%)',
+                }"
+              >
+                <!-- Trait de graduation -->
                 <div
-                  class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg border border-white whitespace-nowrap"
-                >
-                  💀 SEUIL
-                </div>
-                <!-- Flèche pointant vers le bas -->
-                <div
-                  class="w-0 h-0 border-l-3 border-r-3 border-t-5 border-l-transparent border-r-transparent border-t-red-500 mx-auto mt-1"
+                  class="w-0.5 bg-white opacity-50"
+                  :class="{
+                    'h-4': mark % 10 === 0,
+                    'h-3': mark % 10 !== 0,
+                  }"
+                  :style="{
+                    transform: 'translateY(-50%)',
+                  }"
                 ></div>
+                <!-- Chiffre sous la ligne -->
+                <div
+                  v-if="mark % 5 === 0"
+                  class="absolute text-white text-xs opacity-60 font-medium"
+                  :style="{
+                    top: '12px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                  }"
+                >
+                  {{ mark }}
+                </div>
               </div>
             </div>
 
-            <!-- Pion Seuil (rouge) - Design amélioré -->
+            <!-- Représentation du Four avec pion capacité -->
             <div
-              class="absolute w-14 h-14 md:w-18 md:h-18 rounded-full bg-gradient-to-br from-red-400 via-red-500 to-red-700 border-4 border-white shadow-2xl flex items-center justify-center transform -translate-x-7 md:-translate-x-9 -translate-y-7 md:-translate-y-9 transition-all duration-500 hover:scale-110 hover:shadow-3xl hover:border-yellow-300 cursor-pointer"
+              class="absolute transition-all duration-500"
               :style="{
                 left: `${getThresholdPosition()}%`,
                 top: '50%',
-                filter: 'drop-shadow(0 0 12px rgba(239, 68, 68, 0.6))',
+                transform: 'translate(-50%, -50%)',
               }"
             >
-              <!-- Cercle intérieur avec effet de profondeur -->
+              <!-- Version mobile : simple pastille -->
               <div
-                class="absolute inset-1 rounded-full bg-gradient-to-t from-red-800 to-red-400 opacity-80"
-              ></div>
-
-              <!-- Contenu du pion - Seulement le chiffre -->
-              <div class="relative text-white font-bold text-center z-10">
-                <div class="text-2xl md:text-3xl font-black drop-shadow-lg">
+                class="md:hidden w-10 h-10 rounded-full bg-gradient-to-br from-red-400 via-red-500 to-red-700 border-2 border-white shadow-xl flex items-center justify-center"
+              >
+                <div class="text-white text-sm font-black drop-shadow-lg">
                   {{ thresholdValue }}
                 </div>
               </div>
 
-              <!-- Effet de brillance -->
-              <div
-                class="absolute top-2 left-3 w-3 h-3 md:w-4 md:h-4 bg-white bg-opacity-40 rounded-full blur-sm"
-              ></div>
-
-              <!-- Pulse ring pour l'attention -->
-              <div
-                class="absolute inset-0 rounded-full bg-red-500 opacity-30 animate-ping"
-              ></div>
-            </div>
-
-            <!-- Flèche et label Compteur -->
-            <div
-              class="absolute transition-all duration-500 z-20"
-              :style="{
-                left: `${Math.max(20, Math.min(80, getCounterPosition()))}%`,
-                top: '20%',
-                transform: 'translateX(-50%)',
-              }"
-            >
-              <!-- Label avec flèche dynamique -->
-              <div class="text-center mb-2">
+              <!-- Version desktop : four complet -->
+              <div class="hidden md:block">
+                <!-- Corps du four - forme de four vintage -->
                 <div
-                  class="text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg border border-white transition-all duration-300 whitespace-nowrap"
-                  :class="{
-                    'bg-blue-500': counterValue < thresholdValue - 3,
-                    'bg-orange-500':
-                      counterValue >= thresholdValue - 3 &&
-                      counterValue < thresholdValue,
-                    'bg-red-600': counterValue >= thresholdValue,
+                  class="relative w-24 h-28 rounded-t-lg bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 border-3 border-gray-600 shadow-2xl"
+                  :style="{
+                    filter: 'drop-shadow(0 0 15px rgba(239, 68, 68, 0.5))',
                   }"
                 >
-                  {{
-                    counterValue < thresholdValue - 3
-                      ? "💣 COMPTEUR"
-                      : counterValue >= thresholdValue
-                      ? "💥 BOOM"
-                      : "⚠️ DANGER"
-                  }}
+                  <!-- Porte du four (fenêtre) -->
+                  <div
+                    class="absolute top-2 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-lg bg-gradient-to-br from-red-400 via-red-500 to-red-700 border-2 border-gray-600 shadow-inner flex flex-col items-center justify-center"
+                  >
+                    <!-- Reflet de la vitre -->
+                    <div
+                      class="absolute inset-0 rounded-lg bg-gradient-to-br from-white via-transparent to-transparent opacity-20"
+                    ></div>
+
+                    <!-- Contenu - Icône four + chiffre -->
+                    <div
+                      class="relative text-white font-bold text-center z-10 flex flex-col items-center"
+                    >
+                      <div class="text-xl mb-0.5">🔥</div>
+                      <div class="text-lg font-black drop-shadow-lg">
+                        {{ thresholdValue }}
+                      </div>
+                    </div>
+
+                    <!-- Effet de chaleur animé -->
+                    <div
+                      class="absolute inset-0 rounded-lg bg-red-500 opacity-30 animate-ping"
+                    ></div>
+                  </div>
+
+                  <!-- Poignée du four -->
+                  <div
+                    class="absolute bottom-1.5 left-1/2 transform -translate-x-1/2 w-10 h-1.5 rounded-full bg-gray-500 border border-gray-400"
+                  ></div>
+
+                  <!-- Boutons de contrôle du four -->
+                  <div class="absolute top-1.5 right-1.5 flex flex-col gap-0.5">
+                    <div
+                      class="w-1.5 h-1.5 rounded-full bg-yellow-400 opacity-70"
+                    ></div>
+                    <div
+                      class="w-1.5 h-1.5 rounded-full bg-red-400 opacity-70"
+                    ></div>
+                  </div>
                 </div>
-                <!-- Flèche pointant vers le bas - couleur dynamique -->
+
+                <!-- Socle du four -->
                 <div
-                  class="w-0 h-0 border-l-3 border-r-3 border-t-5 border-l-transparent border-r-transparent mx-auto mt-1 transition-all duration-300"
-                  :class="{
-                    'border-t-blue-500': counterValue < thresholdValue - 3,
-                    'border-t-orange-500':
-                      counterValue >= thresholdValue - 3 &&
-                      counterValue < thresholdValue,
-                    'border-t-red-600': counterValue >= thresholdValue,
-                  }"
+                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-28 h-2.5 bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 rounded-b-lg"
                 ></div>
               </div>
             </div>
 
-            <!-- Pion Compteur (bleu) - Design amélioré -->
+            <!-- Pion Gâteau (bleu) - Design amélioré avec icône gâteau -->
             <div
-              class="absolute w-14 h-14 md:w-18 md:h-18 rounded-full border-4 border-white shadow-2xl flex items-center justify-center transform -translate-x-7 md:-translate-x-9 -translate-y-7 md:-translate-y-9 transition-all duration-500 hover:scale-110 hover:shadow-3xl hover:border-yellow-300 cursor-pointer z-10"
+              class="absolute rounded-full border-2 md:border-4 border-white shadow-2xl flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-3xl hover:border-yellow-300 cursor-pointer z-10"
               :style="{
                 left: `${getCounterPosition()}%`,
                 top: '50%',
               }"
-              :class="{
+              :class="[
+                // Taille responsive
+                'w-10 h-10 -translate-x-5 -translate-y-5 md:w-24 md:h-24 md:-translate-x-12 md:-translate-y-12',
                 // États dynamiques
-                'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700':
-                  counterValue < thresholdValue - 3,
-                'bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600':
-                  counterValue >= thresholdValue - 3 &&
-                  counterValue < thresholdValue,
-                'bg-gradient-to-br from-red-500 via-red-600 to-red-800':
-                  counterValue >= thresholdValue,
-              }"
+                {
+                  'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700':
+                    counterValue < thresholdValue - 3,
+                  'bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600':
+                    counterValue >= thresholdValue - 3 &&
+                    counterValue < thresholdValue,
+                  'bg-gradient-to-br from-red-500 via-red-600 to-red-800':
+                    counterValue >= thresholdValue,
+                },
+              ]"
             >
-              <!-- Cercle intérieur avec effet de profondeur -->
+              <!-- Cercle intérieur avec effet de profondeur (desktop seulement) -->
               <div
-                class="absolute inset-1 rounded-full opacity-80"
+                class="hidden md:block absolute inset-1 rounded-full opacity-80"
                 :class="{
                   'bg-gradient-to-t from-blue-800 to-blue-400':
                     counterValue < thresholdValue - 3,
@@ -4207,16 +4389,36 @@
                 }"
               ></div>
 
-              <!-- Contenu du pion - Seulement le chiffre -->
-              <div class="relative text-white font-bold text-center z-10">
-                <div class="text-2xl md:text-3xl font-black drop-shadow-lg">
+              <!-- Contenu du pion - Version mobile : juste le chiffre -->
+              <div
+                class="md:hidden relative text-white font-bold text-center z-10"
+              >
+                <div class="text-sm font-black drop-shadow-lg">
                   {{ counterValue }}
                 </div>
               </div>
 
-              <!-- Effet de brillance -->
+              <!-- Contenu du pion - Version desktop : Icône gâteau + chiffre -->
               <div
-                class="absolute top-2 left-3 w-3 h-3 md:w-4 md:h-4 bg-white bg-opacity-40 rounded-full blur-sm"
+                class="hidden md:flex relative text-white font-bold text-center z-10 flex-col items-center"
+              >
+                <div class="text-xl mb-0.5">
+                  {{
+                    counterValue < thresholdValue - 3
+                      ? "🎂"
+                      : counterValue >= thresholdValue
+                      ? "💥"
+                      : "⚠️"
+                  }}
+                </div>
+                <div class="text-lg font-black drop-shadow-lg">
+                  {{ counterValue }}
+                </div>
+              </div>
+
+              <!-- Effet de brillance (desktop seulement) -->
+              <div
+                class="hidden md:block absolute top-2 left-3 w-4 h-4 bg-white bg-opacity-40 rounded-full blur-sm"
               ></div>
 
               <!-- Pulse ring conditionnel -->
@@ -4231,10 +4433,10 @@
                 }"
               ></div>
 
-              <!-- Glow effect quand proche du seuil -->
+              <!-- Glow effect quand proche du seuil (desktop seulement) -->
               <div
                 v-if="counterValue >= thresholdValue - 2"
-                class="absolute inset-0 rounded-full"
+                class="hidden md:block absolute inset-0 rounded-full"
                 :style="{
                   filter:
                     counterValue >= thresholdValue
@@ -4291,69 +4493,149 @@
               ></div>
             </div>
 
-            <div class="mb-4">
-              <h3 class="text-white font-bold mb-2">Compteur de la Bombe</h3>
+            <div class="mb-3">
+              <h3 class="text-white font-bold mb-2 text-sm md:text-base">
+                🎂 Taille du Gâteau
+              </h3>
 
               <!-- Boutons compacts sur une ligne -->
-              <div class="flex flex-wrap gap-1 justify-center">
-                <!-- Boutons de diminution -->
-                <button
-                  v-for="delta in [-3, -2, -1]"
-                  :key="delta"
-                  @click="adjustCounter(delta)"
-                  :disabled="gameOver"
-                  :class="{
-                    'bg-green-500 hover:bg-green-600': !gameOver,
-                    'bg-gray-600 opacity-50 cursor-not-allowed': gameOver,
-                  }"
-                  class="text-white font-bold py-2 px-3 text-sm rounded-lg transition-colors active:scale-95"
-                >
-                  {{ delta }}
-                </button>
+              <div class="flex flex-wrap gap-1 md:gap-1 justify-center">
+                <!-- Version mobile : seulement -1 et +1 avec valeur au milieu -->
+                <template v-if="true">
+                  <button
+                    @click="adjustCounter(-1)"
+                    :disabled="gameOver"
+                    :class="{
+                      'bg-green-500 hover:bg-green-600': !gameOver,
+                      'bg-gray-600 opacity-50 cursor-not-allowed': gameOver,
+                    }"
+                    class="md:hidden text-white font-bold py-2 px-4 text-base rounded-lg transition-colors active:scale-95"
+                  >
+                    -1
+                  </button>
 
-                <!-- Séparateur visuel -->
-                <div class="w-px bg-gray-500 mx-1"></div>
+                  <div
+                    class="md:hidden bg-white bg-opacity-20 text-white font-bold py-2 px-3 rounded-lg flex items-center mx-1 text-base"
+                  >
+                    {{ counterValue }}
+                  </div>
 
-                <!-- Boutons d'augmentation -->
-                <button
-                  v-for="delta in [+1, +2, +3, +4, +5]"
-                  :key="delta"
-                  @click="adjustCounter(delta)"
-                  :disabled="gameOver"
-                  :class="{
-                    'bg-red-500 hover:bg-red-600': !gameOver,
-                    'bg-gray-600 opacity-50 cursor-not-allowed': gameOver,
-                  }"
-                  class="text-white font-bold py-2 px-3 text-sm rounded-lg transition-colors active:scale-95"
-                >
-                  +{{ delta }}
-                </button>
+                  <button
+                    @click="adjustCounter(+1)"
+                    :disabled="gameOver"
+                    :class="{
+                      'bg-red-500 hover:bg-red-600': !gameOver,
+                      'bg-gray-600 opacity-50 cursor-not-allowed': gameOver,
+                    }"
+                    class="md:hidden text-white font-bold py-2 px-4 text-base rounded-lg transition-colors active:scale-95"
+                  >
+                    +1
+                  </button>
+                </template>
+
+                <!-- Version desktop : tous les boutons -->
+                <template v-if="true">
+                  <!-- Boutons de diminution -->
+                  <button
+                    v-for="delta in [-3, -2, -1]"
+                    :key="delta"
+                    @click="adjustCounter(delta)"
+                    :disabled="gameOver"
+                    :class="{
+                      'bg-green-500 hover:bg-green-600': !gameOver,
+                      'bg-gray-600 opacity-50 cursor-not-allowed': gameOver,
+                    }"
+                    class="hidden md:inline-block text-white font-bold py-2 px-3 text-sm rounded-lg transition-colors active:scale-95"
+                  >
+                    {{ delta }}
+                  </button>
+
+                  <!-- Séparateur visuel -->
+                  <div class="hidden md:block w-px bg-gray-500 mx-1"></div>
+
+                  <!-- Boutons d'augmentation -->
+                  <button
+                    v-for="delta in [+1, +2, +3, +4, +5]"
+                    :key="delta"
+                    @click="adjustCounter(delta)"
+                    :disabled="gameOver"
+                    :class="{
+                      'bg-red-500 hover:bg-red-600': !gameOver,
+                      'bg-gray-600 opacity-50 cursor-not-allowed': gameOver,
+                    }"
+                    class="hidden md:inline-block text-white font-bold py-2 px-3 text-sm rounded-lg transition-colors active:scale-95"
+                  >
+                    +{{ delta }}
+                  </button>
+                </template>
               </div>
             </div>
 
             <!-- Contrôles du seuil -->
-            <div class="mb-4">
-              <h3 class="text-white font-bold mb-2">Seuil d'Explosion</h3>
-              <div class="flex justify-center space-x-2">
-                <button
-                  @click="adjustThreshold(-1)"
-                  :disabled="gameOver || thresholdValue <= minThreshold"
-                  class="bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white font-bold py-3 px-4 rounded-lg transition-colors active:scale-95"
-                >
-                  -1
-                </button>
-                <div
-                  class="bg-white bg-opacity-20 text-white font-bold py-3 px-6 rounded-lg flex items-center"
-                >
-                  Seuil: {{ thresholdValue }}
-                </div>
-                <button
-                  @click="adjustThreshold(+1)"
-                  :disabled="gameOver || thresholdValue >= maxThreshold"
-                  class="bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white font-bold py-3 px-4 rounded-lg transition-colors active:scale-95"
-                >
-                  +1
-                </button>
+            <div class="mb-3">
+              <h3 class="text-white font-bold mb-2 text-sm md:text-base">
+                🔥 Capacité du Four
+              </h3>
+              <div class="flex justify-center flex-wrap gap-1 md:gap-1">
+                <!-- Version mobile : seulement -1 et +1 -->
+                <template v-if="true">
+                  <button
+                    @click="adjustThreshold(-1)"
+                    :disabled="gameOver || thresholdValue - 1 < minThreshold"
+                    class="md:hidden bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white font-bold py-2 px-4 text-base rounded-lg transition-colors active:scale-95"
+                  >
+                    -1
+                  </button>
+
+                  <div
+                    class="md:hidden bg-white bg-opacity-20 text-white font-bold py-2 px-3 rounded-lg flex items-center mx-1 text-base"
+                  >
+                    {{ thresholdValue }}
+                  </div>
+
+                  <button
+                    @click="adjustThreshold(+1)"
+                    :disabled="gameOver || thresholdValue + 1 > maxThreshold"
+                    class="md:hidden bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white font-bold py-2 px-4 text-base rounded-lg transition-colors active:scale-95"
+                  >
+                    +1
+                  </button>
+                </template>
+
+                <!-- Version desktop : tous les boutons -->
+                <template v-if="true">
+                  <!-- Boutons de diminution -->
+                  <button
+                    v-for="delta in [-5, -4, -3, -2, -1]"
+                    :key="'neg-' + delta"
+                    @click="adjustThreshold(delta)"
+                    :disabled="
+                      gameOver || thresholdValue + delta < minThreshold
+                    "
+                    class="hidden md:inline-block bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white font-bold py-2 px-3 text-sm rounded-lg transition-colors active:scale-95"
+                  >
+                    {{ delta }}
+                  </button>
+
+                  <div
+                    class="hidden md:flex bg-white bg-opacity-20 text-white font-bold py-2 px-4 rounded-lg items-center mx-2 text-sm"
+                  >
+                    Capacité: {{ thresholdValue }}
+                  </div>
+
+                  <!-- Boutons d'augmentation -->
+                  <button
+                    v-for="delta in [+1, +2, +3, +4, +5]"
+                    :key="'pos-' + delta"
+                    @click="adjustThreshold(delta)"
+                    :disabled="
+                      gameOver || thresholdValue + delta > maxThreshold
+                    "
+                    class="hidden md:inline-block bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white font-bold py-2 px-3 text-sm rounded-lg transition-colors active:scale-95"
+                  >
+                    +{{ delta }}
+                  </button>
+                </template>
               </div>
             </div>
           </div>
@@ -4361,7 +4643,7 @@
 
         <!-- Modale Explosion -->
         <div
-          v-if="gameOver && !showEndGameModal"
+          v-if="isExplosion && !showEndGameModal"
           class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-85"
         >
           <div
@@ -4372,9 +4654,10 @@
               class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-center"
             >
               <div class="text-4xl mb-4">💥</div>
-              <h3 class="text-2xl font-bold text-white mb-2">Explosion !</h3>
+              <h3 class="text-2xl font-bold text-white mb-2">💥 Explosion !</h3>
               <p class="text-red-100 text-sm">
-                La bombe a explosée - Compteur: {{ counterValue }} / Seuil:
+                Le gâteau a explosé ! Taille: {{ counterValue }} / Capacité du
+                four:
                 {{ thresholdValue }}
               </p>
             </div>
@@ -4400,20 +4683,20 @@
                 </h4>
 
                 <div class="text-center">
-                  <!-- Saboteurs gagnants -->
+                  <!-- Farceurs gagnants -->
                   <div
                     class="bg-gradient-to-br from-red-600 to-red-700 rounded-xl p-6 text-center max-w-md mx-auto"
                   >
-                    <div class="text-3xl mb-4">💀</div>
+                    <div class="text-3xl mb-4">🤡</div>
                     <h5 class="text-xl font-bold text-white mb-4">
-                      SABOTEURS VICTORIEUX !
+                      FARCEURS VICTORIEUX !
                     </h5>
                     <div class="text-red-100 text-sm space-y-2">
                       <div class="font-semibold text-red-200">
-                        🏆 Les Saboteurs ont gagné !
+                        🏆 Les Farceurs ont gagné !
                       </div>
-                      <div>• La bombe a explosé</div>
-                      <div>• Leur mission de sabotage est accomplie</div>
+                      <div>• Le gâteau a explosé</div>
+                      <div>• Leur mission de chaos est accomplie</div>
                     </div>
                   </div>
                 </div>
@@ -4741,13 +5024,13 @@
                 ></div>
               </div>
 
-              <!-- Modification du compteur -->
+              <!-- Modification de la taille -->
               <div v-else-if="item.type === 'counter'">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center space-x-2">
-                    <span class="text-blue-600 text-sm font-bold">📊</span>
+                    <span class="text-blue-600 text-sm font-bold">🎂</span>
                     <span class="text-sm font-medium text-blue-700">
-                      Compteur {{ item.action }}
+                      Taille {{ item.action }}
                     </span>
                     <span
                       class="text-sm text-blue-600 font-mono bg-blue-100 px-2 py-1 rounded"
@@ -4761,11 +5044,11 @@
                 </div>
               </div>
 
-              <!-- Modification du seuil -->
+              <!-- Modification de la capacité -->
               <div v-else-if="item.type === 'threshold'">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center space-x-2">
-                    <span class="text-orange-600 text-sm font-bold">🛡️</span>
+                    <span class="text-orange-600 text-sm font-bold">🔥</span>
                     <span class="text-sm font-medium text-orange-700">
                       {{ item.action }}
                     </span>
@@ -4931,8 +5214,8 @@
               <div class="flex items-start space-x-2">
                 <span class="text-yellow-400 font-bold">5.</span>
                 <span
-                  >Il y a <strong>10 événements</strong> au total. Le "Compte à
-                  rebours final" apparaît aux tours 8, 9 ou 10.</span
+                  >Il y a <strong>10 événements</strong> au total. Le "Minuteur
+                  final" apparaît aux tours 8, 9 ou 10.</span
                 >
               </div>
             </div>
@@ -4946,8 +5229,8 @@
               ⚠️ Important
             </div>
             <div class="text-orange-100 text-xs">
-              Cette application gère le compteur et les événements. Les joueurs
-              gèrent cartes et actions !
+              Cette application gère la taille du gâteau, la capacité du four et
+              les événements. Les joueurs gèrent cartes et actions !
             </div>
           </div>
 
@@ -5027,7 +5310,7 @@
             <div class="text-left">
               <div class="font-bold text-lg mb-1">🎭 Mode Rôles cachés</div>
               <div class="text-red-100 text-sm">
-                1-2 (Coopératif) ou 3-5 (Rôles cachés) • Rôles cachés
+                3-5 joueurs • Bluff et déduction
               </div>
             </div>
             <div
@@ -5044,8 +5327,10 @@
         >
           <div class="flex items-center justify-between">
             <div class="text-left">
-              <div class="font-bold text-lg mb-1">🤖 Mode Coopératif</div>
-              <div class="text-blue-100 text-sm">1-2 joueurs vs IA</div>
+              <div class="font-bold text-lg mb-1">👻 Mode Coopératif</div>
+              <div class="text-blue-100 text-sm">
+                1-2 joueurs contre Fourneau le Facétieux
+              </div>
             </div>
             <div
               class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity"
@@ -5073,7 +5358,7 @@
         <h3 class="text-xl font-bold text-white mb-2">
           🎯 Choisissez la Difficulté
         </h3>
-        <p class="text-blue-100 text-sm">Mode Coopératif vs IA</p>
+        <p class="text-blue-100 text-sm">Affrontez Fourneau le Facétieux</p>
       </div>
       <!-- Content -->
       <div class="p-6 space-y-3">
@@ -5119,8 +5404,8 @@
                   'text-purple-700': difficulty.color === 'purple',
                 }"
               >
-                {{ difficulty.turns }} tours • Seuil
-                {{ difficulty.threshold }} • Taux de victoire
+                {{ difficulty.turns }} tours • Capacité du four
+                {{ difficulty.threshold }} • Taux de victoire moyen
                 {{ difficulty.winRate }}
               </div>
             </div>
@@ -5138,6 +5423,19 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Bouton retour -->
+      <div class="p-6 pt-0">
+        <button
+          @click="
+            closeAIDifficultyModal();
+            openGameModeSelection();
+          "
+          class="w-full p-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-colors duration-200"
+        >
+          ← Retour
+        </button>
       </div>
     </div>
   </div>
@@ -5169,7 +5467,7 @@
           class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center"
         >
           <h1 class="text-2xl font-bold text-white flex items-center gap-3">
-            🤖 Mode Coopératif vs IA
+            👻 Défi contre Fourneau le Facétieux
           </h1>
           <button
             @click="closeAIMode"
@@ -5191,7 +5489,7 @@
             <div class="text-sm opacity-90 mb-1">Difficulté</div>
             <div class="text-xl font-bold">{{ selectedDifficulty.name }}</div>
             <div class="text-sm opacity-80">
-              {{ selectedDifficulty.turns }} tours • Seuil
+              {{ selectedDifficulty.turns }} tours • Capacité du four
               {{ selectedDifficulty.threshold }}
             </div>
           </div>
@@ -5204,8 +5502,8 @@
           <div class="text-4xl mb-4">🚧</div>
           <h3 class="text-xl font-bold mb-4">Mode en développement</h3>
           <p class="text-blue-200 mb-6">
-            Le mode coopératif vs IA sera bientôt disponible avec toutes les
-            nouvelles règles !
+            Le mode coopératif contre Fourneau le Facétieux sera bientôt
+            disponible avec toutes les nouvelles règles !
           </p>
           <button
             @click="closeAIMode"
@@ -5222,11 +5520,9 @@
   <div
     v-if="showEndGameModal"
     class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-85"
-    @click="closeEndGameModal"
   >
     <div
       class="bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-yellow-400 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-      @click.stop
     >
       <!-- Header -->
       <div
@@ -5257,51 +5553,45 @@
             🎯 Conditions de Victoire par Rôle
           </h4>
 
-          <div class="grid gap-6 md:grid-cols-3">
-            <!-- Démineurs -->
+          <div class="grid gap-6 md:grid-cols-2">
+            <!-- Pâtissiers -->
             <div
               class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-4 text-center"
             >
-              <div class="text-2xl mb-4">🛡️</div>
-              <h5 class="text-lg font-bold text-white mb-4">DÉMINEURS</h5>
+              <div class="text-2xl mb-4">👩‍🍳</div>
+              <h5 class="text-lg font-bold text-white mb-4">PÂTISSIERS</h5>
               <div class="text-blue-100 text-sm space-y-2">
                 <div class="font-semibold text-blue-200">
-                  Victoire par Élimination :
+                  Victoire par Réussite :
                 </div>
-                <div>• Tous les Saboteurs sont éliminés</div>
-                <div>• L'Agent Double n'a pas gagné immédiatement</div>
-                <div>• La bombe n'a pas explosé</div>
+                <div>• Le gâteau est parfait (pas d'explosion)</div>
+                <div>• Le Glouton n'a pas volé le gâteau</div>
               </div>
             </div>
 
-            <!-- Saboteurs -->
-            <div
-              class="bg-gradient-to-br from-red-600 to-red-700 rounded-xl p-4 text-center"
-            >
-              <div class="text-2xl mb-4">💥</div>
-              <h5 class="text-lg font-bold text-white mb-4">SABOTEURS</h5>
-              <div class="text-red-100 text-sm space-y-2">
-                <div class="font-semibold text-red-200">Victoire si :</div>
-                <div>• La bombe explose</div>
-                <div class="text-xs opacity-80">(Compteur ≥ Seuil)</div>
-              </div>
-            </div>
-
-            <!-- Agent Double -->
+            <!-- Glouton -->
             <div
               class="bg-gradient-to-br from-yellow-600 to-yellow-700 rounded-xl p-4 text-center"
             >
-              <div class="text-2xl mb-4">🎭</div>
-              <h5 class="text-lg font-bold text-white mb-4">AGENT DOUBLE</h5>
+              <div class="text-2xl mb-4">😋</div>
+              <h5 class="text-lg font-bold text-white mb-4">GLOUTON</h5>
               <div class="text-yellow-100 text-sm space-y-2">
                 <div class="font-semibold text-yellow-200">
-                  Victoire immédiate :
+                  Victoire immédiate si :
                 </div>
-                <div>• A au moins 2 cartes objectifs en main</div>
-                <div>• ET le compteur est entre 15-18</div>
-                <div>• A son tour seulement !</div>
+                <div>• À son tour seulement !</div>
+                <div>• Possède au moins 2 cartes objectifs glouton</div>
+                <div>• ET la taille du gâteau est entre 15-18</div>
               </div>
             </div>
+          </div>
+
+          <div
+            class="mt-4 bg-red-900 bg-opacity-50 rounded-lg p-4 border border-red-500"
+          >
+            <p class="text-red-200 text-sm text-center">
+              ⚠️ Les Farceurs ne peuvent plus gagner car le temps est écoulé
+            </p>
           </div>
         </div>
 
@@ -5386,7 +5676,10 @@
       </div>
 
       <button
-        @click="closePlayerCountModal"
+        @click="
+          closePlayerCountModal();
+          openGameModeSelection();
+        "
         class="w-full mt-6 p-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-colors duration-200"
       >
         ← Retour
@@ -5676,12 +5969,36 @@ const events = [
 
 // AI difficulty levels
 const aiDifficultyLevels = [
-  { name: "Débutant", turns: 7, threshold: 19, winRate: "90%", color: "green" },
-  { name: "Normal", turns: 8, threshold: 17, winRate: "70%", color: "blue" },
-  { name: "Expert", turns: 11, threshold: 15, winRate: "40%", color: "orange" },
-  { name: "Légende", turns: 13, threshold: 12, winRate: "15%", color: "red" },
   {
-    name: "Impossible",
+    name: "🧁 Cupcake (Très facile)",
+    turns: 7,
+    threshold: 19,
+    winRate: "90%",
+    color: "green",
+  },
+  {
+    name: "🍰 Génoise (Facile)",
+    turns: 8,
+    threshold: 17,
+    winRate: "70%",
+    color: "blue",
+  },
+  {
+    name: "🎂 Forêt-Noire (Moyen)",
+    turns: 11,
+    threshold: 15,
+    winRate: "40%",
+    color: "orange",
+  },
+  {
+    name: "🍮 Croquembouche (Difficile)",
+    turns: 13,
+    threshold: 12,
+    winRate: "15%",
+    color: "red",
+  },
+  {
+    name: "👨‍🍳 Pièce Montée (Très difficile)",
     turns: 15,
     threshold: 10,
     winRate: "5%",
@@ -5764,6 +6081,7 @@ const maxThreshold = ref(30);
 const counterHistory = ref([]);
 const showExplosion = ref(false);
 const gameOver = ref(false);
+const isExplosion = ref(false);
 const showHistoryModal = ref(false);
 const gameStartTime = ref(null);
 const gameDuration = ref(null);
@@ -5878,6 +6196,7 @@ const openCounterMode = () => {
   counterHistory.value = [];
   showExplosion.value = false;
   gameOver.value = false;
+  isExplosion.value = false;
   gameStartTime.value = null;
   gameDuration.value = null;
 
@@ -5932,6 +6251,7 @@ const quitGame = () => {
 
 const triggerExplosion = () => {
   gameOver.value = true;
+  isExplosion.value = true;
 
   // Calculer la durée de la partie
   if (gameStartTime.value) {
@@ -6013,6 +6333,18 @@ const adjustCounter = (delta) => {
   }
 };
 
+const adjustCounterRandom = (type) => {
+  let delta;
+  if (type === "positive") {
+    // Random entre +1 et +5
+    delta = Math.floor(Math.random() * 5) + 1;
+  } else {
+    // Random entre -1 et -5
+    delta = -(Math.floor(Math.random() * 5) + 1);
+  }
+  adjustCounter(delta);
+};
+
 const adjustThreshold = (delta) => {
   const newValue = thresholdValue.value + delta;
   if (newValue >= minThreshold.value && newValue <= maxThreshold.value) {
@@ -6021,13 +6353,25 @@ const adjustThreshold = (delta) => {
 
     // Enregistrer dans l'historique
     counterHistory.value.push({
-      action: delta > 0 ? `Seuil +${delta}` : `Seuil ${delta}`,
+      action: delta > 0 ? `Capacité +${delta}` : `Capacité ${delta}`,
       oldValue: oldValue,
       newValue: newValue,
       timestamp: new Date().toLocaleTimeString(),
       type: "threshold",
     });
   }
+};
+
+const adjustThresholdRandom = (type) => {
+  let delta;
+  if (type === "positive") {
+    // Random entre +1 et +5
+    delta = Math.floor(Math.random() * 5) + 1;
+  } else {
+    // Random entre -1 et -5
+    delta = -(Math.floor(Math.random() * 5) + 1);
+  }
+  adjustThreshold(delta);
 };
 
 const getCounterPosition = () => {
@@ -6190,15 +6534,18 @@ const cancelCloseGame = () => {
 // Game mode selection functions
 const openGameModeSelection = () => {
   showGameModeModal.value = true;
+  document.body.style.overflow = "hidden";
 };
 const closeGameModeModal = () => {
   showGameModeModal.value = false;
+  document.body.style.overflow = "auto";
 };
 const selectCompetitiveMode = () => {
   console.log("selectCompetitiveMode called");
   console.log("showPlayerCountModal BEFORE:", showPlayerCountModal.value);
   closeGameModeModal();
   showPlayerCountModal.value = true;
+  document.body.style.overflow = "hidden";
   console.log("showPlayerCountModal AFTER:", showPlayerCountModal.value);
 
   // Force une re-render après un court délai pour tester
@@ -6212,6 +6559,7 @@ const selectCompetitiveMode = () => {
 const selectCooperativeMode = () => {
   closeGameModeModal();
   showAIDifficultyModal.value = true;
+  document.body.style.overflow = "hidden";
 };
 
 // Player count selection functions
@@ -6233,16 +6581,19 @@ const selectPlayerCount = (count) => {
 
 const closePlayerCountModal = () => {
   showPlayerCountModal.value = false;
+  document.body.style.overflow = "auto";
 };
 
 // AI difficulty selection functions
 const selectAIDifficulty = (difficulty) => {
   selectedDifficulty.value = difficulty;
   showAIDifficultyModal.value = false;
+  document.body.style.overflow = "auto";
   openAIMode();
 };
 const closeAIDifficultyModal = () => {
   showAIDifficultyModal.value = false;
+  document.body.style.overflow = "auto";
 };
 
 // AI mode functions
