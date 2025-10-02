@@ -2119,7 +2119,7 @@
                 "
               >
                 <p style="color: #ff914d">
-                  <strong>📝 Note :</strong> Les cartes Action (marquées ⚡)
+                  <strong>📝 Note :</strong> Les cartes Action (marquées 🔧)
                   sont des cartes à effet offensif, stratégique ou de
                   manipulation que vous jouez pendant
                   <strong>votre tour</strong>. Elles permettent d'interagir avec
@@ -2156,7 +2156,7 @@
                         />
                       </div>
                       <h4 class="font-semibold text-gray-800">
-                        ⚡ {{ card.name }}
+                        {{ card.name }}
                       </h4>
                     </div>
                     <div class="text-right">
@@ -2252,7 +2252,7 @@
                         />
                       </div>
                       <h4 class="font-semibold text-gray-800">
-                        ⚡ Tablier de Protection
+                        Tablier de Protection
                       </h4>
                     </div>
                     <div class="text-right">
@@ -2271,7 +2271,7 @@
                         background-color: rgba(203, 108, 230, 0.1);
                         color: #cb6ce6;
                       "
-                      >Réactive ⚡</span
+                      >⚡ Réactive</span
                     >
                   </div>
                   <p class="text-sm text-gray-600">
@@ -2311,7 +2311,7 @@
                         />
                       </div>
                       <h4 class="font-semibold text-gray-800">
-                        ⚡ Renvoi de spatule
+                        Renvoi de spatule
                       </h4>
                     </div>
                     <div class="text-right">
@@ -2330,7 +2330,7 @@
                         background-color: rgba(203, 108, 230, 0.1);
                         color: #cb6ce6;
                       "
-                      >Réactive ⚡</span
+                      >⚡ Réactive</span
                     >
                   </div>
                   <p class="text-sm text-gray-600">
@@ -2369,9 +2369,7 @@
                           @error="handleImageError"
                         />
                       </div>
-                      <h4 class="font-semibold text-gray-800">
-                        ⚡ Coup de boost
-                      </h4>
+                      <h4 class="font-semibold text-gray-800">Coup de boost</h4>
                     </div>
                     <div class="text-right">
                       <span
@@ -2389,7 +2387,7 @@
                         background-color: rgba(203, 108, 230, 0.1);
                         color: #cb6ce6;
                       "
-                      >Réactive ⚡</span
+                      >⚡ Réactive</span
                     >
                   </div>
                   <p class="text-sm text-gray-600">
@@ -5863,7 +5861,7 @@ const setupSteps = [
   "<strong>Sélectionnez les cartes selon le nombre de joueurs :</strong><span class='block mt-2'>• <strong>3 joueurs :</strong> Prenez uniquement les cartes marquées 3+</span><span class='block'>• <strong>4 joueurs :</strong> Ajoutez les cartes marquées 4+</span><span class='block'>• <strong>5 joueurs :</strong> Ajoutez aussi les cartes marquées 5+</span><span class='block mt-2'><em>Les indicateurs se trouvent en haut à droite des cartes</em></span>",
   "<strong>Mélangez toutes les cartes de jeu séléctionnées</strong>",
   "Chaque joueur reçoit <strong>5 cartes</strong>",
-  "<strong>Assemblez la jauge :</strong> placez les 3 cartes piste côte à côte <span class='text-blue-600 text-sm'>(<em>Peut être passé si vous utilisez l'application</em>)</span>",
+  "<strong>Placez le plateau de jeu</strong> au centre de la table <span class='text-blue-600 text-sm'>(<em>Peut être passé si vous utilisez l'application</em>)</span>",
   "Placez le jeton <strong>taille du gâteau sur le nombre de joueurs</strong> (3, 4 ou 5) et le jeton <strong>capacité du four sur 20</strong> <span class='text-blue-600 text-sm'>(<em>Peut être passé si vous utilisez l'application</em>)</span>",
   '<strong>Désignez le premier joueur</strong> et donnez-lui la carte "Premier Joueur" qu\'il place devant lui',
   '<strong>Préparez les événements :</strong><span class="block mt-2">• Piochez 9 cartes Événement au hasard (hors Minuteur final)</span><span class="block">• Prenez 2 cartes au hasard de ce paquet + la carte "Minuteur final"</span><span class="block">• Mélangez ces 3 cartes et placez-les <strong>sous la pile</strong> d\'événements</span><span class="block mt-2"><span class="text-blue-600 text-sm">(<em>Peut être passé si vous utilisez l\'application</em>)</span></span>',
