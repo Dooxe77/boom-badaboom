@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Coup d'oeil gourmand",
+    "type": "Action",
+    "effect": "Regardez secrètement la main d'un joueur et volez une carte au choix",
+    "quantity": 3,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Accident de cuisine",
+    "type": "Action",
+    "effect": "Un joueur de votre choix passe complètement son prochain tour",
+    "quantity": 3,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Maladresse",
+    "type": "Action",
+    "effect": "Un joueur de votre choix doit jouer une carte au hasard de sa main",
+    "quantity": 2,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Four élargi",
+    "type": "Action",
+    "effect": "Augmentez la capacité du four d'une valeur mystère",
+    "quantity": 3,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Four rétréci",
+    "type": "Action",
+    "effect": "Diminuez la capacité du four d'une valeur mystère",
+    "quantity": 3,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Récupération d'ingrédient",
+    "type": "Action",
+    "effect": "Reprenez une carte au choix dans la défausse",
+    "quantity": 4,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Échange de Tablier",
+    "type": "Action",
+    "effect": "Échangez votre main avec celle d'un joueur de ton choix",
+    "quantity": 1,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Inspection du frigo",
+    "type": "Action",
+    "effect": "Regardez les 3 prochaines cartes de la pioche et changez l'ordre",
+    "quantity": 1,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Pincée de hasard",
+    "type": "Action",
+    "effect": "Piochez une carte de valeur aléatoire et modifiez la taille du gâteau : 1 ou 2 = +3 / 3 = 0 / 4 ou 5 = -3",
+    "quantity": 1,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Changement de toque",
+    "type": "Action",
+    "effect": "Échangez votre carte Rôle avec celle face cachée",
+    "quantity": 1,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Nettoyage complet",
+    "type": "Action",
+    "effect": "Défaussez toutes vos cartes et piochez-en le même nombre",
+    "quantity": 1,
+    "image": "/placeholder-card.png"
+  },
+  {
+    "name": "Remixage total",
+    "type": "Action",
+    "effect": "Mélangez toutes les cartes en main avec la défausse. Redistribuez 5 cartes par joueur",
+    "quantity": 1,
+    "image": "/placeholder-card.png"
+  }
+]
