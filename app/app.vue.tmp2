@@ -3887,6 +3887,45 @@
       :history="unifiedHistory"
       @close="showHistoryModal = false"
     />
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">4.</span>
+                <span
+                  >Un événement reste actif pendant
+                  <strong>tout le tour</strong>.</span
+                >
+              </div>
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">5.</span>
+                <span
+                  >Il y a <strong>10 événements</strong> au total. Le "Minuteur
+                  final" apparaît aux tours 8, 9 ou 10.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Note importante -->
+          <div
+            class="bg-orange-900 bg-opacity-50 border border-orange-500 rounded-lg p-2 sm:p-3 mb-4 sm:mb-4"
+          >
+            <div class="text-orange-300 text-xs font-bold mb-1">
+              ⚠️ Important
+            </div>
+            <div class="text-orange-100 text-xs">
+              Cette application gère la taille du gâteau, la capacité du four et
+              les événements. Les joueurs gèrent cartes et actions !
+            </div>
+          </div>
+
+          <button
+            @click="startGame"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors w-full text-sm sm:text-base"
+          >
+            ✓ C'est parti !
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Modale Confirmation Fermeture Partie -->
     <div
@@ -3926,13 +3965,66 @@
     </div>
   </div>
 
-  <!-- GameModeModal Component -->
-  <GameModeModal
-    :show="showGameModeModal"
-    @close="closeGameModeModal"
-    @select-competitive="selectCompetitiveMode"
-    @select-cooperative="selectCooperativeMode"
-  />
+  <!-- Modale Sélection Mode de Jeu -->
+  <div
+    v-if="showGameModeModal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+    @click="closeGameModeModal"
+  >
+    <div
+      class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform transition-all duration-300 scale-100"
+      @click.stop
+    >
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-red-500 to-pink-500 p-6 text-center">
+        <h3 class="text-xl font-bold text-white mb-2">
+          🎯 Choisissez votre Mode
+        </h3>
+        <p class="text-red-100 text-sm">Comment souhaitez-vous jouer ?</p>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-4">
+        <!-- Mode Rôles cachés -->
+        <button
+          @click="selectCompetitiveMode"
+          class="w-full group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between">
+            <div class="text-left">
+              <div class="font-bold text-lg mb-1">🎭 Mode Rôles cachés</div>
+              <div class="text-red-100 text-sm">
+                3-5 joueurs • Bluff et déduction
+              </div>
+            </div>
+            <div
+              class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity"
+            >
+              ⚔️
+            </div>
+          </div>
+        </button>
+        <!-- Mode Coopératif -->
+        <button
+          @click="selectCooperativeMode"
+          class="w-full group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between">
+            <div class="text-left">
+              <div class="font-bold text-lg mb-1">👻 Mode Coopératif</div>
+              <div class="text-blue-100 text-sm">
+                1-2 joueurs contre Fourneau le Facétieux
+              </div>
+            </div>
+            <div
+              class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity"
+            >
+              🤝
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Modale Sélection Difficulté IA -->
   <div
@@ -4031,21 +4123,81 @@
     </div>
   </div>
 
-  <!-- AIMode Component -->
-  <AIMode
-    :show="showAIMode"
-    :selected-difficulty="selectedDifficulty"
-    @close="closeAIMode"
-  />
+  <!-- Mode IA Coopératif -->
+  <div
+    v-if="showAIMode"
+    class="fixed inset-0 z-50 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center"
+  >
+    <div class="w-full h-full relative overflow-hidden">
+      <!-- Background avec effet coloré design -->
+      <div
+        class="absolute inset-0"
+        style="
+          background-image: radial-gradient(
+              circle at 25% 25%,
+              #3b82f6 1px,
+              transparent 1px
+            ),
+            radial-gradient(circle at 75% 75%, #8b5cf6 1px, transparent 1px);
+          background-size: 50px 50px;
+        "
+      ></div>
+      <!-- Header -->
+      <div
+        class="relative z-10 bg-black bg-opacity-30 border-b border-blue-400"
+      >
+        <div
+          class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center"
+        >
+          <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+            👻 Défi contre Fourneau le Facétieux
+          </h1>
+          <button
+            @click="closeAIMode"
+            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+          >
+            ✕ Fermer
+          </button>
+        </div>
+      </div>
+      <!-- Main content -->
+      <div class="relative z-10 max-w-4xl mx-auto p-4 h-full overflow-auto">
+        <!-- Informations de partie -->
+        <div class="mb-6 text-center space-y-4">
+          <!-- Difficulté sélectionnée -->
+          <div
+            v-if="selectedDifficulty"
+            class="inline-block bg-black bg-opacity-50 text-white px-6 py-4 rounded-2xl shadow-lg border border-blue-400"
+          >
+            <div class="text-sm opacity-90 mb-1">Difficulté</div>
+            <div class="text-xl font-bold">{{ selectedDifficulty.name }}</div>
+            <div class="text-sm opacity-80">
+              {{ selectedDifficulty.turns }} tours • Capacité du four
+              {{ selectedDifficulty.threshold }}
+            </div>
+          </div>
+        </div>
 
-  <!-- EventCard Component -->
-  <EventCard
-    :show="showEventModal"
-    :event="currentEvent"
-    :turn-number="turnNumber"
-    :pulse="eventModalPulse"
-    @close="closeEventModal"
-  />
+        <!-- Placeholder pour le contenu du mode IA -->
+        <div
+          class="text-center text-white bg-black bg-opacity-30 rounded-xl p-8"
+        >
+          <div class="text-4xl mb-4">🚧</div>
+          <h3 class="text-xl font-bold mb-4">Mode en développement</h3>
+          <p class="text-blue-200 mb-6">
+            Le mode coopératif contre Fourneau le Facétieux sera bientôt
+            disponible avec toutes les nouvelles règles !
+          </p>
+          <button
+            @click="closeAIMode"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            Retour au menu
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modale Fin de Partie -->
   <div
@@ -4274,6 +4426,18 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { Analytics } from "@vercel/analytics/vue";
+
+// Import des composants
+import Header from '~/components/Header.vue';
+import Navigation from '~/components/Navigation.vue';
+import FAQ from '~/components/FAQ.vue';
+import ContactForm from '~/components/ContactForm.vue';
+import CounterMode from '~/components/CounterMode.vue';
+import AIMode from '~/components/AIMode.vue';
+import GameModeModal from '~/components/GameModeModal.vue';
+import CardModal from '~/components/CardModal.vue';
+import EventCard from '~/components/EventCard.vue';
+import HistoryModal from '~/components/HistoryModal.vue';
 
 // Fonction pour gérer les images manquantes
 const handleImageError = (event) => {

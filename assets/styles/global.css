@@ -1,0 +1,19 @@
+/* Global styles for Boom Badaboom */
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+  .nav,
+  .back-to-top {
+    display: none !important;
+  }
+
+  .content {
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+}

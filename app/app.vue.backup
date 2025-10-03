@@ -1,11 +1,216 @@
 <template>
   <Analytics />
   <div class="min-h-screen bg-gray-50">
-    <!-- Header Component -->
-    <Header @start-game="openGameModeSelection" />
+    <!-- Header -->
+    <header class="relative overflow-hidden">
+      <!-- Background avec motif culinaire -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50"
+      ></div>
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-10 left-10 text-6xl">🧁</div>
+        <div class="absolute top-20 right-16 text-4xl">🍰</div>
+        <div class="absolute bottom-16 left-20 text-5xl">🥧</div>
+        <div class="absolute bottom-10 right-12 text-3xl">🍪</div>
+      </div>
 
-    <!-- Navigation Component -->
-    <Navigation />
+      <div class="relative container mx-auto px-4 sm:px-6 py-8">
+        <div class="flex items-center justify-between mb-6">
+          <!-- Logo et titre -->
+          <div class="flex items-center space-x-4">
+            <div
+              class="w-16 h-16 sm:w-20 sm:h-20 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg flex items-center justify-center p-2"
+            >
+              <img
+                src="/logo.png"
+                alt="Logo Boom Badaboom"
+                loading="lazy"
+                class="w-full h-full object-contain"
+                @error="handleImageError"
+              />
+            </div>
+            <div class="hidden sm:block">
+              <h1
+                class="text-2xl sm:text-3xl font-bold text-gray-800 leading-tight"
+              >
+                BOOM BADABOOM
+              </h1>
+              <p class="text-lg text-orange-600 font-medium">
+                Chaos en Cuisine
+              </p>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex items-center gap-2 sm:gap-3">
+            <button
+              @click="openGameModeSelection"
+              class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-base"
+            >
+              <span class="hidden sm:inline">🎮 Démarrer la partie</span>
+              <span class="sm:hidden">🎮 Jouer</span>
+            </button>
+            <div
+              class="bg-orange-100 text-orange-700 px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-medium border border-orange-200"
+            >
+              ⚠️ Prototype
+            </div>
+          </div>
+        </div>
+
+        <!-- Titre mobile -->
+        <div class="sm:hidden text-center mb-6">
+          <h1 class="text-xl font-bold text-gray-800 leading-tight">
+            BOOM BADABOOM
+          </h1>
+          <p class="text-base text-orange-600 font-medium">Chaos en Cuisine</p>
+        </div>
+
+        <!-- Infos du jeu dans une carte -->
+        <div
+          class="bg-gradient-to-br from-white/85 via-orange-50/90 to-amber-50/85 backdrop-blur-md rounded-2xl shadow-xl border border-orange-300/60 p-6 ring-1 ring-orange-100/50"
+        >
+          <div class="text-center">
+            <p class="text-gray-700 text-lg mb-3">
+              🎭 Jeu de cartes à rôles cachés où les
+              <span class="font-semibold text-orange-600">Pâtissiers</span>
+              tentent de réussir le gâteau parfait, les
+              <span class="font-semibold text-red-500">Farceurs</span> sabotent
+              la recette et le
+              <span class="font-semibold text-yellow-600">Glouton</span>
+              attend le moment parfait pour voler le gâteau et remporter la
+              victoire !
+            </p>
+
+            <div
+              class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-sm text-gray-600 mb-4"
+            >
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">👥</span>
+                <span>1-2 (Coopératif) ou 3-5 (Rôles cachés)</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">⏱️</span>
+                <span>15-20 min</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">🎂</span>
+                <span>7 ans +</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 text-xs">
+              <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full"
+                >Bluff</span
+              >
+              <span class="bg-rose-100 text-rose-700 px-3 py-1 rounded-full"
+                >Tension</span
+              >
+              <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full"
+                >Gourmandise</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Créateur et Éditeur -->
+        <div
+          class="flex flex-col sm:flex-row justify-center items-center gap-3 mt-6"
+        >
+          <div
+            class="bg-gradient-to-r from-slate-100 to-gray-100 border border-slate-200 px-4 py-2 rounded-full shadow-sm"
+          >
+            <div class="flex items-center space-x-2">
+              <span class="text-sm text-gray-600">🎨 Créé par</span>
+              <span class="text-sm font-semibold text-slate-700"
+                >Anthony Ruelle</span
+              >
+            </div>
+          </div>
+          <div
+            class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 px-4 py-2 rounded-full shadow-sm"
+          >
+            <div class="flex items-center space-x-2">
+              <span class="text-sm text-gray-600">📚 Édité par</span>
+              <span class="text-sm font-semibold text-amber-700"
+                >La Ruelle Aux Jeux</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav :class="['sticky z-50 bg-white shadow-lg']">
+      <div class="container mx-auto px-2 sm:px-4 md:px-6">
+        <div class="flex justify-between items-center py-3 md:py-4">
+          <!-- Desktop menu -->
+          <div class="hidden md:flex justify-center flex-1">
+            <div class="flex flex-wrap justify-center gap-2 lg:gap-4 xl:gap-6">
+              <a
+                v-for="link in navLinks"
+                :key="link.id"
+                :href="`#${link.id}`"
+                class="px-2 py-2 text-sm lg:text-base lg:px-3 xl:px-4 font-medium text-gray-700 hover:text-white hover:bg-red-500 rounded-lg transition-all duration-300 whitespace-nowrap"
+                @click="closeMobileMenu"
+              >
+                {{ link.label }}
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button
+            @click="toggleMobileMenu"
+            class="md:hidden relative w-6 h-6 flex flex-col justify-center items-center focus:outline-none"
+          >
+            <span
+              :class="{
+                'rotate-45 translate-y-1': isMobileMenuOpen,
+                'rotate-0 translate-y-0': !isMobileMenuOpen,
+              }"
+              class="block w-5 h-0.5 bg-gray-600 transition-all duration-300 ease-out"
+            ></span>
+            <span
+              :class="{
+                'opacity-0': isMobileMenuOpen,
+                'opacity-100': !isMobileMenuOpen,
+              }"
+              class="block w-5 h-0.5 bg-gray-600 mt-1 transition-all duration-300 ease-out"
+            ></span>
+            <span
+              :class="{
+                '-rotate-45 -translate-y-1': isMobileMenuOpen,
+                'rotate-0 translate-y-0': !isMobileMenuOpen,
+              }"
+              class="block w-5 h-0.5 bg-gray-600 mt-1 transition-all duration-300 ease-out"
+            ></span>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div
+          :class="{
+            'max-h-screen opacity-100': isMobileMenuOpen,
+            'max-h-0 opacity-0': !isMobileMenuOpen,
+          }"
+          class="md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white"
+        >
+          <div class="py-2 space-y-1">
+            <a
+              v-for="link in navLinks"
+              :key="link.id"
+              :href="`#${link.id}`"
+              @click="closeMobileMenu"
+              class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-red-500"
+            >
+              {{ link.label }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
     <div class="container mx-auto px-4 sm:px-6 py-8">
       <!-- Concept du Jeu -->
@@ -3361,8 +3566,68 @@
       </section> -->
 
       <!-- FAQ -->
-      <!-- FAQ Component -->
-      <FAQ />
+      <section id="faq" class="mb-12 relative overflow-hidden rounded-3xl">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-orange-50/30 to-red-50/30"
+        ></div>
+        <div class="absolute inset-0 opacity-5">
+          <div class="absolute top-8 left-8 text-5xl">❓</div>
+          <div class="absolute top-16 right-12 text-3xl">💡</div>
+          <div class="absolute bottom-20 left-1/4 text-4xl">🤔</div>
+          <div class="absolute bottom-12 right-1/3 text-2xl">💬</div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-white via-orange-50/30 to-amber-50/50 rounded-3xl shadow-lg border border-orange-100/50 backdrop-blur-sm overflow-hidden relative z-10"
+        >
+          <div class="p-6 sm:p-10">
+            <div class="text-center mb-10">
+              <h2
+                class="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent mb-4"
+              >
+                Questions Fréquentes
+              </h2>
+              <div
+                class="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4"
+              ></div>
+              <p class="text-gray-600 text-lg font-medium">
+                Toutes les réponses aux questions sur les règles du jeu
+              </p>
+            </div>
+
+            <div class="space-y-6 max-w-4xl mx-auto">
+              <div
+                v-for="faq in faqs"
+                :key="faq.question"
+                class="bg-white/90 backdrop-blur-sm border-2 border-orange-200/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center shadow-lg"
+                  >
+                    <div class="text-white text-sm font-bold">Q</div>
+                  </div>
+                  <div class="flex-1">
+                    <h3
+                      class="text-lg font-bold text-gray-800 mb-4 leading-tight"
+                    >
+                      {{ faq.question }}
+                    </h3>
+                    <div
+                      class="bg-orange-50/70 backdrop-blur-sm rounded-lg p-4 border border-orange-200/50"
+                    >
+                      <p
+                        class="text-gray-700 leading-relaxed"
+                        v-html="faq.answer"
+                      ></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Mode Coopératif -->
       <section
@@ -3794,34 +4059,827 @@
       </svg>
     </button>
 
-    <!-- CounterMode Component -->
-    <CounterMode
-      :show="showCounterMode"
-      :elapsed-time="elapsedTime"
-      :player-count="playerCount"
-      :turn-number="turnNumber"
-      :final-countdown-revealed="finalCountdownRevealed"
-      :event-deck-length="eventDeck.length"
-      :game-over="gameOver"
-      :counter-value="counterValue"
-      :threshold-value="thresholdValue"
-      :min-threshold="minThreshold"
-      :max-threshold="maxThreshold"
-      :current-event="currentEvent"
-      :is-explosion="isExplosion"
-      :show-end-game-modal="showEndGameModal"
-      :game-duration="gameDuration"
-      @next-turn="finalCountdownRevealed ? endGame() : drawNextEvent()"
-      @show-history="showHistoryModal = true"
-      @close-confirm="showCloseConfirmModal = true"
-      @adjust-counter="adjustCounter"
-      @adjust-threshold="adjustThreshold"
-      @quit-game="quitGame"
-    />
+    <!-- Mode Compteur -->
+    <div
+      v-if="showCounterMode"
+      class="fixed inset-0 z-50 bg-black flex items-center justify-center"
+    >
+      <div class="w-full h-full relative overflow-hidden">
+        <!-- Background avec effet coloré design -->
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-red-900"
+        >
+          <!-- Effet de grille -->
+          <div
+            class="absolute inset-0 opacity-20"
+            style="
+              background-image: radial-gradient(
+                circle at 2px 2px,
+                rgba(255, 255, 255, 0.15) 1px,
+                transparent 0
+              );
+              background-size: 40px 40px;
+            "
+          ></div>
+          <!-- Cercles décoratifs -->
+          <div
+            class="absolute top-1/4 left-1/4 w-32 h-32 bg-red-500 rounded-full opacity-20 blur-xl animate-pulse"
+          ></div>
+          <div
+            class="absolute bottom-1/4 right-1/4 w-24 h-24 bg-blue-500 rounded-full opacity-30 blur-lg animate-pulse"
+            style="animation-delay: 1s"
+          ></div>
+          <div
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-purple-500 rounded-full opacity-10 blur-2xl animate-pulse"
+            style="animation-delay: 2s"
+          ></div>
+        </div>
+
+        <!-- Overlay semi-transparent -->
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+        <!-- Interface utilisateur -->
+        <div class="relative z-10 h-full flex flex-col">
+          <!-- Header -->
+          <div class="flex flex-col bg-black bg-opacity-70">
+            <!-- Ligne principale header -->
+            <div class="flex justify-between items-center p-4">
+              <!-- Timer et informations centrés -->
+              <div class="flex-1 text-center">
+                <div v-if="elapsedTime" class="text-white text-sm opacity-60">
+                  ⏱️ {{ elapsedTime }}
+                </div>
+                <div class="text-white text-sm opacity-70 mt-1">
+                  👥 {{ playerCount }} joueur{{ playerCount > 1 ? "s" : "" }}
+                </div>
+                <div
+                  v-if="turnNumber > 0"
+                  class="text-white text-xs opacity-50 mt-1"
+                >
+                  <span
+                    v-if="finalCountdownRevealed"
+                    class="text-red-300 font-bold"
+                    >🚨 DERNIER TOUR 🚨</span
+                  >
+                  <span v-else
+                    >Tour {{ turnNumber }} |
+                    {{
+                      eventDeck.length > 0
+                        ? eventDeck.length + " événements max restants"
+                        : "Tous les événements révélés"
+                    }}</span
+                  >
+                </div>
+              </div>
+
+              <div class="flex space-x-2">
+                <button
+                  @click="finalCountdownRevealed ? endGame() : drawNextEvent()"
+                  :disabled="
+                    gameOver ||
+                    (eventDeck.length === 0 && !finalCountdownRevealed)
+                  "
+                  :class="{
+                    'bg-purple-500 hover:bg-purple-600':
+                      !gameOver &&
+                      eventDeck.length > 0 &&
+                      !finalCountdownRevealed,
+                    'bg-red-500 hover:bg-red-600':
+                      !gameOver && finalCountdownRevealed,
+                    'bg-gray-600 opacity-50 cursor-not-allowed':
+                      gameOver ||
+                      (eventDeck.length === 0 && !finalCountdownRevealed),
+                  }"
+                  class="text-white px-2 sm:px-3 py-2 rounded-lg font-bold transition-colors text-xs sm:text-sm flex items-center space-x-1"
+                >
+                  <span>🎲</span>
+                  <span class="hidden xs:inline sm:inline">
+                    {{
+                      finalCountdownRevealed
+                        ? "Fin de partie"
+                        : eventDeck.length > 0
+                        ? "Nouveau Tour"
+                        : "Plus d'événements"
+                    }}
+                  </span>
+                </button>
+                <button
+                  @click="showHistoryModal = true"
+                  class="bg-gray-700 hover:bg-gray-800 text-white px-2 sm:px-3 py-2 rounded-lg font-bold transition-colors text-xs sm:text-sm flex items-center space-x-1"
+                >
+                  <span>📋</span>
+                  <span class="hidden xs:inline sm:inline">Historique</span>
+                </button>
+                <button
+                  @click="showCloseConfirmModal = true"
+                  class="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg font-bold transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bandeau des valeurs (légende) -->
+          <div
+            class="flex justify-center items-center gap-4 sm:gap-6 px-4 py-2 bg-black bg-opacity-50 border-b border-gray-700"
+          >
+            <!-- Taille du gâteau -->
+            <div class="flex items-center gap-2">
+              <span class="text-white text-xs sm:text-sm opacity-70">
+                <span class="md:hidden">🎂 Gâteau:</span>
+                <span class="hidden md:inline">🎂 Taille du gâteau:</span>
+              </span>
+              <span
+                class="text-white font-bold text-sm sm:text-base px-2 py-1 rounded"
+                :class="{
+                  'bg-blue-600': counterValue < thresholdValue - 3,
+                  'bg-orange-600':
+                    counterValue >= thresholdValue - 3 &&
+                    counterValue < thresholdValue,
+                  'bg-red-600': counterValue >= thresholdValue,
+                }"
+              >
+                {{ counterValue }}
+              </span>
+            </div>
+
+            <!-- Capacité du four -->
+            <div class="flex items-center gap-2">
+              <span class="text-white text-xs sm:text-sm opacity-70">
+                <span class="md:hidden">🔥 Four:</span>
+                <span class="hidden md:inline">🔥 Capacité du four:</span>
+              </span>
+              <span
+                class="text-white font-bold text-sm sm:text-base bg-red-600 px-2 py-1 rounded"
+              >
+                {{ thresholdValue }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Zone principale avec pions -->
+          <div class="flex-1 relative">
+            <!-- Ligne principale améliorée avec effet 3D -->
+            <div
+              class="absolute h-3 rounded-full bg-gradient-to-b from-gray-600 via-gray-700 to-gray-800 shadow-inner transition-all duration-300"
+              :style="{
+                left: '10%',
+                right: '10%',
+                top: '50%',
+                transform: 'translateY(-50%)',
+              }"
+            >
+              <!-- Barre de progression avec dégradé -->
+              <div
+                class="absolute inset-0 h-full rounded-full bg-gradient-to-r from-blue-400 via-yellow-500 to-red-600 opacity-40"
+              ></div>
+              <!-- Effet de brillance sur le dessus -->
+              <div
+                class="absolute top-0 left-0 right-0 h-1 rounded-t-full bg-gradient-to-b from-white to-transparent opacity-30"
+              ></div>
+
+              <!-- Graduations sur la ligne -->
+              <div
+                v-for="mark in [0, 5, 10, 15, 20, 25, 30]"
+                :key="'mark-' + mark"
+                class="absolute"
+                :style="{
+                  left: `${(mark / 30) * 100}%`,
+                  top: '50%',
+                  transform: 'translate(-50%, -50%)',
+                }"
+              >
+                <!-- Trait de graduation -->
+                <div
+                  class="w-0.5 bg-white opacity-50"
+                  :class="{
+                    'h-4': mark % 10 === 0,
+                    'h-3': mark % 10 !== 0,
+                  }"
+                  :style="{
+                    transform: 'translateY(-50%)',
+                  }"
+                ></div>
+                <!-- Chiffre sous la ligne -->
+                <div
+                  v-if="mark % 5 === 0"
+                  class="absolute text-white text-xs opacity-60 font-medium"
+                  :style="{
+                    top: '12px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                  }"
+                >
+                  {{ mark }}
+                </div>
+              </div>
+            </div>
+
+            <!-- Représentation du Four avec pion capacité -->
+            <div
+              class="absolute transition-all duration-500"
+              :style="{
+                left: `${getThresholdPosition()}%`,
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+              }"
+            >
+              <!-- Version mobile : simple pastille -->
+              <div
+                class="md:hidden w-10 h-10 rounded-full bg-gradient-to-br from-red-400 via-red-500 to-red-700 border-2 border-white shadow-xl flex items-center justify-center"
+              >
+                <div class="text-white text-sm font-black drop-shadow-lg">
+                  {{ thresholdValue }}
+                </div>
+              </div>
+
+              <!-- Version desktop : four complet -->
+              <div class="hidden md:block">
+                <!-- Corps du four - forme de four vintage -->
+                <div
+                  class="relative w-24 h-28 rounded-t-lg bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 border-3 border-gray-600 shadow-2xl"
+                  :style="{
+                    filter: 'drop-shadow(0 0 15px rgba(239, 68, 68, 0.5))',
+                  }"
+                >
+                  <!-- Porte du four (fenêtre) -->
+                  <div
+                    class="absolute top-2 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-lg bg-gradient-to-br from-red-400 via-red-500 to-red-700 border-2 border-gray-600 shadow-inner flex flex-col items-center justify-center"
+                  >
+                    <!-- Reflet de la vitre -->
+                    <div
+                      class="absolute inset-0 rounded-lg bg-gradient-to-br from-white via-transparent to-transparent opacity-20"
+                    ></div>
+
+                    <!-- Contenu - Icône four + chiffre -->
+                    <div
+                      class="relative text-white font-bold text-center z-10 flex flex-col items-center"
+                    >
+                      <div class="text-xl mb-0.5">🔥</div>
+                      <div class="text-lg font-black drop-shadow-lg">
+                        {{ thresholdValue }}
+                      </div>
+                    </div>
+
+                    <!-- Effet de chaleur animé -->
+                    <div
+                      class="absolute inset-0 rounded-lg bg-red-500 opacity-30 animate-ping"
+                    ></div>
+                  </div>
+
+                  <!-- Poignée du four -->
+                  <div
+                    class="absolute bottom-1.5 left-1/2 transform -translate-x-1/2 w-10 h-1.5 rounded-full bg-gray-500 border border-gray-400"
+                  ></div>
+
+                  <!-- Boutons de contrôle du four -->
+                  <div class="absolute top-1.5 right-1.5 flex flex-col gap-0.5">
+                    <div
+                      class="w-1.5 h-1.5 rounded-full bg-yellow-400 opacity-70"
+                    ></div>
+                    <div
+                      class="w-1.5 h-1.5 rounded-full bg-red-400 opacity-70"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- Socle du four -->
+                <div
+                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-28 h-2.5 bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 rounded-b-lg"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Pion Gâteau (bleu) - Design amélioré avec icône gâteau -->
+            <div
+              class="absolute rounded-full border-2 md:border-4 border-white shadow-2xl flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-3xl hover:border-yellow-300 cursor-pointer z-10"
+              :style="{
+                left: `${getCounterPosition()}%`,
+                top: '50%',
+              }"
+              :class="[
+                // Taille responsive
+                'w-10 h-10 -translate-x-5 -translate-y-5 md:w-24 md:h-24 md:-translate-x-12 md:-translate-y-12',
+                // États dynamiques
+                {
+                  'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700':
+                    counterValue < thresholdValue - 3,
+                  'bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600':
+                    counterValue >= thresholdValue - 3 &&
+                    counterValue < thresholdValue,
+                  'bg-gradient-to-br from-red-500 via-red-600 to-red-800':
+                    counterValue >= thresholdValue,
+                },
+              ]"
+            >
+              <!-- Cercle intérieur avec effet de profondeur (desktop seulement) -->
+              <div
+                class="hidden md:block absolute inset-1 rounded-full opacity-80"
+                :class="{
+                  'bg-gradient-to-t from-blue-800 to-blue-400':
+                    counterValue < thresholdValue - 3,
+                  'bg-gradient-to-t from-orange-800 to-yellow-400':
+                    counterValue >= thresholdValue - 3 &&
+                    counterValue < thresholdValue,
+                  'bg-gradient-to-t from-red-900 to-red-500':
+                    counterValue >= thresholdValue,
+                }"
+              ></div>
+
+              <!-- Contenu du pion - Version mobile : juste le chiffre -->
+              <div
+                class="md:hidden relative text-white font-bold text-center z-10"
+              >
+                <div class="text-sm font-black drop-shadow-lg">
+                  {{ counterValue }}
+                </div>
+              </div>
+
+              <!-- Contenu du pion - Version desktop : Icône gâteau + chiffre -->
+              <div
+                class="hidden md:flex relative text-white font-bold text-center z-10 flex-col items-center"
+              >
+                <div class="text-xl mb-0.5">
+                  {{
+                    counterValue < thresholdValue - 3
+                      ? "🎂"
+                      : counterValue >= thresholdValue
+                      ? "💥"
+                      : "⚠️"
+                  }}
+                </div>
+                <div class="text-lg font-black drop-shadow-lg">
+                  {{ counterValue }}
+                </div>
+              </div>
+
+              <!-- Effet de brillance (desktop seulement) -->
+              <div
+                class="hidden md:block absolute top-2 left-3 w-4 h-4 bg-white bg-opacity-40 rounded-full blur-sm"
+              ></div>
+
+              <!-- Pulse ring conditionnel -->
+              <div
+                v-if="counterValue >= thresholdValue - 3"
+                class="absolute inset-0 rounded-full opacity-40 animate-ping"
+                :class="{
+                  'bg-yellow-500':
+                    counterValue >= thresholdValue - 3 &&
+                    counterValue < thresholdValue,
+                  'bg-red-500': counterValue >= thresholdValue,
+                }"
+              ></div>
+
+              <!-- Glow effect quand proche du seuil (desktop seulement) -->
+              <div
+                v-if="counterValue >= thresholdValue - 2"
+                class="hidden md:block absolute inset-0 rounded-full"
+                :style="{
+                  filter:
+                    counterValue >= thresholdValue
+                      ? 'drop-shadow(0 0 20px rgba(239, 68, 68, 0.8))'
+                      : 'drop-shadow(0 0 16px rgba(234, 179, 8, 0.6))',
+                }"
+              ></div>
+            </div>
+
+            <!-- Indicateurs min/max -->
+            <div class="absolute bottom-8 left-4 text-white text-xs opacity-75">
+              <div class="bg-black bg-opacity-50 px-2 py-1 rounded">MIN: 0</div>
+            </div>
+            <div
+              class="absolute bottom-8 right-4 text-white text-xs opacity-75"
+            >
+              <div class="bg-black bg-opacity-50 px-2 py-1 rounded">
+                MAX: 30
+              </div>
+            </div>
+          </div>
+
+          <!-- Contrôles du compteur -->
+          <div class="p-4 bg-black bg-opacity-70">
+            <!-- Événement actuel -->
+            <div
+              v-if="currentEvent && currentEvent.name !== 'Minuteur final'"
+              class="mb-4 p-3 bg-purple-900 bg-opacity-50 border border-purple-400 rounded-lg"
+            >
+              <div class="text-purple-200 text-xs mb-1">
+                🎲 Événement actuel
+              </div>
+              <div class="text-yellow-300 font-bold text-sm mb-1">
+                {{ currentEvent.name }}
+              </div>
+              <div
+                class="text-white text-xs opacity-90"
+                v-html="currentEvent.effect"
+              ></div>
+            </div>
+
+            <!-- Événement final -->
+            <div
+              v-if="currentEvent && currentEvent.name === 'Minuteur final'"
+              class="mb-4 p-3 bg-red-900 bg-opacity-70 border-2 border-red-500 rounded-lg"
+            >
+              <div class="text-red-200 text-xs mb-1">🚨 Événement spécial</div>
+              <div class="text-yellow-300 font-bold text-sm mb-1">
+                {{ currentEvent.name }}
+              </div>
+              <div
+                class="text-white text-xs font-bold"
+                v-html="currentEvent.effect"
+              ></div>
+            </div>
+
+            <div class="mb-3">
+              <h3 class="text-white font-bold mb-2 text-sm md:text-base">
+                🎂 Taille du Gâteau
+              </h3>
+
+              <!-- Boutons compacts sur une ligne -->
+              <div class="flex flex-wrap gap-1 md:gap-1 justify-center">
+                <!-- Version mobile : seulement -1 et +1 avec valeur au milieu -->
+                <template v-if="true">
+                  <button
+                    @click="adjustCounter(-1)"
+                    :disabled="gameOver"
+                    :class="{
+                      'bg-green-500 hover:bg-green-600': !gameOver,
+                      'bg-gray-600 opacity-50 cursor-not-allowed': gameOver,
+                    }"
+                    class="md:hidden text-white font-bold py-2 px-4 text-base rounded-lg transition-colors active:scale-95"
+                  >
+                    -1
+                  </button>
+
+                  <div
+                    class="md:hidden bg-white bg-opacity-20 text-white font-bold py-2 px-3 rounded-lg flex items-center mx-1 text-base"
+                  >
+                    {{ counterValue }}
+                  </div>
+
+                  <button
+                    @click="adjustCounter(+1)"
+                    :disabled="gameOver"
+                    :class="{
+                      'bg-red-500 hover:bg-red-600': !gameOver,
+                      'bg-gray-600 opacity-50 cursor-not-allowed': gameOver,
+                    }"
+                    class="md:hidden text-white font-bold py-2 px-4 text-base rounded-lg transition-colors active:scale-95"
+                  >
+                    +1
+                  </button>
+                </template>
+
+                <!-- Version desktop : tous les boutons -->
+                <template v-if="true">
+                  <!-- Boutons de diminution -->
+                  <button
+                    v-for="delta in [-3, -2, -1]"
+                    :key="delta"
+                    @click="adjustCounter(delta)"
+                    :disabled="gameOver"
+                    :class="{
+                      'bg-green-500 hover:bg-green-600': !gameOver,
+                      'bg-gray-600 opacity-50 cursor-not-allowed': gameOver,
+                    }"
+                    class="hidden md:inline-block text-white font-bold py-2 px-3 text-sm rounded-lg transition-colors active:scale-95"
+                  >
+                    {{ delta }}
+                  </button>
+
+                  <!-- Séparateur visuel -->
+                  <div class="hidden md:block w-px bg-gray-500 mx-1"></div>
+
+                  <!-- Boutons d'augmentation -->
+                  <button
+                    v-for="delta in [+1, +2, +3, +4, +5]"
+                    :key="delta"
+                    @click="adjustCounter(delta)"
+                    :disabled="gameOver"
+                    :class="{
+                      'bg-red-500 hover:bg-red-600': !gameOver,
+                      'bg-gray-600 opacity-50 cursor-not-allowed': gameOver,
+                    }"
+                    class="hidden md:inline-block text-white font-bold py-2 px-3 text-sm rounded-lg transition-colors active:scale-95"
+                  >
+                    +{{ delta }}
+                  </button>
+                </template>
+              </div>
+            </div>
+
+            <!-- Contrôles du seuil -->
+            <div class="mb-3">
+              <h3 class="text-white font-bold mb-2 text-sm md:text-base">
+                🔥 Capacité du Four
+              </h3>
+              <div class="flex justify-center flex-wrap gap-1 md:gap-1">
+                <!-- Version mobile : seulement -1 et +1 -->
+                <template v-if="true">
+                  <button
+                    @click="adjustThreshold(-1)"
+                    :disabled="gameOver || thresholdValue - 1 < minThreshold"
+                    class="md:hidden bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white font-bold py-2 px-4 text-base rounded-lg transition-colors active:scale-95"
+                  >
+                    -1
+                  </button>
+
+                  <div
+                    class="md:hidden bg-white bg-opacity-20 text-white font-bold py-2 px-3 rounded-lg flex items-center mx-1 text-base"
+                  >
+                    {{ thresholdValue }}
+                  </div>
+
+                  <button
+                    @click="adjustThreshold(+1)"
+                    :disabled="gameOver || thresholdValue + 1 > maxThreshold"
+                    class="md:hidden bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white font-bold py-2 px-4 text-base rounded-lg transition-colors active:scale-95"
+                  >
+                    +1
+                  </button>
+                </template>
+
+                <!-- Version desktop : tous les boutons -->
+                <template v-if="true">
+                  <!-- Boutons de diminution -->
+                  <button
+                    v-for="delta in [-5, -4, -3, -2, -1]"
+                    :key="'neg-' + delta"
+                    @click="adjustThreshold(delta)"
+                    :disabled="
+                      gameOver || thresholdValue + delta < minThreshold
+                    "
+                    class="hidden md:inline-block bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white font-bold py-2 px-3 text-sm rounded-lg transition-colors active:scale-95"
+                  >
+                    {{ delta }}
+                  </button>
+
+                  <div
+                    class="hidden md:flex bg-white bg-opacity-20 text-white font-bold py-2 px-4 rounded-lg items-center mx-2 text-sm"
+                  >
+                    Capacité: {{ thresholdValue }}
+                  </div>
+
+                  <!-- Boutons d'augmentation -->
+                  <button
+                    v-for="delta in [+1, +2, +3, +4, +5]"
+                    :key="'pos-' + delta"
+                    @click="adjustThreshold(delta)"
+                    :disabled="
+                      gameOver || thresholdValue + delta > maxThreshold
+                    "
+                    class="hidden md:inline-block bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white font-bold py-2 px-3 text-sm rounded-lg transition-colors active:scale-95"
+                  >
+                    +{{ delta }}
+                  </button>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modale Explosion -->
+        <div
+          v-if="isExplosion && !showEndGameModal"
+          class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-85"
+        >
+          <div
+            class="bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-red-500 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+          >
+            <!-- Header -->
+            <div
+              class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-center"
+            >
+              <div class="text-4xl mb-4">💥</div>
+              <h3 class="text-2xl font-bold text-white mb-2">💥 Explosion !</h3>
+              <p class="text-red-100 text-sm">
+                Le gâteau a explosé ! Taille: {{ counterValue }} / Capacité du
+                four:
+                {{ thresholdValue }}
+              </p>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6 space-y-6">
+              <!-- Temps de partie -->
+              <div
+                class="text-center bg-gray-700 rounded-xl p-4 border border-gray-600"
+              >
+                <div class="text-yellow-400 text-sm font-medium mb-2">
+                  ⏱️ Temps de partie
+                </div>
+                <div class="text-white text-2xl font-bold">
+                  {{ gameDuration || "Non disponible" }}
+                </div>
+              </div>
+
+              <!-- Résultat de la partie -->
+              <div class="bg-gray-700 rounded-xl p-6 border border-gray-600">
+                <h4 class="text-xl font-bold text-red-400 mb-4 text-center">
+                  🎯 Résultat de la Partie
+                </h4>
+
+                <div class="text-center">
+                  <!-- Farceurs gagnants -->
+                  <div
+                    class="bg-gradient-to-br from-red-600 to-red-700 rounded-xl p-6 text-center max-w-md mx-auto"
+                  >
+                    <div class="text-3xl mb-4">🤡</div>
+                    <h5 class="text-xl font-bold text-white mb-4">
+                      FARCEURS VICTORIEUX !
+                    </h5>
+                    <div class="text-red-100 text-sm space-y-2">
+                      <div class="font-semibold text-red-200">
+                        🏆 Les Farceurs ont gagné !
+                      </div>
+                      <div>• Le gâteau a explosé</div>
+                      <div>• Leur mission de chaos est accomplie</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Boutons -->
+              <div class="flex justify-center pt-4">
+                <button
+                  @click="quitGame"
+                  class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors"
+                >
+                  ✕ Quitter la partie
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Section Contact -->
-    <!-- ContactForm Component -->
-    <ContactForm />
+    <section id="contact" class="mb-12 relative overflow-hidden rounded-3xl">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-orange-50/30 to-red-50/30"
+      ></div>
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-8 left-8 text-5xl">📧</div>
+        <div class="absolute top-16 right-12 text-3xl">💌</div>
+        <div class="absolute bottom-20 left-1/4 text-4xl">📝</div>
+        <div class="absolute bottom-12 right-1/3 text-2xl">✉️</div>
+      </div>
+
+      <div
+        class="bg-gradient-to-br from-white via-orange-50/30 to-amber-50/50 rounded-3xl shadow-lg border border-orange-100/50 backdrop-blur-sm overflow-hidden relative z-10"
+      >
+        <div class="p-6 sm:p-10">
+          <div class="text-center mb-10">
+            <h2
+              class="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent mb-4"
+            >
+              Contact
+            </h2>
+            <div
+              class="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4"
+            ></div>
+            <p class="text-gray-600 text-lg font-medium">
+              Une question sur le jeu ? Une suggestion ? Envoyez-nous un message
+              !
+            </p>
+          </div>
+
+          <div
+            class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 border-2 border-orange-200/50"
+          >
+            <form
+              method="POST"
+              action="https://formspree.io/f/xkgzkgjw"
+              class="space-y-6"
+              @submit="handleFormSubmit"
+            >
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Prénom -->
+                <div>
+                  <label
+                    for="prenom"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Prénom *
+                  </label>
+                  <input
+                    type="text"
+                    id="prenom"
+                    name="prenom"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors"
+                    placeholder="Votre prénom"
+                  />
+                </div>
+
+                <!-- Nom -->
+                <div>
+                  <label
+                    for="nom"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Nom *
+                  </label>
+                  <input
+                    type="text"
+                    id="nom"
+                    name="nom"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors"
+                    placeholder="Votre nom"
+                  />
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors"
+                  placeholder="votre.email@exemple.com"
+                />
+              </div>
+
+              <!-- Message -->
+              <div>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Message *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors resize-none"
+                  placeholder="Votre message..."
+                ></textarea>
+              </div>
+
+              <!-- Bouton d'envoi -->
+              <div class="text-center">
+                <button
+                  type="submit"
+                  :disabled="isSubmitting"
+                  class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 disabled:scale-100 transition-all duration-300"
+                >
+                  <span v-if="isSubmitting" class="flex items-center">
+                    <svg
+                      class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        class="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        stroke-width="4"
+                      ></circle>
+                      <path
+                        class="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    Envoi en cours...
+                  </span>
+                  <span v-else> 📧 Envoyer le message </span>
+                </button>
+              </div>
+
+              <!-- Message de confirmation -->
+              <div
+                v-if="submitMessage"
+                class="text-center p-4 rounded-lg"
+                :class="
+                  submitSuccess
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-red-100 text-red-800'
+                "
+              >
+                {{ submitMessage }}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer
@@ -3874,19 +4932,315 @@
       </div>
     </footer>
 
-    <!-- CardModal Component -->
-    <CardModal
-      :show="showCardModal"
-      :card="selectedCard"
-      @close="closeCardModal"
-    />
+    <!-- Card Modal -->
+    <div
+      v-if="showCardModal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-75"
+      @click="closeCardModal"
+    >
+      <div
+        class="relative max-w-lg w-full max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden"
+        @click.stop
+      >
+        <!-- Close button -->
+        <button
+          @click="closeCardModal"
+          class="absolute top-4 right-4 z-10 w-8 h-8 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors"
+        >
+          ✕
+        </button>
 
-    <!-- HistoryModal Component -->
-    <HistoryModal
-      :show="showHistoryModal"
-      :history="unifiedHistory"
-      @close="showHistoryModal = false"
-    />
+        <!-- Card image -->
+        <div class="p-4 sm:p-6">
+          <img
+            v-if="selectedCard"
+            :src="selectedCard.image"
+            :alt="selectedCard.name"
+            loading="lazy"
+            class="w-full h-auto object-contain rounded-xl shadow-lg"
+            @error="handleImageError"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale Historique -->
+    <div
+      v-if="showHistoryModal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+      @click="showHistoryModal = false"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-96 overflow-hidden"
+        @click.stop
+      >
+        <div class="p-4 border-b border-gray-200">
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg font-bold text-gray-800">📋 Historique</h3>
+            <button
+              @click="showHistoryModal = false"
+              class="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+        <div class="p-4 max-h-80 overflow-y-auto">
+          <div
+            v-if="unifiedHistory.length === 0"
+            class="text-center text-gray-500 py-8"
+          >
+            Aucune action enregistrée
+          </div>
+          <div v-else class="space-y-3">
+            <div
+              v-for="(item, index) in unifiedHistory.slice().reverse()"
+              :key="index"
+              class="p-3 rounded-lg border"
+              :class="{
+                'bg-purple-50 border-purple-200': item.type === 'event',
+                'bg-blue-50 border-blue-200': item.type === 'counter',
+                'bg-orange-50 border-orange-200': item.type === 'threshold',
+              }"
+            >
+              <!-- Événement -->
+              <div v-if="item.type === 'event'">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-purple-600 text-sm font-bold">🎲</span>
+                    <span class="text-sm font-bold text-purple-800">
+                      Tour {{ item.turn }}: {{ item.name }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-purple-500">{{
+                    item.timestamp
+                  }}</span>
+                </div>
+                <div
+                  class="text-xs text-purple-600 ml-6"
+                  v-html="item.effect"
+                ></div>
+              </div>
+
+              <!-- Modification de la taille -->
+              <div v-else-if="item.type === 'counter'">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-blue-600 text-sm font-bold">🎂</span>
+                    <span class="text-sm font-medium text-blue-700">
+                      Taille {{ item.action }}
+                    </span>
+                    <span
+                      class="text-sm text-blue-600 font-mono bg-blue-100 px-2 py-1 rounded"
+                    >
+                      {{ item.oldValue }} → {{ item.newValue }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-blue-500">{{
+                    item.timestamp
+                  }}</span>
+                </div>
+              </div>
+
+              <!-- Modification de la capacité -->
+              <div v-else-if="item.type === 'threshold'">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-orange-600 text-sm font-bold">🔥</span>
+                    <span class="text-sm font-medium text-orange-700">
+                      {{ item.action }}
+                    </span>
+                    <span
+                      class="text-sm text-orange-600 font-mono bg-orange-100 px-2 py-1 rounded"
+                    >
+                      {{ item.oldValue }} → {{ item.newValue }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-orange-500">{{
+                    item.timestamp
+                  }}</span>
+                </div>
+              </div>
+
+              <!-- Initialisation -->
+              <div v-else-if="item.type === 'init'">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-green-600 text-sm font-bold">🎯</span>
+                    <span class="text-sm font-medium text-green-700">
+                      {{ item.action }}
+                    </span>
+                    <span
+                      class="text-sm text-green-600 font-mono bg-green-100 px-2 py-1 rounded"
+                    >
+                      {{ item.oldValue }} → {{ item.newValue }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-green-500">{{
+                    item.timestamp
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale Événement -->
+    <div
+      v-if="showEventModal && currentEvent"
+      class="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-80"
+      @click="closeEventModal"
+    >
+      <div
+        :class="[
+          'bg-gradient-to-br from-purple-900 to-indigo-900 border-2 border-purple-400 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto transform',
+          { 'animate-pulse': eventModalPulse },
+        ]"
+        @click.stop
+      >
+        <div class="p-4 sm:p-6 text-center">
+          <div class="text-4xl sm:text-6xl mb-4 sm:mb-4">🎲</div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">
+            Tour {{ turnNumber }}
+          </h3>
+          <div
+            class="text-base sm:text-lg font-bold text-purple-200 mb-4 sm:mb-4"
+          >
+            Événement Révélé
+          </div>
+
+          <!-- Image de l'événement -->
+          <div class="mb-4 sm:mb-4">
+            <img
+              :src="currentEvent.image"
+              :alt="currentEvent.name"
+              loading="lazy"
+              class="w-24 h-32 sm:w-32 sm:h-44 mx-auto object-contain rounded-lg bg-white bg-opacity-10 p-2"
+            />
+          </div>
+
+          <!-- Nom de l'événement -->
+          <h4 class="text-lg sm:text-xl font-bold text-yellow-300 mb-2 sm:mb-4">
+            {{ currentEvent.name }}
+          </h4>
+
+          <!-- Effet de l'événement -->
+          <div
+            class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-4 sm:mb-4 text-white text-center text-sm sm:text-base"
+            v-html="currentEvent.effect"
+          ></div>
+
+          <!-- Instructions pour les joueurs -->
+          <div
+            class="bg-yellow-900 bg-opacity-50 border border-yellow-600 rounded-lg p-2 sm:p-3 mb-4 sm:mb-4"
+          >
+            <div class="text-yellow-300 text-xs font-bold mb-1">
+              📋 Instructions
+            </div>
+            <div class="text-yellow-100 text-xs">
+              C'est aux joueurs d'appliquer les effets de cet événement pendant
+              ce tour.
+            </div>
+          </div>
+
+          <button
+            @click="closeEventModal"
+            class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors w-full text-sm sm:text-base"
+          >
+            ✓ Compris
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale Instructions de début de partie -->
+    <div
+      v-if="showGameStartModal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-85"
+      @click="closeGameStartModal"
+    >
+      <div
+        class="bg-gradient-to-br from-blue-900 to-purple-900 border-2 border-blue-400 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto"
+        @click.stop
+      >
+        <div class="p-4 sm:p-6 text-center">
+          <div class="text-4xl sm:text-5xl mb-4">🎯</div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-4">
+            Nouvelle Partie
+          </h3>
+
+          <!-- Instructions principales -->
+          <div
+            class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-4 sm:mb-4 text-left"
+          >
+            <div
+              class="text-blue-200 font-bold text-xs sm:text-sm mb-2 sm:mb-4"
+            >
+              📋 Rappel important :
+            </div>
+            <div class="text-white text-xs sm:text-sm space-y-1 sm:space-y-2">
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">1.</span>
+                <span
+                  >Le <strong>premier événement</strong> s'affiche
+                  automatiquement au démarrage de la partie.</span
+                >
+              </div>
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">2.</span>
+                <span
+                  >Les <strong>joueurs</strong> sont responsables d'appliquer
+                  les effets des événements.</span
+                >
+              </div>
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">3.</span>
+                <span
+                  >Cliquez "<strong>Nouveau Tour</strong>" pour révéler
+                  l'événement suivant.</span
+                >
+              </div>
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">4.</span>
+                <span
+                  >Un événement reste actif pendant
+                  <strong>tout le tour</strong>.</span
+                >
+              </div>
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">5.</span>
+                <span
+                  >Il y a <strong>10 événements</strong> au total. Le "Minuteur
+                  final" apparaît aux tours 8, 9 ou 10.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Note importante -->
+          <div
+            class="bg-orange-900 bg-opacity-50 border border-orange-500 rounded-lg p-2 sm:p-3 mb-4 sm:mb-4"
+          >
+            <div class="text-orange-300 text-xs font-bold mb-1">
+              ⚠️ Important
+            </div>
+            <div class="text-orange-100 text-xs">
+              Cette application gère la taille du gâteau, la capacité du four et
+              les événements. Les joueurs gèrent cartes et actions !
+            </div>
+          </div>
+
+          <button
+            @click="startGame"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors w-full text-sm sm:text-base"
+          >
+            ✓ C'est parti !
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Modale Confirmation Fermeture Partie -->
     <div
@@ -3926,13 +5280,66 @@
     </div>
   </div>
 
-  <!-- GameModeModal Component -->
-  <GameModeModal
-    :show="showGameModeModal"
-    @close="closeGameModeModal"
-    @select-competitive="selectCompetitiveMode"
-    @select-cooperative="selectCooperativeMode"
-  />
+  <!-- Modale Sélection Mode de Jeu -->
+  <div
+    v-if="showGameModeModal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+    @click="closeGameModeModal"
+  >
+    <div
+      class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform transition-all duration-300 scale-100"
+      @click.stop
+    >
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-red-500 to-pink-500 p-6 text-center">
+        <h3 class="text-xl font-bold text-white mb-2">
+          🎯 Choisissez votre Mode
+        </h3>
+        <p class="text-red-100 text-sm">Comment souhaitez-vous jouer ?</p>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-4">
+        <!-- Mode Rôles cachés -->
+        <button
+          @click="selectCompetitiveMode"
+          class="w-full group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between">
+            <div class="text-left">
+              <div class="font-bold text-lg mb-1">🎭 Mode Rôles cachés</div>
+              <div class="text-red-100 text-sm">
+                3-5 joueurs • Bluff et déduction
+              </div>
+            </div>
+            <div
+              class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity"
+            >
+              ⚔️
+            </div>
+          </div>
+        </button>
+        <!-- Mode Coopératif -->
+        <button
+          @click="selectCooperativeMode"
+          class="w-full group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between">
+            <div class="text-left">
+              <div class="font-bold text-lg mb-1">👻 Mode Coopératif</div>
+              <div class="text-blue-100 text-sm">
+                1-2 joueurs contre Fourneau le Facétieux
+              </div>
+            </div>
+            <div
+              class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity"
+            >
+              🤝
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Modale Sélection Difficulté IA -->
   <div
@@ -4031,21 +5438,81 @@
     </div>
   </div>
 
-  <!-- AIMode Component -->
-  <AIMode
-    :show="showAIMode"
-    :selected-difficulty="selectedDifficulty"
-    @close="closeAIMode"
-  />
+  <!-- Mode IA Coopératif -->
+  <div
+    v-if="showAIMode"
+    class="fixed inset-0 z-50 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center"
+  >
+    <div class="w-full h-full relative overflow-hidden">
+      <!-- Background avec effet coloré design -->
+      <div
+        class="absolute inset-0"
+        style="
+          background-image: radial-gradient(
+              circle at 25% 25%,
+              #3b82f6 1px,
+              transparent 1px
+            ),
+            radial-gradient(circle at 75% 75%, #8b5cf6 1px, transparent 1px);
+          background-size: 50px 50px;
+        "
+      ></div>
+      <!-- Header -->
+      <div
+        class="relative z-10 bg-black bg-opacity-30 border-b border-blue-400"
+      >
+        <div
+          class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center"
+        >
+          <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+            👻 Défi contre Fourneau le Facétieux
+          </h1>
+          <button
+            @click="closeAIMode"
+            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+          >
+            ✕ Fermer
+          </button>
+        </div>
+      </div>
+      <!-- Main content -->
+      <div class="relative z-10 max-w-4xl mx-auto p-4 h-full overflow-auto">
+        <!-- Informations de partie -->
+        <div class="mb-6 text-center space-y-4">
+          <!-- Difficulté sélectionnée -->
+          <div
+            v-if="selectedDifficulty"
+            class="inline-block bg-black bg-opacity-50 text-white px-6 py-4 rounded-2xl shadow-lg border border-blue-400"
+          >
+            <div class="text-sm opacity-90 mb-1">Difficulté</div>
+            <div class="text-xl font-bold">{{ selectedDifficulty.name }}</div>
+            <div class="text-sm opacity-80">
+              {{ selectedDifficulty.turns }} tours • Capacité du four
+              {{ selectedDifficulty.threshold }}
+            </div>
+          </div>
+        </div>
 
-  <!-- EventCard Component -->
-  <EventCard
-    :show="showEventModal"
-    :event="currentEvent"
-    :turn-number="turnNumber"
-    :pulse="eventModalPulse"
-    @close="closeEventModal"
-  />
+        <!-- Placeholder pour le contenu du mode IA -->
+        <div
+          class="text-center text-white bg-black bg-opacity-30 rounded-xl p-8"
+        >
+          <div class="text-4xl mb-4">🚧</div>
+          <h3 class="text-xl font-bold mb-4">Mode en développement</h3>
+          <p class="text-blue-200 mb-6">
+            Le mode coopératif contre Fourneau le Facétieux sera bientôt
+            disponible avec toutes les nouvelles règles !
+          </p>
+          <button
+            @click="closeAIMode"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            Retour au menu
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modale Fin de Partie -->
   <div
@@ -4272,8 +5739,103 @@
 </style>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { Analytics } from "@vercel/analytics/vue";
+
+// Import composables
+const {
+  navLinks,
+  showBackToTop,
+  isMobileMenuOpen,
+  scrollToTop,
+  toggleMobileMenu,
+  closeMobileMenu,
+} = useNavigation();
+
+const {
+  showCardModal,
+  selectedCard,
+  openCardModal,
+  closeCardModal,
+  handleEscape
+} = useModal();
+
+const {
+  showCounterMode,
+  playerCount,
+  counterValue,
+  thresholdValue,
+  counterHistory,
+  showExplosion,
+  gameOver,
+  isExplosion,
+  showHistoryModal,
+  gameStartTime,
+  gameDuration,
+  currentTime,
+  currentEvent,
+  showEventModal,
+  showEndGameModal,
+  showGameStartModal,
+  showCloseConfirmModal,
+  showAIMode,
+  aiCounterValue,
+  aiThresholdValue,
+  aiCounterHistory,
+  aiTurnNumber,
+  aiShowExplosion,
+  aiGameOver,
+  aiGameStartTime,
+  aiGameDuration,
+  showAIHistoryModal,
+  selectedDifficulty,
+  currentAICard,
+  showAICardModal,
+  showGameModeSelection,
+  showPlayerCountModal,
+  showAIDifficultyModal,
+  elapsedTime,
+  unifiedHistory,
+  openCounterMode,
+  closeCounterMode,
+  adjustCounter,
+  adjustCounterRandom,
+  adjustThreshold,
+  adjustThresholdRandom,
+  getCounterPosition,
+  getThresholdPosition,
+  drawNextEvent,
+  closeEventModal,
+  endGame,
+  closeEndGameModal,
+  startGame,
+  closeGameStartModal,
+  quitGame,
+  confirmCloseGame,
+  cancelCloseGame,
+  openGameModeSelection,
+  closeGameModeModal,
+  selectCompetitiveMode,
+  selectCooperativeMode,
+  selectPlayerCount,
+  closePlayerCountModal,
+  selectAIDifficulty,
+  closeAIDifficultyModal,
+  openAIMode,
+  closeAIMode,
+  formatDuration,
+  aiDifficulties,
+} = useGameMode();
+
+// Import JSON data
+import actionCards from "~/data/cards/actions.json";
+import gameContent from "~/data/game-content.json";
+import eventsData from "~/data/events.json";
+import faqsData from "~/data/faq.json";
+
+const { setupSteps, gameSteps } = gameContent;
+const events = eventsData;
+const faqs = faqsData;
 
 // Fonction pour gérer les images manquantes
 const handleImageError = (event) => {
@@ -4398,7 +5960,7 @@ const setupSteps = [
   "Placez le jeton <strong>taille du gâteau sur le nombre de joueurs</strong> (3, 4 ou 5) et le jeton <strong>capacité du four sur 20</strong> <span class='text-blue-600 text-sm'>(<em>Peut être passé si vous utilisez l'application</em>)</span>",
   '<strong>Désignez le premier joueur</strong> et donnez-lui la carte "Premier Joueur" qu\'il place devant lui',
   '<strong>Préparez les événements :</strong><span class="block mt-2">• Piochez 9 cartes Événement au hasard (hors Minuteur final)</span><span class="block">• Prenez 2 cartes au hasard de ce paquet + la carte "Minuteur final"</span><span class="block">• Mélangez ces 3 cartes et placez-les <strong>sous la pile</strong> d\'événements</span><span class="block mt-2"><span class="text-blue-600 text-sm">(<em>Peut être passé si vous utilisez l\'application</em>)</span></span>',
-  "<strong>Distribuez les rôles</strong> selon le tableau de répartition avec incertitude :<div class='mt-4'></div><div class='bg-gradient-to-r from-yellow-50 to-orange-50 p-3 sm:p-4 rounded-lg border-l-4 border-yellow-400 mb-4'><div class='text-sm text-yellow-800'><strong>🎭 Principe :</strong> Prenez plus de cartes rôles que de joueurs, mélangez-les et distribuez-en une par joueur. La carte non distribuée reste secrète, créant de l'incertitude sur la composition exacte.</div></div><div class='overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0'><div class='inline-block min-w-full'><table class='min-w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden'><thead><tr class='bg-gradient-to-r from-red-500 to-orange-500 text-white'><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Joueurs</th><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Cartes</th><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Composition</th><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Distribuées</th></tr></thead><tbody><tr class='bg-gray-50'><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-bold text-red-600 text-xs sm:text-sm'>3</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>4 cartes</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>2 Pâtissiers + 1 Farceur + 1 Glouton</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-semibold text-green-600 text-xs sm:text-sm'>3 <span class='text-gray-500 text-xs block sm:inline'>(1 retirée)</span></td></tr><tr class='bg-white'><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-bold text-red-600 text-xs sm:text-sm'>4</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>5 cartes</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>2 Pâtissiers + 2 Farceurs + 1 Glouton</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-semibold text-green-600 text-xs sm:text-sm'>4 <span class='text-gray-500 text-xs block sm:inline'>(1 retirée)</span></td></tr><tr class='bg-gray-50'><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-bold text-red-600 text-xs sm:text-sm'>5</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>6 cartes</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>2 Pâtissiers + 3 Farceurs + 1 Glouton</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-semibold text-green-600 text-xs sm:text-sm'>5 <span class='text-gray-500 text-xs block sm:inline'>(1 retirée)</span></td></tr></tbody></table></div></div>",
+  "<strong>Distribuez les rôles</strong> selon le tableau de répartition avec incertitude :<div class='mt-4'></div><div class='bg-gradient-to-r from-yellow-50 to-orange-50 p-3 sm:p-4 rounded-lg border-l-4 border-yellow-400 mb-4'><div class='text-sm text-yellow-800'><strong>🎭 Principe :</strong> Prenez plus de cartes rôles que de joueurs, mélangez-les et distribuez-en une par joueur. La carte non distribuée reste secrète, créant de l'incertitude sur la composition exacte.</div></div><div class='overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0'><div class='inline-block min-w-full'><table class='min-w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden'><thead><tr class='bg-gradient-to-r from-red-500 to-orange-500 text-white'><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Joueurs</th><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Cartes</th><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Composition</th><th class='border border-gray-200 px-2 py-3 sm:px-4 sm:py-3 font-bold text-xs sm:text-sm text-left'>Distribuées</th></tr></thead><tbody><tr class='bg-gray-50'><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-bold text-red-600 text-xs sm:text-sm'>3</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>4 cartes</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>1 Pâtissier + 2 Farceurs + 1 Glouton</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-semibold text-green-600 text-xs sm:text-sm'>3 <span class='text-gray-500 text-xs block sm:inline'>(1 retirée)</span></td></tr><tr class='bg-white'><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-bold text-red-600 text-xs sm:text-sm'>4</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>5 cartes</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>2 Pâtissiers + 2 Farceurs + 1 Glouton</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-semibold text-green-600 text-xs sm:text-sm'>4 <span class='text-gray-500 text-xs block sm:inline'>(1 retirée)</span></td></tr><tr class='bg-gray-50'><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-bold text-red-600 text-xs sm:text-sm'>5</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>6 cartes</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm'>2 Pâtissiers + 3 Farceurs + 1 Glouton</td><td class='border border-gray-200 px-2 py-2 sm:px-4 sm:py-3 font-semibold text-green-600 text-xs sm:text-sm'>5 <span class='text-gray-500 text-xs block sm:inline'>(1 retirée)</span></td></tr></tbody></table></div></div>",
 ];
 
 // Game steps

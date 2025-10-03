@@ -3881,12 +3881,283 @@
       @close="closeCardModal"
     />
 
-    <!-- HistoryModal Component -->
-    <HistoryModal
-      :show="showHistoryModal"
-      :history="unifiedHistory"
-      @close="showHistoryModal = false"
-    />
+    <!-- Modale Historique -->
+    <div
+      v-if="showHistoryModal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+      @click="showHistoryModal = false"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-96 overflow-hidden"
+        @click.stop
+      >
+        <div class="p-4 border-b border-gray-200">
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg font-bold text-gray-800">📋 Historique</h3>
+            <button
+              @click="showHistoryModal = false"
+              class="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+        <div class="p-4 max-h-80 overflow-y-auto">
+          <div
+            v-if="unifiedHistory.length === 0"
+            class="text-center text-gray-500 py-8"
+          >
+            Aucune action enregistrée
+          </div>
+          <div v-else class="space-y-3">
+            <div
+              v-for="(item, index) in unifiedHistory.slice().reverse()"
+              :key="index"
+              class="p-3 rounded-lg border"
+              :class="{
+                'bg-purple-50 border-purple-200': item.type === 'event',
+                'bg-blue-50 border-blue-200': item.type === 'counter',
+                'bg-orange-50 border-orange-200': item.type === 'threshold',
+              }"
+            >
+              <!-- Événement -->
+              <div v-if="item.type === 'event'">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-purple-600 text-sm font-bold">🎲</span>
+                    <span class="text-sm font-bold text-purple-800">
+                      Tour {{ item.turn }}: {{ item.name }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-purple-500">{{
+                    item.timestamp
+                  }}</span>
+                </div>
+                <div
+                  class="text-xs text-purple-600 ml-6"
+                  v-html="item.effect"
+                ></div>
+              </div>
+
+              <!-- Modification de la taille -->
+              <div v-else-if="item.type === 'counter'">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-blue-600 text-sm font-bold">🎂</span>
+                    <span class="text-sm font-medium text-blue-700">
+                      Taille {{ item.action }}
+                    </span>
+                    <span
+                      class="text-sm text-blue-600 font-mono bg-blue-100 px-2 py-1 rounded"
+                    >
+                      {{ item.oldValue }} → {{ item.newValue }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-blue-500">{{
+                    item.timestamp
+                  }}</span>
+                </div>
+              </div>
+
+              <!-- Modification de la capacité -->
+              <div v-else-if="item.type === 'threshold'">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-orange-600 text-sm font-bold">🔥</span>
+                    <span class="text-sm font-medium text-orange-700">
+                      {{ item.action }}
+                    </span>
+                    <span
+                      class="text-sm text-orange-600 font-mono bg-orange-100 px-2 py-1 rounded"
+                    >
+                      {{ item.oldValue }} → {{ item.newValue }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-orange-500">{{
+                    item.timestamp
+                  }}</span>
+                </div>
+              </div>
+
+              <!-- Initialisation -->
+              <div v-else-if="item.type === 'init'">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-green-600 text-sm font-bold">🎯</span>
+                    <span class="text-sm font-medium text-green-700">
+                      {{ item.action }}
+                    </span>
+                    <span
+                      class="text-sm text-green-600 font-mono bg-green-100 px-2 py-1 rounded"
+                    >
+                      {{ item.oldValue }} → {{ item.newValue }}
+                    </span>
+                  </div>
+                  <span class="text-xs text-green-500">{{
+                    item.timestamp
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale Événement -->
+    <div
+      v-if="showEventModal && currentEvent"
+      class="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-80"
+      @click="closeEventModal"
+    >
+      <div
+        :class="[
+          'bg-gradient-to-br from-purple-900 to-indigo-900 border-2 border-purple-400 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto transform',
+          { 'animate-pulse': eventModalPulse },
+        ]"
+        @click.stop
+      >
+        <div class="p-4 sm:p-6 text-center">
+          <div class="text-4xl sm:text-6xl mb-4 sm:mb-4">🎲</div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">
+            Tour {{ turnNumber }}
+          </h3>
+          <div
+            class="text-base sm:text-lg font-bold text-purple-200 mb-4 sm:mb-4"
+          >
+            Événement Révélé
+          </div>
+
+          <!-- Image de l'événement -->
+          <div class="mb-4 sm:mb-4">
+            <img
+              :src="currentEvent.image"
+              :alt="currentEvent.name"
+              loading="lazy"
+              class="w-24 h-32 sm:w-32 sm:h-44 mx-auto object-contain rounded-lg bg-white bg-opacity-10 p-2"
+            />
+          </div>
+
+          <!-- Nom de l'événement -->
+          <h4 class="text-lg sm:text-xl font-bold text-yellow-300 mb-2 sm:mb-4">
+            {{ currentEvent.name }}
+          </h4>
+
+          <!-- Effet de l'événement -->
+          <div
+            class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-4 sm:mb-4 text-white text-center text-sm sm:text-base"
+            v-html="currentEvent.effect"
+          ></div>
+
+          <!-- Instructions pour les joueurs -->
+          <div
+            class="bg-yellow-900 bg-opacity-50 border border-yellow-600 rounded-lg p-2 sm:p-3 mb-4 sm:mb-4"
+          >
+            <div class="text-yellow-300 text-xs font-bold mb-1">
+              📋 Instructions
+            </div>
+            <div class="text-yellow-100 text-xs">
+              C'est aux joueurs d'appliquer les effets de cet événement pendant
+              ce tour.
+            </div>
+          </div>
+
+          <button
+            @click="closeEventModal"
+            class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors w-full text-sm sm:text-base"
+          >
+            ✓ Compris
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale Instructions de début de partie -->
+    <div
+      v-if="showGameStartModal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-85"
+      @click="closeGameStartModal"
+    >
+      <div
+        class="bg-gradient-to-br from-blue-900 to-purple-900 border-2 border-blue-400 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto"
+        @click.stop
+      >
+        <div class="p-4 sm:p-6 text-center">
+          <div class="text-4xl sm:text-5xl mb-4">🎯</div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-4">
+            Nouvelle Partie
+          </h3>
+
+          <!-- Instructions principales -->
+          <div
+            class="bg-black bg-opacity-30 rounded-lg p-3 sm:p-4 mb-4 sm:mb-4 text-left"
+          >
+            <div
+              class="text-blue-200 font-bold text-xs sm:text-sm mb-2 sm:mb-4"
+            >
+              📋 Rappel important :
+            </div>
+            <div class="text-white text-xs sm:text-sm space-y-1 sm:space-y-2">
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">1.</span>
+                <span
+                  >Le <strong>premier événement</strong> s'affiche
+                  automatiquement au démarrage de la partie.</span
+                >
+              </div>
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">2.</span>
+                <span
+                  >Les <strong>joueurs</strong> sont responsables d'appliquer
+                  les effets des événements.</span
+                >
+              </div>
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">3.</span>
+                <span
+                  >Cliquez "<strong>Nouveau Tour</strong>" pour révéler
+                  l'événement suivant.</span
+                >
+              </div>
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">4.</span>
+                <span
+                  >Un événement reste actif pendant
+                  <strong>tout le tour</strong>.</span
+                >
+              </div>
+              <div class="flex items-start space-x-2">
+                <span class="text-yellow-400 font-bold">5.</span>
+                <span
+                  >Il y a <strong>10 événements</strong> au total. Le "Minuteur
+                  final" apparaît aux tours 8, 9 ou 10.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Note importante -->
+          <div
+            class="bg-orange-900 bg-opacity-50 border border-orange-500 rounded-lg p-2 sm:p-3 mb-4 sm:mb-4"
+          >
+            <div class="text-orange-300 text-xs font-bold mb-1">
+              ⚠️ Important
+            </div>
+            <div class="text-orange-100 text-xs">
+              Cette application gère la taille du gâteau, la capacité du four et
+              les événements. Les joueurs gèrent cartes et actions !
+            </div>
+          </div>
+
+          <button
+            @click="startGame"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors w-full text-sm sm:text-base"
+          >
+            ✓ C'est parti !
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Modale Confirmation Fermeture Partie -->
     <div
@@ -3926,13 +4197,66 @@
     </div>
   </div>
 
-  <!-- GameModeModal Component -->
-  <GameModeModal
-    :show="showGameModeModal"
-    @close="closeGameModeModal"
-    @select-competitive="selectCompetitiveMode"
-    @select-cooperative="selectCooperativeMode"
-  />
+  <!-- Modale Sélection Mode de Jeu -->
+  <div
+    v-if="showGameModeModal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+    @click="closeGameModeModal"
+  >
+    <div
+      class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform transition-all duration-300 scale-100"
+      @click.stop
+    >
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-red-500 to-pink-500 p-6 text-center">
+        <h3 class="text-xl font-bold text-white mb-2">
+          🎯 Choisissez votre Mode
+        </h3>
+        <p class="text-red-100 text-sm">Comment souhaitez-vous jouer ?</p>
+      </div>
+      <!-- Content -->
+      <div class="p-6 space-y-4">
+        <!-- Mode Rôles cachés -->
+        <button
+          @click="selectCompetitiveMode"
+          class="w-full group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between">
+            <div class="text-left">
+              <div class="font-bold text-lg mb-1">🎭 Mode Rôles cachés</div>
+              <div class="text-red-100 text-sm">
+                3-5 joueurs • Bluff et déduction
+              </div>
+            </div>
+            <div
+              class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity"
+            >
+              ⚔️
+            </div>
+          </div>
+        </button>
+        <!-- Mode Coopératif -->
+        <button
+          @click="selectCooperativeMode"
+          class="w-full group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+        >
+          <div class="flex items-center justify-between">
+            <div class="text-left">
+              <div class="font-bold text-lg mb-1">👻 Mode Coopératif</div>
+              <div class="text-blue-100 text-sm">
+                1-2 joueurs contre Fourneau le Facétieux
+              </div>
+            </div>
+            <div
+              class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity"
+            >
+              🤝
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Modale Sélection Difficulté IA -->
   <div
@@ -4031,21 +4355,81 @@
     </div>
   </div>
 
-  <!-- AIMode Component -->
-  <AIMode
-    :show="showAIMode"
-    :selected-difficulty="selectedDifficulty"
-    @close="closeAIMode"
-  />
+  <!-- Mode IA Coopératif -->
+  <div
+    v-if="showAIMode"
+    class="fixed inset-0 z-50 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center"
+  >
+    <div class="w-full h-full relative overflow-hidden">
+      <!-- Background avec effet coloré design -->
+      <div
+        class="absolute inset-0"
+        style="
+          background-image: radial-gradient(
+              circle at 25% 25%,
+              #3b82f6 1px,
+              transparent 1px
+            ),
+            radial-gradient(circle at 75% 75%, #8b5cf6 1px, transparent 1px);
+          background-size: 50px 50px;
+        "
+      ></div>
+      <!-- Header -->
+      <div
+        class="relative z-10 bg-black bg-opacity-30 border-b border-blue-400"
+      >
+        <div
+          class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center"
+        >
+          <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+            👻 Défi contre Fourneau le Facétieux
+          </h1>
+          <button
+            @click="closeAIMode"
+            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+          >
+            ✕ Fermer
+          </button>
+        </div>
+      </div>
+      <!-- Main content -->
+      <div class="relative z-10 max-w-4xl mx-auto p-4 h-full overflow-auto">
+        <!-- Informations de partie -->
+        <div class="mb-6 text-center space-y-4">
+          <!-- Difficulté sélectionnée -->
+          <div
+            v-if="selectedDifficulty"
+            class="inline-block bg-black bg-opacity-50 text-white px-6 py-4 rounded-2xl shadow-lg border border-blue-400"
+          >
+            <div class="text-sm opacity-90 mb-1">Difficulté</div>
+            <div class="text-xl font-bold">{{ selectedDifficulty.name }}</div>
+            <div class="text-sm opacity-80">
+              {{ selectedDifficulty.turns }} tours • Capacité du four
+              {{ selectedDifficulty.threshold }}
+            </div>
+          </div>
+        </div>
 
-  <!-- EventCard Component -->
-  <EventCard
-    :show="showEventModal"
-    :event="currentEvent"
-    :turn-number="turnNumber"
-    :pulse="eventModalPulse"
-    @close="closeEventModal"
-  />
+        <!-- Placeholder pour le contenu du mode IA -->
+        <div
+          class="text-center text-white bg-black bg-opacity-30 rounded-xl p-8"
+        >
+          <div class="text-4xl mb-4">🚧</div>
+          <h3 class="text-xl font-bold mb-4">Mode en développement</h3>
+          <p class="text-blue-200 mb-6">
+            Le mode coopératif contre Fourneau le Facétieux sera bientôt
+            disponible avec toutes les nouvelles règles !
+          </p>
+          <button
+            @click="closeAIMode"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            Retour au menu
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modale Fin de Partie -->
   <div
@@ -4274,6 +4658,18 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { Analytics } from "@vercel/analytics/vue";
+
+// Import des composants
+import Header from '~/components/Header.vue';
+import Navigation from '~/components/Navigation.vue';
+import FAQ from '~/components/FAQ.vue';
+import ContactForm from '~/components/ContactForm.vue';
+import CounterMode from '~/components/CounterMode.vue';
+import AIMode from '~/components/AIMode.vue';
+import GameModeModal from '~/components/GameModeModal.vue';
+import CardModal from '~/components/CardModal.vue';
+import EventCard from '~/components/EventCard.vue';
+import HistoryModal from '~/components/HistoryModal.vue';
 
 // Fonction pour gérer les images manquantes
 const handleImageError = (event) => {
