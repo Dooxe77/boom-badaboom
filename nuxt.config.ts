@@ -6,6 +6,14 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss"],
 
   css: ["@/assets/styles/global.css"],
+
+  // Auto-import components from subdirectories
+  components: [
+    {
+      path: '../components',
+      pathPrefix: false,
+    },
+  ],
   app: {
     head: {
       title: "Boom Badaboom - Règles du Jeu",

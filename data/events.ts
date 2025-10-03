@@ -1,77 +1,93 @@
-export default [
+export interface Event {
+  name: string
+  effect: string
+  image: string
+}
+
+export const events: Event[] = [
   {
     name: "Échange d'Ingrédients",
-    effect: "Tous les joueurs passent leur main au joueur à leur gauche",
-    image: "/placeholder-card.png"
+    effect: 'Tous les joueurs passent leur main au joueur à leur gauche',
+    image: '/placeholder-card.png',
   },
   {
-    name: "Four en panne",
-    effect: "Personne ne pioche à la fin de son tour ce tour-ci",
-    image: "/placeholder-card.png"
+    name: 'Four en panne',
+    effect: 'Personne ne pioche à la fin de son tour ce tour-ci',
+    image: '/placeholder-card.png',
   },
   {
-    name: "Inventaire surprise",
-    effect: "Tous les joueurs révèlent 1 carte au hasard de leur main",
-    image: "/placeholder-card.png"
+    name: 'Inventaire surprise',
+    effect: 'Tous les joueurs révèlent 1 carte au hasard de leur main',
+    image: '/placeholder-card.png',
   },
   {
-    name: "Cuisine ouverte",
-    effect: "Pendant ce tour, toutes les cartes piochées doivent être révélées",
-    image: "/placeholder-card.png"
+    name: 'Cuisine ouverte',
+    effect:
+      'Pendant ce tour, toutes les cartes piochées doivent être révélées',
+    image: '/placeholder-card.png',
   },
   {
-    name: "Four déréglé",
-    effect: "Les effets des cartes influant sur la piste sont inversés (les + deviennent des - et les - des +)",
-    image: "/placeholder-card.png"
+    name: 'Four déréglé',
+    effect:
+      'Les effets des cartes influant sur la piste sont inversés (les + deviennent des - et les - des +)',
+    image: '/placeholder-card.png',
   },
   {
-    name: "Éclaboussures",
-    effect: "Si une carte refroidissement est jouée, le joueur dévoile une carte de la pioche et applique son effet immédiatement",
-    image: "/placeholder-card.png"
+    name: 'Éclaboussures',
+    effect:
+      "Si une carte refroidissement est jouée, le joueur dévoile une carte de la pioche et applique son effet immédiatement",
+    image: '/placeholder-card.png',
   },
   {
-    name: "Double intensité",
-    effect: "Chaque carte chaleur/refroidissement 🌡️ compte double (Coup de Boost interdite ce tour)",
-    image: "/placeholder-card.png"
+    name: 'Double intensité',
+    effect:
+      'Chaque carte chaleur/refroidissement 🌡️ compte double (Coup de Boost interdite ce tour)',
+    image: '/placeholder-card.png',
   },
   {
-    name: "Maladresse",
-    effect: "Ce tour, après avoir joué votre carte, défaussez immédiatement une autre carte de votre main au hasard",
-    image: "/placeholder-card.png"
+    name: 'Maladresse',
+    effect:
+      'Ce tour, après avoir joué votre carte, défaussez immédiatement une autre carte de votre main au hasard',
+    image: '/placeholder-card.png',
   },
   {
     name: "Panne d'électricité",
-    effect: "Toutes les cartes actions 🔧 ⚡ sont interdites ce tour",
-    image: "/placeholder-card.png"
+    effect: 'Toutes les cartes actions 🔧 ⚡ sont interdites ce tour',
+    image: '/placeholder-card.png',
   },
   {
-    name: "Service express",
-    effect: "À son tour, chaque joueur pioche une carte et la joue immédiatement",
-    image: "/placeholder-card.png"
+    name: 'Service express',
+    effect:
+      'À son tour, chaque joueur pioche une carte et la joue immédiatement',
+    image: '/placeholder-card.png',
   },
   {
-    name: "Cuisine en désordre",
+    name: 'Cuisine en désordre',
     effect: "L'ordre de jeu s'inverse pour le reste de ce tour",
-    image: "/placeholder-card.png"
+    image: '/placeholder-card.png',
   },
   {
-    name: "Gonflement progressif",
-    effect: "À la fin du tour de chaque joueur qui joue, la taille du gâteau augmente de 1",
-    image: "/placeholder-card.png"
+    name: 'Gonflement progressif',
+    effect:
+      'À la fin du tour de chaque joueur qui joue, la taille du gâteau augmente de 1',
+    image: '/placeholder-card.png',
   },
   {
     name: "Ventilation d'urgence",
-    effect: "Si la taille du gâteau est à plus de 15 à la fin du tour, retirer 3",
-    image: "/placeholder-card.png"
+    effect:
+      'Si la taille du gâteau est à plus de 15 à la fin du tour, retirer 3',
+    image: '/placeholder-card.png',
   },
   {
-    name: "Réchauffage automatique",
-    effect: "Si la taille du gâteau est à moins de 10 à la fin du tour, ajouter 2",
-    image: "/placeholder-card.png"
+    name: 'Réchauffage automatique',
+    effect:
+      'Si la taille du gâteau est à moins de 10 à la fin du tour, ajouter 2',
+    image: '/placeholder-card.png',
   },
   {
-    name: "Minuteur final",
-    effect: "Dernier tour ! Chaque joueur joue une dernière fois, puis la partie s'arrête",
-    image: "/placeholder-card.png"
-  }
+    name: 'Minuteur final',
+    effect:
+      "Dernier tour ! Chaque joueur joue une dernière fois, puis la partie s'arrête",
+    image: '/placeholder-card.png',
+  },
 ]

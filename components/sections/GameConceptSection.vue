@@ -235,12 +235,7 @@
                       <span
                         class="text-sm italic block"
                         style="color: #cc9900"
-                        >Il connaît la légende du four ancestral et sait que
-                        le gâteau à sa taille idéale (entre 15 et 18) est
-                        absolument divin. Il collecte discrètement des
-                        cartes Dégourmandise et attend le moment parfait :
-                        avec au moins 2 de ces cartes en main, il pourra
-                        voler le gâteau et s'enfuir !</span
+                        >Réunir 2 décorations 🍴 et faire gonfler le gâteau entre 15 et 18</span
                       >
                     </div>
                   </div>

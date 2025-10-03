@@ -1,5 +1,5 @@
 <template>
-  <section id="cartes" class="mb-12 relative overflow-hidden rounded-3xl">
+  <section id="cards" class="mb-12 relative overflow-hidden rounded-3xl">
     <div
       class="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-orange-50/30 to-red-50/30"
     ></div>
@@ -2628,11 +2628,11 @@
   <!-- FAQ -->
   <!-- FAQ Component -->
   <FAQ />
-
-  <!-- Mode Coopératif -->
-  <section
 </template>
 
 <script setup>
-// Section extraite de app.vue pour meilleure modularité
+import actionCards from '../../data/cards/actions';
+import { events } from '../../data/events';
+
+defineEmits(['card-click']);
 </script>

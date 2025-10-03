@@ -124,10 +124,7 @@
 </template>
 
 <script setup>
-import CounterModeHeader from './CounterMode/Header.vue';
-import CounterModeLegend from './CounterMode/Legend.vue';
-import CounterModeVisualizer from './CounterMode/Visualizer.vue';
-import CounterModeControls from './CounterMode/Controls.vue';
+// Components are auto-imported by Nuxt
 
 defineProps({
   show: {

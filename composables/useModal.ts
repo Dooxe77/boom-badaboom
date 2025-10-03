@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-export const useModal = () => {
+export default function useModal() {
   // Card modal state
   const showCardModal = ref(false)
   const selectedCard = ref<{ image: string; name: string } | null>(null)

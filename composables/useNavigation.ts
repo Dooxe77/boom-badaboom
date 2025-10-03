@@ -1,7 +1,7 @@
-import { ref, onMounted, onUnmounted } from 'vue'
-import navLinks from '~/data/navigation'
+import { ref } from 'vue'
+import navLinks from '../data/navigation'
 
-export const useNavigation = () => {
+export default function useNavigation() {
   // Navigation state
   const showBackToTop = ref(false)
   const isMobileMenuOpen = ref(false)

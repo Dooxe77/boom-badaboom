@@ -1,5 +1,5 @@
 <template>
-  <section id="mise-en-place" class="mb-12">
+  <section id="game-setup" class="mb-12">
     <div
       class="bg-gradient-to-br from-white via-orange-50/30 to-amber-50/50 rounded-3xl shadow-lg border border-orange-100/50 backdrop-blur-sm overflow-hidden"
     >
@@ -199,5 +199,7 @@
 </template>
 
 <script setup>
-// Section extraite de app.vue pour meilleure modularité
+import gameContent from '../../data/game-content';
+
+const { setupSteps, gameSteps } = gameContent;
 </script>

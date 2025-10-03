@@ -1,8 +1,8 @@
 import { ref, computed, type Ref } from 'vue'
-import aiDifficulties from '~/data/ai-difficulties'
-import events from '~/data/events'
+import aiDifficulties from '../data/ai-difficulties'
+import { events } from '../data/events'
 
-export const useGameMode = () => {
+export default function useGameMode() {
   // Competitive/Counter mode state
   const showCounterMode = ref(false)
   const playerCount = ref(3)

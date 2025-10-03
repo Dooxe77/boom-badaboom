@@ -1,5 +1,5 @@
 <template>
-  <section id="victoire" class="mb-12 relative overflow-hidden rounded-3xl">
+  <section id="victory" class="mb-12 relative overflow-hidden rounded-3xl">
     <div
       class="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-orange-50/30 to-red-50/30"
     ></div>
