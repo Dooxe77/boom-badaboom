@@ -1,5 +1,5 @@
 <template>
-  <section id="game-setup" class="mb-12">
+  <section id="setup" class="mb-12">
     <div
       class="bg-gradient-to-br from-white via-orange-50/30 to-amber-50/50 rounded-3xl shadow-lg border border-orange-100/50 backdrop-blur-sm overflow-hidden"
     >
@@ -67,7 +67,7 @@
 
   <!-- Déroulement -->
   <section
-    id="deroulement"
+    id="gameplay"
     class="mb-12 relative overflow-hidden rounded-3xl"
   >
     <div
@@ -199,7 +199,7 @@
 </template>
 
 <script setup>
-import gameContent from '../../data/game-content';
+import gameContent from '../data/game-content';
 
 const { setupSteps, gameSteps } = gameContent;
 </script>

@@ -154,6 +154,13 @@
       openGameModeSelection();
     "
   />
+
+  <!-- GameStartModal Component -->
+  <GameStartModal
+    :show="showGameStartModal"
+    @close="closeGameStartModal"
+    @start="startGame"
+  />
 </template>
 
 <style scoped>
@@ -209,10 +216,11 @@
 </style>
 
 <script setup>
+import '../assets/styles/global.css'
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { Analytics } from '@vercel/analytics/vue'
-import { events } from '../data/events'
-import { aiDifficultyLevels } from '../data/aiDifficultyLevels'
+import { events } from './data/events'
+import { aiDifficultyLevels } from './data/aiDifficultyLevels'
 
 // Back to top functionality
 const showBackToTop = ref(false);
@@ -478,12 +486,6 @@ const initializeEventDeck = () => {
   const finalPosition =
     finalPositions[Math.floor(Math.random() * finalPositions.length)];
 
-  console.log(
-    `Carte "Minuteur final" placée à la position ${finalPosition} (tour ${
-      finalPosition + 1
-    })`
-  );
-
   // Insert the final event at the chosen position
   deck.splice(finalPosition, 0, finalEvent);
 
@@ -576,20 +578,9 @@ const closeGameModeModal = () => {
   document.body.style.overflow = "auto";
 };
 const selectCompetitiveMode = () => {
-  console.log("selectCompetitiveMode called");
-  console.log("showPlayerCountModal BEFORE:", showPlayerCountModal.value);
   closeGameModeModal();
   showPlayerCountModal.value = true;
   document.body.style.overflow = "hidden";
-  console.log("showPlayerCountModal AFTER:", showPlayerCountModal.value);
-
-  // Force une re-render après un court délai pour tester
-  setTimeout(() => {
-    console.log(
-      "showPlayerCountModal after timeout:",
-      showPlayerCountModal.value
-    );
-  }, 100);
 };
 const selectCooperativeMode = () => {
   closeGameModeModal();

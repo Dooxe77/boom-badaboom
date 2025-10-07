@@ -1,19 +1,13 @@
 // nuxt.config.ts
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  compatibilityDate: '2025-10-03',
 
   // Modules Nuxt
   modules: ["@nuxtjs/tailwindcss"],
 
-  css: ["@/assets/styles/global.css"],
-
-  // Auto-import components from subdirectories
-  components: [
-    {
-      path: '../components',
-      pathPrefix: false,
-    },
-  ],
+  // Auto-import components
+  components: true,
   app: {
     head: {
       title: "Boom Badaboom - Règles du Jeu",

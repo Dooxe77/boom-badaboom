@@ -39,25 +39,23 @@
           </h3>
 
           <!-- Contributors Grid -->
-          <div
-            class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mb-8"
-          >
+          <div class="max-w-4xl mx-auto mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             <div
               v-for="contributor in contributors"
               :key="`${contributor.firstName}-${contributor.lastName}`"
-              class="bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-200"
+              class="bg-white rounded-xl p-4 shadow-md border border-gray-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
             >
-              <div class="flex flex-col items-center">
+              <div class="flex items-center gap-3">
                 <div
-                  :class="`w-12 h-12 sm:w-14 sm:h-14 bg-${contributor.color} rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg mb-2 sm:mb-3`"
+                  :class="[
+                    'w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0 shadow-md',
+                    getColorClass(contributor.color)
+                  ]"
                 >
                   {{ contributor.initials }}
                 </div>
-                <h4
-                  class="font-semibold text-gray-800 text-center text-xs sm:text-sm leading-tight"
-                >
-                  <div>{{ contributor.firstName }}</div>
-                  <div>{{ contributor.lastName }}</div>
+                <h4 class="font-semibold text-gray-800 text-sm sm:text-base leading-tight">
+                  {{ contributor.firstName }} {{ contributor.lastName }}
                 </h4>
               </div>
             </div>
@@ -84,5 +82,23 @@
 </template>
 
 <script setup>
-import { contributors } from '../../data/contributors'
+import { contributors } from '../data/contributors'
+
+const colorMap = {
+  'yellow-500': 'bg-yellow-500',
+  'blue-500': 'bg-blue-500',
+  'pink-500': 'bg-pink-500',
+  'green-500': 'bg-green-500',
+  'purple-500': 'bg-purple-500',
+  'teal-500': 'bg-teal-500',
+  'orange-500': 'bg-orange-500',
+  'red-500': 'bg-red-500',
+  'indigo-500': 'bg-indigo-500',
+  'cyan-500': 'bg-cyan-500',
+  'rose-500': 'bg-rose-500',
+}
+
+const getColorClass = (color) => {
+  return colorMap[color] || 'bg-gray-500'
+}
 </script>

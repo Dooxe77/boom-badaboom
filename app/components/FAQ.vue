@@ -47,5 +47,5 @@
 </template>
 
 <script setup>
-import faqs from '../../data/faq';
+import faqs from '../data/faq';
 </script>

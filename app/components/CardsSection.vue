@@ -1,5 +1,5 @@
 <template>
-  <section id="cards" class="mb-12 relative overflow-hidden rounded-3xl">
+  <section id="material" class="mb-12 relative overflow-hidden rounded-3xl">
     <div
       class="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-orange-50/30 to-red-50/30"
     ></div>
@@ -181,7 +181,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Pâtissier'
                           )
@@ -198,7 +198,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Pâtissier'
                           )
@@ -245,7 +245,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal('/placeholder-card.png', 'Farceur')
+                          emit('card-click', '/placeholder-card.png', 'Farceur')
                         "
                         @error="handleImageError"
                       />
@@ -259,7 +259,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal('/placeholder-card.png', 'Farceur')
+                          emit('card-click', '/placeholder-card.png', 'Farceur')
                         "
                         @error="handleImageError"
                       />
@@ -273,7 +273,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal('/placeholder-card.png', 'Farceur')
+                          emit('card-click', '/placeholder-card.png', 'Farceur')
                         "
                         @error="handleImageError"
                       />
@@ -316,7 +316,7 @@
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        openCardModal('/placeholder-card.png', 'Glouton')
+                        emit('card-click', '/placeholder-card.png', 'Glouton')
                       "
                       @error="handleImageError"
                     />
@@ -364,18 +364,10 @@
               </p>
             </div>
           </div>
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             <!-- Cerises confites -->
             <div
-              class="bg-gradient-to-br rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  rgba(203, 108, 230, 0.1),
-                  white
-                );
-                border-color: rgba(203, 108, 230, 0.5);
-              "
+              class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
@@ -388,7 +380,7 @@
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Cerises confites'
                         )
@@ -396,13 +388,13 @@
                       @error="handleImageError"
                     />
                   </div>
-                  <h4 class="font-semibold text-yellow-700">
+                  <h4 class="font-semibold text-purple-700">
                     Cerises confites
                   </h4>
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -410,7 +402,7 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
                   >🍰 Objectif Glouton</span
                 >
               </div>
@@ -418,15 +410,7 @@
 
             <!-- Spirale de caramel -->
             <div
-              class="bg-gradient-to-br rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  rgba(203, 108, 230, 0.1),
-                  white
-                );
-                border-color: rgba(203, 108, 230, 0.5);
-              "
+              class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
@@ -439,7 +423,7 @@
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Spirale de caramel'
                         )
@@ -447,13 +431,13 @@
                       @error="handleImageError"
                     />
                   </div>
-                  <h4 class="font-semibold text-yellow-700">
+                  <h4 class="font-semibold text-purple-700">
                     Spirale de caramel
                   </h4>
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -461,7 +445,7 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
                   >🍰 Objectif Glouton</span
                 >
               </div>
@@ -469,15 +453,7 @@
 
             <!-- Plan d'évacuation -->
             <div
-              class="bg-gradient-to-br rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  rgba(203, 108, 230, 0.1),
-                  white
-                );
-                border-color: rgba(203, 108, 230, 0.5);
-              "
+              class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
@@ -490,7 +466,7 @@
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Macarons dorés'
                         )
@@ -498,13 +474,13 @@
                       @error="handleImageError"
                     />
                   </div>
-                  <h4 class="font-semibold text-yellow-700">
+                  <h4 class="font-semibold text-purple-700">
                     Macarons dorés
                   </h4>
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -512,7 +488,7 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
                   >🍰 Objectif Glouton</span
                 >
               </div>
@@ -520,15 +496,7 @@
 
             <!-- Neutralisation chimique -->
             <div
-              class="bg-gradient-to-br rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  rgba(203, 108, 230, 0.1),
-                  white
-                );
-                border-color: rgba(203, 108, 230, 0.5);
-              "
+              class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
@@ -541,7 +509,7 @@
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Rosace de chantilly'
                         )
@@ -549,13 +517,13 @@
                       @error="handleImageError"
                     />
                   </div>
-                  <h4 class="font-semibold text-yellow-700">
+                  <h4 class="font-semibold text-purple-700">
                     Rosace de chantilly
                   </h4>
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -563,7 +531,7 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
                   >🍰 Objectif Glouton</span
                 >
               </div>
@@ -571,15 +539,7 @@
 
             <!-- Schéma électrique -->
             <div
-              class="bg-gradient-to-br rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  rgba(203, 108, 230, 0.1),
-                  white
-                );
-                border-color: rgba(203, 108, 230, 0.5);
-              "
+              class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
@@ -592,7 +552,7 @@
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Bonbons gélifiés'
                         )
@@ -600,13 +560,13 @@
                       @error="handleImageError"
                     />
                   </div>
-                  <h4 class="font-semibold text-yellow-700">
+                  <h4 class="font-semibold text-purple-700">
                     Bonbons gélifiés
                   </h4>
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -614,7 +574,7 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
                   >🍰 Objectif Glouton</span
                 >
               </div>
@@ -662,7 +622,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Chaleur +1'
                           )
@@ -682,11 +642,7 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                    style="
-                      background-color: rgba(223, 189, 127, 0.1);
-                      color: #dfbd7f;
-                    "
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -710,7 +666,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Chaleur +2'
                           )
@@ -730,11 +686,7 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                    style="
-                      background-color: rgba(223, 189, 127, 0.1);
-                      color: #dfbd7f;
-                    "
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -758,7 +710,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Chaleur +3'
                           )
@@ -778,11 +730,7 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                    style="
-                      background-color: rgba(223, 189, 127, 0.1);
-                      color: #dfbd7f;
-                    "
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -806,7 +754,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Chaleur +4'
                           )
@@ -826,11 +774,7 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                    style="
-                      background-color: rgba(223, 189, 127, 0.1);
-                      color: #dfbd7f;
-                    "
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -854,7 +798,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Chaleur +5'
                           )
@@ -874,11 +818,7 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                    style="
-                      background-color: rgba(223, 189, 127, 0.1);
-                      color: #dfbd7f;
-                    "
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -902,7 +842,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Chaleur ?'
                           )
@@ -922,11 +862,7 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                    style="
-                      background-color: rgba(223, 189, 127, 0.1);
-                      color: #dfbd7f;
-                    "
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -941,14 +877,14 @@
           <!-- Refroidissement -->
           <div class="mb-8">
             <h4
-              class="text-xl font-bold text-green-700 mb-4 flex items-center"
+              class="text-xl font-bold text-blue-600 mb-4 flex items-center"
             >
               ⬇️ Refroidissement (-)
             </h4>
             <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
               <!-- Refroidissement -1 -->
               <div
-                class="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 border-2 border-green-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -961,7 +897,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Refroidissement -1'
                           )
@@ -969,13 +905,13 @@
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-green-700">
+                    <h5 class="font-semibold text-blue-700">
                       Refroidissement -1
                     </h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                       >× 5</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -983,11 +919,7 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                    style="
-                      background-color: rgba(223, 189, 127, 0.1);
-                      color: #dfbd7f;
-                    "
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -998,7 +930,7 @@
 
               <!-- Refroidissement -2 -->
               <div
-                class="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 border-2 border-green-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -1011,7 +943,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Refroidissement -2'
                           )
@@ -1019,13 +951,13 @@
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-green-700">
+                    <h5 class="font-semibold text-blue-700">
                       Refroidissement -2
                     </h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                       >× 5</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -1033,11 +965,7 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                    style="
-                      background-color: rgba(223, 189, 127, 0.1);
-                      color: #dfbd7f;
-                    "
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -1048,7 +976,7 @@
 
               <!-- Refroidissement -3 -->
               <div
-                class="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 border-2 border-green-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -1061,7 +989,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Refroidissement -3'
                           )
@@ -1069,13 +997,13 @@
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-green-700">
+                    <h5 class="font-semibold text-blue-700">
                       Refroidissement -3
                     </h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                       >× 5</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -1083,11 +1011,7 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                    style="
-                      background-color: rgba(223, 189, 127, 0.1);
-                      color: #dfbd7f;
-                    "
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -1111,7 +1035,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Refroidissement ?'
                           )
@@ -1133,11 +1057,7 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                    style="
-                      background-color: rgba(223, 189, 127, 0.1);
-                      color: #dfbd7f;
-                    "
+                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -1212,7 +1132,7 @@
                       :alt="'Carte ' + card.name"
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                      @click="openCardModal(card.image, card.name)"
+                      @click="emit('card-click', card.image, card.name)"
                     />
                   </div>
                   <h4 class="font-semibold text-gray-800">
@@ -1303,7 +1223,7 @@
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Tablier de Protection'
                         )
@@ -1362,7 +1282,7 @@
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Renvoi de spatule'
                         )
@@ -1421,7 +1341,7 @@
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Coup de boost'
                         )
@@ -1522,7 +1442,7 @@
                       :alt="'Carte ' + event.name"
                       loading="lazy"
                       class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                      @click="openCardModal(event.image, event.name)"
+                      @click="emit('card-click', event.image, event.name)"
                     />
                   </div>
                   <h4
@@ -1615,7 +1535,7 @@
                           loading="lazy"
                           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                           @click="
-                            openCardModal(
+                            emit('card-click', 
                               '/placeholder-card.png',
                               'Premier Joueur'
                             )
@@ -1679,7 +1599,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Système 1'
                           )
@@ -1713,7 +1633,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Système 2'
                           )
@@ -1747,7 +1667,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Système 3'
                           )
@@ -1781,7 +1701,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Système 4'
                           )
@@ -1815,7 +1735,7 @@
                         loading="lazy"
                         class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          openCardModal(
+                          emit('card-click', 
                             '/placeholder-card.png',
                             'Système 5'
                           )
@@ -1985,7 +1905,7 @@
                       alt="Charge +1"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Charge +1')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Charge +1')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-red-700">Charge +1</span>
@@ -2007,7 +1927,7 @@
                       alt="Charge +2"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Charge +2')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Charge +2')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-red-700">Charge +2</span>
@@ -2029,7 +1949,7 @@
                       alt="Charge +3"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Charge +3')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Charge +3')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-red-700">Charge +3</span>
@@ -2051,7 +1971,7 @@
                       alt="Charge +4"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Charge +4')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Charge +4')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-red-700">Charge +4</span>
@@ -2073,7 +1993,7 @@
                       alt="Charge +5"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Charge +5')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Charge +5')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-red-700">Charge +5</span>
@@ -2095,7 +2015,7 @@
                       alt="Charge X"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Charge X')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Charge X')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-red-700">Charge X</span>
@@ -2118,7 +2038,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal('/placeholder-card.png', 'Blocage')
+                        emit('card-click', '/placeholder-card.png', 'Blocage')
                       "
                     
                     @error="handleImageError"/>
@@ -2142,7 +2062,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Seuil réduit'
                         )
@@ -2171,7 +2091,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal('/placeholder-card.png', 'Sabotage')
+                        emit('card-click', '/placeholder-card.png', 'Sabotage')
                       "
                     
                     @error="handleImageError"/>
@@ -2212,7 +2132,7 @@
                       alt="Charge +2"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Charge +2')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Charge +2')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-red-700">Charge +2</span>
@@ -2234,7 +2154,7 @@
                       alt="Charge +3"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Charge +3')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Charge +3')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-red-700">Charge +3</span>
@@ -2256,7 +2176,7 @@
                       alt="Charge +4"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Charge +4')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Charge +4')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-red-700">Charge +4</span>
@@ -2278,7 +2198,7 @@
                       alt="Charge +5"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Charge +5')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Charge +5')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-red-700">Charge +5</span>
@@ -2301,7 +2221,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal('/placeholder-card.png', 'Décharge -1')
+                        emit('card-click', '/placeholder-card.png', 'Décharge -1')
                       "
                     
                     @error="handleImageError"/>
@@ -2327,7 +2247,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal('/placeholder-card.png', 'Décharge -2')
+                        emit('card-click', '/placeholder-card.png', 'Décharge -2')
                       "
                     
                     @error="handleImageError"/>
@@ -2353,7 +2273,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal('/placeholder-card.png', 'Décharge -3')
+                        emit('card-click', '/placeholder-card.png', 'Décharge -3')
                       "
                     
                     @error="handleImageError"/>
@@ -2378,7 +2298,7 @@
                       alt="Décharge X"
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="openCardModal('/placeholder-card.png', 'Décharge X')"
+                      @click="emit('card-click', '/placeholder-card.png', 'Décharge X')"
                     
                     @error="handleImageError"/>
                     <span class="font-medium text-green-700"
@@ -2403,7 +2323,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal('/placeholder-card.png', 'Blocage')
+                        emit('card-click', '/placeholder-card.png', 'Blocage')
                       "
                     
                     @error="handleImageError"/>
@@ -2427,7 +2347,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Seuil augmenté'
                         )
@@ -2456,7 +2376,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Seuil réduit'
                         )
@@ -2485,7 +2405,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Contrebande'
                         )
@@ -2514,7 +2434,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Manipulation'
                         )
@@ -2543,7 +2463,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Intervention hasardeuse'
                         )
@@ -2572,7 +2492,7 @@
                       loading="lazy"
                       class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
                       @click="
-                        openCardModal(
+                        emit('card-click', 
                           '/placeholder-card.png',
                           'Tablier de Protection'
                         )
@@ -2631,8 +2551,8 @@
 </template>
 
 <script setup>
-import actionCards from '../../data/cards/actions';
-import { events } from '../../data/events';
+import actionCards from '../data/cards/actions';
+import { events } from '../data/events';
 
-defineEmits(['card-click']);
+const emit = defineEmits(['card-click']);
 </script>

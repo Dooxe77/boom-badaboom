@@ -1,5 +1,5 @@
 <template>
-  <section id="box-content" class="mb-12">
+  <section id="content" class="mb-12">
     <div
       class="bg-gradient-to-br from-white via-orange-50/30 to-amber-50/50 rounded-3xl shadow-lg border border-orange-100/50 backdrop-blur-sm overflow-hidden"
     >
