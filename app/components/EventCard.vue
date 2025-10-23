@@ -3,6 +3,7 @@
     v-if="show && event"
     class="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-80"
     @click="$emit('close')"
+    @keydown.enter.prevent.stop
   >
     <div
       :class="[
@@ -52,7 +53,7 @@
         </div>
 
         <button
-          @click="$emit('close')"
+          @click="(e) => { $emit('close'); e.target.blur(); }"
           class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors w-full text-sm sm:text-base"
         >
           ✓ Compris
@@ -63,7 +64,9 @@
 </template>
 
 <script setup>
-defineProps({
+import { watch, onMounted, onUnmounted } from 'vue';
+
+const props = defineProps({
   show: {
     type: Boolean,
     default: false
@@ -83,4 +86,20 @@ defineProps({
 });
 
 defineEmits(['close']);
+
+// Bloquer la touche Enter au niveau du document quand la modal est ouverte
+const handleKeydown = (e) => {
+  if (props.show && e.key === 'Enter') {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+};
+
+onMounted(() => {
+  document.addEventListener('keydown', handleKeydown, true);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeydown, true);
+});
 </script>

@@ -27,7 +27,7 @@
 
       <div class="flex space-x-2">
         <button
-          @click="$emit('next-turn')"
+          @click="(e) => { $emit('next-turn'); e.target.blur(); }"
           :disabled="gameOver || (eventDeckLength === 0 && !finalCountdownRevealed)"
           :class="{
             'bg-purple-500 hover:bg-purple-600':

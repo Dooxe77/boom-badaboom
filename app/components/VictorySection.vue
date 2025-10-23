@@ -93,30 +93,34 @@
           <!-- Glouton (ex-Agent Double) -->
           <div class="group h-full">
             <div
-              class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col border-4 border-yellow-500"
+              class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col border-4"
+              style="border-color: #ff751f;"
             >
               <!-- Zone titre alignée -->
               <div class="text-center mb-2">
-                <h4 class="text-2xl font-bold text-yellow-600">GLOUTON</h4>
+                <h4 class="text-2xl font-bold" style="color: #ff751f;">GLOUTON</h4>
               </div>
 
               <!-- Zone objectif alignée -->
               <div class="px-2 mt-auto">
                 <div
-                  class="bg-yellow-50/90 backdrop-blur-sm rounded-lg p-4 border-2 border-yellow-500 shadow-inner"
+                  class="backdrop-blur-sm rounded-lg p-4 border-2 shadow-inner"
+                  style="background-color: rgba(255, 117, 31, 0.1); border-color: #ff751f;"
                 >
-                  <p class="text-sm text-yellow-600 font-medium mb-2">
+                  <p class="text-sm font-medium mb-2" style="color: #ff751f;">
                     Objectif :
                   </p>
                   <div class="space-y-2">
                     <p
-                      class="text-yellow-800 text-sm leading-relaxed font-medium"
+                      class="text-sm leading-relaxed font-medium"
+                      style="color: #d97706;"
                     >
                       Gagne
                       <strong>immédiatement pendant son tour</strong> si :
                     </p>
                     <p
-                      class="text-yellow-800 text-sm leading-relaxed font-medium"
+                      class="text-sm leading-relaxed font-medium"
+                      style="color: #d97706;"
                     >
                       <strong
                         >au moins 2 cartes objectifs glouton en main</strong

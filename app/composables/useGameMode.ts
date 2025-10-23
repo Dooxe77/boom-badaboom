@@ -1,5 +1,4 @@
 import { ref, computed, type Ref } from 'vue'
-import aiDifficulties from '../data/ai-difficulties'
 import { events } from '../data/events'
 
 export default function useGameMode() {
@@ -28,25 +27,9 @@ export default function useGameMode() {
   const showGameStartModal = ref(false)
   const showCloseConfirmModal = ref(false)
 
-  // AI mode state
-  const showAIMode = ref(false)
-  const aiCounterValue = ref(0)
-  const aiThresholdValue = ref(20)
-  const aiCounterHistory = ref<Array<{ turn: number; value: number; delta: number; timestamp: number }>>([])
-  const aiTurnNumber = ref(0)
-  const aiShowExplosion = ref(false)
-  const aiGameOver = ref(false)
-  const aiGameStartTime = ref<number | null>(null)
-  const aiGameDuration = ref<number | null>(null)
-  const showAIHistoryModal = ref(false)
-  const selectedDifficulty = ref<any>(null)
-  const currentAICard = ref<any>(null)
-  const showAICardModal = ref(false)
-
   // Game mode selection
   const showGameModeSelection = ref(false)
   const showPlayerCountModal = ref(false)
-  const showAIDifficultyModal = ref(false)
 
   // Timer management
   let timerInterval: NodeJS.Timeout | null = null
@@ -221,11 +204,6 @@ export default function useGameMode() {
     showPlayerCountModal.value = true
   }
 
-  const selectCooperativeMode = () => {
-    showGameModeSelection.value = false
-    window.location.hash = '#cooperative-mode'
-  }
-
   const selectPlayerCount = (count: number) => {
     playerCount.value = count
     showPlayerCountModal.value = false
@@ -236,35 +214,6 @@ export default function useGameMode() {
 
   const closePlayerCountModal = () => {
     showPlayerCountModal.value = false
-  }
-
-  // AI mode
-  const selectAIDifficulty = (difficulty: any) => {
-    selectedDifficulty.value = difficulty
-    showAIDifficultyModal.value = false
-    openAIMode()
-  }
-
-  const closeAIDifficultyModal = () => {
-    showAIDifficultyModal.value = false
-  }
-
-  const openAIMode = () => {
-    showAIMode.value = true
-    aiCounterValue.value = 0
-    aiThresholdValue.value = selectedDifficulty.value?.threshold || 20
-    aiCounterHistory.value = []
-    aiTurnNumber.value = 0
-    aiShowExplosion.value = false
-    aiGameOver.value = false
-    aiGameStartTime.value = null
-    aiGameDuration.value = null
-    document.body.style.overflow = 'hidden'
-  }
-
-  const closeAIMode = () => {
-    showAIMode.value = false
-    document.body.style.overflow = 'auto'
   }
 
   const formatDuration = (ms: number) => {
@@ -297,22 +246,8 @@ export default function useGameMode() {
     showEndGameModal,
     showGameStartModal,
     showCloseConfirmModal,
-    showAIMode,
-    aiCounterValue,
-    aiThresholdValue,
-    aiCounterHistory,
-    aiTurnNumber,
-    aiShowExplosion,
-    aiGameOver,
-    aiGameStartTime,
-    aiGameDuration,
-    showAIHistoryModal,
-    selectedDifficulty,
-    currentAICard,
-    showAICardModal,
     showGameModeSelection,
     showPlayerCountModal,
-    showAIDifficultyModal,
 
     // Computed
     elapsedTime,
@@ -341,16 +276,8 @@ export default function useGameMode() {
     openGameModeSelection,
     closeGameModeModal,
     selectCompetitiveMode,
-    selectCooperativeMode,
     selectPlayerCount,
     closePlayerCountModal,
-    selectAIDifficulty,
-    closeAIDifficultyModal,
-    openAIMode,
-    closeAIMode,
     formatDuration,
-
-    // Data
-    aiDifficulties,
   }
 }

@@ -63,6 +63,20 @@
             <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
           </div>
         </button>
+        <button
+          @click="$emit('select', 6)"
+          class="w-full p-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-between"
+        >
+          <span>6 Joueurs</span>
+          <div class="flex space-x-1">
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+            <div class="w-3 h-3 bg-white rounded-full opacity-80"></div>
+          </div>
+        </button>
       </div>
 
       <button

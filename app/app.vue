@@ -20,9 +20,6 @@
       <!-- CardsSection Component -->
       <CardsSection @card-click="openCardModal" />
 
-      <!-- CooperativeModeSection Component -->
-      <CooperativeModeSection />
-
       <!-- ContributorsSection Component -->
       <ContributorsSection />
     </div>
@@ -107,26 +104,6 @@
     :show="showGameModeModal"
     @close="closeGameModeModal"
     @select-competitive="selectCompetitiveMode"
-    @select-cooperative="selectCooperativeMode"
-  />
-
-  <!-- AIDifficultyModal Component -->
-  <AIDifficultyModal
-    :show="showAIDifficultyModal"
-    :difficulty-levels="aiDifficultyLevels"
-    @close="closeAIDifficultyModal"
-    @select="selectAIDifficulty"
-    @back="
-      closeAIDifficultyModal();
-      openGameModeSelection();
-    "
-  />
-
-  <!-- AIMode Component -->
-  <AIMode
-    :show="showAIMode"
-    :selected-difficulty="selectedDifficulty"
-    @close="closeAIMode"
   />
 
   <!-- EventCard Component -->
@@ -220,7 +197,6 @@ import '../assets/styles/global.css'
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { Analytics } from '@vercel/analytics/vue'
 import { events } from './data/events'
-import { aiDifficultyLevels } from './data/aiDifficultyLevels'
 
 // Back to top functionality
 const showBackToTop = ref(false);
@@ -260,11 +236,6 @@ const showEndGameModal = ref(false);
 // Game mode selection
 const showGameModeModal = ref(false);
 const showPlayerCountModal = ref(false);
-
-// AI mode functionality
-const showAIMode = ref(false);
-const showAIDifficultyModal = ref(false);
-const selectedDifficulty = ref(null);
 
 // Timer interval reference for cleanup
 let timerInterval = null;
@@ -446,10 +417,6 @@ const handleEscape = (event) => {
       cancelCloseGame();
     } else if (showEndGameModal.value) {
       closeEndGameModal();
-    } else if (showAIMode.value) {
-      closeAIMode();
-    } else if (showAIDifficultyModal.value) {
-      closeAIDifficultyModal();
     } else if (showPlayerCountModal.value) {
       closePlayerCountModal();
     } else if (showGameModeModal.value) {
@@ -582,11 +549,6 @@ const selectCompetitiveMode = () => {
   showPlayerCountModal.value = true;
   document.body.style.overflow = "hidden";
 };
-const selectCooperativeMode = () => {
-  closeGameModeModal();
-  showAIDifficultyModal.value = true;
-  document.body.style.overflow = "hidden";
-};
 
 // Player count selection functions
 const selectPlayerCount = (count) => {
@@ -607,29 +569,6 @@ const selectPlayerCount = (count) => {
 
 const closePlayerCountModal = () => {
   showPlayerCountModal.value = false;
-  document.body.style.overflow = "auto";
-};
-
-// AI difficulty selection functions
-const selectAIDifficulty = (difficulty) => {
-  selectedDifficulty.value = difficulty;
-  showAIDifficultyModal.value = false;
-  document.body.style.overflow = "auto";
-  openAIMode();
-};
-const closeAIDifficultyModal = () => {
-  showAIDifficultyModal.value = false;
-  document.body.style.overflow = "auto";
-};
-
-// AI mode functions
-const openAIMode = () => {
-  showAIMode.value = true;
-  document.body.style.overflow = "hidden";
-};
-
-const closeAIMode = () => {
-  showAIMode.value = false;
   document.body.style.overflow = "auto";
 };
 

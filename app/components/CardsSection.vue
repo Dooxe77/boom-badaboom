@@ -55,9 +55,13 @@
                 class="inline-block bg-white rounded-xl shadow-lg p-4 mb-4"
               >
                 <img
-                  src="/placeholder-card.png"
+                  src="/plateau.png"
                   alt="Plateau de jeu"
-                  class="h-48 w-auto mx-auto object-contain"
+                  class="h-48 w-auto mx-auto object-contain transition-transform duration-200 cursor-zoom-in hover:scale-110"
+                  @click="
+                    emit('card-click', '/plateau.png', 'Plateau de jeu')
+                  "
+                  @error="handleImageError"
                 />
               </div>
               <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
@@ -101,9 +105,16 @@
               <div class="bg-white rounded-xl shadow-md p-6 text-center">
                 <div class="inline-block bg-gray-50 rounded-xl p-4 mb-4">
                   <img
-                    src="/placeholder-card.png"
+                    src="/pion_tailleGateau.png"
                     alt="Pion taille du gâteau"
-                    class="h-32 w-auto mx-auto object-contain"
+                    class="h-32 w-auto mx-auto object-contain transition-transform duration-200 cursor-zoom-in hover:scale-110"
+                    @click="
+                      emit('card-click',
+                        '/pion_tailleGateau.png',
+                        'Pion Taille du Gâteau'
+                      )
+                    "
+                    @error="handleImageError"
                   />
                 </div>
                 <h4 class="font-bold text-lg text-gray-800 mb-2">
@@ -118,9 +129,16 @@
               <div class="bg-white rounded-xl shadow-md p-6 text-center">
                 <div class="inline-block bg-gray-50 rounded-xl p-4 mb-4">
                   <img
-                    src="/placeholder-card.png"
+                    src="/pion_capaciteFour.png"
                     alt="Pion capacité du four"
-                    class="h-32 w-auto mx-auto object-contain"
+                    class="h-32 w-auto mx-auto object-contain transition-transform duration-200 cursor-zoom-in hover:scale-110"
+                    @click="
+                      emit('card-click',
+                        '/pion_capaciteFour.png',
+                        'Pion Capacité du Four'
+                      )
+                    "
+                    @error="handleImageError"
                   />
                 </div>
                 <h4 class="font-bold text-lg text-gray-800 mb-2">
@@ -170,51 +188,66 @@
               class="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 border-4 border-green-500 shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center space-x-2">
-                  <div class="flex space-x-1">
-                    <div
-                      class="w-10 h-14 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
-                    >
-                      <img
-                        src="/placeholder-card.png"
-                        alt="Carte Pâtissier"
-                        loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                        @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
-                            'Pâtissier'
-                          )
-                        "
-                        @error="handleImageError"
-                      />
-                    </div>
-                    <div
-                      class="w-10 h-14 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
-                    >
-                      <img
-                        src="/placeholder-card.png"
-                        alt="Carte Pâtissier"
-                        loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                        @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
-                            'Pâtissier'
-                          )
-                        "
-                        @error="handleImageError"
-                      />
-                    </div>
-                  </div>
-                  <h4 class="font-semibold text-green-700">Pâtissiers</h4>
-                </div>
+                <h4 class="font-semibold text-green-700">Pâtissiers</h4>
                 <div class="text-right">
                   <span
                     class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                    >× 2</span
+                    >× 3</span
                   >
-                  <div class="text-xs text-gray-500 mt-1">max</div>
+                  <div class="text-xs text-gray-500 mt-1">quantité</div>
+                </div>
+              </div>
+              <div class="flex justify-center space-x-2 mb-4">
+                <div
+                  class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                >
+                  <img
+                    src="/role_patissier1.png"
+                    alt="Carte Pâtissier"
+                    loading="lazy"
+                    class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                    @click="
+                      emit('card-click',
+                        '/role_patissier1.png',
+                        'Pâtissier'
+                      )
+                    "
+                    @error="handleImageError"
+                  />
+                </div>
+                <div
+                  class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                >
+                  <img
+                    src="/role_patissier2.png"
+                    alt="Carte Pâtissier"
+                    loading="lazy"
+                    class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                    @click="
+                      emit('card-click',
+                        '/role_patissier2.png',
+                        'Pâtissier'
+                      )
+                    "
+                    @error="handleImageError"
+                  />
+                </div>
+                <div
+                  class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                >
+                  <img
+                    src="/role_patissier3.png"
+                    alt="Carte Pâtissier"
+                    loading="lazy"
+                    class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                    @click="
+                      emit('card-click',
+                        '/role_patissier3.png',
+                        'Pâtissier'
+                      )
+                    "
+                    @error="handleImageError"
+                  />
                 </div>
               </div>
               <div class="mb-2">
@@ -224,8 +257,7 @@
                 >
               </div>
               <p class="text-sm text-gray-600">
-                🎯 Empêcher le gâteau d'exploser
-                <strong>ET</strong> empêcher le Glouton de voler le gâteau
+                🎯 Éviter l'explosion du gâteau et la victoire du Glouton
               </p>
             </div>
 
@@ -234,59 +266,57 @@
               class="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border-4 border-red-500 shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center space-x-2">
-                  <div class="flex space-x-1">
-                    <div
-                      class="w-8 h-12 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
-                    >
-                      <img
-                        src="/placeholder-card.png"
-                        alt="Carte Farceur"
-                        loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                        @click="
-                          emit('card-click', '/placeholder-card.png', 'Farceur')
-                        "
-                        @error="handleImageError"
-                      />
-                    </div>
-                    <div
-                      class="w-8 h-12 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
-                    >
-                      <img
-                        src="/placeholder-card.png"
-                        alt="Carte Farceur"
-                        loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                        @click="
-                          emit('card-click', '/placeholder-card.png', 'Farceur')
-                        "
-                        @error="handleImageError"
-                      />
-                    </div>
-                    <div
-                      class="w-8 h-12 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
-                    >
-                      <img
-                        src="/placeholder-card.png"
-                        alt="Carte Farceur"
-                        loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                        @click="
-                          emit('card-click', '/placeholder-card.png', 'Farceur')
-                        "
-                        @error="handleImageError"
-                      />
-                    </div>
-                  </div>
-                  <h4 class="font-semibold text-red-700">Farceurs</h4>
-                </div>
+                <h4 class="font-semibold text-red-700">Farceurs</h4>
                 <div class="text-right">
                   <span
                     class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                     >× 3</span
                   >
-                  <div class="text-xs text-gray-500 mt-1">max</div>
+                  <div class="text-xs text-gray-500 mt-1">quantité</div>
+                </div>
+              </div>
+              <div class="flex justify-center space-x-2 mb-4">
+                <div
+                  class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                >
+                  <img
+                    src="/role_farceur1.png"
+                    alt="Carte Farceur"
+                    loading="lazy"
+                    class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                    @click="
+                      emit('card-click', '/role_farceur1.png', 'Farceur')
+                    "
+                    @error="handleImageError"
+                  />
+                </div>
+                <div
+                  class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                >
+                  <img
+                    src="/role_farceur2.png"
+                    alt="Carte Farceur"
+                    loading="lazy"
+                    class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                    @click="
+                      emit('card-click', '/role_farceur2.png', 'Farceur')
+                    "
+                    @error="handleImageError"
+                  />
+                </div>
+                <div
+                  class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                >
+                  <img
+                    src="/role_farceur3.png"
+                    alt="Carte Farceur"
+                    loading="lazy"
+                    class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                    @click="
+                      emit('card-click', '/role_farceur3.png', 'Farceur')
+                    "
+                    @error="handleImageError"
+                  />
                 </div>
               </div>
               <div class="mb-2">
@@ -296,50 +326,51 @@
                 >
               </div>
               <p class="text-sm text-gray-600">
-                💥 Faire exploser le gâteau en faisant monter le compteur à
-                20 ou plus
+                💥 Faire exploser le gâteau
               </p>
             </div>
 
             <!-- Glouton -->
             <div
-              class="bg-gradient-to-br from-yellow-50 to-white rounded-xl p-6 border-4 border-yellow-500 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 border-4 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              style="border-color: #ff751f;"
             >
               <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center space-x-3">
-                  <div
-                    class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
-                  >
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Carte Glouton"
-                      loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
-                      @click="
-                        emit('card-click', '/placeholder-card.png', 'Glouton')
-                      "
-                      @error="handleImageError"
-                    />
-                  </div>
-                  <h4 class="font-semibold text-yellow-700">Glouton</h4>
-                </div>
+                <h4 class="font-semibold" style="color: #ff751f;">Glouton</h4>
                 <div class="text-right">
                   <span
-                    class="bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    style="background-color: #ff751f;"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">unique</div>
                 </div>
               </div>
+              <div class="flex justify-center mb-4">
+                <div
+                  class="w-20 h-24 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                >
+                  <img
+                    src="/role_glouton.png"
+                    alt="Carte Glouton"
+                    loading="lazy"
+                    class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                    @click="
+                      emit('card-click', '/role_glouton.png', 'Glouton')
+                    "
+                    @error="handleImageError"
+                  />
+                </div>
+              </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                  style="background-color: rgba(255, 117, 31, 0.2); color: #ff751f;"
                   >😋 Rôle Solo</span
                 >
               </div>
               <p class="text-sm text-gray-600">
-                🏆 Voler le gâteau : avoir 2+ cartes objectif ET taille du
-                gâteau entre 15-18 pendant SON tour
+                🏆 Réunir 2 décorations et gâteau de taille comprise entre 15 et 18
               </p>
             </div>
           </div>
@@ -348,15 +379,17 @@
         <!-- Cartes Objectif Glouton -->
         <div class="mb-8">
           <h3
-            class="text-2xl font-bold text-yellow-600 bg-gradient-to-r from-yellow-100 to-transparent p-4 border-l-4 border-yellow-500 rounded mb-6"
+            class="text-2xl font-bold p-4 border-l-4 rounded mb-6"
+            style="color: #ff751f; background: linear-gradient(to right, rgba(255, 117, 31, 0.1), transparent); border-color: #ff751f;"
           >
             🍴 Cartes Objectif Glouton
           </h3>
           <div class="mb-6 text-center">
             <div
-              class="bg-yellow-50/70 backdrop-blur-sm rounded-xl p-4 border border-yellow-200/50"
+              class="backdrop-blur-sm rounded-xl p-4 border"
+              style="background-color: rgba(255, 117, 31, 0.1); border-color: rgba(255, 117, 31, 0.3);"
             >
-              <p class="text-yellow-700 font-medium text-sm sm:text-base">
+              <p class="font-medium text-sm sm:text-base" style="color: #ff751f;">
                 ⚠️ <strong>Condition de victoire du Glouton :</strong> Le
                 Glouton doit avoir au moins 2 de ces cartes en main ET que
                 la taille du gâteau soit entre 15-18 pendant SON tour pour
@@ -364,10 +397,11 @@
               </p>
             </div>
           </div>
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <!-- Cerises confites -->
             <div
-              class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              style="border-color: #ff751f;"
             >
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
@@ -375,26 +409,27 @@
                     class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                   >
                     <img
-                      src="/placeholder-card.png"
+                      src="/objectifGlouton1.png"
                       alt="Carte Cerises confites"
                       loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
+                        emit('card-click',
+                          '/objectifGlouton1.png',
                           'Cerises confites'
                         )
                       "
                       @error="handleImageError"
                     />
                   </div>
-                  <h4 class="font-semibold text-purple-700">
+                  <h4 class="font-semibold" style="color: #ff751f;">
                     Cerises confites
                   </h4>
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    style="background-color: #ff751f;"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -402,7 +437,8 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                  style="background-color: rgba(255, 117, 31, 0.1); color: #ff751f;"
                   >🍰 Objectif Glouton</span
                 >
               </div>
@@ -410,7 +446,8 @@
 
             <!-- Spirale de caramel -->
             <div
-              class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              style="border-color: #ff751f;"
             >
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
@@ -418,26 +455,27 @@
                     class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                   >
                     <img
-                      src="/placeholder-card.png"
+                      src="/objectifGlouton2.png"
                       alt="Carte Spirale de caramel"
                       loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
+                        emit('card-click',
+                          '/objectifGlouton2.png',
                           'Spirale de caramel'
                         )
                       "
                       @error="handleImageError"
                     />
                   </div>
-                  <h4 class="font-semibold text-purple-700">
+                  <h4 class="font-semibold" style="color: #ff751f;">
                     Spirale de caramel
                   </h4>
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    style="background-color: #ff751f;"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -445,7 +483,8 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                  style="background-color: rgba(255, 117, 31, 0.2); color: #ff751f;"
                   >🍰 Objectif Glouton</span
                 >
               </div>
@@ -453,7 +492,8 @@
 
             <!-- Plan d'évacuation -->
             <div
-              class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              style="border-color: #ff751f;"
             >
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
@@ -461,26 +501,27 @@
                     class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                   >
                     <img
-                      src="/placeholder-card.png"
+                      src="/objectifGlouton3.png"
                       alt="Carte Macarons dorés"
                       loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
+                        emit('card-click',
+                          '/objectifGlouton3.png',
                           'Macarons dorés'
                         )
                       "
                       @error="handleImageError"
                     />
                   </div>
-                  <h4 class="font-semibold text-purple-700">
+                  <h4 class="font-semibold" style="color: #ff751f;">
                     Macarons dorés
                   </h4>
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    style="background-color: #ff751f;"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -488,7 +529,8 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                  style="background-color: rgba(255, 117, 31, 0.2); color: #ff751f;"
                   >🍰 Objectif Glouton</span
                 >
               </div>
@@ -496,7 +538,8 @@
 
             <!-- Neutralisation chimique -->
             <div
-              class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              style="border-color: #ff751f;"
             >
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
@@ -504,26 +547,27 @@
                     class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                   >
                     <img
-                      src="/placeholder-card.png"
+                      src="/objectifGlouton4.png"
                       alt="Carte Rosace de chantilly"
                       loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
+                        emit('card-click',
+                          '/objectifGlouton4.png',
                           'Rosace de chantilly'
                         )
                       "
                       @error="handleImageError"
                     />
                   </div>
-                  <h4 class="font-semibold text-purple-700">
+                  <h4 class="font-semibold" style="color: #ff751f;">
                     Rosace de chantilly
                   </h4>
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    style="background-color: #ff751f;"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -531,7 +575,8 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                  style="background-color: rgba(255, 117, 31, 0.2); color: #ff751f;"
                   >🍰 Objectif Glouton</span
                 >
               </div>
@@ -539,7 +584,8 @@
 
             <!-- Schéma électrique -->
             <div
-              class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              style="border-color: #ff751f;"
             >
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
@@ -547,26 +593,27 @@
                     class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                   >
                     <img
-                      src="/placeholder-card.png"
+                      src="/objectifGlouton5.png"
                       alt="Carte Bonbons gélifiés"
                       loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
+                        emit('card-click',
+                          '/objectifGlouton5.png',
                           'Bonbons gélifiés'
                         )
                       "
                       @error="handleImageError"
                     />
                   </div>
-                  <h4 class="font-semibold text-purple-700">
+                  <h4 class="font-semibold" style="color: #ff751f;">
                     Bonbons gélifiés
                   </h4>
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    style="background-color: #ff751f;"
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -574,7 +621,54 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                  style="background-color: rgba(255, 117, 31, 0.2); color: #ff751f;"
+                  >🍰 Objectif Glouton</span
+                >
+              </div>
+            </div>
+
+            <!-- Copeaux de chocolat -->
+            <div
+              class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              style="border-color: #ff751f;"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                  >
+                    <img
+                      src="/objectifGlouton6.png"
+                      alt="Carte Copeaux de chocolat"
+                      loading="lazy"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      @click="
+                        emit('card-click',
+                          '/objectifGlouton6.png',
+                          'Copeaux de chocolat'
+                        )
+                      "
+                      @error="handleImageError"
+                    />
+                  </div>
+                  <h4 class="font-semibold" style="color: #ff751f;">
+                    Copeaux de chocolat
+                  </h4>
+                </div>
+                <div class="text-right">
+                  <span
+                    class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    style="background-color: #ff751f;"
+                    >× 1</span
+                  >
+                  <div class="text-xs text-gray-500 mt-1">quantité</div>
+                </div>
+              </div>
+              <div class="mb-2">
+                <span
+                  class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                  style="background-color: rgba(255, 117, 31, 0.2); color: #ff751f;"
                   >🍰 Objectif Glouton</span
                 >
               </div>
@@ -602,14 +696,16 @@
           <!-- Charges -->
           <div class="mb-8">
             <h4
-              class="text-xl font-bold text-red-700 mb-4 flex items-center"
+              class="text-xl font-bold mb-4 flex items-center"
+              style="color: #d4a574;"
             >
               ⬆️ Chaleur (+)
             </h4>
             <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
               <!-- Charge +1 -->
               <div
-                class="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border-2 border-red-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                style="border-color: #d4a574;"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -617,32 +713,34 @@
                       class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/chaleur1.png"
                         alt="Carte Chaleur +1"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/chaleur1.png',
                             'Chaleur +1'
                           )
                         "
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-red-700">Chaleur +1</h5>
+                    <h5 class="font-semibold" style="color: #d4a574;">Chaleur +1</h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                      >× 5</span
+                      class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      style="background-color: #d4a574;"
+                      >× 7</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                    style="background-color: rgba(212, 165, 116, 0.2); color: #d4a574;"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -653,7 +751,8 @@
 
               <!-- Charge +2 -->
               <div
-                class="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border-2 border-red-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                style="border-color: #d4a574;"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -661,32 +760,34 @@
                       class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/chaleur2.png"
                         alt="Carte Chaleur +2"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/chaleur2.png',
                             'Chaleur +2'
                           )
                         "
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-red-700">Chaleur +2</h5>
+                    <h5 class="font-semibold" style="color: #d4a574;">Chaleur +2</h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                      >× 6</span
+                      class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      style="background-color: #d4a574;"
+                      >× 8</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                    style="background-color: rgba(212, 165, 116, 0.2); color: #d4a574;"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -697,7 +798,8 @@
 
               <!-- Charge +3 -->
               <div
-                class="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border-2 border-red-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                style="border-color: #d4a574;"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -705,24 +807,25 @@
                       class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/chaleur3.png"
                         alt="Carte Chaleur +3"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/chaleur3.png',
                             'Chaleur +3'
                           )
                         "
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-red-700">Chaleur +3</h5>
+                    <h5 class="font-semibold" style="color: #d4a574;">Chaleur +3</h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      style="background-color: #d4a574;"
                       >× 5</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -730,7 +833,8 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                    style="background-color: rgba(212, 165, 116, 0.2); color: #d4a574;"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -741,7 +845,8 @@
 
               <!-- Charge +4 -->
               <div
-                class="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border-2 border-red-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                style="border-color: #d4a574;"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -749,24 +854,25 @@
                       class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/chaleur4.png"
                         alt="Carte Chaleur +4"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/chaleur4.png',
                             'Chaleur +4'
                           )
                         "
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-red-700">Chaleur +4</h5>
+                    <h5 class="font-semibold" style="color: #d4a574;">Chaleur +4</h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      style="background-color: #d4a574;"
                       >× 4</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -774,7 +880,8 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                    style="background-color: rgba(212, 165, 116, 0.2); color: #d4a574;"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -785,7 +892,8 @@
 
               <!-- Charge +5 -->
               <div
-                class="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border-2 border-red-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                style="border-color: #d4a574;"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -793,24 +901,25 @@
                       class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                     >
                       <img
-                        src="/placeholder-card.png"
-                        alt="Carte Charge +5"
+                        src="/chaleur5.png"
+                        alt="Carte Chaleur +5"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/chaleur5.png',
                             'Chaleur +5'
                           )
                         "
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-red-700">Chaleur +5</h5>
+                    <h5 class="font-semibold" style="color: #d4a574;">Chaleur +5</h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      style="background-color: #d4a574;"
                       >× 2</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -818,7 +927,8 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                    style="background-color: rgba(212, 165, 116, 0.2); color: #d4a574;"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -829,7 +939,8 @@
 
               <!-- X -->
               <div
-                class="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border-2 border-red-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                style="border-color: #d4a574;"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -837,24 +948,25 @@
                       class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                     >
                       <img
-                        src="/placeholder-card.png"
-                        alt="Carte Charge X"
+                        src="/chaleur.png"
+                        alt="Carte Chaleur ?"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/chaleur.png',
                             'Chaleur ?'
                           )
                         "
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-red-700">Chaleur ?</h5>
+                    <h5 class="font-semibold" style="color: #d4a574;">Chaleur ?</h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      style="background-color: #d4a574;"
                       >× 2</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -862,7 +974,8 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                    style="background-color: rgba(212, 165, 116, 0.2); color: #d4a574;"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -877,14 +990,16 @@
           <!-- Refroidissement -->
           <div class="mb-8">
             <h4
-              class="text-xl font-bold text-blue-600 mb-4 flex items-center"
+              class="text-xl font-bold mb-4 flex items-center"
+              style="color: #d4a574;"
             >
               ⬇️ Refroidissement (-)
             </h4>
             <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
               <!-- Refroidissement -1 -->
               <div
-                class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                style="border-color: #d4a574;"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -892,34 +1007,36 @@
                       class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/refroidissement1.png"
                         alt="Carte Refroidissement -1"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/refroidissement1.png',
                             'Refroidissement -1'
                           )
                         "
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-blue-700">
+                    <h5 class="font-semibold" style="color: #d4a574;">
                       Refroidissement -1
                     </h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                      >× 5</span
+                      class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      style="background-color: #d4a574;"
+                      >× 7</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                    style="background-color: rgba(212, 165, 116, 0.2); color: #d4a574;"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -930,7 +1047,8 @@
 
               <!-- Refroidissement -2 -->
               <div
-                class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                style="border-color: #d4a574;"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -938,34 +1056,36 @@
                       class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/refroidissement2.png"
                         alt="Carte Refroidissement -2"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/refroidissement2.png',
                             'Refroidissement -2'
                           )
                         "
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-blue-700">
+                    <h5 class="font-semibold" style="color: #d4a574;">
                       Refroidissement -2
                     </h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                      >× 5</span
+                      class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      style="background-color: #d4a574;"
+                      >× 8</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                    style="background-color: rgba(212, 165, 116, 0.2); color: #d4a574;"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -976,7 +1096,8 @@
 
               <!-- Refroidissement -3 -->
               <div
-                class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                style="border-color: #d4a574;"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -984,34 +1105,36 @@
                       class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/refroidissement3.png"
                         alt="Carte Refroidissement -3"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/refroidissement3.png',
                             'Refroidissement -3'
                           )
                         "
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-blue-700">
+                    <h5 class="font-semibold" style="color: #d4a574;">
                       Refroidissement -3
                     </h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                      >× 5</span
+                      class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      style="background-color: #d4a574;"
+                      >× 6</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                    style="background-color: rgba(212, 165, 116, 0.2); color: #d4a574;"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -1022,7 +1145,8 @@
 
               <!-- Refroidissement X -->
               <div
-                class="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 border-2 border-green-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                style="border-color: #d4a574;"
               >
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
@@ -1030,26 +1154,27 @@
                       class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/refroidissement.png"
                         alt="Carte Refroidissement ?"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/refroidissement.png',
                             'Refroidissement ?'
                           )
                         "
                         @error="handleImageError"
                       />
                     </div>
-                    <h5 class="font-semibold text-green-700">
+                    <h5 class="font-semibold" style="color: #d4a574;">
                       Refroidissement ?
                     </h5>
                   </div>
                   <div class="text-right">
                     <span
-                      class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                      style="background-color: #d4a574;"
                       >× 2</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -1057,7 +1182,8 @@
                 </div>
                 <div class="mb-2">
                   <span
-                    class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
+                    class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                    style="background-color: rgba(212, 165, 116, 0.2); color: #d4a574;"
                     >🌡️ Taille du gâteau</span
                   >
                 </div>
@@ -1075,13 +1201,13 @@
           <h3
             class="text-2xl font-bold p-4 border-l-4 rounded mb-6"
             style="
-              color: #ff914d;
+              color: #ec6082;
               background: linear-gradient(
                 to right,
-                rgba(255, 145, 77, 0.1),
+                rgba(236, 96, 130, 0.1),
                 transparent
               );
-              border-left-color: #ff914d;
+              border-left-color: #ec6082;
             "
           >
             🔧 Cartes Action
@@ -1092,13 +1218,13 @@
             style="
               background: linear-gradient(
                 to right,
-                rgba(255, 145, 77, 0.1),
+                rgba(236, 96, 130, 0.1),
                 transparent
               );
-              border-left-color: #ff914d;
+              border-left-color: #ec6082;
             "
           >
-            <p style="color: #ff914d">
+            <p style="color: #ec6082;">
               <strong>📝 Note :</strong> Les cartes Action (marquées 🔧)
               sont des cartes à effet offensif, stratégique ou de
               manipulation que vous jouez pendant
@@ -1116,7 +1242,7 @@
               style="
                 background: linear-gradient(
                   135deg,
-                  rgba(255, 145, 77, 0.1),
+                  rgba(236, 96, 130, 0.1),
                   white
                 );
                 border-color: rgba(255, 145, 77, 0.5);
@@ -1131,7 +1257,7 @@
                       :src="card.image"
                       :alt="'Carte ' + card.name"
                       loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="emit('card-click', card.image, card.name)"
                     />
                   </div>
@@ -1141,7 +1267,8 @@
                 </div>
                 <div class="text-right">
                   <span
-                    class="bg-yellow-500 text-gray-800 text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    style="background-color: #ec6082;"
                     >× {{ card.quantity }}</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -1149,7 +1276,8 @@
               </div>
               <div class="mb-2">
                 <span
-                  class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full"
+                  class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                  style="background-color: rgba(236, 96, 130, 0.2); color: #ec6082;"
                   >🔧 {{ card.type }}</span
                 >
               </div>
@@ -1163,13 +1291,13 @@
           <h3
             class="text-2xl font-bold p-4 border-l-4 rounded mb-6"
             style="
-              color: #cb6ce6;
+              color: #4ca7ff;
               background: linear-gradient(
                 to right,
-                rgba(203, 108, 230, 0.1),
+                rgba(76, 167, 255, 0.1),
                 transparent
               );
-              border-left-color: #cb6ce6;
+              border-left-color: #4ca7ff;
             "
           >
             ⚡ Cartes Action Réactives
@@ -1180,17 +1308,17 @@
             style="
               background: linear-gradient(
                 to right,
-                rgba(203, 108, 230, 0.1),
+                rgba(76, 167, 255, 0.1),
                 transparent
               );
-              border-left-color: #cb6ce6;
+              border-left-color: #4ca7ff;
             "
           >
-            <p style="color: #cb6ce6">
-              <strong>⚡ Note importante :</strong> Les cartes Action
+            <p style="color: #4ca7ff;">
+              <strong>⚡ Note :</strong> Les cartes Action
               Réactives (marquées ⚡) peuvent
               <strong
-                >être jouées n'importe quand mais que contre des cartes
+                >être jouées n'importe quand contre des cartes
                 d'autres joueurs</strong
               >
               pour contrer, modifier ou rediriger une action. Elles ne
@@ -1206,7 +1334,7 @@
               style="
                 background: linear-gradient(
                   135deg,
-                  rgba(203, 108, 230, 0.1),
+                  rgba(76, 167, 255, 0.1),
                   white
                 );
                 border-color: rgba(203, 108, 230, 0.5);
@@ -1218,13 +1346,13 @@
                     class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                   >
                     <img
-                      src="/placeholder-card.png"
+                      src="/actionReactive_tablierDeProtection.png"
                       alt="Carte Tablier de Protection"
                       loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
+                        emit('card-click',
+                          '/actionReactive_tablierDeProtection.png',
                           'Tablier de Protection'
                         )
                       "
@@ -1238,8 +1366,8 @@
                 <div class="text-right">
                   <span
                     class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                    style="background-color: #cb6ce6"
-                    >× 4</span
+                    style="background-color: #4ca7ff"
+                    >× 3</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
                 </div>
@@ -1247,10 +1375,7 @@
               <div class="mb-2">
                 <span
                   class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                  style="
-                    background-color: rgba(203, 108, 230, 0.1);
-                    color: #cb6ce6;
-                  "
+                  style="background-color: rgba(76, 167, 255, 0.2); color: #4ca7ff;"
                   >⚡ Réactive</span
                 >
               </div>
@@ -1265,7 +1390,7 @@
               style="
                 background: linear-gradient(
                   135deg,
-                  rgba(203, 108, 230, 0.1),
+                  rgba(76, 167, 255, 0.1),
                   white
                 );
                 border-color: rgba(203, 108, 230, 0.5);
@@ -1277,13 +1402,13 @@
                     class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                   >
                     <img
-                      src="/placeholder-card.png"
+                      src="/actionReactive_RenvoiDeSpatule.png"
                       alt="Carte Renvoi de spatule"
                       loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
+                        emit('card-click',
+                          '/actionReactive_RenvoiDeSpatule.png',
                           'Renvoi de spatule'
                         )
                       "
@@ -1297,8 +1422,8 @@
                 <div class="text-right">
                   <span
                     class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                    style="background-color: #cb6ce6"
-                    >× 4</span
+                    style="background-color: #4ca7ff"
+                    >× 3</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
                 </div>
@@ -1306,15 +1431,12 @@
               <div class="mb-2">
                 <span
                   class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                  style="
-                    background-color: rgba(203, 108, 230, 0.1);
-                    color: #cb6ce6;
-                  "
+                  style="background-color: rgba(76, 167, 255, 0.2); color: #4ca7ff;"
                   >⚡ Réactive</span
                 >
               </div>
               <p class="text-sm text-gray-600">
-                Redirige une action contre vous ou inverse le signe (+ ↔ -)
+                Redirigez une action faite contre vous vers un autre joueur
               </p>
             </div>
 
@@ -1324,7 +1446,7 @@
               style="
                 background: linear-gradient(
                   135deg,
-                  rgba(203, 108, 230, 0.1),
+                  rgba(76, 167, 255, 0.1),
                   white
                 );
                 border-color: rgba(203, 108, 230, 0.5);
@@ -1336,13 +1458,13 @@
                     class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                   >
                     <img
-                      src="/placeholder-card.png"
+                      src="/actionReactive_CoupDeBoost.png"
                       alt="Carte Coup de boost"
                       loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
+                        emit('card-click',
+                          '/actionReactive_CoupDeBoost.png',
                           'Coup de boost'
                         )
                       "
@@ -1354,7 +1476,7 @@
                 <div class="text-right">
                   <span
                     class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                    style="background-color: #cb6ce6"
+                    style="background-color: #4ca7ff"
                     >× 3</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -1363,16 +1485,67 @@
               <div class="mb-2">
                 <span
                   class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                  style="
-                    background-color: rgba(203, 108, 230, 0.1);
-                    color: #cb6ce6;
-                  "
+                  style="background-color: rgba(76, 167, 255, 0.2); color: #4ca7ff;"
                   >⚡ Réactive</span
                 >
               </div>
               <p class="text-sm text-gray-600">
                 Doublez la valeur de la carte chaleur, refroidissement, four
                 rétréci ou four élargi jouée
+              </p>
+            </div>
+
+            <!-- Thermostat capricieux -->
+            <div
+              class="bg-gradient-to-br rounded-xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  rgba(76, 167, 255, 0.1),
+                  white
+                );
+                border-color: rgba(203, 108, 230, 0.5);
+              "
+            >
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
+                  >
+                    <img
+                      src="/actionReactive_thermostatCapricieux.png"
+                      alt="Carte Thermostat capricieux"
+                      loading="lazy"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      @click="
+                        emit('card-click',
+                          '/actionReactive_thermostatCapricieux.png',
+                          'Thermostat capricieux'
+                        )
+                      "
+                      @error="handleImageError"
+                    />
+                  </div>
+                  <h4 class="font-semibold text-gray-800">Thermostat capricieux</h4>
+                </div>
+                <div class="text-right">
+                  <span
+                    class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
+                    style="background-color: #4ca7ff"
+                    >× 3</span
+                  >
+                  <div class="text-xs text-gray-500 mt-1">quantité</div>
+                </div>
+              </div>
+              <div class="mb-2">
+                <span
+                  class="inline-block text-xs font-medium px-3 py-1 rounded-full"
+                  style="background-color: rgba(76, 167, 255, 0.2); color: #4ca7ff;"
+                  >⚡ Réactive</span
+                >
+              </div>
+              <p class="text-sm text-gray-600">
+                Inversez le signe de la carte chaleur ou refroidissement jouée
               </p>
             </div>
           </div>
@@ -1383,13 +1556,13 @@
           <h3
             class="text-2xl font-bold p-4 border-l-4 rounded mb-6"
             style="
-              color: #4682b4;
+              color: #800080;
               background: linear-gradient(
                 to right,
-                rgba(70, 130, 180, 0.1),
+                rgba(128, 0, 128, 0.1),
                 transparent
               );
-              border-left-color: #4682b4;
+              border-left-color: #800080;
             "
           >
             🎭 Cartes Événement
@@ -1400,16 +1573,16 @@
             style="
               background: linear-gradient(
                 to right,
-                rgba(70, 130, 180, 0.1),
+                rgba(128, 0, 128, 0.1),
                 transparent
               );
-              border-left-color: #4682b4;
+              border-left-color: #800080;
             "
           >
-            <h4 class="font-bold mb-2" style="color: #4682b4">
+            <h4 class="font-bold mb-2" style="color: #800080;">
               ⏰ Timing :
             </h4>
-            <p style="color: #4682b4">
+            <p style="color: #800080;">
               Un événement est révélé au début du tour du premier joueur,
               <strong>avant qu'il joue sa carte</strong>. L'effet s'applique
               à tout le tour de table.
@@ -1428,7 +1601,7 @@
               :style="
                 event.name === 'Minuteur final'
                   ? ''
-                  : 'background: linear-gradient(135deg, rgba(70, 130, 180, 0.1), white); border-color: rgba(70, 130, 180, 0.5);'
+                  : 'background: linear-gradient(135deg, rgba(128, 0, 128, 0.1), white); border-color: rgba(128, 0, 128, 0.5);'
               "
               class="border-2 rounded-lg p-4 shadow hover:shadow-md transition-shadow group"
             >
@@ -1441,7 +1614,7 @@
                       :src="event.image"
                       :alt="'Carte ' + event.name"
                       loading="lazy"
-                      class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                       @click="emit('card-click', event.image, event.name)"
                     />
                   </div>
@@ -1453,7 +1626,7 @@
                     :style="
                       event.name === 'Minuteur final'
                         ? ''
-                        : 'color: #4682b4;'
+                        : 'color: #800080;'
                     "
                   >
                     {{ event.name }}
@@ -1462,7 +1635,11 @@
                 <div class="text-right">
                   <span
                     class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
-                    style="background-color: #4682b4"
+                    :style="
+                      event.name === 'Minuteur final'
+                        ? 'background-color: #ef4444;'
+                        : 'background-color: #800080;'
+                    "
                     >× 1</span
                   >
                   <div class="text-xs text-gray-500 mt-1">quantité</div>
@@ -1471,9 +1648,10 @@
               <div class="mb-2">
                 <span
                   class="inline-block text-xs font-medium px-3 py-1 rounded-full"
-                  style="
-                    background-color: rgba(70, 130, 180, 0.1);
-                    color: #4682b4;
+                  :style="
+                    event.name === 'Minuteur final'
+                      ? 'background-color: rgba(239, 68, 68, 0.2); color: #ef4444;'
+                      : 'background-color: rgba(128, 0, 128, 0.2); color: #800080;'
                   "
                   >🎭 Événement</span
                 >
@@ -1487,13 +1665,13 @@
             style="
               background: linear-gradient(
                 to right,
-                rgba(70, 130, 180, 0.1),
+                rgba(128, 0, 128, 0.1),
                 transparent
               );
-              border-left-color: #4682b4;
+              border-left-color: #800080;
             "
           >
-            <p class="text-sm" style="color: #4682b4">
+            <p class="text-sm" style="color: #800080;">
               <strong>📋 Mise en place spéciale :</strong>
               Piochez 9 cartes Événement au hasard. Prenez 2 cartes au
               hasard + la carte "Minuteur final", mélangez ces 3 cartes et
@@ -1506,7 +1684,16 @@
         <!-- Cartes Système -->
         <div class="mb-8">
           <h3
-            class="text-2xl font-bold text-orange-600 bg-gradient-to-r from-orange-100 to-transparent p-4 border-l-4 border-orange-500 rounded mb-6"
+            class="text-2xl font-bold p-4 border-l-4 rounded mb-6"
+            style="
+              color: #6b7280;
+              background: linear-gradient(
+                to right,
+                rgba(107, 114, 128, 0.1),
+                transparent
+              );
+              border-left-color: #6b7280;
+            "
           >
             ⚙️ Cartes Système
           </h3>
@@ -1530,13 +1717,13 @@
                         class="w-12 h-16 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1"
                       >
                         <img
-                          src="/placeholder-card.png"
+                          src="/systeme_premierJoueur.png"
                           alt="Carte Premier Joueur"
                           loading="lazy"
-                          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                          class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                           @click="
-                            emit('card-click', 
-                              '/placeholder-card.png',
+                            emit('card-click',
+                              '/systeme_premierJoueur.png',
                               'Premier Joueur'
                             )
                           "
@@ -1576,9 +1763,17 @@
                 🔢 Cartes Système Numérotées
               </h4>
               <div
-                class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mb-6"
+                class="border-l-4 p-4 rounded-r-lg mb-6"
+                style="
+                  background: linear-gradient(
+                    to right,
+                    rgba(107, 114, 128, 0.1),
+                    transparent
+                  );
+                  border-left-color: #6b7280;
+                "
               >
-                <p class="text-blue-700">
+                <p style="color: #6b7280;">
                   Ces cartes servent de référence pour déterminer les
                   valeurs aléatoires des effets nécessitant un tirage au
                   hasard.
@@ -1594,13 +1789,13 @@
                       class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/systeme_valeurMystere1.png"
                         alt="Carte Système 1"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/systeme_valeurMystere1.png',
                             'Système 1'
                           )
                         "
@@ -1628,13 +1823,13 @@
                       class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/systeme_valeurMystere2.png"
                         alt="Carte Système 2"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/systeme_valeurMystere2.png',
                             'Système 2'
                           )
                         "
@@ -1662,13 +1857,13 @@
                       class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/systeme_valeurMystere3.png"
                         alt="Carte Système 3"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/systeme_valeurMystere3.png',
                             'Système 3'
                           )
                         "
@@ -1696,13 +1891,13 @@
                       class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/systeme_valeurMystere4.png"
                         alt="Carte Système 4"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/systeme_valeurMystere4.png',
                             'Système 4'
                           )
                         "
@@ -1730,13 +1925,13 @@
                       class="w-16 h-20 rounded-md overflow-hidden shadow-sm bg-gray-50 p-1 mb-4"
                     >
                       <img
-                        src="/placeholder-card.png"
+                        src="/systeme_valeurMystere5.png"
                         alt="Carte Système 5"
                         loading="lazy"
-                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 cursor-zoom-in"
+                        class="w-full h-full object-contain hover:scale-105 transition-transform duration-200 cursor-zoom-in"
                         @click="
-                          emit('card-click', 
-                            '/placeholder-card.png',
+                          emit('card-click',
+                            '/systeme_valeurMystere5.png',
                             'Système 5'
                           )
                         "
@@ -1772,780 +1967,6 @@
     </div>
   </section>
 
-  <!-- Mode Coopératif - COMMENTÉ TEMPORAIREMENT -->
-  <!-- <section id="cooperatif" class="mb-12">
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-      <div class="p-4 sm:p-8">
-        <h2
-          class="text-2xl sm:text-4xl font-bold text-red-600 border-b-4 border-red-500 pb-4 mb-8"
-        >
-          🤖 Mode Coopératif - Boom Squad
-        </h2>
-
-        <div
-          class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-2xl mb-8"
-        >
-          <h3 class="text-2xl font-bold mb-4">1-2 joueurs vs IA</h3>
-          <p class="text-lg mb-4">
-            <strong>Affrontez la Machine</strong>, une IA explosive
-            déterminée à faire sauter le compteur.
-          </p>
-          <p class="opacity-90">
-            Tenez bon ensemble… ou sautez ensemble 💥
-          </p>
-        </div>
-
-        <h3 class="text-2xl font-bold text-orange-600 mb-6">
-          ⚙️ Mise en Place
-        </h3>
-
-        <div class="grid md:grid-cols-2 gap-6 mb-8">
-          <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
-            <h4 class="text-lg font-bold text-blue-700 mb-4">
-              Configuration
-            </h4>
-            <ul class="space-y-2 text-blue-700">
-              <li>• Deck IA de <strong>22 cartes</strong></li>
-              <li>• Chaque joueur pioche <strong>4 cartes</strong></li>
-              <li>• Compteur sur <strong>0</strong></li>
-              <li>• Choisir la difficulté</li>
-            </ul>
-          </div>
-
-          <div class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500">
-            <h4 class="text-lg font-bold text-red-700 mb-4">
-              Niveaux de Difficulté
-            </h4>
-            <div class="space-y-2">
-              <div class="flex justify-between text-sm">
-                <span class="font-medium">Débutant</span>
-                <span>7 tours, seuil 19</span>
-              </div>
-              <div class="flex justify-between text-sm">
-                <span class="font-medium">Normal</span>
-                <span>8 tours, seuil 17</span>
-              </div>
-              <div class="flex justify-between text-sm">
-                <span class="font-medium">Expert</span>
-                <span>11 tours, seuil 15</span>
-              </div>
-              <div class="flex justify-between text-sm">
-                <span class="font-medium">Légende</span>
-                <span>13 tours, seuil 12</span>
-              </div>
-              <div class="flex justify-between text-sm">
-                <span class="font-medium text-red-600">Impossible</span>
-                <span>15 tours, seuil 10</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="text-2xl font-bold text-orange-600 mb-6">
-          🔁 Déroulement d'un Tour
-        </h3>
-
-        <div class="space-y-4 mb-8">
-          <div
-            class="bg-red-100 border-l-4 border-red-500 p-4 rounded-r-lg"
-          >
-            <h4 class="font-bold text-red-800 mb-2">
-              1. Tour de la Machine (IA)
-            </h4>
-            <p class="text-red-700">
-              L'IA pioche 1 carte de son deck et applique son effet
-              immédiatement
-            </p>
-          </div>
-
-          <div
-            class="bg-blue-100 border-l-4 border-blue-500 p-4 rounded-r-lg"
-          >
-            <h4 class="font-bold text-blue-800 mb-2">
-              2. Tour des Joueurs
-            </h4>
-            <p class="text-blue-700">
-              <strong>En duo :</strong> chaque joueur joue 1 carte, pioche
-              <span class="block">1</span>
-              <span class="block"
-                ><strong>En solo :</strong> joue 2 cartes, pioche 2</span
-              >
-              Les joueurs coopèrent librement
-            </p>
-          </div>
-
-          <div
-            class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-r-lg"
-          >
-            <h4 class="font-bold text-yellow-800 mb-2">3. Fin du Tour</h4>
-            <p class="text-yellow-700">
-              Si le compteur ≥ seuil d'explosion → <strong>Défaite</strong>
-              Sinon → Continuer jusqu'à la fin des tours
-            </p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-8">
-          <div>
-            <h3 class="text-2xl font-bold text-orange-600 mb-6">
-              🤖 Deck IA (22 cartes avec logo 🤖)
-            </h3>
-            <div class="bg-red-50 border-2 border-red-200 rounded-lg p-4">
-              <p class="text-sm text-red-700 mb-4">
-                Cartes exclusivement utilisées par l'IA (celles avec le logo
-                🤖 en haut à droite)
-              </p>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Charge +1"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Charge +1')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-red-700">Charge +1</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 5</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Charge +2"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Charge +2')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-red-700">Charge +2</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 4</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Charge +3"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Charge +3')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-red-700">Charge +3</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 3</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Charge +4"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Charge +4')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-red-700">Charge +4</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 2</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Charge +5"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Charge +5')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-red-700">Charge +5</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 1</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Charge X"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Charge X')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-red-700">Charge X</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 2</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Blocage"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', '/placeholder-card.png', 'Blocage')
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-yellow-700">Blocage</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 1</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Seuil réduit"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
-                          'Seuil réduit'
-                        )
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-yellow-700"
-                      >Seuil réduit</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 2</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Sabotage"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', '/placeholder-card.png', 'Sabotage')
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-yellow-700"
-                      >Sabotage</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 2</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="text-2xl font-bold text-orange-600 mb-6">
-              🙋‍♂️ Deck Joueur (41 cartes)
-            </h3>
-            <div
-              class="bg-green-50 border-2 border-green-200 rounded-lg p-4"
-            >
-              <p class="text-sm text-green-700 mb-4">
-                Cartes disponibles pour les joueurs (quantités pour le mode
-                coopératif)
-              </p>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Charge +2"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Charge +2')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-red-700">Charge +2</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 3</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Charge +3"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Charge +3')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-red-700">Charge +3</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 2</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Charge +4"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Charge +4')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-red-700">Charge +4</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 2</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Charge +5"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Charge +5')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-red-700">Charge +5</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-red-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 1</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Décharge -1"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', '/placeholder-card.png', 'Décharge -1')
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-green-700"
-                      >Décharge -1</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-green-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 5</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Décharge -2"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', '/placeholder-card.png', 'Décharge -2')
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-green-700"
-                      >Décharge -2</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-green-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 5</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Décharge -3"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', '/placeholder-card.png', 'Décharge -3')
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-green-700"
-                      >Décharge -3</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-green-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 5</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Décharge X"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="emit('card-click', '/placeholder-card.png', 'Décharge X')"
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-green-700"
-                      >Décharge X</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-green-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 2</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Blocage"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', '/placeholder-card.png', 'Blocage')
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-yellow-700">Blocage</span>
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 2</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Seuil augmenté"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
-                          'Seuil augmenté'
-                        )
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-yellow-700"
-                      >Seuil augmenté</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 3</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Seuil réduit"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
-                          'Seuil réduit'
-                        )
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-yellow-700"
-                      >Seuil réduit</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 1</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Contrebande"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
-                          'Contrebande'
-                        )
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-yellow-700"
-                      >Contrebande</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 4</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Manipulation"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
-                          'Manipulation'
-                        )
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-yellow-700"
-                      >Manipulation</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 1</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Intervention hasardeuse"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
-                          'Intervention hasardeuse'
-                        )
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-yellow-700"
-                      >Intervention hasardeuse</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 1</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-                <div
-                  class="flex justify-between items-center bg-white p-2 rounded border"
-                >
-                  <div class="flex items-center space-x-3">
-                    <img
-                      src="/placeholder-card.png"
-                      alt="Tablier de Protection"
-                      loading="lazy"
-                      class="w-8 h-10 object-cover rounded cursor-zoom-in hover:scale-110 transition-transform"
-                      @click="
-                        emit('card-click', 
-                          '/placeholder-card.png',
-                          'Tablier de Protection'
-                        )
-                      "
-                    
-                    @error="handleImageError"/>
-                    <span class="font-medium text-purple-700"
-                      >⚡ Tablier de Protection</span
-                    >
-                  </div>
-                  <div class="text-right">
-                    <span
-                      class="bg-purple-500 text-white text-xs px-2 py-1 rounded-full"
-                      >× 4</span
-                    >
-                    <div class="text-xs text-gray-500 mt-1">quantité</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg mb-8"
-        >
-          <h4 class="font-bold text-yellow-800 mb-4">
-            ⚠️ Règles Spéciales
-          </h4>
-          <ul class="text-yellow-700 space-y-2">
-            <li>
-              • Les cartes <strong>Blocage</strong> de l'IA affectent le
-              joueur suivant dans l'ordre
-            </li>
-          </ul>
-        </div>
-
-        <div
-          class="bg-green-100 border-2 border-green-500 rounded-lg p-6 text-center"
-        >
-          <h4 class="text-xl font-bold text-green-800 mb-2">
-            🎯 Condition de Victoire
-          </h4>
-          <p class="text-green-700">
-            <strong>Survivez jusqu'à la fin du dernier tour</strong> sans
-            que le compteur dépasse le seuil d'explosion !
-          </p>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- FAQ -->
   <!-- FAQ Component -->
   <FAQ />
 </template>
@@ -2555,4 +1976,9 @@ import actionCards from '../data/cards/actions';
 import { events } from '../data/events';
 
 const emit = defineEmits(['card-click']);
+
+const handleImageError = (event) => {
+  event.target.src = "/placeholder-card.png";
+  event.target.onerror = null;
+};
 </script>

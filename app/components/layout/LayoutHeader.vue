@@ -72,7 +72,7 @@
           <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-sm text-gray-600 mb-4">
             <div class="flex items-center space-x-2">
               <span class="text-lg">👥</span>
-              <span>1-2 (Coopératif) ou 3-5 (Rôles cachés)</span>
+              <span>3-6 joueurs</span>
             </div>
             <div class="flex items-center space-x-2">
               <span class="text-lg">⏱️</span>

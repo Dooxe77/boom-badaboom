@@ -6,7 +6,6 @@ export default [
   { id: "victory", label: "Victoire" },
   { id: "material", label: "Matériel" },
   { id: "faq", label: "FAQ" },
-  { id: "cooperative-mode", label: "Mode Coopératif" },
   { id: "contributors", label: "Remerciements" },
   { id: "contact", label: "Contact" }
 ]

@@ -26,28 +26,11 @@
             <div class="text-left">
               <div class="font-bold text-lg mb-1">🎭 Mode Rôles cachés</div>
               <div class="text-red-100 text-sm">
-                3-5 joueurs • Bluff et déduction
+                3-6 joueurs • Bluff et déduction
               </div>
             </div>
             <div class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity">
               ⚔️
-            </div>
-          </div>
-        </button>
-        <!-- Mode Coopératif -->
-        <button
-          @click="$emit('select-cooperative')"
-          class="w-full group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
-        >
-          <div class="flex items-center justify-between">
-            <div class="text-left">
-              <div class="font-bold text-lg mb-1">👻 Mode Coopératif</div>
-              <div class="text-blue-100 text-sm">
-                1-2 joueurs contre Fourneau le Facétieux
-              </div>
-            </div>
-            <div class="text-2xl opacity-80 group-hover:opacity-100 transition-opacity">
-              🤝
             </div>
           </div>
         </button>
@@ -64,5 +47,5 @@ defineProps({
   }
 });
 
-defineEmits(['close', 'select-competitive', 'select-cooperative']);
+defineEmits(['close', 'select-competitive']);
 </script>

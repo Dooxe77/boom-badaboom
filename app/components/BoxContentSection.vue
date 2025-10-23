@@ -37,7 +37,7 @@
                     class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-1.5 flex-shrink-0"
                   ></span>
                   <div>
-                    <strong>108 cartes</strong>
+                    <strong>128 cartes</strong>
                   </div>
                 </li>
                 <li class="flex items-start">
@@ -89,9 +89,7 @@
                   ></span>
                   <div>
                     <strong class="block sm:inline">Joueurs:</strong>
-                    <span class="block sm:inline sm:ml-1"
-                      >1-2 (Coopératif) ou 3-5 (Rôles cachés)</span
-                    >
+                    <span class="block sm:inline sm:ml-1">3-6 joueurs</span>
                   </div>
                 </li>
                 <li class="flex items-start">
@@ -111,9 +109,7 @@
                   ></span>
                   <div>
                     <strong class="block sm:inline">Durée:</strong>
-                    <span class="block sm:inline sm:ml-1"
-                      >15-20 minutes</span
-                    >
+                    <span class="block sm:inline sm:ml-1">15-20 minutes</span>
                   </div>
                 </li>
                 <li class="flex items-start">
