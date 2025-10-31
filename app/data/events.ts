@@ -63,7 +63,8 @@ export const events: Event[] = [
   },
   {
     name: "Cuisine en désordre",
-    effect: "L'ordre de jeu s'inverse pour le reste de ce tour",
+    effect:
+      "L'ordre de jeu s'inverse pour le reste de ce tour. Le premier joueur jouera en dernier",
     image: "/event_cuisineEnDesordre.png",
   },
   {
@@ -97,8 +98,7 @@ export const events: Event[] = [
   },
   {
     name: "Vitrine du pâtissier",
-    effect:
-      "Chaque joueur doit montrer toutes ses cartes décorations en main",
+    effect: "Chaque joueur doit montrer toutes ses cartes décorations en main",
     image: "/event_vitrinePatissier.png",
   },
   {

@@ -4,7 +4,7 @@ export default [
     type: "Action",
     effect:
       "Regardez secrètement la main d'un joueur et volez une carte au choix",
-    quantity: 3,
+    quantity: 4,
     image: "/action_coupDOeilGourmand.png",
   },
   {
@@ -86,5 +86,21 @@ export default [
       "Mélangez toutes les cartes en main avec la défausse. Redistribuez 5 cartes par joueur",
     quantity: 1,
     image: "/action_remixageTotal.png",
+  },
+  {
+    name: "Sablé du destin",
+    type: "Action",
+    effect:
+      "Piochez la carte du dessus de la pioche et appliquez-la immédiatement",
+    quantity: 2,
+    image: "/action_sableDuDestin.png",
+  },
+  {
+    name: "Choix du chef",
+    type: "Action",
+    effect:
+      "Choisissez une carte dans la pioche, ajoutez-la immédiatement à votre main, puis mélangez la pioche",
+    quantity: 2,
+    image: "/action_choixChef.png",
   },
 ];

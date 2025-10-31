@@ -732,7 +732,7 @@
                     <span
                       class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                       style="background-color: #d4a574;"
-                      >× 7</span
+                      >× 6</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
@@ -779,7 +779,7 @@
                     <span
                       class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                       style="background-color: #d4a574;"
-                      >× 8</span
+                      >× 9</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
@@ -826,7 +826,7 @@
                     <span
                       class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                       style="background-color: #d4a574;"
-                      >× 5</span
+                      >× 3</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
@@ -1028,7 +1028,7 @@
                     <span
                       class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                       style="background-color: #d4a574;"
-                      >× 7</span
+                      >× 5</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
@@ -1077,7 +1077,7 @@
                     <span
                       class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                       style="background-color: #d4a574;"
-                      >× 8</span
+                      >× 9</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
@@ -1126,7 +1126,7 @@
                     <span
                       class="text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0"
                       style="background-color: #d4a574;"
-                      >× 6</span
+                      >× 5</span
                     >
                     <div class="text-xs text-gray-500 mt-1">quantité</div>
                   </div>
