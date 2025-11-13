@@ -14,6 +14,7 @@ export default {
     "<strong>Révélez un événement</strong> (au début du tour du premier joueur uniquement)",
     "<strong>Jouez 1 carte</strong> de votre main",
     "<strong>Appliquez l'effet</strong> de la carte (modification du compteur, action spéciale...)",
+    "<div class='bg-blue-50 border-l-4 border-blue-400 p-3 my-2 rounded'><div class='flex items-start'><span class='text-blue-600 mr-2'>⚡</span><div><strong class='text-blue-800'>Cartes réactives :</strong> <span class='text-blue-700'>Les autres joueurs peuvent jouer des cartes réactives en réponse à votre carte. <strong>Ces cartes réactives ne comptent pas comme la carte jouée à leur tour</strong> - elles sont jouées en dehors de la séquence normale du tour et permettent simplement de réagir aux actions des adversaires.</span></div></div></div>",
     "<strong>Piochez autant de carte que nécessaire</strong> pour revenir à 5 cartes en main (sauf si votre tour est sauté)",
     "<strong>Fin de manche :</strong> Une fois que tous les joueurs ont joué, la carte Premier Joueur passe au joueur de gauche et on dévoile un nouvel événement",
   ],

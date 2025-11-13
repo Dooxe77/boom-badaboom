@@ -93,7 +93,7 @@ export const events: Event[] = [
   {
     name: "Chef désigné",
     effect:
-      "Le dernier joueur de ce tour décide de l'ordre de jeu pour le prochain tour",
+      "Le premier joueur choisit l'ordre de jeu pour ce tour",
     image: "/event_chefDesigne.png",
   },
   {

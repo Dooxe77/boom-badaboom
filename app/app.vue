@@ -2,7 +2,7 @@
   <Analytics />
   <div class="min-h-screen bg-gray-50">
     <!-- Header Component -->
-    <LayoutHeader @start-game="openGameModeSelection" />
+    <LayoutHeader @start-game="openPlayerCountSelection" />
 
     <!-- Navigation Component -->
     <LayoutNavigation />
@@ -99,12 +99,6 @@
     />
   </div>
 
-  <!-- GameModeModal Component -->
-  <GameModeModal
-    :show="showGameModeModal"
-    @close="closeGameModeModal"
-    @select-competitive="selectCompetitiveMode"
-  />
 
   <!-- EventCard Component -->
   <EventCard
@@ -126,10 +120,7 @@
   <PlayerCountModal
     :show="showPlayerCountModal"
     @select="selectPlayerCount"
-    @back="
-      closePlayerCountModal();
-      openGameModeSelection();
-    "
+    @back="closePlayerCountModal"
   />
 
   <!-- GameStartModal Component -->
@@ -233,8 +224,7 @@ const finalCountdownRevealed = ref(false);
 const showCloseConfirmModal = ref(false);
 const showEndGameModal = ref(false);
 
-// Game mode selection
-const showGameModeModal = ref(false);
+// Player count selection
 const showPlayerCountModal = ref(false);
 
 // Timer interval reference for cleanup
@@ -419,8 +409,6 @@ const handleEscape = (event) => {
       closeEndGameModal();
     } else if (showPlayerCountModal.value) {
       closePlayerCountModal();
-    } else if (showGameModeModal.value) {
-      closeGameModeModal();
     } else if (showCounterMode.value) {
       showCloseConfirmModal.value = true; // Show confirmation instead of direct close
     } else if (showCardModal.value) {
@@ -535,22 +523,12 @@ const cancelCloseGame = () => {
   showCloseConfirmModal.value = false;
 };
 
-// Game mode selection functions
-const openGameModeSelection = () => {
-  showGameModeModal.value = true;
-  document.body.style.overflow = "hidden";
-};
-const closeGameModeModal = () => {
-  showGameModeModal.value = false;
-  document.body.style.overflow = "auto";
-};
-const selectCompetitiveMode = () => {
-  closeGameModeModal();
+// Player count selection functions
+const openPlayerCountSelection = () => {
   showPlayerCountModal.value = true;
   document.body.style.overflow = "hidden";
 };
 
-// Player count selection functions
 const selectPlayerCount = (count) => {
   playerCount.value = count;
   closePlayerCountModal();

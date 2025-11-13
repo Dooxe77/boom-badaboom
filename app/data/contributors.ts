@@ -72,4 +72,28 @@ export const contributors: Contributor[] = [
     initials: 'PM',
     color: 'rose-500',
   },
+  {
+    firstName: 'Eric',
+    lastName: 'Lecomte',
+    initials: 'EL',
+    color: 'yellow-500',
+  },
+  {
+    firstName: 'Sandrine',
+    lastName: 'Lecomte',
+    initials: 'SL',
+    color: 'blue-500',
+  },
+  {
+    firstName: 'Thomas',
+    lastName: 'Ferro',
+    initials: 'TF',
+    color: 'green-500',
+  },
+  {
+    firstName: 'Adeline',
+    lastName: 'Michel',
+    initials: 'AM',
+    color: 'purple-500',
+  },
 ]

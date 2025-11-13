@@ -35,7 +35,7 @@
           class="bg-gradient-to-br from-orange-50/80 to-red-50/80 backdrop-blur-sm rounded-2xl p-8 border border-orange-200/50 shadow-lg"
         >
           <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">
-            Merci aux contributeurs du projet
+            Nos testeurs de la première heure
           </h3>
 
           <!-- Contributors Grid -->
@@ -69,6 +69,9 @@
               <p class="text-gray-700 font-medium text-lg mb-3">
                 Leurs retours ont permis d'affiner la recette parfaite de ce
                 jeu
+              </p>
+              <p class="text-gray-600 text-base mb-4 italic">
+                Un grand merci également à toutes les autres personnes qui ont contribué à la relecture des règles, donné des retours précieux sur de nombreux aspects du jeu, et participé aux sessions de test. Vos contributions, même non listées ici, ont été essentielles !
               </p>
               <p class="text-orange-600 font-bold text-xl">
                 Merci à toute l'équipe ! 👨‍🍳🎉

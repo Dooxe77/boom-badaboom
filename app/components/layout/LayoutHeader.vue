@@ -76,7 +76,7 @@
             </div>
             <div class="flex items-center space-x-2">
               <span class="text-lg">⏱️</span>
-              <span>15-20 min</span>
+              <span>15-30 min</span>
             </div>
             <div class="flex items-center space-x-2">
               <span class="text-lg">🎂</span>

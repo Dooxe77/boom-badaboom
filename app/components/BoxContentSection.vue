@@ -109,7 +109,7 @@
                   ></span>
                   <div>
                     <strong class="block sm:inline">Durée:</strong>
-                    <span class="block sm:inline sm:ml-1">15-20 minutes</span>
+                    <span class="block sm:inline sm:ml-1">15-30 minutes</span>
                   </div>
                 </li>
                 <li class="flex items-start">
