@@ -1,6 +1,8 @@
 <template>
   <section id="contact" class="mb-12 relative overflow-hidden rounded-3xl">
-    <div class="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-orange-50/30 to-red-50/30"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-orange-50/30 to-red-50/30"
+    ></div>
     <div class="absolute inset-0 opacity-5">
       <div class="absolute top-8 left-8 text-5xl">📧</div>
       <div class="absolute top-16 right-12 text-3xl">💌</div>
@@ -8,29 +10,40 @@
       <div class="absolute bottom-12 right-1/3 text-2xl">✉️</div>
     </div>
 
-    <div class="bg-gradient-to-br from-white via-orange-50/30 to-amber-50/50 rounded-3xl shadow-lg border border-orange-100/50 backdrop-blur-sm overflow-hidden relative z-10">
+    <div
+      class="bg-gradient-to-br from-white via-orange-50/30 to-amber-50/50 rounded-3xl shadow-lg border border-orange-100/50 backdrop-blur-sm overflow-hidden relative z-10"
+    >
       <div class="p-6 sm:p-10">
         <div class="text-center mb-10">
-          <h2 class="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent mb-4">
+          <h2
+            class="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent mb-4"
+          >
             Contact
           </h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4"></div>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4"
+          ></div>
           <p class="text-gray-600 text-lg font-medium">
             Une question sur le jeu ? Une suggestion ? Envoyez-nous un message !
           </p>
         </div>
 
-        <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 border-2 border-orange-200/50">
+        <div
+          class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 border-2 border-orange-200/50"
+        >
           <form
             method="POST"
-            action="https://formspree.io/f/xkgzkgjw"
+            action="https://formspree.io/f/xvzbdlwn"
             class="space-y-6"
             @submit="handleFormSubmit"
           >
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <!-- Prénom -->
               <div>
-                <label for="prenom" class="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  for="prenom"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Prénom *
                 </label>
                 <input
@@ -45,7 +58,10 @@
 
               <!-- Nom -->
               <div>
-                <label for="nom" class="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  for="nom"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Nom *
                 </label>
                 <input
@@ -61,7 +77,10 @@
 
             <!-- Email -->
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Email *
               </label>
               <input
@@ -76,7 +95,10 @@
 
             <!-- Message -->
             <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Message *
               </label>
               <textarea
@@ -127,7 +149,11 @@
             <div
               v-if="submitMessage"
               class="text-center p-4 rounded-lg"
-              :class="submitSuccess ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
+              :class="
+                submitSuccess
+                  ? 'bg-green-100 text-green-800'
+                  : 'bg-red-100 text-red-800'
+              "
             >
               {{ submitMessage }}
             </div>
@@ -151,7 +177,7 @@ const handleFormSubmit = async (event) => {
   try {
     const formData = new FormData(event.target);
 
-    const response = await fetch("https://formspree.io/f/xkgzkgjw", {
+    const response = await fetch("https://formspree.io/f/xvzbdlwn", {
       method: "POST",
       body: formData,
       headers: {
@@ -161,7 +187,8 @@ const handleFormSubmit = async (event) => {
 
     if (response.ok) {
       submitSuccess.value = true;
-      submitMessage.value = "✅ Message envoyé avec succès ! Nous vous répondrons rapidement.";
+      submitMessage.value =
+        "✅ Message envoyé avec succès ! Nous vous répondrons rapidement.";
       // Reset form
       event.target.reset();
     } else {
@@ -169,7 +196,8 @@ const handleFormSubmit = async (event) => {
     }
   } catch (error) {
     submitSuccess.value = false;
-    submitMessage.value = "❌ Erreur lors de l'envoi. Veuillez réessayer plus tard.";
+    submitMessage.value =
+      "❌ Erreur lors de l'envoi. Veuillez réessayer plus tard.";
   } finally {
     isSubmitting.value = false;
     // Hide message after 5 seconds
